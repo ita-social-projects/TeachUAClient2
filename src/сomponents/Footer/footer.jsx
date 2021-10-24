@@ -29,8 +29,14 @@ class Footer extends React.Component {
                             <a href='https://www.instagram.com/teach.in.ukrainian/'>
                             <img src={"/static/images/footer/social/instagram.png"} alt='instagram'/>
                             </a>
+                            
                         </div>
                     </div>
+                    {/* <a href="/"> Main page</a>
+                            <a href="/clubs"> Clubs</a>
+                            <a href="/challenge">Challenge</a>
+                            <a href="/about">About</a>
+                            <a href="/service">Service</a> */}
                     <div className='footer__partners'>
                         <h4 className='footer__headers'>Наші партнери</h4>
                         <div id='footer__logo'>
