@@ -2,12 +2,7 @@ import React from "react"
 import './footer.modules.scss'
 
 
-
-
-
-
 class Footer extends React.Component {
-
 
     render() {
         return (
@@ -32,12 +27,7 @@ class Footer extends React.Component {
                             
                         </div>
                     </div>
-                    {/* <a href="/"> Main page</a>
-                            <a href="/clubs"> Clubs</a>
-                            <a href="/challenge">Challenge</a>
-                            <a href="/about">About</a>
-                            <a href="/service">Service</a> */}
-                    <div className='footer__partners'>
+                        <div className='footer__partners'>
                         <h4 className='footer__headers'>Наші партнери</h4>
                         <div id='footer__logo'>
                             <img src={`/static/images/footer/sponsors/soft_serve_logo.png`} alt='Softserve'/>
