@@ -5,9 +5,9 @@
 
 TeachUA project is a platform for uniting circles of Ukraine in the initiative to teach Ukrainian.
 
-[![GitHub issues](https://img.shields.io/github/issues/ita-social-projects/horondi_admin)](https://github.com/ita-social-projects/TeachUAClient2/issues)
-[![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/horondi_admin?style=flat-square)](https://github.com/ita-social-projects/TeachUAClient2/pulls)
-[![GitHub license](https://img.shields.io/github/license/ita-social-projects/horondi_admin)](https://github.com/ita-social-projects/horondi_admin/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/ita-social-projects/TeachUAClient2)](https://github.com/ita-social-projects/TeachUAClient2/issues)
+[![Pending Pull-Requests](https://img.shields.io/github/issues/ita-social-projects/TeachUAClient2?style=flat-square)](https://github.com/ita-social-projects/TeachUAClient2/pulls)
+[![GitHub license](https://img.shields.io/github/license/ita-social-projects/TeachUAClient2)](https://github.com/ita-social-projects/TeachUAClient2/blob/main/LICENSE)
 
 ---
 - [Installation](#installation)
