@@ -1,5 +1,4 @@
 import './App.css';
-import Footer from './сomponents/Footer/footer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -7,7 +6,6 @@ function App() {
   return (
     <Router>
     <div className="App">
-        <Footer/>
      </div>
      <Switch>
         <Route path='/' exact component={Main}/>
