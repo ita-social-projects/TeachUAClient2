@@ -1,0 +1,114 @@
+
+.footer__container{
+    display: flex;
+    max-width: 100%;
+    margin: 3% 7% 3% 7%;
+    flex-wrap: wrap;
+    font-family: 'Geneva', Arial, Helvetica, sans-serif;
+    
+    .footer__headers{
+        margin-top: 0;
+        font-style: 'SemiBold';
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 24px;
+        color: #2D4C68;
+
+
+    }
+
+
+    .footer__socialNetwork{
+
+        flex: 1;
+        min-width: 16%;
+        
+        h5{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 18px;
+            /* or 150% */
+
+            display: flex;
+            align-items: center;
+
+color: #2D4C68;
+            width: 70%;
+        }
+        
+      .footer__icons{
+          display: flex;
+          justify-content: space-between;
+          width: 70%;
+      }
+    }
+
+
+    .footer__partners{
+        display: flex;
+        flex: 3;
+        min-width: 50%;
+        flex-wrap: wrap;
+
+        h4{
+            min-width: 100%;
+        }
+
+        img{
+            max-height: 60px;
+            flex: 1;
+        }
+
+        #footer__logo{
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+         
+            
+        }
+    }
+
+
+    .footer__helpProject{
+        flex: 2;
+        min-width: 33.3%;
+     
+        p{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 18px;
+/* or 150% */
+
+            display: flex;
+            align-items: center;
+
+            color: #2D4C68;
+        }
+
+        button{
+            width: 60%;
+            height: 40px;
+            color: white;
+            background-color:#FA8C16 ;
+            border-radius: 6px;
+            border: none;
+        }
+    }
+    #footer__copy{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+/* identical to box height, or 150% */
+
+        display: flex;
+        align-items: center;
+
+        color: #2D4C68;
+    }
+}
