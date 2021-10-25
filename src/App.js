@@ -1,6 +1,6 @@
 import './App.css';
-import Footer from './сomponents/footer/footer';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import Footer from './сomponents/Footer/footer';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 function App() {
@@ -10,14 +10,14 @@ function App() {
         <Footer/>
      </div>
      <Switch>
-        {/* <Route path='/' exact component={Main}/>
+        <Route path='/' exact component={Main}/>
         <Route path='/clubs' component={Clubs}/>
         <Route path='/challenge' component={Challenge}/>
         <Route path='/about' component={About}/>
         <Route path='/service' component={Service}/> 
         
-        <Route component={NotFound}/> */}
-     </Switch>
+        <Route component={NotFound}/>
+        </Switch>
     </Router>
   );
 }
