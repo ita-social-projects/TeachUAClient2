@@ -169,12 +169,12 @@ if issue is in work it should be placed in proper column on dashboard according 
 
 ### Development team
 
-[![@Liubomyr Halamaha](https://avatars.githubusercontent.com/u/3837059?v=4)](https://github.com/lhalam)
-[![@tytomyr](https://avatars.githubusercontent.com/u/68427568?v=4)](https://github.com/tytomyr)
-[![@OleksandrSovynskyi](https://avatars.githubusercontent.com/u/88284589?v=4)](https://github.com/OleksandrSovynskyi)
-[![@Grygorii Nych](https://avatars.githubusercontent.com/u/32013116?v=4)](https://github.com/grishanych)
-[![@Ihor Zdebskij](https://avatars.githubusercontent.com/u/14858397?v=4)](https://github.com/Ihorzd)
-[![@Arsen Sharifov](https://avatars.githubusercontent.com/u/35139107?v=4)](https://github.com/Sel1nd)
+[![@Liubomyr Halamaha](https://avatars.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
+[![@tytomyr](https://avatars.githubusercontent.com/u/68427568?v=4?s=100&v=4)](https://github.com/tytomyr)
+[![@OleksandrSovynskyi](https://avatars.githubusercontent.com/u/88284589?s=100&v=4)](https://github.com/OleksandrSovynskyi)
+[![@Grygorii Nych](https://avatars.githubusercontent.com/u/32013116?s=100&v=4)](https://github.com/grishanych)
+[![@Ihor Zdebskij](https://avatars.githubusercontent.com/u/14858397?s=100&v=4)](https://github.com/Ihorzd)
+[![@Arsen Sharifov](https://avatars.githubusercontent.com/u/35139107?s=100&v=4)](https://github.com/Sel1nd)
 
 ## FAQ
 
