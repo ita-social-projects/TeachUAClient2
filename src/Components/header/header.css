@@ -1,0 +1,44 @@
+  .background {
+    width: 100%;
+  }
+  .Header{
+   display: inline-flex;
+    flex-direction: column;
+    background-image: url(../header_img/background.png);
+    width: 100%;
+    
+    background-size: cover;
+  }
+  .Heading {
+    margin:20px;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+  }
+  .Heading1 {
+    margin:20px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .SearchField {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .Menu {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .SearchIcon {
+    margin: 2px;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: white;
+  }
+  .SearchBox {
+    display: inline-flex;
+    flex-direction: column;
+  }
