@@ -105,3 +105,4 @@ dist
 
 #NodeJS
 package-lock.json
+.env

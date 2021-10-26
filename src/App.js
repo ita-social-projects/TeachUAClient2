@@ -1,15 +1,17 @@
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer/Footer';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './Components/header/header'
+
 
 
 function App() {
     return (
         <Router>
             <div className="App">
+                <Header />
                 <Footer />
-
             </div>
             <Switch>
                 <Route path='/' exact component={() => (<div>Main Route</div>)} />
