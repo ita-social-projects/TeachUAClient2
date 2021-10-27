@@ -1,0 +1,59 @@
+.GroupDirection{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    .slider__arrow{
+        width:17.25px;
+        height:16.29px;
+        border:0px;
+        background-color:transparent;
+    }
+    .GroupDirection__wrapper{
+        width:88%;
+        margin-top: 120px;
+        margin-bottom: 140px;
+        font-family: Segoe UI;
+        .GroupDirection__article{
+            display:flex;
+            align-items: center;
+            margin-bottom: 54px;
+            justify-content:space-between;
+            h1{
+
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+                letter-spacing: 0em;
+                text-align: left;
+                color:#2D4C68;
+            }
+            .GroupDirection__btn{
+                width:134px;
+                height:40px;
+                margin-top: 35px;
+                color:#FA8C16;
+                background-color: white;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+                letter-spacing: 0em;
+                text-align: center;
+            }
+        }
+        .GroupDirection__content{
+           width:100%;
+            ul{
+                display:flex;
+                justify-content:space-between;
+                overflow:hidden;
+                li{
+                    list-style: none;
+                    margin-right:25px;
+                    margin-left:25px;
+                }
+            }
+        }
+    }
+}
