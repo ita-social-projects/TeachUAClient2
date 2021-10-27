@@ -22,53 +22,53 @@ import './header.css'
 
 function header() {
     return (
-        <div  className='Header'>
-        <div className='Heading'>
-<div>
-<img src={Logo} alt='logo'/>
-</div>
+        <div className='Header'>
+            <div className='Heading'>
+                <div>
+                    <img src={Logo} alt='logo'/>
+                </div>
 
-<nav className='Menu'>
-    <a>
-    <img style={{margin:2}} src={ProjectIcon} />
-    <img style={{margin:2}} src={Workshop} />
-    </a>
-    <a>
-    <img style={{margin:2}} src={Crown} />
-    <img style={{margin:2}} src={Challenge} />  
-    </a>
-    <a>
-   <img style={{margin:2}} src={NewsIcon} /> 
-   <img style={{margin:2}} src={News} />
-    </a>
-    <a>
-    <img style={{margin:2}} src={ProjectIcon} />
-    <img style={{margin:2}} src={Project} /></a>
-    <a>
-    <img style={{margin:2 }} src={Flag} />
-    <img style={{margin:2}} src={SpeakUkrainian} />
-    </a>
-</nav>
-<img style={{margin:5, width:15 , display:'inline'}} src={Location} />
-<img style={{margin:5, width:34, display:'inline'}}src={City} /> 
-<img style={{margin:5, width:170, display:'inline'}} src={Button} /> 
-</div>
+                <nav className='Menu'>
+                    <a>
+                        <img style={{margin: 2}} src={ProjectIcon}/>
+                        <img style={{margin: 2}} src={Workshop}/>
+                    </a>
+                    <a>
+                        <img style={{margin: 2}} src={Crown}/>
+                        <img style={{margin: 2}} src={Challenge}/>
+                    </a>
+                    <a>
+                        <img style={{margin: 2}} src={NewsIcon}/>
+                        <img style={{margin: 2}} src={News}/>
+                    </a>
+                    <a>
+                        <img style={{margin: 2}} src={ProjectIcon}/>
+                        <img style={{margin: 2}} src={Project}/></a>
+                    <a>
+                        <img style={{margin: 2}} src={Flag}/>
+                        <img style={{margin: 2}} src={SpeakUkrainian}/>
+                    </a>
+                </nav>
+                <img style={{margin: 5, width: 15, display: 'inline'}} src={Location}/>
+                <img style={{margin: 5, width: 34, display: 'inline'}} src={City}/>
+                <img style={{margin: 5, width: 170, display: 'inline'}} src={Button}/>
+            </div>
 
-<div className='Heading1'>
-    <div className='caption' style={{width:559, display:'inline'}}>
-    <img  src={Caption} alt='caption' />
-    </div>
-    <div className='search'>
+            <div className='Heading1'>
+                <div className='caption' style={{width: 559, display: 'inline'}}>
+                    <img src={Caption} alt='caption'/>
+                </div>
+                <div className='search'>
    <span className='SearchBox'>
        <div className='SearchField'>
-   <img style={{width:152, display:'inline'}}  src={Placeholder} />
-   <img style={{margin:5, top: 5, width:20, display:'inline'}} src={Lens} />
+   <img style={{width: 152, display: 'inline'}} src={Placeholder}/>
+   <img style={{margin: 5, top: 5, width: 20, display: 'inline'}} src={Lens}/>
         </div>
-   <img style={{width:220, display:'inline'}} src={Plate} />
+   <img style={{width: 220, display: 'inline'}} src={Plate}/>
    </span>
-   <img style={{width:20, display:'inline'}} className='SearchIcon' src={Toggle} />  
-      </div>
-</div>
+                    <img style={{width: 20, display: 'inline'}} className='SearchIcon' src={Toggle}/>
+                </div>
+            </div>
         </div>
     )
 }
