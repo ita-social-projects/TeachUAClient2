@@ -6,11 +6,11 @@ import Information from './Components/Information/Information';
 import GroupDirection from './Components/GroupDirection/GroupDirection';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/header/header'
-
-
 import Banner from './Components/Banner/Banner';
 import 'antd/dist/antd.css';
 import {Layout} from 'antd';
+
+
 
 const {Content} = Layout;
 

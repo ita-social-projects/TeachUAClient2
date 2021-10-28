@@ -45,6 +45,13 @@
         line-height: 40px;
         letter-spacing: 0em;
         text-align: center;
+        border:0px;
+        border-radius:6px;
+        transition-duration: 0.4s;
+      }
+      .GroupDirection__btn:hover{
+        color:white;
+        background-color: #FA8C16;
       }
     }
 

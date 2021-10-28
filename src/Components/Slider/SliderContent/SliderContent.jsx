@@ -1,10 +1,9 @@
 import React from "react";
-import {Carousel} from 'antd';
+import {Carousel, Icon} from 'antd';
 import 'antd/dist/antd.css';
 import "../SliderContent/SliderContent.scss";
 
 class SliderContent extends React.Component {
-
     render() {
         return (
             <div id="carousel">
