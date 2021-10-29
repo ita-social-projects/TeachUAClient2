@@ -19,5 +19,5 @@ class Information extends React.Component {
 }
 Information.propTypes = {
     information: PropTypes.string
-  };
+};
 export default Information;
