@@ -1,0 +1,71 @@
+.Header {
+  display: inline-flex;
+  flex-direction: column;
+  background-image: url(../header_img/background.png);
+  width: 100%;
+  background-size: cover;
+}
+.Heading {
+  display: inline-flex;
+  flex: 1;
+  margin: 20px;
+  justify-content: space-between;
+
+  .first-child {
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  .second-child {
+    display: inline-flex;
+    flex-direction: row;
+    @media (max-width: 1100px) {
+      .city {
+        max-height: 32;
+        max-width: 40;
+      }
+    }
+    img {
+      margin: 5px;
+      max-height: 40px;
+    }
+  }
+  .Menu {
+    display: inline-flex;
+
+    a {
+      margin: 8px;
+      img {
+        margin: 2px;
+      }
+    }
+    @media (max-width: 1100px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.Heading1 {
+  margin: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  .search {
+    input {
+      background: transparent;
+      border: none;
+      color: white;
+      text-decoration: underline;
+    }
+    ::placeholder {
+      color: white;
+      opacity: 1;
+      margin: 2px;
+    }
+  }
+  .caption {
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+}
