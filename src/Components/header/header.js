@@ -70,9 +70,9 @@ function header() {
         <div className="search">
           <input type="text" placeholder="Який гурток шукаєте?"></input>
         </div>
-      </div>
-    </div>
-  );
+        </div>
+  </div>
+      );
 }
 
 const menu = (
