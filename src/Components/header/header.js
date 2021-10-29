@@ -1,24 +1,23 @@
-import React from 'react'
-import Logo from '../header_img/logo.png'
-import Caption from '../header_img/caption.svg'
-import Plate from '../header_img/plate.svg'
-import Toggle from '../header_img/toggle.svg'
-import Lens from '../header_img/lens.svg'
-import Flag from '../header_img/flag.svg'
-import ProjectIcon from '../header_img/projectIcon.svg'
-import NewsIcon from '../header_img/newsIcon.svg'
-import Crown from '../header_img/crown.svg'
-import SpeakUkrainian from '../header_img/speakUkrainian.svg'
-import Project from '../header_img/project.svg'
-import News from '../header_img/news.svg'
-import Workshop from '../header_img/workshop.svg'
-import Challenge from '../header_img/challenge.svg'
-import Placeholder from '../header_img/placeholder.svg'
-import Button from '../header_img/button.svg'
-import Location from '../header_img/location.svg'
-import City from '../header_img/city.svg'
-import './header.css'
-
+import React from 'react';
+import Logo from '../header_img/logo.png';
+import Caption from '../header_img/caption.svg';
+import Plate from '../header_img/plate.svg';
+import Toggle from '../header_img/toggle.svg';
+import Lens from '../header_img/lens.svg';
+import Flag from '../header_img/flag.svg';
+import ProjectIcon from '../header_img/projectIcon.svg';
+import NewsIcon from '../header_img/newsIcon.svg';
+import Crown from '../header_img/crown.svg';
+import SpeakUkrainian from '../header_img/speakUkrainian.svg';
+import Project from '../header_img/project.svg';
+import News from '../header_img/news.svg';
+import Workshop from '../header_img/workshop.svg';
+import Challenge from '../header_img/challenge.svg';
+import Placeholder from '../header_img/placeholder.svg';
+import Button from '../header_img/button.svg';
+import Location from '../header_img/location.svg';
+import City from '../header_img/city.svg';
+import './header.css';
 
 function header() {
     return (
@@ -70,7 +69,7 @@ function header() {
                 </div>
             </div>
         </div>
-    )
+      );
 }
 
-export default header
+export default header;
