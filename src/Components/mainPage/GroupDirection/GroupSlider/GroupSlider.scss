@@ -71,7 +71,7 @@
   }
 
   .slick-dots {
-    bottom: -55px;
+    bottom: -15px;
 
     li {
       width: 12px;
@@ -165,5 +165,13 @@
       text-align: left;
     }
   }
-
+}
+@media (max-width:500px){
+  #carouselGroup{
+    .slick-slider {
+      .slick-prev , .slick-next{
+        display:none;
+      }
+    }
+  }
 }

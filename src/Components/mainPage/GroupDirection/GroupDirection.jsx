@@ -14,6 +14,7 @@ class GroupDirection extends React.Component {
                     <div className="GroupDirection__slider">
                         <GroupSlider></GroupSlider>              
                     </div>
+                   <button className="GroupDirection__btn_adaptive">Всі гуртки</button>  {/* check this to the best practice */}
                 </div>
             </div>
         );
