@@ -1,12 +1,11 @@
 import React from "react";
 import 'antd/dist/antd.css';
 import "./mainPage.scss";
-import Header from '../header/header';
-import Footer from '../Footer/Footer';
-import Banner from '../mainPage/Banner/Banner';
-import GroupDirection from '../mainPage/GroupDirection/GroupDirection';
-import Information from '../mainPage/Information/Information';
-import Slider from '../mainPage/Slider/Slider';
+
+import Banner from './Banner/Banner';
+import GroupDirection from './GroupDirection/GroupDirection';
+import Information from './Information/Information';
+import Slider from './Slider/Slider';
 
 
 import {Layout} from 'antd';
