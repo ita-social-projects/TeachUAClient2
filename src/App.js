@@ -1,7 +1,11 @@
 import React from 'react';
+
+
+//import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Footer from './Components/Footer/Footer';
+import Footer from './Components/footer/Footer';
+import HeadeClas from './Components/header/headeClas/HeadeClas';
 import Header from './Components/header/header';
 
 function App() {
@@ -10,6 +14,9 @@ function App() {
       <div className="App">
         <Header />
         <Footer />
+       
+
+ 
       </div>
       <Switch>
         <Route path="/" exact component={() => (<div>Main Route</div>)} />
@@ -19,7 +26,9 @@ function App() {
         <Route path="/service" component={() => (<div>Service Route</div>)} />
         <Route component={() => (<div>Not found Route</div>)} />
       </Switch>
+      <HeadeClas/>
     </Router>
+   
   );
 }
 

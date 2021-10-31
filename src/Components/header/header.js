@@ -19,6 +19,7 @@ import Location from '../header_img/location.svg';
 import City from '../header_img/city.svg';
 import './header.css';
 
+
 function header() {
   return (
     <div className="Header">

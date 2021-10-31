@@ -1,0 +1,75 @@
+.registration__container {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: RGBA(0, 0, 0, 0.3);
+
+    Form {
+        position: fixed;
+        top: 0;
+        margin-top: 40px;
+        opacity: 1.7;
+        width: 50vw;
+        height: auto;
+        background-color: white;
+        border-radius: 25px;
+        .registration__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            h3 {
+                padding-left: 5%;
+            }
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 5%;
+            }
+        }
+        .registration__chooseRole {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                width: 172px;
+                height: 48px;
+                display: flex;
+                justify-content: space-around;
+                background-color: white;
+                border-radius: 4px;
+                color: black;
+                box-shadow: rgba(100, 100, 111, 0.5) 0px 10px 10px 0px;
+                margin-bottom: 5%;
+            }
+        }
+        .registration__submitBtn {
+            justify-content: center;
+            button {
+                background: #fa8c16;
+                border: none;
+                border-radius: 6px;
+                color: white;
+            }
+        }
+    }
+}
+Form.Item {
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .registration__container {
+        Form {
+            width: 90vw;
+        }
+    }
+}
