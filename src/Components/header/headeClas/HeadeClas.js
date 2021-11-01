@@ -4,8 +4,7 @@ import Registration from "../../registration/Registration";
 
 class HeadeClas extends React.Component {
     state={
-        isRegistaration: false,
-        
+        isRegistaration: false,   
     };
     toggleRegistaration = () => {
         this.setState(state => ({ isRegistaration: !state.isRegistaration }))
