@@ -1,0 +1,102 @@
+@import '~antd/dist/antd.css';
+
+.ant-modal-content {
+    border-radius: 16px;
+}
+
+.login-body {
+    width: 450px;
+    height: 400px;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-header-text {
+    padding-left: 15px;
+    font-size: 24px;
+    color: #002766;
+    font-weight: 700;
+}
+
+.ant-modal-close-x {
+    padding-top: 12px;
+    padding-right: 18px;
+  }
+
+.ant-modal-close-icon {
+    color: #595959;
+  }  
+
+.label-or {
+    padding: 25px;
+    text-align: center;
+    font-size: 18px;
+    color: #595959;
+}
+
+.login-field {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ant-form-item-label > 
+label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
+
+
+
+.login-input label {
+    font-size: 18px;
+    width: 94px;
+    text-align: right;
+    padding-right: 16px;
+    padding-top: 7px;
+    display: block;
+    color: #2d4c68;
+}
+
+
+.login-box {
+    height: 40px;
+    border-radius: 6px;
+}
+
+.anticon-mail {
+    color: #8C8C8C;
+    z-index: 10;
+    font-size: 17px;
+    width: 20px;
+  }
+
+.login-button-box {
+    padding: 25px;    
+}
+
+.login-button {
+    padding: 8px 24px;
+    height: 40px;
+    background: #FA8C16;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+
+
+
+
+

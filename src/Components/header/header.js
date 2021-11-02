@@ -19,6 +19,7 @@ import Location from '../header_img/location.svg';
 import City from '../header_img/city.svg';
 import './header.css';
 
+
 function header() {
   return (
     <div className="Header">
@@ -72,7 +73,7 @@ function header() {
             <img style={{ width: 220, display: 'inline' }} src={Plate} />
           </span>
           <img style={{ width: 20, display: 'inline' }} className="SearchIcon" src={Toggle} />
-        </div>
+        </div>  
       </div>
     </div>
   );

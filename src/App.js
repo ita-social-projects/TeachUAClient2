@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/header/header';
+import Login from './Components/login/login';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+        <Login />
         <Footer />
       </div>
       <Switch>
