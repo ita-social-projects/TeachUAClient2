@@ -16,11 +16,8 @@ class RestorePasswordModal extends React.Component {
         return (
             <>
             <div className="reset-button"/>
-            <button
-                className="restore-password-button"
-                onClick={this.handleModal}>
-                Забули пароль?
-            </button>
+            <a onClick={this.handleModal} className="restore-password-button">
+                Забули пароль?</a>
             <div/>
         
         <Modal 
@@ -30,13 +27,15 @@ class RestorePasswordModal extends React.Component {
         onCancel= {() => this.handleModal(false)} 
         centered>
             <div className="login-header-text">Відновлення</div>
+            <Form>
             <div className="restore-password-section">
             <Form.Item name="email"
                            className="restore-password-form"
                            hasFeedback
                            rules={[{
                                required: true,
-                               type: 'email'
+                               type: 'email',
+                               message: false
                            }]}>
                     <Input className="restore-password-input"
                            placeholder="Введіть ваш емейл"
@@ -46,14 +45,16 @@ class RestorePasswordModal extends React.Component {
 
                 <div className="restore-password-footer">
                     <Form.Item>
-                
+                    
                     <button className="login-button"
                             htmlType="submit">
                         Відновити
                     </button>
                 
                     </Form.Item>
+                    
                 </div>
+                </Form>
         </Modal>
         </>
         )
