@@ -29,7 +29,7 @@ function header() {
             </a>
           </div>
           <nav className="Menu">
-            <a href="#blank">
+            <a href="clubs">
               <img src={ProjectIcon} />
               <img src={Workshop} />
             </a>
