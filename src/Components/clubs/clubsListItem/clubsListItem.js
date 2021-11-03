@@ -6,7 +6,14 @@ import ClubsItem from "../clubsListItem/clubsItem/clubsItem";
 class ClubsListItem extends React.Component {
   render() {
     return (
-      <div>
+      <div className="club-list">
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
+          <ClubsItem></ClubsItem>
           <ClubsItem></ClubsItem>
       </div>
     );
