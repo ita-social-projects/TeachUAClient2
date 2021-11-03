@@ -50,7 +50,7 @@ class NewRegistration extends React.Component {
               <div>registration</div>
             </div>,*/
             <>
-                <button onClick={() => { this.handleOk(); }}> Open</button>
+                <a onClick={() => { this.handleOk(); }} >Реєстрація</a>
                 <Modal
                     width={600}
                     className='registration__modal'
