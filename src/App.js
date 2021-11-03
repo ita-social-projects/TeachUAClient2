@@ -5,14 +5,19 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/footer/Footer';
-import HeadeClas from './Components/header/headeClas/HeadeClas';
+
 import Header from './Components/header/header';
+
+import Registration from './Components/registration/Registration';
+
+
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+       
         <Footer />
        
 
@@ -26,7 +31,7 @@ function App() {
         <Route path="/service" component={() => (<div>Service Route</div>)} />
         <Route component={() => (<div>Not found Route</div>)} />
       </Switch>
-      <HeadeClas/>
+      <Registration/>
     </Router>
    
   );

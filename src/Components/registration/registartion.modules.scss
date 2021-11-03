@@ -1,0 +1,45 @@
+.ant-modal-content {
+    border-radius: 25px;
+    .registration__header {
+        h3 {
+            font-size: 24px;
+            color: #002766;
+        }
+    }
+    .registration__chooseRole {
+        display: flex;
+        justify-content: center;
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            width: 172px;
+            height: 48px;
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            border-radius: 4px;
+            color: black;
+            box-shadow: rgba(100, 100, 111, 0.5) 0px 10px 10px 0px;
+            margin-bottom: 5%;
+        }
+    }
+    .ant-form-item-control-input {
+        display: flex;
+        text-align: center;
+    }
+    .registration__submitBtn {
+        display: flex;
+        justify-content: center;
+
+        button {
+            background-color: #fa8c16;
+            color: white;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+        }
+    }
+}
