@@ -19,13 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-       
-        <Footer />
-       
-
- 
         <LeftSearch />
-
       </div>
       <Switch>
         <Route path="/" exact component={() => (<MainPage/ >)} />
@@ -35,7 +29,7 @@ function App() {
         <Route path="/service" component={() => (<div>Service Route</div>)} />
         <Route component={() => (<div>Not found Route</div>)} />
       </Switch>
-    
+      <Footer />
 
     </Router>
    
