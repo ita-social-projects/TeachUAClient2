@@ -100,9 +100,10 @@ const log = (
       <Registration/>
     </Menu.Item>
     <Menu.Item>
-      <a target="#blank">Увійти</a>
+      <Login/>
     </Menu.Item>
   </Menu>
+  
 );
 
 export default header;
