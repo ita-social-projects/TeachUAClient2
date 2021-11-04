@@ -16,7 +16,7 @@ class Login extends React.Component  {
         
     render() {          
     return (
-        <>
+        <div>
         <a onClick={this.handleModal}>Увійти</a>
             <Modal 
             visible={this.state.showModal} 
@@ -80,7 +80,7 @@ class Login extends React.Component  {
                     </div>
                 </div>
             </Modal> 
-        </>
+        </div>
     )
     }
 }

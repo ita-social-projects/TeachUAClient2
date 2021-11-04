@@ -14,7 +14,7 @@ class RestorePasswordModal extends React.Component {
        }    
     render() {
         return (
-            <>
+            <div>
             <div className="reset-button"/>
             <a onClick={this.handleModal} className="restore-password-button">
                 Забули пароль?</a>
@@ -56,7 +56,7 @@ class RestorePasswordModal extends React.Component {
                 </div>
                 </Form>
         </Modal>
-        </>
+        </div>
         )
     }
 }
