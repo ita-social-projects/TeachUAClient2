@@ -34,7 +34,7 @@ class SliderContent extends React.Component {
                         <div className="content__wrapper"
                              style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/aboutUs.jpg')`}}>
                             <h1>Про нас</h1>
-                            <h2>Ініціатива &quot;Навчай українською&quot&quot; - це небайдужі громадяни, які об&apos;єдналися, щоб
+                            <h2>Ініціатива &quot;Навчай українською&quot; - це небайдужі громадяни, які об&apos;єдналися, щоб
                                 популяризувати українську мову у сфері освіти.</h2>
                             <button className="content__btn">
                                 <p>Детальніше</p>

@@ -1,17 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 import './App.css';
-import Footer from './Components/Footer/Footer';
+import Footer from './Components/footer/Footer';
+
 import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
+
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+        
         <LeftSearch />
+    
+
       </div>
       <Switch>
         <Route path="/" exact component={() => (<MainPage/ >)} />
@@ -22,7 +27,9 @@ function App() {
         <Route component={() => (<div>Not found Route</div>)} />
       </Switch>
       <Footer />
+
     </Router>
+   
   );
 }
 
