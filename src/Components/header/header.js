@@ -97,7 +97,7 @@ const menu = (
 const log = (
   <Menu>
     <Menu.Item>
-      <a target="#blank">Зареєструватися</a>
+      <Registration/>
     </Menu.Item>
     <Menu.Item>
       <a target="#blank">Увійти</a>
