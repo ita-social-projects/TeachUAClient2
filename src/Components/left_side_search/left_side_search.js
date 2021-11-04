@@ -7,6 +7,17 @@ import { Radio, Select, Checkbox, Col, Input } from "antd";
 const { Option } = Select;
 
 class LeftSearch extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: true
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+        this.setState({ value: event });
+    }
+
     render() {
         return (
             <div className='advancedSearch'>
@@ -19,6 +30,7 @@ class LeftSearch extends Component {
                             <Radio value={2}><span className='advancedSearchSpan'>Центр</span></Radio>
                         </Radio.Group>
                         <p className='advancedSearchTitle'>Місто</p>
+<<<<<<< HEAD
                         <Select placeholder="Виберіть місто" className='selectStyle'>
                             <Option value="kyiv">Київ</Option>
                             <Option value="kharkiv">Харків</Option>
@@ -36,6 +48,28 @@ class LeftSearch extends Component {
                             <Option value="cherkasy">Черкаси</Option>
                             <Option value="without_location">Без локації</Option>
                         </Select>
+=======
+                        <label>
+                            <Select className='selectStyle' value={this.state.value} onChange={this.handleChange} placeholder='Виберіть місто...' allowClear>
+                                <Option value="Київіі">Київ</Option>
+                                <Option value="kharkiv">Харків</Option>
+                                <Option value="dnipro">Дніпро</Option>
+                                <Option value="odesa">Одеса</Option>
+                                <Option value="zaporizzhya">Запоріжжя</Option>
+                                <Option value="kropyvnytskyi">Кропивницький</Option>
+                                <Option value="herson">Херсон</Option>
+                                <Option value="mykolaiv">Миколаїв</Option>
+                                <Option value="sumy">Суми</Option>
+                                <Option value="mariupol">Маріуполь</Option>
+                                <Option value="chernihiv">Чернігів</Option>
+                                <Option value="poltava">Полтава</Option>
+                                <Option value="kremenchuk">Кременчук</Option>
+                                <Option value="cherkasy">Черкаси</Option>
+                                <Option value="without_location">Без локації</Option>
+                            </Select>
+                        </label>
+
+>>>>>>> develop
                         <p className='advancedSearchTitle'>Район міста</p>
                         <Select placeholder="Виберіть місто" className='selectStyle'>
                             <Option value="kyiv"><img className='imageNoData' src={no_data} /></Option>
@@ -76,9 +110,22 @@ class LeftSearch extends Component {
                         }} /><span className='advancedSearchSpanYears'>років</span>
                     </form>
                 </div>
+<<<<<<< HEAD
             </div>
+=======
+
+
+            </div>
+
+
+>>>>>>> develop
         )
     }
 }
 
+<<<<<<< HEAD
 export { LeftSearch };
+=======
+export { LeftSearch };
+
+>>>>>>> develop
