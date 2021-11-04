@@ -94,4 +94,3 @@ class LeftSearch extends Component {
 }
 
 export { LeftSearch };
-
