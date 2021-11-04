@@ -2,6 +2,7 @@
 #carouselGroup {
   .slick-slider {
     width: 90%;
+
     margin: 0 auto;
 
     .slick-prev {
@@ -94,12 +95,13 @@
     }
   }
 }
+
 //Cards component
 .GroupCard {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0 auto;
+  margin: 0 auto;
   width: 296px;
   height: 300px;
   background-color: white;
@@ -127,7 +129,7 @@
       img {
         width: 25px;
         height: 25px;
-        margin:0 auto
+        margin: 0 auto
       }
     }
 
@@ -138,9 +140,14 @@
       line-height: 22px;
       letter-spacing: 0em;
       text-align: left;
-      color: #2D4C68;
+      max-height: 50px;
       margin-top: 12px;
       margin-bottom: 15px;
+      color: #2D4C68;
+      overflow:hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     p {
@@ -150,7 +157,7 @@
       line-height: 24px;
       letter-spacing: 0em;
       text-align: left;
-      color:#2d4c68;
+      color: #2d4c68;
     }
 
     h6 {
@@ -166,11 +173,14 @@
     }
   }
 }
-@media (max-width:500px){
-  #carouselGroup{
+
+@media (max-width:500px) {
+  #carouselGroup {
     .slick-slider {
-      .slick-prev , .slick-next{
-        display:none;
+
+      .slick-prev,
+      .slick-next {
+        display: none;
       }
     }
   }
