@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Logo from "../header_img/logo.svg";
-import Avatar from "../header_img/avatar.svg";
+import Logo from "../header_img/logo.png";
+import Avatar from "../header_img/avatars/avatar2.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";
 import Crown from "../header_img/crown.svg";
 import NewsIcon from "../header_img/newsIcon.svg";
