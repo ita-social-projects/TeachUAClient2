@@ -1,8 +1,5 @@
 import React from 'react';
-
-
-//import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/footer/Footer';
 
@@ -11,15 +8,15 @@ import MainPage from './Components/mainPage/mainPage';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 
-
-
-
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+        
         <LeftSearch />
+    
+
       </div>
       <Switch>
         <Route path="/" exact component={() => (<MainPage/ >)} />
