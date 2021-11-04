@@ -1,8 +1,6 @@
 import React from "react";
 import 'antd/dist/antd.css';
 import "./mainPage.scss";
-import Header from '../header/header';
-import Footer from '../Footer/Footer';
 import Banner from '../mainPage/Banner/Banner';
 import GroupDirection from '../mainPage/GroupDirection/GroupDirection';
 import Information from '../mainPage/Information/Information';
