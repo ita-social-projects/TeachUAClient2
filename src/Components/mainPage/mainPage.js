@@ -1,7 +1,6 @@
 import React from "react";
 import 'antd/dist/antd.css';
 import "./mainPage.scss";
-
 import Banner from './Banner/Banner';
 import GroupDirection from './GroupDirection/GroupDirection';
 import Information from './Information/Information';
