@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 import './App.css';
-import Footer from './Components/footer/Footer';
+import Footer from './Components/Footer/Footer';
 
 import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
+import ClubsList from './Components/clubs/clubsList';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 
@@ -20,7 +21,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/" exact component={() => (<MainPage/ >)} />
-        <Route path="/clubs" component={() => (<div>Clubs Route</div>)} />
+        <Route path="/clubs" component={() => (<ClubsList/ >)}/>
         <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
         <Route path="/about" component={() => (<div>About Route</div>)} />
         <Route path="/service" component={() => (<div>Service Route</div>)} />
