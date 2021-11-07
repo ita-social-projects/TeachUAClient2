@@ -15,6 +15,8 @@ import "./header.scss";
 import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
+import EditProfile from "../edit_my_profile/edit_my_profile"
+import MenuItem from "antd/lib/menu/MenuItem";
 
 
 export class header extends Component {
@@ -105,6 +107,9 @@ const log = (
         <Menu.Item>
             <Registration />
         </Menu.Item>
+        <MenuItem>
+            <EditProfile />
+        </MenuItem>
         <Menu.Item>
             <Login />
         </Menu.Item>
