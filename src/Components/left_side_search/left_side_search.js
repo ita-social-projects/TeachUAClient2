@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import './left_side_search.css';
+import './left_side_search.scss';
 import "antd/dist/antd.css";
 import no_data from './image/no_data.png'
 import { Radio, Select, Checkbox, Col, Input } from "antd";
@@ -9,12 +9,12 @@ const { Option } = Select;
 class LeftSearch extends Component {
     constructor(props) {
         super(props);
-        this.togleRadioChange = this.togleRadioChange.bind(this);
+        this.toggleRadioChange = this.toggleRadioChange.bind(this);
         this.state = {
             show: true,
         }
     }
-    togleRadioChange() {
+    toggleRadioChange() {
         this.setState({ show: false })
     }
 
@@ -27,7 +27,7 @@ class LeftSearch extends Component {
                         <p className='advancedSearchTitle'>Гурток/Центр</p>
                         <Radio.Group onChange={this.onChange}>
                             <Radio onClick={() => { this.setState({ show: true }) }} value={1}><span className='advancedSearchSpan' checked>Гурток</span></Radio><br />
-                            <Radio onClick={this.togleRadioChange} value={2}><span className='advancedSearchSpan'>Центр</span></Radio>
+                            <Radio onClick={this.toggleRadioChange} value={2}><span className='advancedSearchSpan'>Центр</span></Radio>
                         </Radio.Group>
                         <p className='advancedSearchTitle'>Місто</p>
                         <label>
@@ -86,8 +86,14 @@ class LeftSearch extends Component {
                                 <Input className='test' />
                                 <span className='advancedSearchSpanYears'>років</span>
                             </div> : null}
+                            
                     </form>
+                    <div className='choice_btn_div'>
+                            <button className='button_after_form_clear'><span className='choice_btn_clear'>Очистити</span></button>
+                            <button className='button_after_form_check'><span className='choice_btn_chech'>Застосувати</span></button>
+                            </div>
                 </div>
+                
             </div>
         )
     }

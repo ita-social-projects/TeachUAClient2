@@ -1,19 +1,15 @@
 .advancedSearch{
-    width: 382px;
+    // overflow-x: hidden;
+    display: flex;
+    width: 320px;
     height: 1180px;
     left: 0px;
     top: 200px;
-    
-    }
-    
     
     .advancedSearchMain{
         margin: 0 auto;
         width: 256px;
         height: 100%;
-        /* display: none; */
-    
-    
     }
     
     .advancedSearchHeader{
@@ -92,3 +88,55 @@
         border-radius: 6px;
         text-align: center;
     }
+
+    .choice_btn_div{
+        display: none;
+        // display: flex;
+        justify-content: space-between;
+        flex-direction: row; 
+        flex-wrap: nowrap;
+
+        .button_after_form_clear{
+            margin-top: 50px;
+            width: 120px;
+            background-color: #fdfdfd;
+            border-radius: 6px;
+            border-color: #fa8c16;
+        }
+    
+        .button_after_form_check{
+            margin-top: 50px;
+            width: 120px;
+            background-color: #fa8c16;
+            border-radius: 6px;
+            border-color: #fa8c16;
+        }
+   
+        .choice_btn_chech{
+            height: 24px;
+            font-family: Open Sans;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 24px;
+            color: #FFFFFF;
+            margin: 0px 4px;
+        }
+
+        .choice_btn_clear{
+            height: 24px;
+            font-family: Open Sans;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 24px;
+            color: #fa8c16;
+            margin: 0px 4px;
+        }
+    }
+
+
+@media (min-width: 319px) and (max-width: 824px){
+    .choice_btn_div{
+        display: flex;
+    }
+}
+}

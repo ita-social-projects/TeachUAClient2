@@ -10,13 +10,13 @@ import { LeftSearch } from './Components/left_side_search/left_side_search';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.togleSideSearch = this.togleSideSearch.bind(this);
+        this.toggleSideSearch = this.toggleSideSearch.bind(this);
         this.state = {
             show: false,
         }
     }
 
-    togleSideSearch() {
+    toggleSideSearch() {
         this.setState({ show: !this.state.show })
     }
 
@@ -24,7 +24,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Header togleSideSearch={this.togleSideSearch} />
+                    <Header toggleSideSearch={this.toggleSideSearch} />
                     {this.state.show ? <LeftSearch /> : null}
                 </div>
                 <Switch>
