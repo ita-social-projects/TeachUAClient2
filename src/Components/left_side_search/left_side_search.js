@@ -9,12 +9,13 @@ const { Option } = Select;
 class LeftSearch extends Component {
     constructor(props) {
         super(props);
-        this.toggleRadioChange = this.toggleRadioChange.bind(this);
         this.state = {
             show: true,
         }
+
+
     }
-    toggleRadioChange() {
+    toggleRadioChange = () => {
         this.setState({ show: false })
     }
 

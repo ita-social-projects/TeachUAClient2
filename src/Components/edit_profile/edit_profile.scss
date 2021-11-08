@@ -1,9 +1,10 @@
 .ant-modal-content {
     border-radius: 25px;
-    .registration__header {
+    .edit_header {
         h3 {
             font-size: 24px;
-            color: #002766;
+            font-weight: bold;
+            color: #2D4C68;
         }
     }
     .edit_chooseRole {
@@ -27,7 +28,7 @@
         }
         .edit_visitor{
             cursor: not-allowed;
-            background-color: rgb(252, 224, 189);
+            background-color: #fff7e6;
         }
         
     }
@@ -35,7 +36,31 @@
         display: flex;
         text-align: center;
     }
-    .registration__submitBtn {
+
+    .edit-input{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        // background-color: rgb(166, 240, 132);
+
+        label{
+            display: flex;
+            text-align: left;
+        }
+    }
+
+    .edit-box{
+        display: flex;
+        text-align: left;
+        // background-color: rebeccapurple;
+        width: 436px;
+
+        prefix{
+            background-color: red;
+        }
+    }
+
+    .edit_submitBtn {
         display: flex;
         justify-content: center;
 

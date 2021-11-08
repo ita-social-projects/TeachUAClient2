@@ -15,7 +15,7 @@ import "./header.scss";
 import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
-import EditProfile from "../edit_my_profile/edit_my_profile"
+import EditProfile from "../edit_profile/edit_profile"
 import MenuItem from "antd/lib/menu/MenuItem";
 
 
