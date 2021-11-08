@@ -18,6 +18,6 @@ class Information extends React.Component {
     }
 }
 Information.propTypes = {
-    information: PropTypes.string
+    information: PropTypes.object
 };
 export default Information;
