@@ -11,6 +11,9 @@ import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Menu, Dropdown } from "antd";
+import Login from "../login/login";
+import Registration from "../registration/Registration";
+
 import "./header.scss";
 import PropTypes from 'prop-types';
 import Login from "../login/login";
