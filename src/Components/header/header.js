@@ -16,6 +16,8 @@ import Registration from "../registration/Registration";
 
 import "./header.scss";
 import PropTypes from 'prop-types';
+import Login from "../login/login";
+import Registration from "../registration/Registration";
 
 
 export class header extends Component {
@@ -78,7 +80,7 @@ export class header extends Component {
                         </div>
                         <div className="litle-toggle">
                             <a href="#blank">
-                                <img className="toggle" src={Toggle} onClick={this.props.togleSideSearch} />
+                                <img className="toggle" src={Toggle} onClick={this.props.toggleSideSearch} />
                             </a>
                         </div>
                     </div>
@@ -113,7 +115,7 @@ const log = (
 
 );
 header.propTypes = {
-    togleSideSearch: PropTypes.func
+    toggleSideSearch: PropTypes.func
 };
 
 export default header;
