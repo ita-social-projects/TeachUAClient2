@@ -34,21 +34,15 @@ class NewRegistration extends React.Component {
     };
 
 
-
+    onFinish = (values) => {
+        console.log(values);
+    };
 
 
     render() {
 
-        const onFinish = (values) => {
-            console.log(values);
-        };
-
-
-        return /*ReactDOM.createPortal*/(
-            /*<div>
-              <button onClick={this.props.onClose}>close</button>
-              <div>registration</div>
-            </div>,*/
+       
+        return (
             <>
                 <a onClick={() => { this.handleOk(); }} >Реєстрація</a>
                 <Modal
@@ -59,7 +53,7 @@ class NewRegistration extends React.Component {
                     footer={null}
 
                 >
-                    <Form {...layout} name="nest-messages" onFinish={onFinish}>
+                    <Form {...layout} name="nest-messages" onFinish={this.onFinish}>
 
                         <div className='registration__header'>
                             <h3>Реєстрація </h3>

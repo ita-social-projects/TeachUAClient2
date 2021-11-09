@@ -1,0 +1,16 @@
+.steps{
+    display: flex;
+    .steps__number{
+        flex: 1;
+        width: 255px;
+    }
+    .steps-action{
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        .add_club_btn{
+            display: flex;
+            justify-content: end;
+        }
+    }
+}

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Registration from '../registration/Registration'
+import Login from '../login/login'
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";

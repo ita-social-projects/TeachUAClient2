@@ -1,0 +1,31 @@
+.steps__number{
+    flex: 1;
+    margin: 10px;
+}
+.steps-action{
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    margin: 10px;
+}
+.add-club-row{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    .ant-form-item-label {
+        text-align: left;
+       
+    }
+    
+}
+.ant-modal-content .ant-form-item-control-input{
+    text-align: left;
+    .ant-checkbox-wrapper{
+       width: 100%;
+       margin: 0;
+    }
+}
+.add-club-age{
+    display: flex;
+    align-items: center;
+}

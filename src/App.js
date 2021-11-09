@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 import './App.css';
-import Footer from './Components/footer/Footer';
+import Footer from './Components/Footer/Footer';
 
 import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
+import Add_Club from './Components/add_Club/Add_Club';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        
+        <Add_Club/>
         <LeftSearch />
     
 
