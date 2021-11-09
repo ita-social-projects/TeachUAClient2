@@ -1,20 +1,33 @@
 import React from "react";
 import { Component } from "react";
-import { Form, Input, Button, Checkbox, Col} from 'antd';
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Checkbox, Col } from 'antd';
+import { QuestionCircleOutlined, UploadOutlined, UserOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
 import './edit_profile.scss'
 
 class FormEditProfile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showPasswordInput: false
+        }
+    }
+
+    toggleCheckboxPassword = () => {
+        if (Checkbox.checked == true) {
+            this.setState({ showPasswordInput: true })
+        }
+        else { this.state({ showPasswordInput: false }) }
+    }
     render() {
         return (
             <Form>
-                <div className='edit_header'>
+                <div className='edit-header'>
                     <h3>Редагувати профіль </h3>
                 </div>
-                <div className='edit_chooseRole'>
-                    <Button type="primary" className='edit_visitor' ><img src='/static/images/registration/Ellipse.jpg' />Відвідувач</Button>
-                    <Button type="primary" className='edit_boss' ><img src='/static/images/registration/Ellipse.jpg' />Керівник</Button>
+                <div className='edit-chooseRole'>
+                    <Button type="primary" className='edit-visitor'> <UserOutlined className='logoEditProfile'/>Відвідувач</Button>
+                    <Button type="primary" className='edit-boss' ><UserOutlined className='logoEditProfile'/>Керівник</Button>
                 </div>
                 <Form.Item name="lastName"
                     className="edit-input"
@@ -48,7 +61,7 @@ class FormEditProfile extends Component {
                         max: 25,
                         message: "Прізвище не може містити більше, ніж 25 символів",
                     }]}>
-                    <Input className="edit-box"
+                    <Input allowClear className="edit-box"
                         placeholder="Введіть ваше прізвище" />
                 </Form.Item>
 
@@ -84,7 +97,7 @@ class FormEditProfile extends Component {
                         max: 25,
                         message: "Ім`я не може містити більше, ніж 25 символів",
                     }]}>
-                    <Input className="edit-box"
+                    <Input allowClear className="edit-box"
                         placeholder="Введіть ваше ім`я" />
                 </Form.Item>
 
@@ -116,9 +129,10 @@ class FormEditProfile extends Component {
                         message: "Телефон не відповідає вказаному формату",
                     },
                     ]}>
-                    <Input addonBefore="+380" className="edit-box"
-                        placeholder="__________"/>
+                    <Input allowClear addonBefore="+380" className="edit-box"
+                        placeholder="__________" />
                 </Form.Item>
+
                 <Form.Item name="email"
                     className="edit-input"
                     label="Email"
@@ -130,65 +144,87 @@ class FormEditProfile extends Component {
                     {
                         type: 'email',
                         message: 'Некоректний формат email',
-                    }]}  >
+                    }]}>
                     <Input className="edit-box"
-                        disabled/>
+                        disabled />
                 </Form.Item>
 
-                <Form.Item name="photo"
+                <Form.Item
+                    name="photo"
                     className="edit-input"
-                    
-                    label={<QuestionCircleOutlined />}
-                >
+                > <span className='change-photo'>Фото&nbsp;< QuestionCircleOutlined />:</span>
+                    <span className='upload-photo'>< UploadOutlined />&nbsp; Завантажити фото</span>
                 </Form.Item>
 
                 <Checkbox.Group>
-                    <Col className='rowStyle'>
-                        <Checkbox value="online"><span className='advancedSearchSpan'>Змінити пароль</span></Checkbox>
+                    <Col className='row-style'>
+                        <Checkbox onClick={() => { this.setState({ showPasswordInput: true }) }}><span className='advancedSearchSpan'>Змінити пароль</span></Checkbox>
                     </Col>
                 </Checkbox.Group>
-                <Form.Item
-                className="edit-input"
-                    name="password"
-                    label="Пароль"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Введіть пароль',
-                        },
-                        {
-                            pattern: /^\S{8,20}$/,
-                            message: 'Пароль не може бути коротшим, ніж 8 та довшим, ніж 20 символів'
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input.Password />
-                </Form.Item>
+                {this.state.showPasswordInput ?
+                    <div>
+                        <Form.Item
+                            className="edit-input"
+                            name="activePassword"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Введіть пароль',
+                                },
+                                {
+                                    pattern: /^\S{8,20}$/,
+                                    message: 'Пароль не може бути коротшим, ніж 8 та довшим, ніж 20 символів'
+                                },
+                            ]}
+                            hasFeedback
+                        >
+                            <Input.Password placeholder='Введіть діючий пароль' />
+                        </Form.Item>
 
-                <Form.Item
-                className="edit-input"
-                    name="confirm"
-                    label="Підтвердження паролю"
-                    dependencies={['password']}
-                    hasFeedback
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Підтвердіть пароль!',
-                        },
-]}                >
-                    <Input.Password />
-                </Form.Item>
-                <Form.Item className='edit_submitBtn'>
+                        <Form.Item
+                            className="edit-input"
+                            name="newPassword"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Введіть пароль',
+                                },
+                                {
+                                    pattern: /^\S{8,20}$/,
+                                    message: 'Пароль не може бути коротшим, ніж 8 та довшим, ніж 20 символів'
+                                },
+                            ]}
+                            hasFeedback
+                        >
+                            <Input.Password placeholder='Введіть новий пароль' />
+                        </Form.Item>
+
+                        <Form.Item
+                            className="edit-input"
+                            name="confirmNewPassword"
+                            dependencies={['password']}
+                            hasFeedback
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Підтвердіть пароль!',
+                                },
+                            ]}                >
+                            <Input.Password placeholder='Підтвердіть новий пароль' />
+                        </Form.Item>
+                    </div>
+                    : null}
+
+                <Form.Item className='edit-submitBtn'>
                     <Button type="primary" htmlType="submit">
                         Зберегти зміни
                     </Button>
                 </Form.Item>
+
             </Form>
         )
     }
 }
 
 
-export default FormEditProfile;
+export default FormEditProfile

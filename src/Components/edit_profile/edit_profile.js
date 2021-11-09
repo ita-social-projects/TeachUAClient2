@@ -15,14 +15,14 @@ class EditProfile extends Component {
     render() {
         return (
             <div>
-                <a onClick={() => { this.handleOk(); }} >Редагувати профіль</a>
+                <a onClick={() => { this.handleOk() }} >Редагувати профіль</a>
                 <Modal
                     width={880}
                     className='registration_modal'
                     visible={this.state.showModal}
                     onCancel={() => { this.setState({ showModal: !this.state.showModal }) }}
                     footer={null} >
-                       <FormEditProfile />;
+                       <FormEditProfile />
 
                     
 

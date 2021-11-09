@@ -1,15 +1,17 @@
 .ant-modal-content {
-    border-radius: 25px;
-    .edit_header {
+    border-radius: 15px;
+    .edit-header {
         h3 {
             font-size: 24px;
             font-weight: bold;
             color: #2D4C68;
         }
     }
-    .edit_chooseRole {
+    .edit-chooseRole {
         display: flex;
         justify-content: center;
+
+        
 
         button {
             display: flex;
@@ -26,12 +28,18 @@
             box-shadow: rgba(100, 100, 111, 0.5) 0px 10px 10px 0px;
             margin-bottom: 5%;
         }
-        .edit_visitor{
+         .edit-visitor{
             cursor: not-allowed;
             background-color: #fff7e6;
         }
-        
+        .logoEditProfile{
+            background-color: red;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
     }
+
     .ant-form-item-control-input {
         display: flex;
         text-align: center;
@@ -41,28 +49,46 @@
         display: flex;
         flex-direction: column;
         text-align: left;
-        // background-color: rgb(166, 240, 132);
+        margin-bottom: 7px;
+        width: 436px;
 
         label{
             display: flex;
             text-align: left;
         }
+        .change-photo {
+            display: flex;
+            text-align: left;
+            align-items: center;
+            flex-direction: row;
+                       
+        }
+
+        .upload-photo{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            margin: 15px 0 15px;
+            color: #2E69C9;
+            cursor: pointer;
+        }
+      
     }
 
     .edit-box{
         display: flex;
         text-align: left;
-        // background-color: rebeccapurple;
         width: 436px;
-
-        prefix{
-            background-color: red;
-        }
     }
 
-    .edit_submitBtn {
+    .edit-submitBtn {
         display: flex;
-        justify-content: center;
+        margin: 20px 0 0 500px;
 
         button {
             background-color: #fa8c16;
@@ -71,6 +97,8 @@
             font-weight: 700;
             font-size: 16px;
             border: none;
+            width: 270px;
+            margin-bottom: 0;
         }
     }
 }

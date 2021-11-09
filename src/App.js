@@ -10,15 +10,14 @@ import { LeftSearch } from './Components/left_side_search/left_side_search';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.toggleSideSearch = this.toggleSideSearch.bind(this);
         this.state = {
             show: false,
         }
     }
 
-    toggleSideSearch() {
-        this.setState({ show: !this.state.show })
-    }
+    toggleSideSearch = () => {
+        this.setState({ show: !this.state.show });
+    };
 
     render() {
         return (
