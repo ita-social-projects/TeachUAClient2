@@ -12,9 +12,8 @@ class LeftSearch extends Component {
         this.state = {
             show: true,
         }
-
-
     }
+  
     toggleRadioChange = () => {
         this.setState({ show: false })
     }
