@@ -6,18 +6,13 @@ import 'antd/dist/antd.css';
 import './edit_profile.scss'
 
 class FormEditProfile extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showPasswordInput: false
+    state = {
+            changePassword: false
         }
-    }
+    
 
-    toggleCheckboxPassword = () => {
-        if (Checkbox.checked == true) {
-            this.setState({ showPasswordInput: true })
-        }
-        else { this.state({ showPasswordInput: false }) }
+    handleChangePassword = () => {
+        this.setState({ changePassword: !this.state.changePassword});
     }
     render() {
         return (
@@ -158,10 +153,10 @@ class FormEditProfile extends Component {
 
                 <Checkbox.Group>
                     <Col className='row-style'>
-                        <Checkbox onClick={() => { this.setState({ showPasswordInput: true }) }}><span className='advancedSearchSpan'>Змінити пароль</span></Checkbox>
+                        <Checkbox onClick={this.handleChangePassword} checked={this.state.c}><span className='advancedSearchSpan'>Змінити пароль</span></Checkbox>
                     </Col>
                 </Checkbox.Group>
-                {this.state.showPasswordInput ?
+                {this.state.changePassword &&
                     <div>
                         <Form.Item
                             className="edit-input"
@@ -213,7 +208,7 @@ class FormEditProfile extends Component {
                             <Input.Password placeholder='Підтвердіть новий пароль' />
                         </Form.Item>
                     </div>
-                    : null}
+                    }
 
                 <Form.Item className='edit-submitBtn'>
                     <Button type="primary" htmlType="submit">

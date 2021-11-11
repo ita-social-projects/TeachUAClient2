@@ -8,12 +8,10 @@ import MainPage from './Components/mainPage/mainPage';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             show: false,
         }
-    }
+    
 
     toggleSideSearch = () => {
         this.setState({ show: !this.state.show });

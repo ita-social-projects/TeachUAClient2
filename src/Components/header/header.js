@@ -15,7 +15,7 @@ import "./header.scss";
 import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
-import EditProfile from "../edit_profile/edit_profile"
+import Profile from "../edit_profile/profile"
 import MenuItem from "antd/lib/menu/MenuItem";
 
 
@@ -108,7 +108,7 @@ const log = (
             <Registration />
         </Menu.Item>
         <MenuItem>
-            <EditProfile />
+            <Profile />
         </MenuItem>
         <Menu.Item>
             <Login />
