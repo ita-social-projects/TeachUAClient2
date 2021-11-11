@@ -7,12 +7,12 @@ import './edit_profile.scss'
 
 class FormEditProfile extends Component {
     state = {
-            changePassword: false
-        }
-    
+        changePassword: false,
+    }
+
 
     handleChangePassword = () => {
-        this.setState({ changePassword: !this.state.changePassword});
+        this.setState({ changePassword: !this.state.changePassword });
     }
     render() {
         return (
@@ -21,8 +21,8 @@ class FormEditProfile extends Component {
                     <h3>Редагувати профіль </h3>
                 </div>
                 <div className='edit-chooseRole'>
-                    <Button type="primary" className='edit-visitor'> <UserOutlined className='logoEditProfile'/>Відвідувач</Button>
-                    <Button type="primary" className='edit-boss' ><UserOutlined className='logoEditProfile'/>Керівник</Button>
+                    <Button type="primary" className='edit-visitor'> <UserOutlined className='logoEditProfile' />Відвідувач</Button>
+                    <Button type="primary" className='edit-boss' ><UserOutlined className='logoEditProfile' />Керівник</Button>
                 </div>
                 <Form.Item name="lastName"
                     className="edit-input"
@@ -208,7 +208,7 @@ class FormEditProfile extends Component {
                             <Input.Password placeholder='Підтвердіть новий пароль' />
                         </Form.Item>
                     </div>
-                    }
+                }
 
                 <Form.Item className='edit-submitBtn'>
                     <Button type="primary" htmlType="submit">
@@ -222,4 +222,4 @@ class FormEditProfile extends Component {
 }
 
 
-export default FormEditProfile
+export default FormEditProfile;

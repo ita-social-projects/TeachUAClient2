@@ -9,9 +9,9 @@ import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 class App extends Component {
     state = {
-            show: false,
-        }
-    
+        show: false,
+    }
+
 
     toggleSideSearch = () => {
         this.setState({ show: !this.state.show });
