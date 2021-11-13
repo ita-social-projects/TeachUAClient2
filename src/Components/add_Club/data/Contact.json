@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Телефон",
+        "urlLogo": "/static/images/contacts/phone.svg",
+        "alt":"phone"
+    },
+    {
+        "id": 2,
+        "name": "Facebook",
+        "urlLogo": "/public/static/images/contacts/facebook.svg",
+        "alt":"facebook"
+    },
+    {
+        "id": 3,
+        "name": "WhatsApp",
+        "urlLogo": "/static/images/contacts/whats-app.svg",
+        "alt":"whats-app"
+    },
+    {
+        "id": 4,
+        "name": "Пошта",
+        "urlLogo": "/static/images/contacts/mail.svg",
+        "alt":"mail"
+    },
+    {
+        "id": 5,
+        "name": "Skype",
+        "urlLogo": "/static/images/contacts/skype.svg",
+        "alt":"skype"
+    },
+    {
+        "id": 6,
+        "name": "Site",
+        "urlLogo": "/static/images/contacts/website-link-icon.svg",
+        "alt":"website-link-icon"
+    }
+]

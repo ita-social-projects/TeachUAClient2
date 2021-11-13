@@ -27,7 +27,8 @@ const steps = [
 class Add_Club extends React.Component {
     state = {
         showModal: false,
-        current: 0
+        current: 0,
+        showModallocation:false,
     }
     next = () => {
         this.setState({ current: this.state.current + 1 });

@@ -1,38 +1,210 @@
 
 import React from "react";
 import './add_Club_contact.modules.scss'
-import { Form, Input} from 'antd';
+import { Form, Modal, Switch, Tooltip, Input } from 'antd';
+import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 
-class Add_club_contact extends React.Component{
-    render(){
-        return(
+import Add_Club_contact_location from "./Add_Club_contact_location";
+//import PropTypes from 'prop-types';
+import contacts from './data/Contact.json'
+//import MaskIcon from "./MaskIcon";
+
+
+class Add_club_contact extends React.Component {
+    state = {
+        showModallocation: false
+    }
+    handleOklocation = () => {
+        this.setState({ showModallocation: !this.state.showModallocation });
+    };
+    checkPrefixphone(name){
+        switch(name){
+            case "Телефон":
+                return "+380";
+            default:
+                return undefined;
+        }
+    }
+    checkPlaceholder(name){
+        switch(name){
+            case "Телефон":
+                return "__________";
+            default:
+                return undefined;
+        }
+    }
+    checkСontacts = (contacts) => {
+        switch (contacts.name) {
+            case "Телефон":
+                return [{
+                    required: true,
+                    message: 'Введіть номер телефону'
+                },
+                {
+                    required: false,
+                    pattern: /^[^A-Za-zА-Яа-яІіЇїЄєҐґ]*$/,
+                    message: 'Телефон не може містити літери',
+                    // message: 'Введіть прізвище',
+                },
+                {
+                    required: true,
+                    pattern: /^[^\s]*$/,
+                    message: 'Телефон не може містити пробіли',
+                },
+                {
+                    required: false,
+                    pattern: /^[^-`~!@#$%^&*()_+={}\\|\\:;“’'<,>.?๐฿]*$/,
+                    message: 'Телефон не може містити спеціальні символи',
+                },
+                {
+                    pattern: /^.{9}$/,
+                    message: "Телефон не відповідає вказаному формату",
+                },
+                ]
+
+            case "Пошта":
+                return [{
+                    required: false,
+                    type: "email",
+                    message: "Некоректний формат email"
+                }]
+
+
+        }
+    }
+
+    render() {
+        return (
             <Form>
-                <Form.Item name="name"
-                    className="add-club-row"
-                    label="Назва"
-                    hasFeedback
-                    rules={[
-                        {
-                            required: true,
-                            message: "Введіть назву гуртка",
-                        },
-                        {
-                            required: false,
-                            pattern: /^(?!\s)([\wА-ЩЬЮЯҐЄІЇа-щьюяґєії !"#$%&'()*+,\-./:;<=>?@[\]^_`{}~]){5,100}$/,
-                            message: "Некоректна назва гуртка",
-                        },
-                        // {
-                        //     required: false,
-                        //     pattern: /^.*\S$/,
-                        //     message: "Некоректна назва гуртка",
-                        // }
-                    ]}>
-                    <Input className="add-club-input"
-                        placeholder="Назва гуртка" />
+                <div className='google__location'>
+                    Локації
+                </div>
+                <a onClick={() => { this.handleOklocation(); }}>Додати Локацію</a>
+                <Modal
+                    width={800}
+                    visible={this.state.showModallocation}
+                    onCancel={() => { this.setState({ showModallocation: !this.state.showModallocation }) }}
+                    footer={null}>
+                    <Add_Club_contact_location />
+                </Modal>
+                <div className="add-club-inline">
+                    <Form.Item name="isOnline"
+                        className="add-club-row"
+                        label="Доступний онлайн?"
+                    >
+                        <Switch
+                            checkedChildren="Так"
+                            unCheckedChildren="Ні"
+                        //onChange={onChange} checked={checked}
+                        />
+                    </Form.Item>
+                    <Tooltip title="Якщо не додано жодної локації буде автоматично онлайн">
+                        <InfoCircleOutlined className="info-icon" />
+                    </Tooltip>
+                </div>
+                <Form.Item
+                    label="Контакти"
+                    className="add-club-row contact__contactInput"
+                    name="contacts"
+                >
+                    {contacts.map(contact =>
+                        <Form.Item
+                            name={contact.name}
+                            key={contact.id}
+                            rules={
+                                this.checkСontacts(contact)
+                            }
+                            hasFeedback
+                        >
+                            <Input className="add-club-input"
+                                name={contact.name}
+                                prefix={ this.checkPrefixphone(contact.name)}
+                                placeholder={this.checkPlaceholder(contact.name)}
+                                suffix={
+                                    <div className="input__icon"><img src={contact.urlLogo} alt={contact.alt}/></div>
+                                    /*<MaskIcon maskColor="#D9D9D9" iconUrl={contact.urlLogo} />*/}
+                            />
+
+                        </Form.Item>
+                    )}
+                    {/* <Form.Item
+                     name='contact__facebook'
+                     className="add-club-row"
+                    
+                     //label="Номер телефону"
+                     hasFeedback
+                     rules={[{
+                         required: true,
+                         message: 'Введіть номер телефону'
+                     }]}>
+                        <Input
+                        suffix={<FacebookOutlined />}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                     name='contact__facebook'
+                     className="add-club-row"
+                    
+                     //label="Номер телефону"
+                     hasFeedback
+                     rules={[{
+                         required: true,
+                         message: 'Введіть номер телефону'
+                     }]}>
+                        <Input
+                        suffix={<FacebookOutlined />}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                     name='contact__facebook'
+                     className="add-club-row"
+                    
+                     //label="Номер телефону"
+                     hasFeedback
+                     rules={[{
+                         required: true,
+                         message: 'Введіть номер телефону'
+                     }]}>
+                        <Input
+                        suffix={<FacebookOutlined />}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                     name='contact__facebook'
+                     className="add-club-row"
+                    
+                     //label="Номер телефону"
+                     hasFeedback
+                     rules={[{
+                         required: true,
+                         message: 'Введіть номер телефону'
+                     }]}>
+                        <Input
+                        suffix={<SkypeOutlined />}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                     name='contact__facebook'
+                     className="add-club-row"
+                    
+                     //label="Номер телефону"
+                     hasFeedback
+                     rules={[{
+                         required: true,
+                         message: 'Введіть номер телефону'
+                     }]}>
+                        <Input
+                        suffix={<FacebookOutlined />}
+                        />
+                    </Form.Item>*/}
                 </Form.Item>
+
             </Form>
         )
     }
+}
+Add_club_contact.PropTypes = {
+
 }
 
 export default Add_club_contact

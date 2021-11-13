@@ -1,0 +1,28 @@
+.add-club-inline{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .add-club-row{
+        flex: 1;
+        min-width: 40%;
+        max-width: 45%;
+        flex-wrap: wrap;
+        
+    }
+}
+.add-club-add-location-button{
+    display: flex;
+    justify-content: end;
+    .flooded-button{
+        background-color:#fa8c16 ;
+        font-weight: 700;
+        width: 190px;
+        height: 40px;
+        color: white;
+        border-radius: 15px;
+        border: none;
+ 
+
+    }
+  
+}
