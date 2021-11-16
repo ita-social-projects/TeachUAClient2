@@ -1,7 +1,9 @@
-.contact__contactInput {
+.contact__formSocialnetwork {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    
+    width: 100%;
+
 }
 
 .add-club-input {
@@ -11,4 +13,15 @@
             height: 14px;
         }
     }
+}
+@media (max-width:887px) {
+    .contact__formSocialnetwork {
+        display: flex;
+        flex-direction: column;
+  
+
+        
+    }
+        
+    
 }

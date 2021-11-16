@@ -8,7 +8,7 @@
     {
         "id": 2,
         "name": "Facebook",
-        "urlLogo": "/public/static/images/contacts/facebook.svg",
+        "urlLogo": "/static/images/contacts/facebook.svg",
         "alt":"facebook"
     },
     {

@@ -1,0 +1,37 @@
+@media (max-width: 577px) {
+    .steps__items_small {
+        display: block;
+    }
+    .steps .steps__number .steps__items {
+        display: none;
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: column;
+        .addClub__headerBigscreen {
+            display: none;
+        }
+        .steps__number {
+            flex: 1;
+            width: 100%;
+            .steps__items_small {
+                display: flex;
+                flex-direction: row;
+                .ant-steps-item {
+                    margin-left: 0;
+                    margin-top: 10px;
+                    padding-left: 0;
+                    .ant-steps-item-icon{
+                        background-color: #fa8c16;
+                        border: none;
+                        span{
+                            color: white;
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}

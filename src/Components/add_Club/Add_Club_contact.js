@@ -104,11 +104,12 @@ class Add_club_contact extends React.Component {
                 </div>
                 <Form.Item
                     label="Контакти"
-                    className="add-club-row contact__contactInput"
+                    className="add-club-row contact__formSocialnetwork"
                     name="contacts"
                 >
                     {contacts.map(contact =>
                         <Form.Item
+                            className='contact__socialItems'
                             name={contact.name}
                             key={contact.id}
                             rules={
@@ -127,76 +128,7 @@ class Add_club_contact extends React.Component {
 
                         </Form.Item>
                     )}
-                    {/* <Form.Item
-                     name='contact__facebook'
-                     className="add-club-row"
-                    
-                     //label="Номер телефону"
-                     hasFeedback
-                     rules={[{
-                         required: true,
-                         message: 'Введіть номер телефону'
-                     }]}>
-                        <Input
-                        suffix={<FacebookOutlined />}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                     name='contact__facebook'
-                     className="add-club-row"
-                    
-                     //label="Номер телефону"
-                     hasFeedback
-                     rules={[{
-                         required: true,
-                         message: 'Введіть номер телефону'
-                     }]}>
-                        <Input
-                        suffix={<FacebookOutlined />}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                     name='contact__facebook'
-                     className="add-club-row"
-                    
-                     //label="Номер телефону"
-                     hasFeedback
-                     rules={[{
-                         required: true,
-                         message: 'Введіть номер телефону'
-                     }]}>
-                        <Input
-                        suffix={<FacebookOutlined />}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                     name='contact__facebook'
-                     className="add-club-row"
-                    
-                     //label="Номер телефону"
-                     hasFeedback
-                     rules={[{
-                         required: true,
-                         message: 'Введіть номер телефону'
-                     }]}>
-                        <Input
-                        suffix={<SkypeOutlined />}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                     name='contact__facebook'
-                     className="add-club-row"
-                    
-                     //label="Номер телефону"
-                     hasFeedback
-                     rules={[{
-                         required: true,
-                         message: 'Введіть номер телефону'
-                     }]}>
-                        <Input
-                        suffix={<FacebookOutlined />}
-                        />
-                    </Form.Item>*/}
+               
                 </Form.Item>
 
             </Form>
