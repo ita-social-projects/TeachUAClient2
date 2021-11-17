@@ -1,0 +1,44 @@
+.form-fields {
+    display: flex;   
+    width: 100%;
+    flex-direction: column;
+}
+
+
+.name-Center label {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+    color: #2d4c68;
+    display: flex;
+}
+
+.main-info .ant-form-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 0 15px;
+}
+
+.main-info .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+    display: inline-block;
+    margin-right: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    font-family: SimSun,sans-serif;
+    line-height: 1;
+    content: "*";
+}
+
+
+.add-location-btn {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fa8c16 !important;
+    border: none;
+    padding-bottom: 250px;
+}

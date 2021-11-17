@@ -19,6 +19,7 @@ class Login extends React.Component  {
         <div>
         <a onClick={this.handleModal}>Увійти</a>
             <Modal 
+            className="login-body-modal"
             visible={this.state.showModal} 
             handleModal={this.handleModal}
             footer={null} 

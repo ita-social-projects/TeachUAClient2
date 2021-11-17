@@ -1,0 +1,178 @@
+.addCenter-modal .ant-modal-body {
+    padding: 0;
+    min-height: 600px;
+    border-radius: 16px;
+}
+
+.addCenter {
+    display: flex;
+    flex-direction: row;  
+    min-height: 600px;
+}
+
+.addCenter-modal .ant-modal-close {
+    top: 15px;
+    right: 15px;
+}
+
+
+.addCenter-sider {
+    background: #fafafa;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    width: 252px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 20px 0 20px 20px;
+    pointer-events: none; 
+}
+
+.addCenter-modal .ant-steps-item-tail::after {
+    display: none;
+}
+
+
+.addCenter-modal .ant-steps-item-process>.ant-steps-item-container>.ant-steps-item-icon {
+    background: #fa8c16;
+    color: #fff;
+    border-color: #fff; 
+   
+}
+
+.addCenter-modal .ant-steps-item-finish .ant-steps-item-icon {
+    background-color: #fa8c16;
+    border-color: #fff;
+}
+
+.addCenter-modal .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon {
+    color: #fff;
+}
+
+.addCenter-content {
+    background: white;
+    border-radius: 16px;
+    width: 72%;
+}
+
+.modal-title {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #2d4c68;
+    padding: 20px;
+}
+
+.addCenter-btn-next {
+    float: right;
+    padding: 8px 24px;
+    width: 190px;
+    height: 40px;
+    background: #fa8c16 !important;
+    border-radius: 6px;
+    border: 0;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff !important;
+    margin-right: 40px;
+}
+
+.addCenter-btn-back {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fa8c16 !important;
+    border: 0;
+    
+}
+
+.addCenter-modal .ant-modal-header {
+    display: none;
+}
+
+.sider-mobile {
+    display: none;
+}
+
+@media (max-width: 577px) {
+    .addCenter {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .addCenter-content {
+        width: 100%;
+    }
+
+    .addCenter-sider { 
+        width: 100%;
+        border-radius: 0;
+        display: flex;
+        padding: 0;
+        margin: 0;
+       
+    }
+
+    .sider-mobile {
+        width: 100%;
+        display: flex;  
+        justify-content: space-between; 
+        background: #fafafa;
+    }    
+
+    .sider-mobile-steps {
+        display: flex;
+        justify-content: space-between; 
+    }
+
+
+    .addCenter-modal .ant-steps-vertical {
+        display: none;
+    }
+
+    .ant-steps-item-container {
+        display: block;
+    }
+
+    .sider-mobile-step {
+        display: flex;
+        justify-content: end;
+    }
+
+    .addCenter-modal .ant-modal-header {
+        display: block;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
+    .modal-title {
+        display: none;
+    }
+
+    .addCenter-modal .ant-modal-title {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        color: #2d4c68;
+        margin: 0;
+    }
+
+    .addCenter-modal .ant-steps-item-title::after {
+        display: none;
+    }
+
+    .addCenter-btn-next {
+        margin-right: 20px;
+    }
+}
