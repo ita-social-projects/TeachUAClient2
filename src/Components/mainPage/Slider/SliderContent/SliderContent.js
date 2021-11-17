@@ -7,10 +7,10 @@ class SliderContent extends React.Component {
     render() {
         return (
             <div id="carousel">
-                <Carousel autoplay arrows>
+                <Carousel  arrows>
                     <div className="content">
-                        <div className="content__wrapper"
-                             style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/aboutClubs.jpg')`}}>
+                        <div className="content__wrapper">
+                            {/*<img className="content__bg"  style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/aboutClubs.jpg')`}} />*/}
                             <h1>Про гуртки українською</h1>
                             <h2>На нашому сайті ви можете обрати для вашої дитини гурток, де навчають українською
                                 мовою.</h2>
@@ -20,8 +20,8 @@ class SliderContent extends React.Component {
                         </div>
                     </div>
                     <div className="content">
-                        <div className="content__wrapper"
-                             style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/maraton.jpg')`}}>
+                        <div className="content__wrapper">
+                                 {/*<img className="content__bg"  style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/maraton.jpg')`}} />*/}
                             <h1>Мовомаратон до 30-ї річниці Незалежності України</h1>
                             <h2>За 30 днів перейти на українську? Так, легко, комфортно, разом із однодумцями. Зроби
                                 Україні подарунок на день Незалежності - розмовляй українською!</h2>
@@ -31,8 +31,8 @@ class SliderContent extends React.Component {
                         </div>
                     </div>
                     <div className="content">
-                        <div className="content__wrapper"
-                             style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/aboutUs.jpg')`}}>
+                        <div className="content__wrapper">
+                            {/*<img className="content__bg"  style={{backgroundImage: `url('${process.env.PUBLIC_URL}/static/images/about/slider/aboutUs.jpg')`}} />*/}
                             <h1>Про нас</h1>
                             <h2>Ініціатива &quot;Навчай українською&quot; - це небайдужі громадяни, які об&apos;єдналися, щоб
                                 популяризувати українську мову у сфері освіти.</h2>

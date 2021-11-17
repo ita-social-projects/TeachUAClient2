@@ -77,9 +77,9 @@ class AddCenter extends React.Component  {
                                       <Step key={item.title} title={item.title} />
                                   ))}
                     </Steps>
-                    {/* <AddCenter_siderMobile current = {this.state.current}/> */}
+                    <AddCenter_siderMobile current = {this.state.current}/>
                   </div>
-                  <AddCenter_siderMobile current = {this.state.current}/>
+                  
                   <div className="addCenter-content">
                   <h3 className="modal-title">Додати центр</h3>
                       {this.state.current < steps.length && (
