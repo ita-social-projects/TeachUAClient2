@@ -2,6 +2,7 @@ import React from "react";
 import {Form, Input} from 'antd';
 import "./addCenter_contacts.scss";
 import contacts from "./Contact.json";
+import Icon from "@ant-design/icons/lib/components/Icon";
 
 class AddCenter_contacts extends React.Component  {
 
@@ -88,10 +89,12 @@ class AddCenter_contacts extends React.Component  {
                                 prefix={ this.checkPrefixphone(contact.name)}
                                 placeholder={this.checkPlaceholder(contact.name)}
                                 suffix={
-                                    <div ><img 
-                                    src={contact.urlLogo} 
+                                    <div ><Icon 
+                                    component={contact.urlLogo} 
                                     alt={contact.alt} 
-                                    className="contacts-icon"/></div>}                    
+                                    className="contacts-icon"
+                                    style={{backgroundColor: "silver"}}/></div>}
+                                                        
                             />
                         </Form.Item>
                     )}
