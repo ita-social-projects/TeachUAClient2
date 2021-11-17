@@ -9,6 +9,9 @@
     border: none;
     border-radius: 6px;
 }
+.add_club_btn_back{
+    margin: 0 8px;
+}
 .steps {
     display: flex;
     .steps__number {
@@ -17,10 +20,17 @@
         .steps__items {
             display: flex;
             flex-direction: column;
-            .ant-steps-item {
-                margin-left: 0;
-                margin-top: 10px;
-                padding-left: 0;
+            .ant-steps-item-process{
+                .ant-steps-item-icon{
+                    background-color: #e8e8e8;
+                    border: none;
+                    span{
+                        color: #2d4c68;
+                    }
+                }
+            }
+            .ant-steps-item-finish,
+            .ant-steps-item-active{
                 .ant-steps-item-icon{
                     background-color: #fa8c16;
                     border: none;
@@ -28,7 +38,12 @@
                         color: white;
                     }
                 }
-
+            }
+            .ant-steps-item {
+                margin-left: 0;
+                margin-top: 10px;
+                padding-left: 0;
+                
             }
         }
     }
@@ -52,6 +67,7 @@
     .addClub__headerSmallscreen
     {
         display: block;
+        
     }
     
 }

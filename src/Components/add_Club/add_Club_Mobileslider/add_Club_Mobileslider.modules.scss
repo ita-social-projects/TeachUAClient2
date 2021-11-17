@@ -18,10 +18,12 @@
             .steps__items_small {
                 display: flex;
                 flex-direction: row;
+               
                 .ant-steps-item {
                     margin-left: 0;
                     margin-top: 10px;
                     padding-left: 0;
+                
                     .ant-steps-item-icon{
                         background-color: #fa8c16;
                         border: none;
@@ -30,6 +32,25 @@
                         }
                     }
     
+                }
+                .ant-steps-item-process{
+                    .ant-steps-item-icon{
+                        background-color: #e8e8e8;
+                        border: none;
+                        span{
+                            color: #2d4c68;
+                        }
+                    }
+                }
+                .ant-steps-item-finish,
+                .ant-steps-item-active{
+                    .ant-steps-item-icon{
+                        background-color: #fa8c16;
+                        border: none;
+                        span{
+                            color: white;
+                        }
+                    }
                 }
             }
         }

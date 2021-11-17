@@ -15,7 +15,7 @@ class Add_Club_Mobileslider extends React.Component {
             //direction="vertical"
             >
                 <Step style={{ display: this.props.current == 0 ? "block" : "none" }} title="Основна інформація" />
-                <Step style={{ display: (this.props.current == 0 || this.props.current == 1 || this.props.current == 2) ? "block" : "none" }} title="Контакти" />
+                <Step style={{ display: (this.props.current == 0 || this.props.current == 1 || this.props.current == 2) ? "block" : "none", textAlign:(this.props.current == 0)?"right":"left" }} title="Контакти" />
                 <Step style={{ display: (this.props.current == 1 || this.props.current == 2) ? "block" : "none" }} title="Опис" />
                 {/*steps.map(item => (
                                     <Step key={item.title} title={item.title} />

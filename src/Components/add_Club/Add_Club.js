@@ -114,7 +114,6 @@ class Add_Club extends React.Component {
 
                                         <Button
                                             className='add_club_btn_back'
-                                            style={{ margin: '0 8px' }}
                                             onClick={() => this.prev()}>
                                             Назад
                                         </Button>
@@ -139,7 +138,7 @@ class Add_Club extends React.Component {
                                     <div className='add_club_btn'>
                                         <Button
                                             className='add_club_btn_back'
-                                            style={{ margin: '0 8px' }}
+                                           
                                             onClick={() => this.prev()}>
                                             Назад
                                         </Button>
@@ -155,31 +154,6 @@ class Add_Club extends React.Component {
 
 
                             )}
-
-                            {/*this.state.current === steps.length - 1 && (
-                                <div className='add_club_contact'>
-                                   
-                                    <div className='add_club_btn'>
-
-                                        <Button
-                                            className='add_club_btn'
-                                            type="primary"
-                                            onClick={() => message.success('Processing complete!')}>
-                                            Наступний крок
-                                        </Button>
-                                    </div>
-                                </div>
-                            )*/}
-                            {/*this.state.current > 0 && (
-                                <div className='add_club_btn'>
-                                    <Button
-                                        className='add_club_btn'
-                                        style={{ margin: '0 8px' }}
-                                        onClick={() => this.prev()}>
-                                        Previous
-                                    </Button>
-                                </div>
-                            )*/}
                         </div>
                     </div>
 

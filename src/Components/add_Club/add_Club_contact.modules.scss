@@ -1,9 +1,19 @@
 .contact__formSocialnetwork {
     display: flex;
     flex-direction: column;
-    
     width: 100%;
+    flex: 1 1;
+    .ant-form-item-control-input-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
 
+    }
+    .contact__socialItems {
+        width: 45%;
+
+      
+    }
 }
 
 .add-club-input {
@@ -14,14 +24,20 @@
         }
     }
 }
-@media (max-width:887px) {
+@media (max-width: 887px) {
+    
     .contact__formSocialnetwork {
         display: flex;
         flex-direction: column;
-  
-
-        
-    }
-        
+        justify-content: start;
+        .ant-form-item-control-input-content {
+            justify-content: start;
     
+        }
+        .contact__socialItems {
+           
+            width: 100%;
+            max-width: 270px;
+        }
+    }
 }
