@@ -13,8 +13,6 @@ import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Menu, Dropdown } from "antd";
-import Login from "../login/login";
-import Registration from "../registration/Registration";
 
 import "./header.scss";
 import PropTypes from 'prop-types';
@@ -35,7 +33,7 @@ export class header extends Component {
                         </label>
                         <input type="checkbox" id="burger-checkbox" />
                         <nav>
-                            <a href="#blank">
+                            <a href="/clubs">
                                 <img src={ProjectIcon} />
                                 Гуртки
                             </a>
