@@ -16,9 +16,6 @@ import { Menu, Dropdown } from "antd";
 
 import "./header.scss";
 import PropTypes from 'prop-types';
-import Login from "../login/login";
-import Registration from "../registration/Registration";
-
 
 export class header extends Component {
     render() {

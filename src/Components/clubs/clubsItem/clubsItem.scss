@@ -38,6 +38,8 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         margin:0 0 0 7px;
+        text-overflow: ellipsis;
+        max-width:186px;
     }
     .title__img{
         display:flex;

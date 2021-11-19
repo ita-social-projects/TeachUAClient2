@@ -7,7 +7,6 @@ import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
 import Clubs from './Components/clubs/clubs';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
-import Add_Club from './Components/add_Club/Add_Club';
 
 class App extends Component {
     constructor(props) {
