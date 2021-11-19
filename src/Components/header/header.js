@@ -16,8 +16,7 @@ import { Menu, Dropdown } from "antd";
 
 import "./header.scss";
 import PropTypes from 'prop-types';
-import Login from "../login/login";
-import Registration from "../registration/Registration";
+
 
 
 export class header extends Component {
@@ -110,6 +109,9 @@ const log = (
         </Menu.Item>
         <Menu.Item>
             <Login />
+        </Menu.Item>
+        <Menu.Item>
+            <a href="/profile">Профіль </a>
         </Menu.Item>
     </Menu>
 
