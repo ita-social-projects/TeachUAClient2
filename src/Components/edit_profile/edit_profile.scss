@@ -1,3 +1,10 @@
+@import '~antd/dist/antd.css';
+
+.ant-modal-body{
+    // display: flex;
+    padding: 5px 50px 20px;
+}
+
 .ant-modal-content {
     border-radius: 15px;
     .edit-header {
@@ -5,13 +12,24 @@
             font-size: 24px;
             font-weight: bold;
             color: #2D4C68;
+            
         }
     }
+
+    .ant-modal-close-x {
+        display: flex;
+        flex-direction: row;
+        font-size: 22px;
+    }
+    
+    .ant-modal-close-icon {
+        color: #595959;
+    }  
+
+  
     .edit-chooseRole {
         display: flex;
         justify-content: center;
-
-        
 
         button {
             display: flex;
@@ -25,24 +43,59 @@
             background-color: white;
             border-radius: 4px;
             color: black;
-            box-shadow: rgba(100, 100, 111, 0.5) 0px 10px 10px 0px;
+            box-shadow: rgba(100, 100, 111, 0.5) 0px 3px 3px 0px;
             margin-bottom: 5%;
+            
         }
+
+     
          .edit-visitor{
+            display: flex;
+            justify-content: center;
             cursor: not-allowed;
+            color: #9e9c9cea;
             background-color: #fff7e6;
+            font-size: 18px;
+            opacity: 0.8;
+          
         }
+
+        :hover {
+            opacity: 1;
+            color: #000;
+            background-color: #fff;
+            transition: 0.3;
+        }
+       
+
+        .edit-boss{
+            display: flex;
+            justify-content: center;
+            font-size: 18px;
+        }
+
         .logoEditProfile{
-            background-color: red;
+            padding-top: 5px;
+            background-color: #fa8c16;
             width: 32px;
             height: 32px;
             border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+           
+        }
+    }
+    @media screen and (max-width: 420px) {
+        .eedit-chooseRole{
+             width: 150px;
+           
         }
     }
 
     .ant-form-item-control-input {
         display: flex;
         text-align: center;
+       
     }
 
     .edit-input{
@@ -84,13 +137,31 @@
         display: flex;
         text-align: left;
         width: 436px;
+       
+    }
+
+    @media screen and (max-width: 510px) {
+        .edit-box{
+             width: 350px;
+           
+        }
+      }
+
+      @media screen and (max-width: 420px) {
+        .edit-box{
+             width: 250px;
+           
+        }
     }
 
     .edit-submitBtn {
         display: flex;
-        margin: 20px 0 0 500px;
+            justify-content: center;
 
-        button {
+        
+
+            button {
+            margin-top: 10px;
             background-color: #fa8c16;
             color: white;
             border-radius: 6px;
@@ -100,5 +171,16 @@
             width: 270px;
             margin-bottom: 0;
         }
+        @media screen and (max-width: 420px) {
+            .edit-submitBtn, button{
+                 width: 200px;
+               
+            }
+        }
+    }
+
+    .ant-form-item-control-input-content{
+        display: flex;
+        flex-direction: column;
     }
 }

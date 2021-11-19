@@ -5,7 +5,7 @@ import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
-import ClubsList from './Components/clubs/clubsList';
+// import ClubsList from './Components/clubs/clubsList';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 class App extends Component {

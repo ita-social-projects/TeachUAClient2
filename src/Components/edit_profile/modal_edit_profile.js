@@ -15,12 +15,12 @@ class ModalEditProfile extends Component {
     render() {
         return (
             <div>
-                <a onClick={() => { this.handleShowEditProfileModal() }} >Редагувати профіль</a>
+                <a onClick={this.handleShowEditProfileModal} >Редагувати профіль</a>
                 <Modal
                     width={880}
-                    className='registration_modal'
+                    className='edit_profile__modal'
                     visible={this.state.showEditProfileModal}
-                    onCancel={() => { this.setState({ showEditProfileModal: !this.state.showEditProfileModal }) }}
+                    onCancel={this.handleShowEditProfileModal}
                     footer={null} >
                     <FormEditProfile />
                 </Modal>

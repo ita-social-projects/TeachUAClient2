@@ -16,7 +16,7 @@ class FormEditProfile extends Component {
     }
     render() {
         return (
-            <Form>
+            <Form >
                 <div className='edit-header'>
                     <h3>Редагувати профіль </h3>
                 </div>
@@ -124,7 +124,7 @@ class FormEditProfile extends Component {
                         message: "Телефон не відповідає вказаному формату",
                     },
                     ]}>
-                    <Input allowClear addonBefore="+380" className="edit-box"
+                    <Input allowClear addonBefore="+38" className="edit-box"
                         placeholder="__________" />
                 </Form.Item>
 

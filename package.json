@@ -46,7 +46,7 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.2",
@@ -59,8 +59,8 @@
     "sass-loader": "^12.3.0",
     "svg-url-loader": "^7.1.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.61.0",
+    "webpack": "^4.44.2",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0"
+    "webpack-dev-server": "^3.11.1"
   }
 }
