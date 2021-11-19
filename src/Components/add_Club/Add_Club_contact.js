@@ -112,6 +112,7 @@ class Add_club_contact extends React.Component {
                             className='contact__socialItems'
                             name={contact.name}
                             key={contact.id}
+                            style={{background: "#D9D9D9"}}
                             rules={
                                 this.checkСontacts(contact)
                             }
