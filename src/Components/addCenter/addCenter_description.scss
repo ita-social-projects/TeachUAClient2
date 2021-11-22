@@ -2,18 +2,7 @@
     display: flex;
     flex-direction: row;
     padding-left: 16px;
-}
-
-.addCenter-description .ant-form-item-label {
-    text-align: left;
-}
-
-.addCenter-description .ant-upload {
-    color: #2e69c9;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-}
+} 
 
 .upload-field {
     display: flex;
@@ -35,4 +24,47 @@
     height: auto;
     max-height: 200px;
     border-radius: 5px;
+    resize: none;
+}
+
+.addCenter-description {
+    .ant-form-item-label {
+        text-align: left;
+    }
+
+    .ant-upload {
+        color: #2e69c9;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .ant-input-focused,
+    .ant-input:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input:hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+    }
+    .ant-input-affix-wrapper:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        z-index: 1;
+    }
+    .ant-input-affix-wrapper-focused {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
 }

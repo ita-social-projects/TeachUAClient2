@@ -1,5 +1,10 @@
 @import '~antd/dist/antd.css';
 
+
+.btn-showModal {
+    color: black !important;
+}
+
 .login-body-modal .ant-modal-content {
     border-radius: 16px;
 }
@@ -62,6 +67,7 @@ label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before 
     flex-direction: row;
 }
 
+
 .login-input label {
     font-size: 18px;
     width: 94px;
@@ -76,6 +82,7 @@ label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before 
     height: 40px;
     border-radius: 6px;
 }
+
 
 .login-body-modal .anticon-mail {
     color: #8C8C8C;
@@ -100,9 +107,36 @@ label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before 
     cursor: pointer;
 }
 
-
-
-
+.login-body-modal {
+    .ant-input-focused,
+    .ant-input:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input:hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+    }
+    .ant-input-affix-wrapper:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        z-index: 1;
+    }
+    .ant-input-affix-wrapper-focused {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+}
 
 
 

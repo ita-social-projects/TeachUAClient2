@@ -59,7 +59,8 @@ class AddCenter extends React.Component  {
       const { current } = this.state;      
       return (
         <div>
-        <a onClick={this.handleModal}>Додати центр</a>
+        <a className="btn-showmodal" 
+          onClick={this.handleModal}>Додати центр</a>
             <Modal  
             className="addCenter-modal"
             width={900}

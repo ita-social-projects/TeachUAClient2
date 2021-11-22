@@ -17,7 +17,7 @@ class Login extends React.Component  {
     render() {          
     return (
         <div>
-        <a onClick={this.handleModal}>Увійти</a>
+        <a onClick={this.handleModal} className="btn-showModal">Увійти</a>
             <Modal 
             className="login-body-modal"
             visible={this.state.showModal} 
