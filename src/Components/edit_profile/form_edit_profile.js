@@ -20,13 +20,12 @@ class FormEditProfile extends Component {
 
   render() {
     return (
-      <Form>
+      <Form style={{ maxWidth: "773px" }}>
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
         </div>
         <div className="edit-chooseRole">
           <Button type="primary" className="edit-visitor">
-            {" "}
             <UserOutlined className="logoEditProfile" />
             Відвідувач
           </Button>
