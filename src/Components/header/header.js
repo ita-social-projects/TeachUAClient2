@@ -32,7 +32,7 @@ export class header extends Component {
                         </label>
                         <input type="checkbox" id="burger-checkbox" />
                         <nav>
-                            <a href="#blank">
+                            <a href="/clubs">
                                 <img src={ProjectIcon} />
                                 Гуртки
                             </a>

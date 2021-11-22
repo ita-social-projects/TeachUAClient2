@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "bgIconTitle":"rgb(24, 144, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Американський гімнастичний клуб (American Gymnastics Club) – перша та єдина в країні мережа унікальних спортивних клубів, яка базується на Розвивальній Гімнастиці. Крім щоденних занять, в Американському гімнастичному Клубі проходять «Показові виступи» та різноманітні тематичні вечірки, які допомагають зібрати активних однодумців і популяризувати та прививати любов до спорту, перетворюючи його в стиль життя.",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 2,
+        "bgIconTitle":"rgb(255, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції22222",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 3,
+        "bgIconTitle":"rgb(24, 144, 233)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 4,
+        "bgIconTitle":"rgb(24, 16, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 5,
+        "bgIconTitle":"rgb(24, 144, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 6,
+        "bgIconTitle":"rgb(24, 144, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 7,
+        "bgIconTitle":"rgb(24, 144, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 8,
+        "bgIconTitle":"rgb(24, 144, 255)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 9,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 10,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 11,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 12,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 13,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 14,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 15,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 16,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    },
+    {
+        "id": 17,
+        "bgIconTitle":"rgb(24, 144, 17)",
+        "pathIconTitle":"./static/images/categories/sport.svg",
+        "title" : "Спортивні секції",
+        "text" : "Спортивні секції",
+        "place" : "Класичні і народні танці, брейк-данс, степ, контемп, балет та ін."
+    }
+]

@@ -1,0 +1,15 @@
+.clubs-wrapper{
+    background-image:url("../Background.png");
+    background-position:top;
+    background-size:cover;
+}
+.clubs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:auto;
+    max-width:1250px;
+    margin:0 auto;
+    padding-top: 80px;
+    padding-bottom:25px;
+}
