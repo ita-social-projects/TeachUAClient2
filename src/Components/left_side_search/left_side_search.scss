@@ -1,142 +1,171 @@
-.advancedSearch{
-    // overflow-x: hidden;
+@import "~antd/dist/antd.css";
+
+.advancedSearch {
+  display: flex;
+  width: 320px;
+  height: 1180px;
+  left: 0px;
+  top: 200px;
+
+  .advancedSearchMain {
+    margin: 0 auto;
+    width: 256px;
+    height: 100%;
+  }
+
+  .advancedSearchHeader {
     display: flex;
-    width: 320px;
-    height: 1180px;
-    left: 0px;
-    top: 200px;
-    
-    .advancedSearchMain{
-        margin: 0 auto;
-        width: 256px;
-        height: 100%;
-    }
-    
-    .advancedSearchHeader{
-        display: flex;
-        align-items: center;
-        width: 256px;
-        padding-top: 54px ;
-        margin-bottom: 40px; 
-        font-family: Open Sans;
-        font-weight: 600;
-        font-size: 24px;
-        color: #2D4C68;
-        opacity: 0.6;
-    }
-    
-    .advancedSearchTitle{
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 40px;
-        display: flex;
-        align-items: center;
-        color:  #2d4c68;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        margin: 0px 0px;
-    }
-    
-    .advancedSearchSpan{
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 22px;
-        color: #595959;
-        align-self: center;
-        flex-grow: 0;
-    }
-    
-    .advancedSearchSpanYears{
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 22px;
-        color: #595959;
-        align-self: center;
-        flex-grow: 0;
-        padding-left: 16px;
-        }
-    
-    .selectStyle{
-        width: 256px;
-        border: 1px solid #D9D9D9;
-        box-sizing: border-box;
-        border-radius: 6px;
-    }
-    
-    .imageNoData{
-        margin: 0 auto;
-        display: flex;
-        cursor: default;
-    }
-    
-    .inputChildYears{
-        display: flex;
-        width: 30px;
-        height: 40px;
+    align-items: center;
+    width: 256px;
+    padding-top: 54px;
+    margin-bottom: 40px;
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 24px;
+    color: #2d4c68;
+    opacity: 0.6;
+  }
+
+  .advancedSearchTitle {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    color: #2d4c68;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+  }
+
+  .advancedSearchSpan {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    align-self: center;
+    flex-grow: 0;
+  }
+
+  .advancedSearchSpanYears {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    align-self: center;
+    flex-grow: 0;
+    padding-left: 16px;
+  }
+
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    width: 256px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    align-items: center;
+  }
+
+  .advancedSearch .selectStyle {
+    width: 256px;
+    border: 1px solid #ee0707;
+    box-sizing: border-box;
+    border-radius: 6px;
+  }
+
+  // .advancedSearch .selectStyle{
+
+  // }
+
+  .imageNoData {
+    margin: 0 auto;
+    display: flex;
+    cursor: default;
+  }
+
+  .inputChildYears {
+    display: flex;
+    width: 30px;
+    height: 40px;
+  }
+
+  .test {
+    width: 43px;
+    height: 43px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .choice_btn_div {
+    display: none;
+    // display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .button_after_form_clear {
+      margin-top: 50px;
+      width: 120px;
+      background-color: #fdfdfd;
+      border-radius: 6px;
+      border-color: #fa8c16;
     }
 
-    .test {
-        width: 43px;
-        height: 43px;
-        border-radius: 6px;
-        text-align: center;
+    .button_after_form_check {
+      margin-top: 50px;
+      width: 120px;
+      background-color: #fa8c16;
+      border-radius: 6px;
+      border-color: #fa8c16;
     }
 
-    .choice_btn_div{
-        display: none;
-        // display: flex;
-        justify-content: space-between;
-        flex-direction: row; 
-        flex-wrap: nowrap;
-
-        .button_after_form_clear{
-            margin-top: 50px;
-            width: 120px;
-            background-color: #fdfdfd;
-            border-radius: 6px;
-            border-color: #fa8c16;
-        }
-    
-        .button_after_form_check{
-            margin-top: 50px;
-            width: 120px;
-            background-color: #fa8c16;
-            border-radius: 6px;
-            border-color: #fa8c16;
-        }
-   
-        .choice_btn_chech{
-            height: 24px;
-            font-family: Open Sans;
-            font-weight: bold;
-            font-size: 15px;
-            line-height: 24px;
-            color: #FFFFFF;
-            margin: 0px 4px;
-        }
-
-        .choice_btn_clear{
-            height: 24px;
-            font-family: Open Sans;
-            font-weight: bold;
-            font-size: 15px;
-            line-height: 24px;
-            color: #fa8c16;
-            margin: 0px 4px;
-        }
+    .choice_btn_chech {
+      height: 24px;
+      font-family: Open Sans;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 24px;
+      color: #ffffff;
+      margin: 0px 4px;
     }
 
-
-@media (min-width: 319px) and (max-width: 824px){
-    .choice_btn_div{
-        display: flex;
+    .choice_btn_clear {
+      height: 24px;
+      font-family: Open Sans;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 24px;
+      color: #fa8c16;
+      margin: 0px 4px;
     }
+  }
+
+  @media (min-width: 319px) and (max-width: 824px) {
+    .choice_btn_div {
+      display: flex;
+    }
+  }
 }
+
+.ant-checkbox-wrapper + .ant-checkbox-wrapper {
+  margin-left: 0px;
+}
+
+.ant-checkbox-wrapper {
+  margin-bottom: 2px;
+}
+
+.club-list-sider .age {
+  margin: 0 10px 0 0;
+  border: 1px solid #d9d9d9;
+  color: #595959;
+  border-radius: 6px;
+  width: 43px;
+  height: 40px;
 }
