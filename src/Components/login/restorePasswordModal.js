@@ -26,6 +26,7 @@ class RestorePasswordModal extends React.Component {
           footer={null}
           onCancel={() => this.handleModal(false)}
           centered
+          className="restore-password-modal"
         >
           <div className="login-header-text">Відновлення</div>
           <Form>

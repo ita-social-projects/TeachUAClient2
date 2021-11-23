@@ -40,7 +40,7 @@ class AddCenter_location extends React.Component {
           onCancel={() => this.handleModal(false)}
           centered
         >
-          <Content className="add-location-container" id="add">
+          <Content className="add-location-container" id="location-content">
             <div className="add-location-header">Додати локацію</div>
             <div className="add-location-content">
               <Form
@@ -93,7 +93,11 @@ class AddCenter_location extends React.Component {
                       placeholder="Виберіть місто"
                     >
                       {cities.map((city) => (
-                        <Option className="location-option" value={city.name} key={city.id}>
+                        <Option
+                          className="location-option"
+                          value={city.name}
+                          key={city.id}
+                        >
                           {city.name}
                         </Option>
                       ))}
