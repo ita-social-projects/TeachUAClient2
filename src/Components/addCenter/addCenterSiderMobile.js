@@ -5,7 +5,7 @@ import "./addCenter.scss";
 
 const { Step } = Steps;
 
-class AddCenter_siderMobile extends React.Component {
+class AddCenterSiderMobile extends React.Component {
   render() {
     return (
       <div className="sider-mobile">
@@ -62,8 +62,8 @@ class AddCenter_siderMobile extends React.Component {
   }
 }
 
-AddCenter_siderMobile.propTypes = {
+AddCenterSiderMobile.propTypes = {
   current: PropTypes.number,
 };
 
-export default AddCenter_siderMobile;
+export default AddCenterSiderMobile;

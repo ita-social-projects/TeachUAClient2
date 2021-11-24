@@ -1,9 +1,9 @@
 import React from "react";
 import { Form, Input } from "antd";
-import "./addCenter_contacts.scss";
+import "./addCenterContacts.scss";
 import contacts from "./Contact.json";
 
-class AddCenter_contacts extends React.Component {
+class AddCenterContacts extends React.Component {
   checkPrefixphone(name) {
     switch (name) {
       case "Телефон":
@@ -103,4 +103,4 @@ class AddCenter_contacts extends React.Component {
   }
 }
 
-export default AddCenter_contacts;
+export default AddCenterContacts;

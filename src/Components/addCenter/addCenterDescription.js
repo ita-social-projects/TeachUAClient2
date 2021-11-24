@@ -1,10 +1,10 @@
 import React from "react";
 import { Form, Input, Upload } from "antd";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import "./addCenter_description.scss";
+import "./addCenterDescription.scss";
 
 
-class AddCenter_description extends React.Component {
+class AddCenterDescription extends React.Component {
   render() {
     return (
       <div className="addCenter-description">
@@ -81,4 +81,4 @@ class AddCenter_description extends React.Component {
   }
 }
 
-export default AddCenter_description;
+export default AddCenterDescription;

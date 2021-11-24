@@ -4,11 +4,11 @@ import { Content } from "antd/es/layout/layout";
 import { PlusOutlined } from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import cities from "./Cities.json";
-import "./addCenter_location.scss";
+import "./addCenterLocation.scss";
 
 const { Option } = Select;
 
-class AddCenter_location extends React.Component {
+class AddCenterLocation extends React.Component {
   state = {
     showModal: false,
   };
@@ -233,4 +233,4 @@ class AddCenter_location extends React.Component {
   }
 }
 
-export default AddCenter_location;
+export default AddCenterLocation;

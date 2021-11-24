@@ -1,10 +1,10 @@
 import React from "react";
 import { Form, Input, Tooltip } from "antd";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
-import "./addCenter_main.scss";
-import AddCenter_location from "./addCenter_location";
+import "./addCenterMain.scss";
+import AddCenterLocation from "./addCenterLocation";
 
-class AddCenter_main extends React.Component {
+class AddCenterMain extends React.Component {
   render() {
     return (
       <div className="main-info">
@@ -49,7 +49,7 @@ class AddCenter_main extends React.Component {
               ]}
             ></Form.Item>
 
-            <AddCenter_location />
+            <AddCenterLocation />
           </div>
         </Form>
       </div>
@@ -57,4 +57,4 @@ class AddCenter_main extends React.Component {
   }
 }
 
-export default AddCenter_main;
+export default AddCenterMain;

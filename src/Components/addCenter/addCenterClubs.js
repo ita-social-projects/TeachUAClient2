@@ -1,8 +1,8 @@
 import React from "react";
 import { Form } from "antd";
-import "./addCenter_clubs.scss";
+import "./addCenterClubs.scss";
 
-class AddCenter_clubs extends React.Component {
+class AddCenterClubs extends React.Component {
   render() {
     return (
       <div>
@@ -30,4 +30,4 @@ class AddCenter_clubs extends React.Component {
   }
 }
 
-export default AddCenter_clubs;
+export default AddCenterClubs;

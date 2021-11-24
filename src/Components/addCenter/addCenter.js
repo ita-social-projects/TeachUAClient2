@@ -1,10 +1,10 @@
 import React from "react";
 import { Modal, Steps, Button } from "antd";
-import AddCenter_main from "./addCenter_main";
-import AddCenter_contacts from "./addCenter_contacts";
-import AddCenter_description from "./addCenter_description";
-import AddCenter_clubs from "./addCenter_clubs";
-import AddCenter_siderMobile from "./addCenter_siderMobile";
+import AddCenterMain from "./addCenterMain";
+import AddCenterContacts from "./addCenterContacts";
+import AddCenterDescription from "./addCenterDescription";
+import AddCenterClubs from "./addCenterClubs";
+import AddCenterSiderMobile from "./addCenterSiderMobile";
 import "./addCenter.scss";
 
 const { Step } = Steps;
@@ -80,17 +80,17 @@ class AddCenter extends React.Component {
                   <Step key={item.title} title={item.title} />
                 ))}
               </Steps>
-              <AddCenter_siderMobile current={this.state.current} />
+              <AddCenterSiderMobile current={this.state.current} />
             </div>
 
             <div className="addCenter-content">
               <h3 className="modal-title">Додати центр</h3>
               {this.state.current < steps.length && (
                 <div className="addCenter-main">
-                  {this.state.current === 0 && <AddCenter_main />}
-                  {this.state.current === 1 && <AddCenter_contacts />}
-                  {this.state.current === 2 && <AddCenter_description />}
-                  {this.state.current === 3 && <AddCenter_clubs />}
+                  {this.state.current === 0 && <AddCenterMain />}
+                  {this.state.current === 1 && <AddCenterContacts />}
+                  {this.state.current === 2 && <AddCenterDescription />}
+                  {this.state.current === 3 && <AddCenterClubs />}
 
                   {this.state.current < steps.length - 1 && (
                     <div>
