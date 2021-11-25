@@ -48,6 +48,9 @@ const log = (
     <Menu.Item>
       <AddCenter/>
     </Menu.Item>
+    <Menu.Item>
+            <a href="/profile">Профіль </a>
+    </Menu.Item>
   </Menu>
 );
 

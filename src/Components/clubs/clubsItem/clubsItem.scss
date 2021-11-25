@@ -38,6 +38,8 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         margin:0 0 0 7px;
+        text-overflow: ellipsis;
+        max-width:186px;
     }
     .title__img{
         display:flex;
@@ -119,7 +121,7 @@
     padding: 4px 15px;
     width: 99%;
     height: 40px;
-    border-color: #fa8c16;
+    border:1px solid #fa8c16;
     border-radius: 5px;
     color: #fa8c16;
     font-weight: 600;
