@@ -7,13 +7,10 @@ import { Radio, Select, Checkbox, Col, Input } from "antd";
 const { Option } = Select;
 
 class LeftSearch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             show: true,
         }
-
-    }
+  
     toggleRadioChange = () => {
         this.setState({ show: false })
     }
@@ -50,11 +47,11 @@ class LeftSearch extends Component {
                             </Select>
                         </label>
                         <p className='advancedSearchTitle'>Район міста</p>
-                        <Select placeholder="Виберіть місто" className='selectStyle'>
+                        <Select placeholder="Виберіть район" className='selectStyle'>
                             <Option value="kyiv"><img className='imageNoData' src={no_data} /></Option>
                         </Select>
                         <p className='advancedSearchTitle'>Найближча станція метро</p>
-                        <Select placeholder="Виберіть місто" className='selectStyle'>
+                        <Select placeholder="Виберіть станцію" className='selectStyle'>
                             <Option value="kyiv"><img className='imageNoData' src={no_data} /></Option>
                         </Select>
                         {this.state.show ?
