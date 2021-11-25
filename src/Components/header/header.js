@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Registration from '../registration/Registration'
+import Login from '../login/login'
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";
@@ -11,8 +13,6 @@ import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Menu, Dropdown } from "antd";
-import Login from "../login/login";
-import Registration from "../registration/Registration";
 import "./header.scss";
 import PropTypes from 'prop-types';
 import Profile from "../edit_profile/profile"
@@ -32,7 +32,7 @@ export class header extends Component {
                         </label>
                         <input type="checkbox" id="burger-checkbox" />
                         <nav>
-                            <a href="#blank">
+                            <a href="/clubs">
                                 <img src={ProjectIcon} />
                                 Гуртки
                             </a>

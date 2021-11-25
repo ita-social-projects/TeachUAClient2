@@ -5,7 +5,9 @@ import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
+import Clubs from './Components/clubs/clubs';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
+import Add_Club from './Components/add_Club/Add_Club';
 
 class App extends Component {
     state = {
@@ -25,7 +27,7 @@ class App extends Component {
                 </div>
                 <Switch>
                     <Route path="/" exact component={() => (<MainPage />)} />
-                    <Route path="/clubs" component={() => (<div>Clubs Route</div>)} />
+                    <Route path="/clubs" component={() => (<Clubs/>)} />
                     <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
