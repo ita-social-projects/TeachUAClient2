@@ -1,9 +1,10 @@
 import React from 'react'
 import { Form,  Upload,Input } from "antd";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import './add_Club_description.modules.scss'
+import './addClubdescription.modules.scss'
+import AddClubGalery from './AddClubGalery';
 
-class add_Club_description extends React.Component{
+class AddClubDescriptipn extends React.Component{
     state={
         fileList:[]
     }
@@ -59,24 +60,7 @@ class add_Club_description extends React.Component{
                 className="add-club-row"
                 label="Галерея"
                 hasFeedback>
-                <Upload
-                accept="image/png,image/jpeg,image/jpg,image/svg"
-                listType="picture-card"
-                fileList={this.state.fileList}
-                //onPreview={handlePreview}
-                onChange={this.handleChange}
-                beforeUpload={() => false}
-                >
-                {/*fileList.length >= 5 ? null : uploadButton*/}
-            </Upload>
-{/*
-            <Modal
-                visible={previewVisible}
-                title={previewTitle}
-                footer={null}
-                onCancel={handleCancel}>
-                <img alt="example" style={{ width: '100%' }} src={previewImage} />
-</Modal>*/}
+                    <AddClubGalery/>
             </Form.Item>
             <Form.Item name="description"
                 className="add-club-row"
@@ -102,4 +86,4 @@ class add_Club_description extends React.Component{
     }
 }
 
-export default add_Club_description
+export default AddClubDescriptipn

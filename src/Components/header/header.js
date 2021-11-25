@@ -14,6 +14,7 @@ import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Menu, Dropdown } from "antd";
 import "./header.scss";
+import AddClub from '../add_Club/AddClub';
 export class header extends Component {
   render() {
     return (
@@ -103,6 +104,9 @@ const log = (
     </Menu.Item>
     <Menu.Item>
       <Login/>
+    </Menu.Item>
+    <Menu.Item>
+    <AddClub/>
     </Menu.Item>
   </Menu>
   

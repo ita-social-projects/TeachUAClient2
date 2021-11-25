@@ -2,13 +2,13 @@ import React from "react";
 import {Form,Input,Tooltip,Select,Button} from "antd";
 import { PhoneOutlined} from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
-import cities from './data/Cities.json'
-import './Add_Club_contact_location.modules.scss'
+import cities from '../../data/Cities.json'
+import './addClubContactLocation.modules.scss'
 
 
 const {Option} = Select;
 
-class Add_Club_contact_location extends React.Component{
+class AddClubContactLocation extends React.Component{
 /*
     onChange=(e)=>{
         console.log(e.value);
@@ -200,4 +200,4 @@ class Add_Club_contact_location extends React.Component{
 }
 
 
-export default Add_Club_contact_location
+export default AddClubContactLocation
