@@ -1,41 +1,43 @@
-.restore-password-button {
-    color:#fa8c16;
-    position: static;
-    font-size: 18px;
-    text-decoration: underline;
-}
 
-
-.restore-password-section {
+.addCenter-logo {
     display: flex;
-    justify-content: center;
-    padding-top: 35px;
-}
+    flex-direction: row;
+    padding-left: 16px;
+} 
 
-.restore-password-form {
-    width: 75%;
+.upload-field {
     display: flex;
-    align-items: center;
+    align-items: start;
 }
 
-
-.restore-password-input {
-    height: 40px;
-    border-radius: 6px;    
+.upload-icon {
+    padding-right: 5px;
 }
 
-.restore-password-footer {
+.description-field {
     display: flex;
-    justify-content: center;
-    padding-top: 15px;
+    flex-direction: row;
+    padding: 0 50px 20px 16px;
 }
 
-.restore-password-section {
-    .anticon-mail {
-        color: #8c8c8c;
-        z-index: 10;
-        font-size: 17px;
-        width: 20px;
+.editor-textarea {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.addCenter-description {
+    .ant-form-item-label {
+        text-align: left;
+    }
+
+    .ant-upload {
+        color: #2e69c9;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
     }
 
     .ant-input-focused,

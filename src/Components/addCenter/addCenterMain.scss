@@ -1,0 +1,83 @@
+.main-info {
+
+    .form-fields {
+        display: flex;   
+        width: 100%;
+        flex-direction: column;
+    }
+
+
+    .name-Center label {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 40px;
+        color: #2d4c68;
+        display: flex;
+    }
+
+    .ant-form-item {
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px 0 20px;
+    }
+
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+        display: inline-block;
+        margin-right: 4px;
+        color: #ff4d4f;
+        font-size: 14px;
+        font-family: "SimSun,sans-serif";
+        line-height: 1;
+        content: "*";
+    }
+
+    .ant-input-affix-wrapper > input.ant-input {
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        box-sizing: border-box;
+        border-radius: 6px;
+        outline:none;
+    }
+
+    .add-location-btn {
+        font-family: "Open Sans";
+        font-weight: 600;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #fa8c16 !important;
+        border: none;
+        padding-bottom: 250px;
+    }
+
+    .ant-input-focused,
+    .ant-input:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input:hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+    }
+    .ant-input-affix-wrapper:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        z-index: 1;
+    }
+    .ant-input-affix-wrapper-focused {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg 0% 100% / 20%);
+    }
+}
