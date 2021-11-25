@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Steps} from 'antd';
-import './add_Club_Mobileslider.modules.scss'
+import './addClubMobileslider.modules.scss'
 
 const { Step } = Steps;
 
-class Add_Club_Mobileslider extends React.Component {
+class AddClubMobileslider extends React.Component {
     render() {
         return (
             <Steps
@@ -14,7 +14,7 @@ class Add_Club_Mobileslider extends React.Component {
                 current={this.props.current}
             //direction="vertical"
             >
-                <Step style={{ display: this.props.current == 0 ? "block" : "none" }} title="Основна інформація" />
+                <Step id='add_club_mainIfo' style={{  display: this.props.current == 0 ? "block" : "none" }} title="Основна інформація" />
                 <Step style={{ display: (this.props.current == 0 || this.props.current == 1 || this.props.current == 2) ? "block" : "none", textAlign:(this.props.current == 0)?"right":"left" }} title="Контакти" />
                 <Step style={{ display: (this.props.current == 1 || this.props.current == 2) ? "block" : "none" }} title="Опис" />
                 {/*steps.map(item => (
@@ -25,9 +25,9 @@ class Add_Club_Mobileslider extends React.Component {
     }
 }
 
-Add_Club_Mobileslider.propTypes = {
+AddClubMobileslider.propTypes = {
     current: PropTypes.number,
    
 };
 
-export default Add_Club_Mobileslider
+export default AddClubMobileslider

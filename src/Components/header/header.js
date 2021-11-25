@@ -51,6 +51,9 @@ const log = (
     <Menu.Item>
             <a href="/profile">Профіль </a>
     </Menu.Item>
+    <Menu.Item>
+    <AddClub/>
+    </Menu.Item>
   </Menu>
 );
 
