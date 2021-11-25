@@ -185,11 +185,18 @@
         .profile-information-block{
             width:100%;
             height:100%;
-
+            .button_menu{
+                margin-bottom: 40px;}
         }
      }         
 }
-@media (min-width: 0px) and (max-width: 685px){
+@media (min-width: 0px) and (max-width: 850px){
+    .my_profile_text{
+        display:none;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 655px){
     .profile{
         .profile-office-block{
             display:flex;
@@ -207,3 +214,4 @@
         }
      }         
 }
+

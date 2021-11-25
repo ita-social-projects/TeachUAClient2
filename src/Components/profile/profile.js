@@ -28,7 +28,7 @@ class Profile extends React.Component {
         </div>
         <div className="profile-information-block">
           <div className="profile-information-block__wrapper">
-            <h2>Мій профіль</h2>
+            <h2 className="my_profile_text">Мій профіль</h2>
             <div className="profile-information-block__card">
               <div className="profile-information-block__content-left">
                 <div className="profile-information-block__name-wrapper">

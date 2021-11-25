@@ -9,7 +9,6 @@ import Clubs from './Components/clubs/clubs';
 import Profile from './Components/profile/profile';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 
-
 class App extends Component {
     constructor(props) {
         super(props);

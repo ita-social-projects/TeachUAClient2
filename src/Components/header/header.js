@@ -17,8 +17,6 @@ import { Menu, Dropdown } from "antd";
 import "./header.scss";
 import PropTypes from 'prop-types';
 
-
-
 export class header extends Component {
     render() {
         console.log(this.props);
