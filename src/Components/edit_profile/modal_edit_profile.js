@@ -1,5 +1,5 @@
 import React from "react";
-import { Component } from "react/cjs/react.production.min";
+import { Component } from "react";
 import { Modal } from "antd";
 import FormEditProfile from "./form_edit_profile";
 import "antd/dist/antd.css";
