@@ -13,11 +13,10 @@ import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Menu, Dropdown } from "antd";
-
 import "./header.scss";
 import PropTypes from 'prop-types';
-import Login from "../login/login";
-import Registration from "../registration/Registration";
+import Profile from "../edit_profile/profile"
+import MenuItem from "antd/lib/menu/MenuItem";
 
 
 export class header extends Component {
@@ -108,6 +107,9 @@ const log = (
         <Menu.Item>
             <Registration />
         </Menu.Item>
+        <MenuItem>
+            <Profile />
+        </MenuItem>
         <Menu.Item>
             <Login />
         </Menu.Item>
