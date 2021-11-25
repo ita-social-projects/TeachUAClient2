@@ -4,11 +4,26 @@ import "./profile.scss";
 import logo from "./avatar.svg";
 import mail from "./mail.svg";
 import profile from "./Vector.svg";
-import { DownOutlined } from "@ant-design/icons";
-
+import { DownOutlined ,ArrowRightOutlined, PlusOutlined} from "@ant-design/icons";
+import { Menu, Dropdown } from 'antd';
 
 class Profile extends React.Component {
   render() {
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+            гуртки
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+            центри
+          </a>
+        </Menu.Item>
+
+      </Menu>
+    );
     return (
       <div className="profile">
         <div className="profile-office-block">
@@ -52,19 +67,25 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className="profile-information-block__content-right">
-                <a href="#blank">Редагувати профіль &rang;</a>
+                <a href="#blank">Редагувати профіль <ArrowRightOutlined /></a>
               </div>
             </div>
-            <div className="button_menu">
-              <div className="change_clubs">
-                <h2>Мої &nbsp;</h2>
-                <button>
-                  <span className="button_text_clubs">гуртки</span>
-                  <span>
-                    <DownOutlined style={{ color: "silver" }} />
-                  </span>
-                </button>
-              </div>
+            <div className="club-wrapper">
+                <div className="change_clubs">
+                  <h2>Мої &nbsp;</h2>
+                  <Dropdown overlay={menu}>
+                   <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                      <span>гуртки </span><DownOutlined />
+                     </a>
+                  </Dropdown>
+                </div>
+                <div className="button-add">
+                  <Dropdown overlay={menu}>
+                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                    <PlusOutlined /><span>Додати </span>
+                      </a>
+                  </Dropdown>
+                </div>
             </div>
           </div>
         </div>
