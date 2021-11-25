@@ -49,7 +49,14 @@ module.exports = {
                     options: {
                         limit: 100000,
                     }
-                }],
+                },
+                {
+                    loader: '@svgr/webpack',
+                    options: {
+                      babel: false,
+                      icon: true,
+                    },
+                  }],
             },
         ]
     },
