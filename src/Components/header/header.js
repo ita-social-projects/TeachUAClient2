@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
-import Profile from "../edit_profile/profile"
+import Profile from "../edit_profile/profile";
+import AddClub from "../add_Club/AddClub";
+import Administration_menu from "../administration_menu/administration_menu";
 
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";
@@ -19,6 +21,7 @@ import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import "./header.scss";
+
 
 const menu = (
     <Menu>
@@ -54,6 +57,12 @@ const log = (
     <Menu.Item>
     <AddClub/>
     </Menu.Item>
+    <Menu.Item>
+    <Administration_menu />
+    </Menu.Item>
+    
+    
+
   </Menu>
 );
 
