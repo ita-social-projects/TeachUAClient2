@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
-import Profile from "../edit_profile/profile"
+import Profile from "../edit_profile/profile";
+import AddClub from "../add_Club/AddClub"
+import Categories from "../admin/categories"
 
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";
@@ -53,6 +55,9 @@ const log = (
     </Menu.Item>
     <Menu.Item>
     <AddClub/>
+    </Menu.Item>
+    <Menu.Item>
+    <Categories/>
     </Menu.Item>
   </Menu>
 );
