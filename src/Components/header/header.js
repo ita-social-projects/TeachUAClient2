@@ -7,7 +7,7 @@ import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
 import Profile from "../edit_profile/profile";
 import AddClub from "../add_Club/AddClub";
-import AdministrationMenu from "../administration_menu/administration_menu";
+import AdministrationMenu from "../administrationMenu/administrationMenu";
 
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";

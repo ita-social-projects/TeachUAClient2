@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
-import "./administration_menu.scss";
+import "./administrationMenu.scss";
 
 const { SubMenu } = Menu;
 
