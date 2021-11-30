@@ -8,6 +8,7 @@ import MainPage from './Components/mainPage/mainPage';
 import Clubs from './Components/clubs/clubs';
 import Profile from './Components/profile/profile';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
+import ImportData from './Components/administration_menu/importData/ImportData';
 
 class App extends Component {
     state = {
@@ -21,14 +22,16 @@ class App extends Component {
     render() {
         return (
             <Router>
+                
                 <div className="App">
                     <Header toggleSideSearch={this.toggleSideSearch} />
                     {this.state.show ? <LeftSearch /> : null}
                 </div>
-                
+           
                 <Switch>
                     <Route path="/" exact component={() => (<MainPage />)} />
                     <Route path="/clubs" component={() => (<Clubs/>)} />
+                    <Route path="/import" component={ImportData} />
                     <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
