@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
 import "./administrationMenu.scss";
+import AdministrationImport from "./administrationImport/administrationImport";
 
 const { SubMenu } = Menu;
 
@@ -17,7 +18,7 @@ class AdministrationMenu extends Component {
           <Menu.Item className='sub-menu-administration' key="5">Контакти</Menu.Item>
           <Menu.Item className='sub-menu-administration' key="6">Користувачі</Menu.Item>
           <Menu.Item className='sub-menu-administration' key="7">FAQ</Menu.Item>
-          <Menu.Item className='sub-menu-administration' key="8">Імпортувати дані</Menu.Item>
+          <Menu.Item className='sub-menu-administration' key="8"> <AdministrationImport /> Імпортувати дані</Menu.Item>
           <Menu.Item className='sub-menu-administration' key="9">Експортувати дані</Menu.Item>
           <Menu.Item className='sub-menu-administration' key="10">Підтвердження</Menu.Item>
           <Menu.Item className='sub-menu-administration' key="11">Зміна власника</Menu.Item>
