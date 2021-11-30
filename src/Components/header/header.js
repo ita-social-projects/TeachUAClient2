@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
-import Profile from "../edit_profile/profile";
 import AddClub from "../add_Club/AddClub";
 import AdministrationMenu from "../administrationMenu/administrationMenu";
 
@@ -44,9 +43,6 @@ const log = (
     </Menu.Item>
     <Menu.Item>
       <Login/>
-    </Menu.Item>
-    <Menu.Item>
-      <Profile/>
     </Menu.Item>
     <Menu.Item>
       <AddCenter/>
