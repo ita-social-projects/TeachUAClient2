@@ -1,0 +1,56 @@
+.import-data-content {
+  display: flex;
+  flex-direction: column;
+  height: 396px;
+  max-width: 1192px;
+  margin: 0 auto;
+
+  .load-excel-text p {
+    font-size: 16px;
+    color: #002766;
+  }
+
+  .buttons-upload-send {
+    display: flex;
+    margin: 0 auto;
+    .upload-excel,
+    .send-to-base {
+      background: #fff;
+      border: none;
+      color: #fa8c16;
+      font-weight: 700;
+    }
+    .upload-excel:hover {
+      background: #fa8c16;
+      color: #fff;
+    }
+
+    .send-to-base:hover {
+      background: #fa8c16;
+      color: #fff;
+    }
+  }
+
+  .last-text {
+    display: flex;
+    flex-direction: column;
+    color: grey;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .load-excel-text p {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .buttons-upload-send {
+    display: flex;
+    flex-direction: column;
+  }
+}

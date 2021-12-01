@@ -8,6 +8,7 @@ import MainPage from './Components/mainPage/mainPage';
 import Clubs from './Components/clubs/clubs';
 import Profile from './Components/profile/profile';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
+import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
 
 class App extends Component {
     state = {
@@ -33,6 +34,7 @@ class App extends Component {
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
                     <Route path="/profile" component={() => (<Profile />)} />
+                    <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />
