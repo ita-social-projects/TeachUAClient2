@@ -1,0 +1,122 @@
+.addClub__headerSmallscreen,
+.steps__items_small {
+    display: none;
+}
+
+.add_club_btn_next,
+.add_club_btn_finish {
+    background-color: #fa8c16;
+    border: none;
+    border-radius: 6px;
+}
+.add_club_btn_next:hover,
+.add_club_btn_finish:hover,
+.ant-btn-primary:hover{
+    background-color: #fa8c16;
+    border: none;
+    border-radius: 6px;
+}
+.add_club_btn_back {
+    margin: 0 8px;
+    border:none;
+    font-weight: 600;
+    color: #fa8c16;
+    cursor: pointer;
+    font-size: 16px;
+}
+.add_club_btn_back:hover{
+    margin: 0 8px;
+    border:none;
+    font-weight: 600;
+    color: #fa8c16;
+    cursor: pointer;
+    font-size: 16px;
+}
+.steps {
+    display: flex;
+    .steps-action {
+        
+        .addClub__headerBigscreen {
+            font-weight: 700;
+            font-size: 24px;
+            color: #2d4c68;
+        }
+    }
+    .steps__number {
+        flex: 1;
+        width: 255px;
+        .steps__items {
+            display: flex;
+            flex-direction: column;
+            .ant-steps-item-process {
+                .ant-steps-item-icon {
+                    background-color: #e8e8e8;
+                    border: none;
+                    span {
+                        color: #2d4c68;
+                    }
+                }
+            }
+            .ant-steps-item-finish,
+            .ant-steps-item-active {
+                .ant-steps-item-icon {
+                    background-color: #fa8c16;
+                    border: none;
+                    span {
+                        color: white;
+                    }
+                }
+            }
+            .ant-steps-item {
+                margin-left: 0;
+                margin-top: 10px;
+                padding-left: 0;
+            }
+        }
+        .ant-steps-item-title::after{
+            display: none;
+        }
+    }
+    .steps-action {
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        .add_club_btn {
+            display: flex;
+            justify-content: space-between;
+        }
+        .add_club_main {
+            .add_club_btn {
+                justify-content: end;
+            }
+        }
+    }
+}
+.ant-input-focused,
+.ant-input:focus,
+.ant-input-number-focused,
+.ant-select-focused,
+.ant-select-open,
+.ant-input-number-input-wrap
+{
+    border-color: #d9d9d9;
+    border-right-width: 1px !important;
+    outline: 0;
+    box-shadow:none; 
+}
+
+
+.ant-input:hover 
+{
+    border-color: #d9d9d9;
+    border-right-width: 1px !important;
+    outline: 0;
+    box-shadow:none
+}
+
+
+@media (max-width: 577px) {
+    .addClub__headerSmallscreen {
+        display: block;
+    }
+}

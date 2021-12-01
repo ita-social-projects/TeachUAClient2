@@ -1,16 +1,16 @@
 
 import React from "react";
-import './add_Club_contact.modules.scss'
+import './addClubContact.modules.scss'
 import { Form, Modal, Switch, Tooltip, Input } from 'antd';
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 
-import Add_Club_contact_location from "./Add_Club_contact_location";
+import AddClubContactLocation from "./AddClubContactLocation";
 //import PropTypes from 'prop-types';
-import contacts from './data/Contact.json'
+import contacts from '../../data/Contact.json'
 //import MaskIcon from "./MaskIcon";
 
 
-class Add_club_contact extends React.Component {
+class AddClubContact extends React.Component {
     state = {
         showModallocation: false
     }
@@ -85,7 +85,7 @@ class Add_club_contact extends React.Component {
                     visible={this.state.showModallocation}
                     onCancel={() => { this.setState({ showModallocation: !this.state.showModallocation }) }}
                     footer={null}>
-                    <Add_Club_contact_location />
+                    <AddClubContactLocation />
                 </Modal>
                 <div className="add-club-inline">
                     <Form.Item name="isOnline"
@@ -112,6 +112,7 @@ class Add_club_contact extends React.Component {
                             className='contact__socialItems'
                             name={contact.name}
                             key={contact.id}
+                            style={{background: "#D9D9D9"}}
                             rules={
                                 this.checkСontacts(contact)
                             }
@@ -135,8 +136,8 @@ class Add_club_contact extends React.Component {
         )
     }
 }
-Add_club_contact.PropTypes = {
+AddClubContact.PropTypes = {
 
 }
 
-export default Add_club_contact
+export default AddClubContact

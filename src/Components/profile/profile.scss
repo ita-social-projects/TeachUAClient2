@@ -185,9 +185,14 @@
         }
         .profile-information-block__content-right {
           a {
+            display:flex;
             font-weight: 600;
             font-size: 16px;
             color: #2e69c9;
+            
+            svg{
+              margin-top: 6px;
+            }
           }
         }
       }
@@ -296,4 +301,3 @@
      
   }
 }
-

@@ -1,11 +1,11 @@
 import { Modal } from "antd";
 import React from "react";
 import { Steps, Button, message } from 'antd';
-import '../add_Club/add_Club.modules.scss'
-import Add_Club_main from './Add_Club_main';
-import Add_club_contact from "./Add_Club_contact";
-import Add_Club_description from "./add_Club_descrippion/Add_Club_descriptipn";
-import Add_Club_Mobileslider from "./add_Club_Mobileslider/Add_Club_Mobileslider";
+import '../add_Club/addClub.modules.scss'
+import AddClubMain from './addClubSteps/addClubMain/AddClubMain';
+import AddClubContact from "./addClubSteps/addClubContact/AddClubContact";
+import AddClubDescriptipn from "./addClubSteps/addClubDescrippion/AddClubDescriptipn";
+import AddClubMobileslider from "./addClubMobileslider/AddClubMobileslider";
 
 
 
@@ -31,7 +31,7 @@ const { Step } = Steps;
     },
 ];*/
 
-class Add_Club extends React.Component {
+class AddClub extends React.Component {
     state = {
         showModal: false,
         current: 0,
@@ -64,10 +64,10 @@ class Add_Club extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={() => { this.handleOk(); }}>Open</button>
+                <a onClick={() => { this.handleOk(); }}>Додати гурток</a>
                 <Modal
                     className='addClub__modal'
-                    width={900}
+                    width={1100}
                     visible={this.state.showModal}
                     onCancel={() => { this.setState({ showModal: !this.state.showModal }) }}
                     footer={null}>
@@ -87,7 +87,7 @@ class Add_Club extends React.Component {
                                     <Step key={item.title} title={item.title} />
                                 ))*/}
                             </Steps>
-                            <Add_Club_Mobileslider current={this.state.current}/>
+                            <AddClubMobileslider current={this.state.current}/>
                         </div>
                         {/*<div className="steps-content">{steps[this.state.current].content}</div>*/}
 
@@ -95,7 +95,7 @@ class Add_Club extends React.Component {
                             <h3 className='addClub__headerBigscreen'>Додати гурток</h3>
                             {this.state.current === 0 && (
                                 <div className='add_club_main'>
-                                    <Add_Club_main />
+                                    <AddClubMain />
                                     <div className='add_club_btn'>
                                         <Button
                                             className='add_club_btn_next'
@@ -109,7 +109,7 @@ class Add_Club extends React.Component {
                             )}
                             {this.state.current === 1 && (
                                 <div className='add_club_contact'>
-                                    <Add_club_contact />
+                                    <AddClubContact />
                                     <div className='add_club_btn'>
 
                                         <Button
@@ -132,7 +132,7 @@ class Add_Club extends React.Component {
                             {this.state.current === 2 && (
                                 <div className='add_club_description'>
 
-                                    <Add_Club_description />
+                                    <AddClubDescriptipn />
 
 
                                     <div className='add_club_btn'>
@@ -164,4 +164,4 @@ class Add_Club extends React.Component {
 }
 
 
-export default Add_Club;
+export default AddClub;

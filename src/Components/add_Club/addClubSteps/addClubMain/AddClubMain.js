@@ -1,6 +1,6 @@
 import { Form, Input,Checkbox, InputNumber,Select } from 'antd';
 import React from "react";
-import './add_Club_main.modules.scss'
+import './addClubMain.modules.scss'
 /*
 const layout = {
     labelCol: {
@@ -78,7 +78,19 @@ const centers=[
 ]
 
 
-class Add_Club_main extends React.Component {
+class AddClubMain extends React.Component {
+
+    onKeyPress = (event) => {
+        const specialCharRegex = /^\d+$/;
+        const pressedKey = String.fromCharCode(
+            !event.charCode ? event.which : event.charCode
+        );
+        if (!specialCharRegex.test(pressedKey)) {
+            event.preventDefault();
+            return false;
+        }
+    };
+
     onFinish = (values) => {
         console.log(values);
     };
@@ -90,7 +102,7 @@ class Add_Club_main extends React.Component {
                 onFinish={this.onFinish}
                 noValidate>
                 <Form.Item name="name"
-                    className="add-club-row"
+                    className="add-club-row add_club_decoration"
                     label="Назва"
                     hasFeedback
                     rules={[
@@ -109,11 +121,11 @@ class Add_Club_main extends React.Component {
                         //     message: "Некоректна назва гуртка",
                         // }
                     ]}>
-                    <Input className="add-club-input"
+                    <Input className="add-club-input "
                         placeholder="Назва гуртка" />
                 </Form.Item>
                 <Form.Item name="categories"
-                    className="add-club-row"
+                    className="add-club-row  add_club_decoration"
                     label="Категорія"
                     hasFeedback
                     rules={[
@@ -123,11 +135,11 @@ class Add_Club_main extends React.Component {
                         }]}>
                     <Checkbox.Group className="add-club-categories">
                         {categories.map(category => <Checkbox
-                         key={category.id} width={100}   value={category.name}>{category.name}</Checkbox>)}
+                         key={category.id} width={100} className='add-club-categories-item'   value={category.name}>{category.name}</Checkbox>)}
                     </Checkbox.Group>
                 </Form.Item>
                 <Form.Item label="Вік дитини"
-                       className="add-club-row"
+                       className="add-club-row add_club_decoration"
                        hasFeedback
                       // validateStatus={ageValidateStatus}
                        >
@@ -149,8 +161,9 @@ class Add_Club_main extends React.Component {
                     <Form.Item name="ageTo"
                                style={{margin: 0}}>
                         <InputNumber onChange={console.log(this.value)}
-                                     //onKeyPress={onKeyPress}
+                                     onKeyPress={this.onKeyPress}
                                      className="input-age"
+                                     id='addClubAge'
                                      placeholder="18"
                                      min={3}
                                      max={18}
@@ -161,7 +174,8 @@ class Add_Club_main extends React.Component {
                 </span>
             </Form.Item>
             <Form.Item name="centerId"
-                       className="add-club-row"
+                    id='belongingCenter'
+                       className="add-club-row add_club_decoration"
                        label="Приналежність до центру">
                 <Select
                     className="add-club-select"
@@ -178,4 +192,4 @@ class Add_Club_main extends React.Component {
     }
 }
 
-export default Add_Club_main
+export default AddClubMain
