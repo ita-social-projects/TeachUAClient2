@@ -38,7 +38,7 @@ class App extends Component {
                     <Route path="/profile" component={() => (<Profile />)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
-                    <Route path="dev/admin/questions" component={() => (<AdministrationFaq />)} />
+                    <Route path="/dev/admin/questions" component={() => (<AdministrationFaq />)} />
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />
