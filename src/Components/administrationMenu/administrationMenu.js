@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
 import "./administrationMenu.scss";
@@ -43,7 +43,10 @@ class AdministrationMenu extends Component {
             Експортувати дані
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="10">
-            Підтвердження
+            <NavLink to='/dev/admin/confirmation'>
+              Підтвердження
+            </NavLink>
+            
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="11">
             Зміна власника
