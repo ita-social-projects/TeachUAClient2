@@ -43,13 +43,10 @@ class AdministrationMenu extends Component {
             Експортувати дані
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="10">
-            <NavLink to='/dev/admin/confirmation'>
-              Підтвердження
-            </NavLink>
-            
+            <NavLink to="/dev/admin/confirmation">Підтвердження</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="11">
-            Зміна власника
+            <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="1">
             Міста
