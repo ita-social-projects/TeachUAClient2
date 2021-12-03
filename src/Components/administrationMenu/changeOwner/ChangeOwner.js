@@ -8,39 +8,50 @@ const columns = [
   {
     title: "ID",
     dataIndex: "id",
-    key: "id",
+
     width: "10%",
     sorter: (a, b) => a.id - b.id,
   },
   {
     title: "Назва",
     dataIndex: "name",
-    key: "name",
+
     width: "40%",
   },
   {
     title: "Власник",
     dataIndex: "age",
-    key: "age",
+
     width: "25%",
   },
   {
     title: "Місто",
     dataIndex: "address",
-    key: "address",
+
     width: "25%",
   },
 ];
 
 class ChangeOwner extends React.Component {
-    state = {
-        selectedRowKeys: [], // Check here to configure the default column
-      };
+  state = {
+    selectedRowKeys: [],
+    owners: [], // Check here to configure the default column
+  };
+  componentDidMount() {
+    let _owners = owners.map((element) => {
+      element.key = element.id;
+      return element;
+    });
+    this.setState({'owners':_owners});
+  }
+
+  onSelectChange = (selectedRowKeys, row) => {
     
-      onSelectChange = selectedRowKeys => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
-        this.setState({ selectedRowKeys });
-      };
+    console.log(row);
+    console.log("selectedRowKeys changed: ", selectedRowKeys);
+    this.setState({ selectedRowKeys });
+  };
+
   render() {
     const { selectedRowKeys } = this.state;
     const rowSelection = {
@@ -50,18 +61,18 @@ class ChangeOwner extends React.Component {
         Table.SELECTION_ALL,
         Table.SELECTION_INVERT,
         Table.SELECTION_NONE,
-
       ],
     };
+
     return (
       <div>
         <Table
-          dataSource={owners}
+          dataSource={this.state.owners}
           columns={columns}
           id="confirmationTable"
           bordered
           rowSelection={rowSelection}
-          footer={()=><ChangeOwnerFooter/>}
+          footer={() => <ChangeOwnerFooter />}
         ></Table>
       </div>
     );
