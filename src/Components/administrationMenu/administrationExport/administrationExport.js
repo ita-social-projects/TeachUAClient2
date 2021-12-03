@@ -7,7 +7,7 @@ class AdministrationExportData extends Component {
   render() {
     return (
       <div>
-        <a        href={linkHost, '/dev/admin/export-database.html'} download>
+        <a href={linkHost, '/dev/admin/export-database.html'} download>
         </a>
       </div>
     );

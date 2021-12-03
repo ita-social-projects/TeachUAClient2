@@ -8,8 +8,6 @@ import AdministrationExportData from "./administrationExport/administrationExpor
 
 const { SubMenu } = Menu;
 
-
-
 class AdministrationMenu extends Component {
   render() {
     return (
