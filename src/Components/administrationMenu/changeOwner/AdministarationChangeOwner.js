@@ -32,7 +32,7 @@ const columns = [
   },
 ];
 
-class ChangeOwner extends React.Component {
+class AdministarationChangeOwner extends React.Component {
   state = {
     selectedRowKeys: [],
     owners: [], // Check here to configure the default column
@@ -79,4 +79,4 @@ class ChangeOwner extends React.Component {
   }
 }
 
-export default ChangeOwner;
+export default AdministarationChangeOwner;
