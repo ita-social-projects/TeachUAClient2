@@ -179,23 +179,6 @@
             }
           }
         }
-        .profile-information-block__content-right {
-          .edit-profile-button {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #2e69c9;
-            border: none;
-            padding: 4px 15px;
-            box-shadow: none;
-          }
-          :hover {
-            background-color: #f7f4f2;
-            transition: 0.3s;
-          }
-        }
       }
     }
   }
@@ -255,7 +238,7 @@
 @media screen and (max-width: 850px) {
   .profile-information-block__content-right {
     position: absolute;
-    margin-top: -40px;
+    margin-top: -20px;
     margin-left: 25%;
   }
 }
@@ -267,6 +250,9 @@
 
 @media screen and (max-width: 400px) {
   .profile-information-block__content-right {
-    margin-left: 5%;
+    margin-left: -5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
