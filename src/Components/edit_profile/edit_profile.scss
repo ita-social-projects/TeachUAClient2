@@ -1,11 +1,27 @@
 @import "~antd/dist/antd.css";
 
-.ant-modal-body {
-  padding: 5px 50px 0px 50px;
+.edit-profile-modal {
+  .ant-modal-body {
+    padding: 5px 50px 0px 50px;
+  }
+  .ant-modal-close-x {
+    display: flex;
+    flex-direction: row;
+    font-size: 22px;
+    padding-top: 5px;
+  }
+  @media screen and (max-width: 355px) {
+    .ant-modal-close-x {
+      font-size: 20px;
+    }
+  }
+
+  .ant-modal-close-icon {
+    color: #595959;
+  }
 }
 
-.ant-modal-content {
-  border-radius: 15px;
+.edit-profile-form {
   .edit-header {
     h3 {
       font-size: 24px;
@@ -20,22 +36,7 @@
     }
   }
 
-  .ant-modal-close-x {
-    display: flex;
-    flex-direction: row;
-    font-size: 22px;
-  }
-  @media screen and (max-width: 355px) {
-    .ant-modal-close-x {
-      font-size: 20px;
-    }
-  }
-
-  .ant-modal-close-icon {
-    color: #595959;
-  }
-
-  .edit-chooseRole {
+  .edit-choose-role {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -66,10 +67,10 @@
       opacity: 0.8;
     }
 
-    :hover {
+    .edit-visitor:hover {
       opacity: 1;
       color: #000;
-      background-color: #fff;
+      background-color: rgb(255, 255, 255);
       transition: 0.3;
     }
 
@@ -77,9 +78,16 @@
       display: flex;
       justify-content: center;
       font-size: 18px;
+      background-color: rgb(255, 255, 255);
+    }
+    .edit-boss:hover {
+      opacity: 1;
+      color: #000;
+      background-color: rgb(255, 255, 255);
+      transition: 0.3;
     }
 
-    .logoEditProfile {
+    .logo-edit-profile {
       padding-top: 5px;
       background-color: #fa8c16;
       width: 32px;
@@ -105,10 +113,16 @@
     margin-bottom: 0;
     width: 436px;
 
+    .ant-form-item-label > label.ant-form-item-required:before {
+      display: none;
+    }
+
     label {
       display: flex;
       text-align: left;
+      font-size: 14px;
     }
+
     .change-photo {
       display: flex;
       text-align: left;
@@ -153,7 +167,7 @@
     }
   }
 
-  .edit-submitBtn {
+  .edit-submit-btn {
     display: flex;
     justify-content: flex-end;
 
@@ -171,31 +185,36 @@
     }
 
     @media screen and (max-width: 837px) {
-      .edit-submitBtn,
+      .edit-submit-btn,
       button {
         margin: 0 auto;
       }
     }
     @media screen and (max-width: 420px) {
-      .edit-submitBtn,
+      .edit-submit-btn,
       button {
         width: 200px;
       }
     }
   }
 
-  .ant-form-item-control-input-content {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+  .edit-input,
+  .edit-submit-btn {
+    .ant-form-item-control-input-content {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
   }
-}
 
-.ant-modal-content {
   .ant-form-item-control-input {
     display: flex;
     text-align: left;
     border: #fa8c16;
+  }
+
+  .ant-form-item-explain {
+    margin-top: -13px;
   }
   .edit-input .upload-photo {
     border: none;
@@ -206,18 +225,43 @@
     color: #2d4c68;
     font-size: 14px;
   }
+
+  .ant-checkbox-wrapper {
+    margin: 0 20px 18px 0;
+  }
+  .row-style {
+    :hover {
+      cursor: default;
+    }
+    span:hover {
+      cursor: text;
+    }
+  }
+
+  .ant-form-item-has-feedback.ant-form-item-has-success
+    .ant-form-item-children-icon {
+    margin-top: -17px;
+  }
+  .ant-form-item-has-feedback.ant-form-item-has-error
+    .ant-form-item-children-icon {
+    margin-top: -17px;
+  }
 }
 
-.ant-checkbox-wrapper {
-  margin-bottom: 18px;
-}
-
-.ant-form-item-has-feedback.ant-form-item-has-success
-  .ant-form-item-children-icon {
-  margin-top: -17px;
-}
-
-.ant-form-item-has-feedback.ant-form-item-has-error
-  .ant-form-item-children-icon {
-  margin-top: -17px;
+.profile-information-block__content-right {
+  .edit-profile-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2e69c9;
+    border: none;
+    padding: 4px 15px;
+    box-shadow: none;
+  }
+  :hover {
+    background-color: rgb(239, 239, 239);
+    transition: 0.3s;
+  }
 }

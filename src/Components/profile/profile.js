@@ -5,7 +5,7 @@ import logo from "./avatar.svg";
 import mail from "./mail.svg";
 import profile from "./Vector.svg";
 import { DownOutlined, PlusOutlined } from "@ant-design/icons";
-import { Menu, Dropdown, Button } from "antd";
+import { Menu, Dropdown } from "antd";
 import ModalEditProfile from "../edit_profile/modal_edit_profile";
 
 class Profile extends React.Component {
@@ -75,9 +75,7 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className="profile-information-block__content-right">
-                <Button className="edit-profile-button">
-                  <ModalEditProfile />
-                </Button>
+                <ModalEditProfile />
               </div>
             </div>
             <div className="club-wrapper">

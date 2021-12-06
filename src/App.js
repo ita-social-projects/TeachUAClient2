@@ -12,6 +12,9 @@ import Administration_contacts from './Components/administrationMenu/contacts/ad
 import Administration_users from './Components/administrationMenu/users/administration_users';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
+import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
+import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
+import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
 
 
 
@@ -43,6 +46,9 @@ class App extends Component {
                     <Route path="/dev/admin/contacts" component={() => (<Administration_contacts/>)} />
                     <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
+                    <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
+                    <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
+                    <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />

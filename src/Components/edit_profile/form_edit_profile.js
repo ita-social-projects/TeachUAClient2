@@ -20,17 +20,18 @@ class FormEditProfile extends Component {
 
   render() {
     return (
-      <Form style={{ maxWidth: "773px" }}>
+      <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
         </div>
-        <div className="edit-chooseRole">
+
+        <div className="edit-choose-role">
           <Button type="primary" className="edit-visitor">
-            <UserOutlined className="logoEditProfile" />
+            <UserOutlined className="logo-edit-profile" />
             Відвідувач
           </Button>
           <Button type="primary" className="edit-boss">
-            <UserOutlined className="logoEditProfile" />
+            <UserOutlined className="logo-edit-profile" />
             Керівник
           </Button>
         </div>
@@ -42,7 +43,7 @@ class FormEditProfile extends Component {
           rules={[
             {
               required: true,
-              message: "Введіть прізвище",
+              message: "Будь ласка введіть Ваше прізвище",
             },
             {
               required: false,
@@ -81,7 +82,7 @@ class FormEditProfile extends Component {
           rules={[
             {
               required: true,
-              message: "Введіть ім'я",
+              message: "Будь ласка введіть Ваше ім'я",
             },
             {
               required: false,
@@ -120,7 +121,7 @@ class FormEditProfile extends Component {
           rules={[
             {
               required: true,
-              message: "Введіть номер телефону",
+              message: "Будь ласка введіть Ваш номер телефону",
             },
             {
               required: false,
@@ -191,9 +192,11 @@ class FormEditProfile extends Component {
 
         <Checkbox.Group>
           <Col className="row-style">
-            <Checkbox onClick={this.handleChangePassword} checked={this.state}>
-              <span>Змінити пароль</span>
-            </Checkbox>
+            <Checkbox
+              onClick={this.handleChangePassword}
+              checked={this.state}
+            ></Checkbox>
+            <span>Змінити пароль</span>
           </Col>
         </Checkbox.Group>
         {this.state.changePassword && (
@@ -263,7 +266,7 @@ class FormEditProfile extends Component {
           </div>
         )}
 
-        <Form.Item className="edit-submitBtn">
+        <Form.Item className="edit-submit-btn">
           <Button type="primary" htmlType="submit">
             Зберегти зміни
           </Button>

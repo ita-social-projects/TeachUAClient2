@@ -183,6 +183,7 @@
             }
           }
         }
+
         .profile-information-block__content-right {
 
           a {
@@ -318,7 +319,7 @@
 @media screen and (max-width: 850px) {
   .profile-information-block__content-right {
     position: absolute;
-    margin-top: -40px;
+    margin-top: -20px;
     margin-left: 25%;
   }
 }
@@ -330,6 +331,9 @@
 
 @media screen and (max-width: 400px) {
   .profile-information-block__content-right {
-    margin-left: 5%;
+    margin-left: -5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
