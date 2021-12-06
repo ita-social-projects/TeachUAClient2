@@ -11,6 +11,8 @@ import { LeftSearch } from './Components/left_side_search/left_side_search';
 import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
 import AdministrationFaq from './Components/administrationMenu/administrationFaq/administrationFaq';
+import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
+import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
 
 class App extends Component {
     state = {
@@ -39,6 +41,8 @@ class App extends Component {
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
                     <Route path="/dev/admin/questions" component={() => (<AdministrationFaq />)} />
+                    <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
+                    <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />

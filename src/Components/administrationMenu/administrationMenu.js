@@ -1,14 +1,12 @@
 import React from "react";
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
 import "./administrationMenu.scss";
 import AdministrationExportData from "./administrationExport/administrationExport";
 
 const { SubMenu } = Menu;
-
-
 
 class AdministrationMenu extends Component {
   render() {
@@ -48,10 +46,10 @@ class AdministrationMenu extends Component {
             <a href={<AdministrationExportData />} download></a>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="10">
-            Підтвердження
+            <NavLink to="/dev/admin/confirmation">Підтвердження</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="11">
-            Зміна власника
+            <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="1">
             Міста

@@ -1,0 +1,17 @@
+.flooded-button{
+    color: #fa8c16;
+    font-weight: 700;
+    border: none;
+}
+.flooded-button:hover {
+    color: #fff;
+    background: #fa8c16;
+}
+.ant-pagination-item-active{
+    background-color: #fa8c16;
+    border: none;
+    a{
+        color: white;
+    }
+    
+}
