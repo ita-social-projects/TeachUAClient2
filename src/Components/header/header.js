@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import Login from "../login/login";
 import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
-import Profile from "../edit_profile/profile";
 import AddClub from "../add_Club/AddClub";
-import Administration_menu from "../administration_menu/administration_menu";
+import AdministrationMenu from "../administrationMenu/administrationMenu";
 
 import Logo from "../header_img/logo.svg";
 import Avatar from "../header_img/avatar.svg";
@@ -46,9 +45,6 @@ const log = (
       <Login/>
     </Menu.Item>
     <Menu.Item>
-      <Profile/>
-    </Menu.Item>
-    <Menu.Item>
       <AddCenter/>
     </Menu.Item>
     <Menu.Item>
@@ -58,7 +54,7 @@ const log = (
     <AddClub/>
     </Menu.Item>
     <Menu.Item>
-    <Administration_menu />
+    <AdministrationMenu />
     </Menu.Item>
     
     

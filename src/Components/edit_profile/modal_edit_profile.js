@@ -4,6 +4,9 @@ import { Modal } from "antd";
 import FormEditProfile from "./form_edit_profile";
 import "antd/dist/antd.css";
 import "./edit_profile.scss";
+import {
+    ArrowRightOutlined
+  } from "@ant-design/icons";
 
 class ModalEditProfile extends Component {
   state = {
@@ -15,7 +18,7 @@ class ModalEditProfile extends Component {
   render() {
     return (
       <div>
-        <a onClick={this.handleShowEditProfileModal}>Редагувати профіль</a>
+        <a onClick={this.handleShowEditProfileModal}>Редагувати профіль &nbsp; <ArrowRightOutlined /></a>
         <Modal
           width={880}
           className="edit_profile__modal"

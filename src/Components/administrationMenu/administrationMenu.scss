@@ -1,19 +1,22 @@
 @import "~antd/dist/antd.css";
 
-.ant-dropdown-menu-title-content .menu_administration {
+ .menu-administration {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 30px;
   margin-left: -12px;
+//   width: 70px;
+ }
 
-  .sub_menu_administration {
+  .sub-menu-administration {
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+  
     :hover {
       color: #000;
+      
     }
   }
-}
