@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { Table } from 'antd';
+import "./administrationFaq.scss";
+import { Table, Space } from 'antd';
 
 
 const dataSource = [
@@ -19,42 +20,42 @@ const dataSource = [
       "title": "Що має містити скарга?",
       "text": "У скарзі обов’язково має бути зазначено: прізвище, ім’я, по батькові, місце проживання особи, викладено суть скарги, який саме суб’єкт/працівник суб’єкта, коли, за якою адресою, яким чином порушив право скаржника. Рекомендуємо також додати докази на підтвердження."
     }
-  ]
+  ];
 
-
-
-
-
-// Sample Columns data
 const columns = [
     {
         title: 'ID',
         dataIndex: 'id',
         key: 'id',
+        defaultSortOrder: 'ascend',
+        sorter: (a, b) => a.id - b.id,
     },
     {
         title: 'Питання',
         dataIndex: 'title',
-        key: 'id',
+        key: 'title',
     },
     {
         title: 'Відповідь',
         dataIndex: 'text',
-        key: 'id',
+        key: 'text',
     },
     {
         title: 'Дія',
-        dataIndex: 'age',
-        key: 'age',
-    },
+        key: 'action',
+        render: (text, record) => (
+          <Space size="middle">
+            <a>Редагувати {record.name}</a>
+            <a>Видалити</a>
+          </Space>
+        ),
+      },
 ];
 
 class AdministrationFaq extends Component{
     render(){
         return(
-            <div style={{
-                display: 'block', width: 700, padding: 30
-            }}>
+            <div className="table-faq-all">
                 <Table dataSource={dataSource} columns={columns} />
             </div>
         );
