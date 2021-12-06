@@ -1,223 +1,223 @@
-// @import "~antd/dist/antd.css";
+@import "~antd/dist/antd.css";
 
-// .ant-modal-body {
-//   padding: 5px 50px 0px 50px;
-// }
+.ant-modal-body {
+  padding: 5px 50px 0px 50px;
+}
 
-// .ant-modal-content {
-//   border-radius: 15px;
-//   .edit-header {
-//     h3 {
-//       font-size: 24px;
-//       font-weight: bold;
-//       color: #2d4c68;
-//     }
-//   }
+.ant-modal-content {
+  border-radius: 15px;
+  .edit-header {
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2d4c68;
+    }
+  }
 
-//   @media screen and (max-width: 355px) {
-//     .edit-header h3 {
-//       font-size: 20px;
-//     }
-//   }
+  @media screen and (max-width: 355px) {
+    .edit-header h3 {
+      font-size: 20px;
+    }
+  }
 
-//   .ant-modal-close-x {
-//     display: flex;
-//     flex-direction: row;
-//     font-size: 22px;
-//   }
-//   @media screen and (max-width: 355px) {
-//     .ant-modal-close-x {
-//       font-size: 20px;
-//     }
-//   }
+  .ant-modal-close-x {
+    display: flex;
+    flex-direction: row;
+    font-size: 22px;
+  }
+  @media screen and (max-width: 355px) {
+    .ant-modal-close-x {
+      font-size: 20px;
+    }
+  }
 
-//   .ant-modal-close-icon {
-//     color: #595959;
-//   }
+  .ant-modal-close-icon {
+    color: #595959;
+  }
 
-//   .edit-chooseRole {
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: row;
+  .edit-chooseRole {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 
-//     button {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       border: none;
-//       width: 386px;
-//       height: 48px;
-//       display: flex;
-//       justify-content: space-around;
-//       background-color: rgb(252, 252, 252);
-//       border-radius: 4px;
-//       color: rgb(0, 0, 0);
-//       box-shadow: rgba(100, 100, 111, 0.5) 0px 3px 3px 0px;
-//       margin-bottom: 5%;
-//     }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      width: 386px;
+      height: 48px;
+      display: flex;
+      justify-content: space-around;
+      background-color: rgb(252, 252, 252);
+      border-radius: 4px;
+      color: rgb(0, 0, 0);
+      box-shadow: rgba(100, 100, 111, 0.5) 0px 3px 3px 0px;
+      margin-bottom: 5%;
+    }
 
-//     .edit-visitor {
-//       display: flex;
-//       justify-content: center;
-//       cursor: not-allowed;
-//       color: #9e9c9cea;
-//       background-color: #fff7e6;
-//       font-size: 18px;
-//       opacity: 0.8;
-//     }
+    .edit-visitor {
+      display: flex;
+      justify-content: center;
+      cursor: not-allowed;
+      color: #9e9c9cea;
+      background-color: #fff7e6;
+      font-size: 18px;
+      opacity: 0.8;
+    }
 
-//     :hover {
-//       opacity: 1;
-//       color: #000;
-//       background-color: #fff;
-//       transition: 0.3;
-//     }
+    :hover {
+      opacity: 1;
+      color: #000;
+      background-color: #fff;
+      transition: 0.3;
+    }
 
-//     .edit-boss {
-//       display: flex;
-//       justify-content: center;
-//       font-size: 18px;
-//     }
+    .edit-boss {
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
+    }
 
-//     .logoEditProfile {
-//       padding-top: 5px;
-//       background-color: #fa8c16;
-//       width: 32px;
-//       height: 32px;
-//       border-radius: 50%;
-//       font-size: 20px;
-//       color: #fff;
-//       :hover {
-//         color: #fff;
-//         background-color: #fa8c16;
-//       }
-//     }
-//   }
+    .logoEditProfile {
+      padding-top: 5px;
+      background-color: #fa8c16;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #fff;
+      :hover {
+        color: #fff;
+        background-color: #fa8c16;
+      }
+    }
+  }
 
-//   .ant-form-item-control-input {
-//     display: flex;
-//     text-align: center;
-//   }
+  .ant-form-item-control-input {
+    display: flex;
+    text-align: center;
+  }
 
-//   .edit-input {
-//     display: flex;
-//     flex-direction: column;
-//     margin-bottom: 0;
-//     width: 436px;
+  .edit-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    width: 436px;
 
-//     label {
-//       display: flex;
-//       text-align: left;
-//     }
-//     .change-photo {
-//       display: flex;
-//       text-align: left;
-//       align-items: center;
-//       flex-direction: row;
-//       cursor: default;
-//       width: 64px;
-//     }
+    label {
+      display: flex;
+      text-align: left;
+    }
+    .change-photo {
+      display: flex;
+      text-align: left;
+      align-items: center;
+      flex-direction: row;
+      cursor: default;
+      width: 64px;
+    }
 
-//     .upload-photo {
-//       font-family: Open Sans;
-//       font-style: normal;
-//       font-weight: 600;
-//       font-size: 16px;
-//       line-height: 24px;
-//       display: flex;
-//       text-align: center;
-//       align-items: center;
-//       margin: 5px 0 2px;
-//       color: #2e69c9;
-//       cursor: pointer;
-//     }
-//   }
+    .upload-photo {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      margin: 5px 0 2px;
+      color: #2e69c9;
+      cursor: pointer;
+    }
+  }
 
-//   .edit-box {
-//     display: flex;
-//     text-align: left;
-//     width: 436px;
-//   }
+  .edit-box {
+    display: flex;
+    text-align: left;
+    width: 436px;
+  }
 
-//   @media screen and (max-width: 510px) {
-//     .edit-box,
-//     .edit-input {
-//       width: 350px;
-//     }
-//   }
+  @media screen and (max-width: 510px) {
+    .edit-box,
+    .edit-input {
+      width: 350px;
+    }
+  }
 
-//   @media screen and (max-width: 420px) {
-//     .edit-box,
-//     .edit-input {
-//       width: 250px;
-//     }
-//   }
+  @media screen and (max-width: 420px) {
+    .edit-box,
+    .edit-input {
+      width: 250px;
+    }
+  }
 
-//   .edit-submitBtn {
-//     display: flex;
-//     justify-content: flex-end;
+  .edit-submitBtn {
+    display: flex;
+    justify-content: flex-end;
 
-//     button {
-//       margin-left: auto;
-//       margin-top: 10px;
-//       background-color: #fa8c16;
-//       color: white;
-//       border-radius: 6px;
-//       font-weight: 700;
-//       font-size: 16px;
-//       border: none;
-//       width: 270px;
-//       margin-bottom: 0;
-//     }
+    button {
+      margin-left: auto;
+      margin-top: 10px;
+      background-color: #fa8c16;
+      color: white;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      width: 270px;
+      margin-bottom: 0;
+    }
 
-//     @media screen and (max-width: 837px) {
-//       .edit-submitBtn,
-//       button {
-//         margin: 0 auto;
-//       }
-//     }
-//     @media screen and (max-width: 420px) {
-//       .edit-submitBtn,
-//       button {
-//         width: 200px;
-//       }
-//     }
-//   }
+    @media screen and (max-width: 837px) {
+      .edit-submitBtn,
+      button {
+        margin: 0 auto;
+      }
+    }
+    @media screen and (max-width: 420px) {
+      .edit-submitBtn,
+      button {
+        width: 200px;
+      }
+    }
+  }
 
-//   .ant-form-item-control-input-content {
-//     display: flex;
-//     flex-direction: column;
-//     margin-bottom: 15px;
-//   }
-// }
+  .ant-form-item-control-input-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+}
 
-// .ant-modal-content {
-//   .ant-form-item-control-input {
-//     display: flex;
-//     text-align: left;
-//     border: #fa8c16;
-//   }
-//   .edit-input .upload-photo {
-//     border: none;
-//     padding: 4px 0;
-//   }
+.ant-modal-content {
+  .ant-form-item-control-input {
+    display: flex;
+    text-align: left;
+    border: #fa8c16;
+  }
+  .edit-input .upload-photo {
+    border: none;
+    padding: 4px 0;
+  }
 
-//   .edit-input .change-photo {
-//     color: #2d4c68;
-//     font-size: 14px;
-//   }
-// }
+  .edit-input .change-photo {
+    color: #2d4c68;
+    font-size: 14px;
+  }
+}
 
-// .ant-checkbox-wrapper {
-//   margin-bottom: 18px;
-// }
+.ant-checkbox-wrapper {
+  margin-bottom: 18px;
+}
 
-// .ant-form-item-has-feedback.ant-form-item-has-success
-//   .ant-form-item-children-icon {
-//   margin-top: -17px;
-// }
+.ant-form-item-has-feedback.ant-form-item-has-success
+  .ant-form-item-children-icon {
+  margin-top: -17px;
+}
 
-// .ant-form-item-has-feedback.ant-form-item-has-error
-//   .ant-form-item-children-icon {
-//   margin-top: -17px;
-// }
+.ant-form-item-has-feedback.ant-form-item-has-error
+  .ant-form-item-children-icon {
+  margin-top: -17px;
+}
