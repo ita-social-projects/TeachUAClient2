@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "Телефон",
+      "urlLogo": "/static/images/contacts/phone.svg"
+    },
+    {
+      "id": 2,
+      "name": "Facebook",
+      "urlLogo": "/static/images/contacts/facebook.svg"
+    },
+    {
+      "id": 3,
+      "name": "WhatsApp",
+      "urlLogo": "/static/images/contacts/whats-app.svg"
+    },
+    {
+      "id": 4,
+      "name": "Пошта",
+      "urlLogo": "/static/images/contacts/mail.svg"
+    },
+    {
+      "id": 5,
+      "name": "Skype",
+      "urlLogo": "/static/images/contacts/skype.svg"
+    },
+    {
+      "id": 6,
+      "name": "Site",
+      "urlLogo": "/static/images/contacts/website-link-icon.svg"
+    }
+  ]

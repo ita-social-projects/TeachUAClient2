@@ -1,0 +1,71 @@
+.admin-users-body {
+    .action-btn {
+        padding-right: 10px;
+    }
+
+    .ant-table-column-sorter {
+        margin-left: 4px;
+        color: rgb(191, 191, 191);
+        font-size: 0px;
+        transition: color 0.3s ease 0s;
+    }
+
+    .ant-table-column-sorter-up.active, .ant-table-column-sorter-down.active {
+        color: rgb(191, 191, 191);
+    }
+
+    .ant-table-column-sorter-down.active, .ant-table-column-sorter-up.active {
+        color: rgb(255, 255, 255);
+    }
+
+    .ant-table-thead th.ant-table-column-has-sorters {
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+
+    .ant-table-pagination {
+        background:#f8ebdc;
+        margin: 0;
+        height: 55px;
+        align-items: center;
+    }
+
+    .ant-pagination-item-link {
+        background: transparent;
+        border-color: transparent;
+    }
+
+    .ant-pagination-item-link:hover {
+        background: transparent;
+        border-color: transparent;
+        color: white;
+    }
+
+    .ant-pagination-item {
+        min-width: 24px;
+        height: 24px;
+        margin: 0;
+        padding: 0;
+        line-height: 24px;
+        border: none;
+    }
+
+    .ant-pagination-item-active, .user-clubs .user-clubs-pagination .ant-pagination-item:focus a {
+        color: white;
+        background-color: #fe7729;
+        border-color: #fe7729;
+    }
+
+    .ant-pagination-item a:hover {
+        color: #fff;
+        background: #fe7729;
+    }
+
+    .ant-pagination-item-active a {
+        color: #fff;
+    }
+
+    .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:focus-visible .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link {
+        color: rgba(0,0,0,.25);
+    }
+}
