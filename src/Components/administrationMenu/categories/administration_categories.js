@@ -22,12 +22,12 @@ const columns = [
     dataIndex: "name",
     width: "15%",
     editable: true,
-    render: (name, tagBackgroundColor, tagTextColor) => (
+    render: (name, row) => (
       <div
         className="ant-tag tag"
         style={{
-          backgroundColor: tagBackgroundColor,
-          color: tagTextColor,
+          backgroundColor: row.tagBackgroundColor,
+          color: row.tagTextColor,
           maxWidth: "200px",
           overflow: "hidden",
           textOverflow: "ellipsis",
@@ -47,14 +47,14 @@ const columns = [
   },
   {
     title: "Логотип",
-    dataIndex: ["urlLogo", "backgroundColor"],   
+    dataIndex: "urlLogo",   
     width: "7%",
     inputType: "upload",
     uploadFolder: "categories",
     editable: true,
-    render: (urlLogo, backgroundColor) => (
+    render: (urlLogo, row) => (
       <Image
-        style={{ backgroundColor: backgroundColor }}
+        style={{ backgroundColor: row.backgroundColor }}
         width={50}
         height={50}
         src={`${process.env.PUBLIC_URL}` + urlLogo}
