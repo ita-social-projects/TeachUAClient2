@@ -1,85 +1,91 @@
 import React from "react";
 import { Typography, Table, Image } from "antd";
-import CategoriesData from "./categories.json";
+import { getCategoriesService } from "../../../Services/category";
 import Administration_add_category from "./administration_add_category";
 import "./administration_categories.scss";
-
-
 
 const columns = [
   {
     title: "ID",
     dataIndex: "id",
-    width: '3%',
+    width: "3%",
     editable: false,
   },
   {
     title: "sortBy",
     dataIndex: "sortby",
-    width: '6%',
+    width: "6%",
     editable: true,
   },
   {
     title: "Назва",
     dataIndex: "name",
-    width: '15%',
+    width: "15%",
     editable: true,
-            render: name => <div className="ant-tag tag"
-                style={{backgroundColor: name.tagBackgroundColor,
-                    color: name.tagTextColor,
-                    maxWidth: "200px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                    borderRadius: "10px"}}
-            >
-            {name.text}
-            </div>
+    render: (name, tagBackgroundColor, tagTextColor) => (
+      <div
+        className="ant-tag tag"
+        style={{
+          backgroundColor: tagBackgroundColor,
+          color: tagTextColor,
+          maxWidth: "200px",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          borderRadius: "10px",
+        }}
+      >
+        {name}
+      </div>
+    ),
   },
   {
     title: "Опис",
     dataIndex: "description",
-    width: '25%',
-    editable: true
+    width: "25%",
+    editable: true,
   },
   {
     title: "Логотип",
-    dataIndex: "urlLogo",
-    width: '7%',
-    inputType: 'upload',
-    uploadFolder: 'categories',
+    dataIndex: ["urlLogo", "backgroundColor"],   
+    width: "7%",
+    inputType: "upload",
+    uploadFolder: "categories",
     editable: true,
-            render: urlLogo => <Image
-                style={{backgroundColor: urlLogo.backgroundColor}}
-                width={50}
-                height={50}
-                src={`${process.env.PUBLIC_URL}` + urlLogo.url} />
+    render: (urlLogo, backgroundColor) => (
+      <Image
+        style={{ backgroundColor: backgroundColor }}
+        width={50}
+        height={50}
+        src={`${process.env.PUBLIC_URL}` + urlLogo}
+      />
+    ),
   },
   {
     title: "Background Color",
     dataIndex: "backgroundColor",
-    width: '10%',
-    inputType: 'color',
-    editable: true
+    width: "10%",
+    inputType: "color",
+    editable: true,
   },
   {
     title: "Tag Background Color",
     dataIndex: "tagBackgroundColor",
-    inputType: 'color',
-    width: '10%',
-    editable: true
+    inputType: "color",
+    width: "10%",
+    editable: true,
   },
   {
     title: "Tag Text Color",
     dataIndex: "tagTextColor",
-    inputType: 'color',
-    width: '10%',
-    editable: true
+    inputType: "color",
+    width: "10%",
+    editable: true,
   },
   {
     title: "Дія",
     dataIndex: "action",
-    width: '14%',
+    width: "14%",
     render: () => {
       return (
         <div>
@@ -96,45 +102,43 @@ const columns = [
 ];
 
 class Administration_categories extends React.Component {
-    state = {
-        categories: []
-    }
-    componentDidMount() {
-        const data = CategoriesData.map(category => {
-            let obj = {
-                "id": category.id,
-                "sortby": category.sortby,
-                "name": {
-                    "text": category.name,
-                    "tagBackgroundColor": category.tagBackgroundColor,
-                    "tagTextColor": category.tagTextColor  
-                },
-                "description": category.description,
-                "urlLogo": {
-                    "url": category.urlLogo,
-                    "backgroundColor": category.backgroundColor,
-                },
-                "backgroundColor": category.backgroundColor,
-                "tagBackgroundColor": category.tagBackgroundColor,
-                "tagTextColor": category.tagTextColor
-              };
-            return obj;
+  state = {
+    categories: [],
+  };
 
-        });
-        this.setState({
-            categories: data
-        }) 
+  getData = () => {
+    getCategoriesService().then((response) => {
+      let data = response.data.map((category) => {
+        let obj = {
+          id: category.id,
+          sortby: category.sortby,
+          name: category.name,
+          description: category.description,
+          urlLogo: category.urlLogo,
+          backgroundColor: category.backgroundColor,
+          tagBackgroundColor: category.tagBackgroundColor,
+          tagTextColor: category.tagTextColor,
+        };
+        return obj;
+      });
+      this.setState({ categories: data });
+    });
+  };
 
-    }
+  componentDidMount() {
+    this.getData();
+  }
   render() {
     return (
-      <div className="categories-body">   
-      <div className="table-header"></div>            
-          <Table className="categories-table" 
-          dataSource={this.state.categories} 
-          bordered 
+      <div className="categories-body">
+        <div className="table-header"></div>
+        <Table
+          className="categories-table"
+          dataSource={this.state.categories}
+          bordered
           columns={columns}
-          footer={() => <Administration_add_category/>}/>   
+          footer={() => <Administration_add_category />}
+        />
       </div>
     );
   }

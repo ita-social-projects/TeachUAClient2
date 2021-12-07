@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Image, Table, Form, Input, Button, Upload } from "antd";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import ContactsData from "./contacts.json";
+import { getContactsService } from "../../../Services/contact";
 import "./administration_contacts.scss";
 
 const columns = [
@@ -62,21 +62,43 @@ const columns = [
 ];
 
 class Administration_contacts extends React.Component {
-  render() {
-    const data = [];
-    ContactsData.map((contact) => {
-      data.push(contact);
+  state = {
+    contacts: [],
+  };
+
+  getData = () => {
+    getContactsService().then((response) => {
+      let data = response.data.map((contact) => {
+        let obj = {
+          id: contact.id,
+          name: contact.name,
+          urlLogo: contact.urlLogo,
+        };
+        return obj;
+      });
+      this.setState({ contacts: data });
     });
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  render() {
     return (
       <div className="admin-contacts-body">
         <div className="table-header"></div>
         <Table
           className="admin-contacts-table"
-          dataSource={data}
+          dataSource={this.state.contacts}
           bordered
           columns={columns}
           footer={() => (
-            <Form className="admin-contacts-form" name="basic" requiredMark={false}>
+            <Form
+              className="admin-contacts-form"
+              name="basic"
+              requiredMark={false}
+            >
               <Form.Item
                 name="add_contact_name"
                 rules={[
@@ -96,7 +118,7 @@ class Administration_contacts extends React.Component {
                 rules={[
                   {
                     required: true,
-                    message: "Завантажте лого"
+                    message: "Завантажте лого",
                   },
                 ]}
               >
@@ -111,10 +133,7 @@ class Administration_contacts extends React.Component {
                   </span>
                 </Upload>
               </Form.Item>
-              <Button
-                htmlType="submit"
-                className="add-contact-button"
-              >
+              <Button htmlType="submit" className="add-contact-button">
                 Добавити
               </Button>
             </Form>
