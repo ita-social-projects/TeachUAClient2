@@ -1,4 +1,4 @@
-const MarathonContext =
+const challengeContext =
  [
     {
       "id": "1" ,
@@ -675,4 +675,4 @@ TAKFLIX — онлайн-кінотеатр, де можна легально д
     },
   ] 
   
-  export default MarathonContext
+  export default challengeContext

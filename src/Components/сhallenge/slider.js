@@ -22,7 +22,7 @@ export class Slider extends Component {
                                         <img src={Img}/>
                                         <h5>{x.name}</h5>
                                         <h6>
-                                            <Link to={`/marathon/task/${x.pathUrl}`} state={x}> Переглянути</Link>
+                                            <Link to={`/challengeUA/task/${x.pathUrl}`} state={x}> Переглянути</Link>
                                         </h6>
                                     </div>
                                 </div>

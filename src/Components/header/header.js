@@ -25,7 +25,7 @@ import "./header.scss";
 const menu = (
     <Menu>
         <Menu.Item>
-          <Link to='/marathon'>
+          <Link to='/challengeUA'>
             <a target="#blank">Навчай українською Челендж</a>
            </Link>
         </Menu.Item>

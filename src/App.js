@@ -12,8 +12,8 @@ import AdministrationImportData from './Components/administrationMenu/administra
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
 import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
-import Marathon from './Components/сhallenge/marathon';
-import MarathonTaskPage from './Components/сhallenge/sliderPage'
+import ChallengeUA from './Components/сhallenge/challengeUA';
+import ChallengeUATaskPage from './Components/сhallenge/sliderPage'
 
 class App extends Component {
     state = {
@@ -35,8 +35,8 @@ class App extends Component {
                 <Switch>
                     <Route path="/" exact component={() => (<MainPage />)} />
                     <Route path="/clubs" component={() => (<Clubs/>)} />
-                    <Route path='/marathon' exact component={()=>(<Marathon/>)} />
-                    <Route path="/marathon/task/:pathUrl" component={MarathonTaskPage}/>
+                    <Route path='/challengeUA' exact component={()=>(<ChallengeUA/>)} />
+                    <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage}/>
                     <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />

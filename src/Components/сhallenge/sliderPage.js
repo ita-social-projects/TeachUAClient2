@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import Marathons from './MarathonContext';
+import Marathons from './challengeContext';
 
 
 
