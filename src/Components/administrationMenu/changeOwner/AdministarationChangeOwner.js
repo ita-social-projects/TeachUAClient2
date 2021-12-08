@@ -2,7 +2,7 @@ import React from "react";
 import "./changeOwner.modules.scss";
 import { Table } from "antd";
 import owners from "./ownersData.json";
-import ChangeOwnerFooter from "./ChangeOwnerFooter";
+import AdministrationChangeOwnerFooter from "./AdministrationChangeOwnerFooter";
 
 const columns = [
   {
@@ -72,7 +72,7 @@ class AdministarationChangeOwner extends React.Component {
           id="confirmationTable"
           bordered
           rowSelection={rowSelection}
-          footer={() => <ChangeOwnerFooter />}
+          footer={() => <AdministrationChangeOwnerFooter />}
         ></Table>
       </div>
     );

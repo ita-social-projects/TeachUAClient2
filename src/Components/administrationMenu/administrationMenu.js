@@ -27,17 +27,26 @@ class AdministrationMenu extends Component {
             Станції/Місцевості
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="4">
-          <a href="/dev/admin/categories" onClick={() => (<Administration_categories/>)}>
-            Категорії
-          </a></Menu.Item>
+            <a
+              href="/dev/admin/categories"
+              onClick={() => <Administration_categories />}
+            >
+              Категорії
+            </a>
+          </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="5">
-          <a href="/dev/admin/contacts" onClick={() => (<Administration_contacts/>)}>
-            Контакти
-          </a></Menu.Item>
+            <a
+              href="/dev/admin/contacts"
+              onClick={() => <Administration_contacts />}
+            >
+              Контакти
+            </a>
+          </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="6">
-          <a href="/dev/admin/users" onClick={() => (<Administration_users/>)}>
-            Користувачі
-          </a></Menu.Item>
+            <a href="/dev/admin/users" onClick={() => <Administration_users />}>
+              Користувачі
+            </a>
+          </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="7">
             FAQ
           </Menu.Item>
@@ -57,7 +66,7 @@ class AdministrationMenu extends Component {
             <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="1">
-            Міста
+            <NavLink to="/dev/admin/try">Міста</NavLink>
           </Menu.Item>
         </SubMenu>
       </Menu>

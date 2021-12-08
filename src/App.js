@@ -15,6 +15,8 @@ import AdministrationImportData from './Components/administrationMenu/administra
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
 import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
+import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
+import EditableTable2 from './Components/administrationMenu/sities/EditableTable2';
 
 
 
@@ -49,6 +51,9 @@ class App extends Component {
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
                     <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
+                    <Route path="/dev/admin/sities" component={() => (<AdministrationSities/>)} />
+                    <Route path="/dev/admin/try" component={() => (<EditableTable2/>)} />
+    
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />
