@@ -1,22 +1,18 @@
-import React, { Component } from 'react'
-import Slider from './slider'
-import challengeUADoc from './challengeContext'
-import './challengeUA.scss'
-
-
-
-
-
+import React, { Component } from "react";
+import Slider from "./slider";
+import challengeUADoc from "./challengeContext";
+import "./challengeUA.scss";
 
 export class challengeUA extends Component {
-    render() {
-        return (
-            <div>
-               <Slider item={challengeUADoc}/> 
-               
-            </div>
-        )
-    }
+  componentDidMount() {}
+  render() {
+    const name = "challengeUA";
+    return (
+      <div>
+        <Slider item={challengeUADoc} name={name} />
+      </div>
+    );
+  }
 }
 
-export default challengeUA
+export default challengeUA;

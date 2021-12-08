@@ -30,7 +30,9 @@ const menu = (
            </Link>
         </Menu.Item>
         <Menu.Item>
+        <Link to='/marathon'>
             <a target="#blank">Мовомаратон</a>
+        </Link>   
         </Menu.Item>
         <Menu.Item>
             <a target="#blank">Навчай українською</a>
