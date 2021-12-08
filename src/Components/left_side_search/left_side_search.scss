@@ -2,15 +2,16 @@
 
 .advancedSearch {
   display: flex;
+  position: relative;
   width: 320px;
-  height: 1180px;
+  height: 100%;
   left: 0px;
-  top: 200px;
+  // top: 200px;
+  background-color: #fff;
 
   .advancedSearchMain {
     margin: 0 auto;
     width: 256px;
-    height: 100%;
   }
 
   .advancedSearchHeader {
