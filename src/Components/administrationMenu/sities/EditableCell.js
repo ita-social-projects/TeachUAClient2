@@ -2,41 +2,39 @@ import { Form, Input, InputNumber } from "antd";
 import React from "react";
 import PropTypes from "prop-types";
 
-class EditableCell extends React.Component {
-  /*= ({
-    editing,
-    dataIndex,
-    title,
-    inputType,
-    children,
-    ...restProps
-  }) => */
-  render() {
-    const inputNode = this.props.inputType === "number" ? <InputNumber /> : <Input />;
-    return (
-      <td {...[this.props.restProps]}>
-        {this.props.editing ? (
-          <Form.Item
-            name={this.props.dataIndex}
-            style={{
-              margin: 0,
-            }}
-            rules={[
-              {
-                required: true,
-                message: `Please Input ${this.props.title}!`,
-              },
-            ]}
-          >
-            {inputNode}
-          </Form.Item>
-        ) : (
-            this.props.children
-        )}
-      </td>
-    );
-  }
-}
+const EditableCell = ({
+  editing,
+  dataIndex,
+  title,
+  inputType,
+
+  children,
+  ...restProps
+}) => {
+  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
+  return (
+    <td {...restProps}>
+      {editing ? (
+        <Form.Item
+          name={dataIndex}
+          style={{
+            margin: 0,
+          }}
+          rules={[
+            {
+              required: true,
+              message: `Please Input ${title}!`,
+            },
+          ]}
+        >
+          {inputNode}
+        </Form.Item>
+      ) : (
+        children
+      )}
+    </td>
+  );
+};
 
 EditableCell.propTypes = {
   editing: PropTypes.any,
