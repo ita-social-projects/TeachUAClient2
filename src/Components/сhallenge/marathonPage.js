@@ -11,13 +11,8 @@ export class marathonPage extends Component {
         card: Marathons.find((x) => {
           return pathUrl === x.pathUrl;
         }),
-      },
-      () => {
-        console.log(this.state.card);
       }
     );
-
-    console.log(this.props.match.params.pathUrl);
   }
   render() {
     return (
@@ -25,7 +20,6 @@ export class marathonPage extends Component {
         <div>
           <div>
             <div>{this.state.card && this.state.card.name}</div>
-
             <div>{this.state.card && this.state.card.subheader}</div>
             <div>
               <div

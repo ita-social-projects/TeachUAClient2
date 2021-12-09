@@ -11,13 +11,8 @@ export class challengePage extends Component {
         card: Marathons.find((x) => {
           return pathUrl === x.pathUrl;
         }),
-      },
-      () => {
-        console.log(this.state.card);
       }
     );
-
-    console.log(this.props.match.params.pathUrl);
   }
   render() {
     return (
