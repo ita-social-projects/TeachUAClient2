@@ -7,6 +7,9 @@ import Header from './Components/header/header';
 import MainPage from './Components/mainPage/mainPage';
 import Clubs from './Components/clubs/clubs';
 import Profile from './Components/profile/profile';
+import Administration_categories from './Components/administrationMenu/categories/administration_categories';
+import Administration_contacts from './Components/administrationMenu/contacts/administration_contacts';
+import Administration_users from './Components/administrationMenu/users/administration_users';
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
@@ -16,6 +19,8 @@ import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
+
+
 
 class App extends Component {
     state = {
@@ -45,6 +50,9 @@ class App extends Component {
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
                     <Route path="/profile" component={() => (<Profile />)} />
+                    <Route path="/dev/admin/categories" component={() => (<Administration_categories/>)} />
+                    <Route path="/dev/admin/contacts" component={() => (<Administration_contacts/>)} />
+                    <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
