@@ -3,67 +3,65 @@ import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
 import EditableCell from "./EditableCell";
 import { getSitiesServise } from "../../../Services/cities";
-let dataOrigin=[];
-
-  getSitiesServise().then((response)=>{
-       dataOrigin =response.data;
-  
-  })
-
-
-
 
 const EditableTable2 = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
-  const [editingKey, setEditingKey] = useState('');
+  const [editingKey, setEditingKey] = useState("");
+
+  const getData = () => {
+    getSitiesServise().then((response) => {
+      setData(response.data);
+    });
+  };
 
   useEffect(() => {
-   setData(dataOrigin)
-  });
-
+    getData();
+  }, []);
 
   const isEditing = (record) => record.id === editingKey;
 
   const edit = (record) => {
     form.setFieldsValue({
-      name: '',
-      longitude: '',
-      address: '',
-      latitude:'',
+      name: "",
+      longitude: "",
+      address: "",
+      latitude: "",
       ...record,
     });
     setEditingKey(record.id);
   };
 
   const cancel = () => {
-    setEditingKey('');
+    setEditingKey("");
   };
 
   const save = async (key) => {
     try {
       const row = await form.validateFields();
-      console.log(row)
+      console.log(`${row}`);
       const newData = [...data];
-      console.log(newData)
-      const index = newData.findIndex((item) => console.log('item.key='+JSON.stringify(key.id)+'      '+item) );
-      console.log(index)
-      
+      console.log(newData);
 
-      
-      console.log('key='+key)
+      const index = newData.findIndex((item) => {
+       return key.id === item.id
+      }
+        );
+      console.log(index);
+
+      console.log(key);
       if (key.id > -1) {
         const item = newData[index];
-        newData.splice(key.id, 1, { ...item, ...row });
+        newData.splice(index, 1, { ...item, ...row });
         setData(newData);
-        setEditingKey('');
+        setEditingKey("");
       } else {
-        newData.push(row);
+        //newData.push(row);
         setData(newData);
-        setEditingKey('');
+        setEditingKey("");
       }
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.log("Validate Failed:", errInfo);
     }
   };
 
@@ -79,14 +77,14 @@ const EditableTable2 = () => {
       title: "Name",
       dataIndex: "name",
       width: "10%",
-      
+
       sorter: (a, b) => a.name.length - b.name.length,
       editable: true,
     },
     {
       title: "Довгота",
       dataIndex: "longitude",
-     
+
       render: (longitude) => Number.parseFloat(longitude).toFixed(4),
       width: "20%",
       editable: true,
@@ -94,14 +92,14 @@ const EditableTable2 = () => {
     {
       title: "Широта",
       dataIndex: "latitude",
-  
+
       render: (latitude) => Number.parseFloat(latitude).toFixed(4),
       width: "20%",
       editable: true,
     },
     {
-      title: 'operation',
-      dataIndex: 'operation',
+      title: "operation",
+      dataIndex: "operation",
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
@@ -119,7 +117,10 @@ const EditableTable2 = () => {
             </Popconfirm>
           </span>
         ) : (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
+          <Typography.Link
+            disabled={editingKey !== ""}
+            onClick={() => edit(record)}
+          >
             Edit
           </Typography.Link>
         );
@@ -135,7 +136,7 @@ const EditableTable2 = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex=== 'age' ? 'number' : 'text',
+        inputType: col.dataIndex === "age" ? "number" : "text",
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),
