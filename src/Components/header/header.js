@@ -8,7 +8,7 @@ import AddCenter from "../addCenter/addCenter";
 import AddClub from "../add_Club/AddClub";
 import AdministrationMenu from "../administrationMenu/administrationMenu";
 
-import Logo from "../header_img/logo.svg";
+import Logo from "../header_img/logo.png";
 import Avatar from "../header_img/avatar.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";
 import Crown from "../header_img/crown.svg";
@@ -19,16 +19,20 @@ import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
+import {Link} from 'react-router-dom'
 import "./header.scss";
-
 
 const menu = (
     <Menu>
         <Menu.Item>
+          <Link to='/challengeUA'>
             <a target="#blank">Навчай українською Челендж</a>
+           </Link>
         </Menu.Item>
         <Menu.Item>
+        <Link to='/marathon'>
             <a target="#blank">Мовомаратон</a>
+        </Link>   
         </Menu.Item>
         <Menu.Item>
             <a target="#blank">Навчай українською</a>
