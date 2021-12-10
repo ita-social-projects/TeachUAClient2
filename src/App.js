@@ -10,6 +10,7 @@ import Profile from './Components/profile/profile';
 import Administration_categories from './Components/administrationMenu/categories/administration_categories';
 import Administration_contacts from './Components/administrationMenu/contacts/administration_contacts';
 import Administration_users from './Components/administrationMenu/users/administration_users';
+import Stations from "../src/Components/administrationMenu/stations/stations"
 import { LeftSearch } from './Components/left_side_search/left_side_search';
 import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
@@ -45,6 +46,7 @@ class App extends Component {
                     <Route path="/dev/admin/categories" component={() => (<Administration_categories/>)} />
                     <Route path="/dev/admin/contacts" component={() => (<Administration_contacts/>)} />
                     <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
+                    <Route path="/dev/admin/stations" component={() => (<Stations/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />

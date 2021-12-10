@@ -5,6 +5,7 @@ import { Menu } from "antd";
 import Administration_categories from "./categories/administration_categories";
 import Administration_contacts from "./contacts/administration_contacts";
 import Administration_users from "./users/administration_users";
+import Stations from "./stations/stations";
 import "antd/dist/antd.css";
 import "./administrationMenu.scss";
 import AdministrationExportData from "./administrationExport/administrationExport";
@@ -20,11 +21,16 @@ class AdministrationMenu extends Component {
           title="Адміністрування"
           className="sub-menu-administration"
         >
+          <Menu.Item className="sub-menu-administration" key="12">
+            Міста
+          </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="2">
             Райони
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="3">
+          <a href="/dev/admin/stations" onClick={() => (<Stations/>)}>
             Станції/Місцевості
+          </a>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="4">
           <a href="/dev/admin/categories" onClick={() => (<Administration_categories/>)}>
