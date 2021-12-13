@@ -203,7 +203,7 @@ class NewRegistration extends React.Component {
 
                         <Form.Item
                             name="confirm"
-                            label="Підтвердження паролю"
+                            label="Підтвердження  паролю"
                             dependencies={['password']}
                             hasFeedback
                             rules={[

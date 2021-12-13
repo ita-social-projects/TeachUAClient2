@@ -66,7 +66,7 @@ class AdministrationMenu extends Component {
             <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="1">
-            <NavLink to="/dev/admin/try">Міста</NavLink>
+            <NavLink to="/dev/admin/sities">Міста</NavLink>
           </Menu.Item>
         </SubMenu>
       </Menu>
