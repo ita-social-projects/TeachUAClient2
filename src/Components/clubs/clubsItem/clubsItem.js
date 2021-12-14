@@ -6,12 +6,15 @@ import ClubsData from "../clubs.json";
 
 class ClubsItem extends React.Component {
   render() {
-    const data = [];
+    let data = [];
     ClubsData.map((post) => {
       data.push(post);
     });
-    console.log(data);
+
+    // console.log(data);
+    // console.log(this.state)
     return (
+
       <List
         className="card"
         pagination={{ pageSize: 8 }}

@@ -19,6 +19,7 @@ import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
+import TeachUkrainian from './Components/сhallenge/teachUkrainian';
 
 
 
@@ -40,12 +41,13 @@ class App extends Component {
                 </div>
                 
                 <Switch>
-                    <Route path="/" exact component={() => (<MainPage />)} />
-                    <Route path="/clubs" component={() => (<Clubs/>)} />
+                    <Route path="/" exact component={MainPage} />
+                    <Route path="/clubs" component={Clubs} />
                     <Route path='/challengeUA' exact component={ChallengeUA} />
                     <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage}/>
                     <Route path='/marathon' exact component={Marathon} />
                     <Route path="/marathon/task/:pathUrl" component={MarathonPage}/>
+                    <Route path="/teachUkrainian" component={TeachUkrainian}/>
                     <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />

@@ -46,7 +46,6 @@ const settings = {
 
 export class Slider extends Component {
   render() {
-    console.log(this.props);
     return (
       <div id="carouselGroup">
         <Carousel arrows {...settings}>
@@ -59,7 +58,6 @@ export class Slider extends Component {
                     <h5>{post.name}</h5>
                     <h6>
                       <Link to={`/${this.props.name}/task/${post.pathUrl}`}>
-                        {" "}
                         Переглянути
                       </Link>
                     </h6>
