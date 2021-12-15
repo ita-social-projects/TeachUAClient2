@@ -2,14 +2,25 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
 import EditableCell from "./EditableCell";
+//import AddCitie from "./AddSitie";
 import './sities.modules.scss'
-import { getSitiesServise } from "../../../Services/cities";
+import { getSitiesServise,addCity} from "../../../Services/cities";
 
 const AdministrationSities = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
-
+  const data2={
+    name:'Винники2',
+    longitude: 49.81417330421448, 
+    latitude: 24.135502529616105
+  }
+  /*const getCityId =(id)=>{
+    getCity(id).then(response=>{
+      console.log(response.data);
+    })
+  }*/
+  
   const getData = () => {
     getSitiesServise().then((response) => {
       setData(response.data);
@@ -38,6 +49,7 @@ const AdministrationSities = () => {
   };
 
   const save = async (key) => {
+    addCity(data2);
     try {
       const row = await form.validateFields();
       console.log(`${row}`);
@@ -171,12 +183,15 @@ const AdministrationSities = () => {
         }}
         bordered
         dataSource={data}
+        
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={{
           onChange: cancel,
         }}
+        //footer={<AddCitie cities={data} setCities={setData}/>}
       />
+      
     </Form>
   );
 };
