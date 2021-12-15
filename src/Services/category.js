@@ -1,11 +1,10 @@
-import axios from "axios"
-import {REACT_APP_API_URL} from "./constants"
+import fetchRequest, {REACT_APP_API_URL} from "./constants"
 
 
 const url = `${REACT_APP_API_URL}/categories` 
 
 const getCategoriesService = () => {
-    return axios.get(url);
+    return fetchRequest.get(url);
 };
 
 export {
