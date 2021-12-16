@@ -66,6 +66,7 @@ class AdministrationFaq extends Component {
                     dataSource={this.state.questions}
                     bordered
                     columns={columns} />
+                    <DevAddInputFaq handleAdd={this.handleAdd} />
             </div>
         );
 
