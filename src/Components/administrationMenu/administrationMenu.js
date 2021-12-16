@@ -37,6 +37,7 @@ class AdministrationMenu extends Component {
           </NavLink></Menu.Item>
           <Menu.Item className="sub-menu-administration" key="7">
             FAQ
+            <Link to="/dev/admin/questions" />
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="8">
             Імпортувати дані

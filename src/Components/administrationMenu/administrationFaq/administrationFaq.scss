@@ -1,0 +1,30 @@
+@import "~antd/dist/antd.css";
+
+.table-faq-all{
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-table-faq{
+    display: flex;
+}
+
+.dev_input_FAQ{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+}
+
+.dev-add-row-btn {
+    background: #fff;
+    border: none;
+    color: #fa8c16;
+    font-weight: 700;
+    width: 80px;
+}  
+
+.dev-add-row-btn:hover {
+        background: #fa8c16;
+        color: #fff;
+        border-radius: 0;
+}
