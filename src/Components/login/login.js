@@ -28,7 +28,8 @@ class Login extends React.Component {
   login = () => {
     signin(this.state.email, this.state.password).then(response => {
       console.log(response.data.accessToken)
-      localStorage.setItem("accessToken", response.data.accessToken)
+      localStorage.setItem("accessToken", response.data.accessToken);
+      window.location.reload();
     })
   }
 
