@@ -11,7 +11,7 @@ const AdministrationSities = () => {
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
   const data2={
-    name:'Винники2',
+    name:'Винники3',
     longitude: 49.81417330421448, 
     latitude: 24.135502529616105
   }
