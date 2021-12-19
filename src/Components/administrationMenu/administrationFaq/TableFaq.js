@@ -170,7 +170,6 @@ const TableFaq = () => {
     setData((pre) => {
       return pre.filter((item) => item.id !== id);
     });
-    // message.success('Питання ' + dataIndex + ' успішно видалене');
   };
 
   return (
