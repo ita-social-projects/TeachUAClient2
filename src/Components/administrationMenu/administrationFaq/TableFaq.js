@@ -93,16 +93,16 @@ const TableFaq = () => {
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
-          <span>
-            <Typography.Link
+          <span >
+            <Typography.Link 
               style={{ marginRight: 8 }}>
-              <Popconfirm
+              <Popconfirm 
                 title="Зберегти зміни?"
                 okText="Так"
                 cancelText="Ні"
-                onCancel={cancel}
+                onCancel={cancel} 
                 onConfirm={() => save(record)}>
-                <a>Зберегти</a>
+                <a >Зберегти</a>
               </Popconfirm>
             </Typography.Link>
 
@@ -125,7 +125,10 @@ const TableFaq = () => {
               title="Видалити питання?"
               okText="Так"
               cancelText="Ні"
-              onConfirm={() => onDelete(record.id)}  >
+              onConfirm={() => {
+                onDelete(record.id, record.title); 
+              message.success('Питання ' + record.title + ' успішно видалене')}} >
+                
               <a style={{ marginLeft: 10, color: '#0050b3' }}>Видалити</a>
             </Popconfirm>
           </div>
@@ -167,16 +170,19 @@ const TableFaq = () => {
     setData((pre) => {
       return pre.filter((item) => item.id !== id);
     });
-    message.success('Питання успішно видалене');
+    // message.success('Питання ' + dataIndex + ' успішно видалене');
   };
 
   return (
-    <Form form={form} component={false}>
+    <div className="faq-body">
+    <Form form={form} component={false}> 
       <Table
         components={{
           body: {
             cell: EditableCellFaq,
+            
           },
+         
         }}
         bordered
         dataSource={data}
@@ -184,11 +190,15 @@ const TableFaq = () => {
         rowClassName="editable-row"
         pagination={{
           onChange: cancel,
-        }}
+        }} 
+        footer={() => <DevAddInputFaq  onAdd={onAdd}/>}
       />
-      <DevAddInputFaq onAdd={onAdd} />
+  
     </Form>
+  
+     </div>
   );
+ 
 };
 
 export default TableFaq;
