@@ -1,18 +1,11 @@
 @import "~antd/dist/antd.css";
 
-.table-faq-all{
+
+.dev-input-FAQ{
     display: flex;
     flex-direction: column;
-}
-
-.dev-table-faq{
-    display: flex;
-}
-
-.dev_input_FAQ{
-    display: flex;
-    flex-direction: column;
-    padding: 12px 8px;
+    padding: 1px 8px;
+    margin-bottom: 0;
 }
 
 .dev-add-row-btn {
@@ -27,4 +20,123 @@
         background: #fa8c16;
         color: #fff;
         border-radius: 0;
+}
+
+
+.faq-body{
+    .ant-table-pagination.ant-pagination  {
+    background-color: #fbf4e4;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+
+}
+
+.ant-table-column-sorter {
+    margin-left: 4px;
+    color: rgb(191, 191, 191);
+    font-size: 0px;
+    transition: color 0.3s ease 0s;
+}
+.ant-table-column-sorter-up.active, .ant-table-column-sorter-down.active {
+    color: rgb(191, 191, 191);
+}
+
+.ant-table-column-sorter-down.active, .ant-table-column-sorter-up.active {
+    color: rgb(255, 255, 255);
+
+}
+.ant-table-column-sorter-down{
+    margin-left: 5px;
+}
+
+.ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active:hover{
+ 
+    background-color: transparent;
+    
+}
+
+
+.ant-pagination-item-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: #fbf4e4;
+    width: 24px;
+    height: 24px;
+
+}
+
+
+.ant-pagination-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fe7729;
+    border: 1px solid #fa8c16;
+    border-radius: 2px;
+    max-width: 22px;
+    height: 22px;
+&:hover{
+    background-color: none;
+    border:1px solid transparent;
+    border-radius: 0;
+
+    
+}
+  
+ 
+}
+
+
+
+.ant-pagination-item-active a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    background-color: #fe7729;
+}
+.ant-pagination-item-active a:hover{
+    color: #fff;
+}
+
+
+.ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 0;
+}
+
+
+.ant-pagination-prev.ant-pagination-disabled{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 0;
+}
+
+.ant-pagination-next.ant-pagination-disabled{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 0;
+}
+
+
+.ant-table-footer{
+    padding: 12px 0;
+}
+ 
+
 }
