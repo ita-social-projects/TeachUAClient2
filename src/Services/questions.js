@@ -7,6 +7,11 @@ const getQuestions = () => {
     return fetchRequest.get(url);
 };
 
+const createQuestions = (title, text) => {
+    return fetchRequest.post(url, {title, text});
+};
+
 export {
-    getQuestions
+    getQuestions,
+    createQuestions,
 };

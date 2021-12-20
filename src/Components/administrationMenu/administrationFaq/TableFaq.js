@@ -19,9 +19,13 @@ const TableFaq = () => {
     });
   };
 
+
+
   useEffect(() => {
     getData();
   }, []);
+
+
 
   const isEditing = (record) => record.id === editingKey;
 
@@ -158,12 +162,13 @@ const TableFaq = () => {
     const randomNumber = parseInt(Math.random() * 1000);
     const newData = {
       id: randomNumber,
-      title,
+      title: randomNumber + ' ' + title,
       text,
     };
     setData((pre) => {
       return [...pre, newData];
     });
+    // postData();
   };
 
   const onDelete = (id) => {
