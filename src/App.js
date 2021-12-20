@@ -17,6 +17,11 @@ import Confirmation from './Components/administrationMenu/confirmation/Confirmat
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
 import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
 
+import ChallengeUA from './Components/сhallenge/challengeUA';
+import ChallengeUATaskPage from './Components/сhallenge/challengePage'
+import Marathon from './Components/сhallenge/marathonDay';
+import MarathonPage from './Components/сhallenge/marathonPage';
+import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
 
 
 
@@ -38,8 +43,12 @@ class App extends Component {
                 </div>
                 
                 <Switch>
-                    <Route path="/" exact component={() => (<MainPage />)} />
+                <Route path="/" exact component={() => (<MainPage />)} />
                     <Route path="/clubs" component={() => (<Clubs/>)} />
+                    <Route path='/challengeUA' exact component={ChallengeUA} />
+                    <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage}/>
+                    <Route path='/marathon' exact component={Marathon} />
+                    <Route path="/marathon/task/:pathUrl" component={MarathonPage}/>
                     <Route path="/challenge" component={() => (<div>Clubs Challenge</div>)} />
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
@@ -49,6 +58,7 @@ class App extends Component {
                     <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
+                    <Route path="/dev/admin/questions" component={() => (<TableFaq />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
                     <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
                     <Route path="/dev/admin/sities" component={() => (<AdministrationSities/>)} />

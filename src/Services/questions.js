@@ -2,12 +2,12 @@ import axios from "axios"
 import {REACT_APP_API_URL} from "./serviceUtills"
 
 
-const url = `${REACT_APP_API_URL}/users` 
+const url = `${REACT_APP_API_URL}/questions` 
 
-const getUsersService = () => {
+const getQuestions = () => {
     return axios.get(url);
 };
 
 export {
-    getUsersService
+    getQuestions
 };

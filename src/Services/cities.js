@@ -1,5 +1,5 @@
 import axios from "axios";
-import { REACT_APP_API_URL } from "./constants";
+import { REACT_APP_API_URL } from "./serviceUtills";
 
 const urlCities = `${REACT_APP_API_URL}/cities`;
 const urlCity = `${REACT_APP_API_URL}/city`;

@@ -8,7 +8,7 @@ import AddCenter from "../addCenter/addCenter";
 import AddClub from "../add_Club/AddClub";
 import AdministrationMenu from "../administrationMenu/administrationMenu";
 
-import Logo from "../header_img/logo.svg";
+import Logo from "../header_img/logo.png";
 import Avatar from "../header_img/avatar.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";
 import Crown from "../header_img/crown.svg";
@@ -19,51 +19,71 @@ import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
+import {Link} from 'react-router-dom'
 import "./header.scss";
 
 
-const menu = (
-    <Menu>
-        <Menu.Item>
-            <a target="#blank">Навчай українською Челендж</a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="#blank">Мовомаратон</a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="#blank">Навчай українською</a>
-        </Menu.Item>
-    </Menu>
-);
-
-const log = (
-  <Menu>
-    <Menu.Item>
-      <Registration/>
-    </Menu.Item>
-    <Menu.Item>
-      <Login/>
-    </Menu.Item>
-    <Menu.Item>
-      <AddCenter/>
-    </Menu.Item>
-    <Menu.Item>
-            <a href="/profile">Профіль </a>
-    </Menu.Item>
-    <Menu.Item>
-    <AddClub/>
-    </Menu.Item>
-    <Menu.Item>
-    <AdministrationMenu />
-    </Menu.Item>
-    
-    
-
-  </Menu>
-);
 
 export class header extends Component {
+    logout = () => {
+        localStorage.removeItem("accessToken");
+        window.location.reload();
+    }
+
+    isAuthorather = () => {
+        return localStorage.getItem("accessToken") !== null;
+    } 
+
     render() {
+        const menu = (
+            <Menu>
+                <Menu.Item>
+                  <Link to='/challengeUA'>
+                    <a target="#blank">Навчай українською Челендж</a>
+                   </Link>
+                </Menu.Item>
+                <Menu.Item>
+                <Link to='/marathon'>
+                    <a target="#blank">Мовомаратон</a>
+                </Link>   
+                </Menu.Item>
+                <Menu.Item>
+                    <a target="#blank">Навчай українською</a>
+                </Menu.Item>
+            </Menu>
+        );
+        
+        const log = this.isAuthorather() ? (
+          <Menu>
+            
+            <Menu.Item onClick={this.logout}>
+                Вийти
+            </Menu.Item>
+            <Menu.Item>
+              <AddCenter/>
+            </Menu.Item>
+            <Menu.Item>
+                    <a href="/profile">Профіль </a>
+            </Menu.Item>
+            <Menu.Item>
+            <AddClub/>
+            </Menu.Item>
+            <Menu.Item>
+            <AdministrationMenu />
+            </Menu.Item>
+            
+            
+        
+          </Menu>
+        ):(<Menu>
+            <Menu.Item>
+              <Registration/>
+            </Menu.Item>
+            <Menu.Item>
+              <Login/>
+            </Menu.Item>
+        </Menu>);
+
         console.log(this.props);
         return (
             <div className="Header">
