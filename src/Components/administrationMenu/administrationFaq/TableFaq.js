@@ -168,7 +168,6 @@ const TableFaq = () => {
     setData((pre) => {
       return [...pre, newData];
     });
-    // postData();
   };
 
   const onDelete = (id) => {
