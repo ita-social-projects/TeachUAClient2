@@ -2,24 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
 import EditableCell from "./EditableCell";
-//import AddCitie from "./AddSitie";
+import AddCitie from "./AddSitie";
 import './sities.modules.scss'
-import { getSitiesServise,addCity} from "../../../Services/cities";
+import { getSitiesServise, updateCities, deleteCity} from "../../../Services/cities";
 
 const AdministrationSities = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
-  const data2={
-    name:'Винники3',
-    longitude: 49.81417330421448, 
-    latitude: 24.135502529616105
-  }
-  /*const getCityId =(id)=>{
-    getCity(id).then(response=>{
-      console.log(response.data);
-    })
-  }*/
+
   
   const getData = () => {
     getSitiesServise().then((response) => {
@@ -49,27 +40,31 @@ const AdministrationSities = () => {
   };
 
   const save = async (key) => {
-    addCity(data2);
     try {
       const row = await form.validateFields();
-      console.log(`${row}`);
+   
       const newData = [...data];
-      console.log(newData);
+      
 
       const index = newData.findIndex((item) => {
        return key.id === item.id
       }
         );
-      console.log(index);
+     
 
-      console.log(key);
+     
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setData(newData);
+ 
+        newData[index].latitude= typeof newData[index].latitude === "number"? newData[index].latitude : Number(newData[index].latitude)
+        newData[index].longitude= typeof newData[index].longitude === "number"? newData[index].longitude : Number(newData[index].longitude)
+        updateCities(newData[index]);
+
         setEditingKey("");
       } else {
-        //newData.push(row);
+
         setData(newData);
         setEditingKey("");
       }
@@ -78,8 +73,7 @@ const AdministrationSities = () => {
     }
   };
   const CityDelete = (key) => {
-   console.log(key);
-   
+   deleteCity(key)
     setData(data.filter((item) =>  {
       return key.id !== item.id
      }))
@@ -189,7 +183,7 @@ const AdministrationSities = () => {
         pagination={{
           onChange: cancel,
         }}
-        //footer={<AddCitie cities={data} setCities={setData}/>}
+        footer={()=><AddCitie cities={data} setCities={setData}/>}
       />
       
     </Form>

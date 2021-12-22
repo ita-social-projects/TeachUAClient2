@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import GooglePlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-google-places-autocomplete';
+import GooglePlacesAutocomplete,{geocodeByAddress, getLatLng} from 'react-google-places-autocomplete';
 import {Button, message} from "antd";
 import PropTypes from 'prop-types';
-//import "./css/AddCity.css";
+import {REACT_APP_MAP_KEY} from '../../../Services/serviceUtills'
 import {addCity} from "../../../Services/cities";
-//import {addToTable} from "../../../util/TableUtil";
+
 
 const AddCity = ({cities, setCities}) => {
     const [city, setCity] = useState(null);
@@ -20,7 +20,6 @@ const AddCity = ({cities, setCities}) => {
             message.error("Виберіть місто");
             return;
         }
-
         geocodeByAddress(city.label)
             .then(results => getLatLng(results[0]))
             .then(({lat, lng}) => {
@@ -45,7 +44,7 @@ const AddCity = ({cities, setCities}) => {
         <div className="add-city">
             <div className="add-city-content">
                 <GooglePlacesAutocomplete
-                    apiKey={process.env.REACT_APP_MAP_KEY}
+                    apiKey={REACT_APP_MAP_KEY}
                     selectProps={{
                         className: "add-city-input",
                         placeholder: "Введіть назву міста",

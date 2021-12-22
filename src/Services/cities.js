@@ -1,3 +1,4 @@
+import fetchRequest from "./serviceUtills";
 import axios from "axios";
 import { REACT_APP_API_URL } from "./serviceUtills";
 
@@ -13,20 +14,15 @@ const getCity = (id) => {
 };
 
 const addCity = (data) => {
-  return axios
+  return fetchRequest
     .post(
       "https://speak-ukrainian.org.ua/dev/api/city",
       {
         name: data.name,
         latitude: data.latitude,
         longitude: data.longitude,
-      },
-      {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJqdGkiOiIxIiwiZXhwIjoxNjM5NjA1NjAwfQ.Oiit8wyHDV6X0nZoFh7qBZjS96ElW_2dq5a6OTkojo7DICrFxK9HQGcKDQ_1ljbddw9hi-sKuH27zvLqkfFAiw",
-        },
       }
+      
     )
     .then((response) => {
       return response.data;
@@ -36,4 +32,46 @@ const addCity = (data) => {
       return error.response.data;
     });
 };
-export { getSitiesServise, getCity, addCity };
+
+const updateCities = (data) =>{
+  return fetchRequest
+    .put(
+      `https://speak-ukrainian.org.ua/dev/api/city/${data.id}`,
+      {
+        id:data.id,
+        name: data.name,
+        latitude: data.latitude,
+        longitude: data.longitude,
+      }
+      
+    )
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.response);
+      return error.response.data;
+    });
+};
+const deleteCity = (data) =>{
+  return fetchRequest
+    .delete(
+      `https://speak-ukrainian.org.ua/dev/api/city/${data.id}`,
+      {
+        id:data.id,
+        name: data.name,
+        latitude: data.latitude,
+        longitude: data.longitude,
+      }
+      
+    )
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.response);
+      return error.response.data;
+    });
+};
+
+export { getSitiesServise, getCity, addCity,updateCities,deleteCity };
