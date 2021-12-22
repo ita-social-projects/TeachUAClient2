@@ -1,13 +1,17 @@
-import axios from "axios"
-import {REACT_APP_API_URL} from "./serviceUtills"
+import fetchRequest, {REACT_APP_API_URL} from "./serviceUtills"
 
 
 const url = `${REACT_APP_API_URL}/questions` 
 
 const getQuestions = () => {
-    return axios.get(url);
+    return fetchRequest.get(url);
+};
+
+const createQuestions = (title, text) => {
+    return fetchRequest.post(url, {title, text});
 };
 
 export {
-    getQuestions
+    getQuestions,
+    createQuestions,
 };

@@ -10,7 +10,7 @@ class DevAddInputFaq extends Component {
     const { onAdd } = this.props;
     return (
       <Form
-        className="dev_input_FAQ"
+        className="dev-input-FAQ"
         name="basic"
         initialValues={{ remember: true }}
         autoComplete="off"
@@ -21,14 +21,14 @@ class DevAddInputFaq extends Component {
       >
         <Form.Item
           name="title"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: "Введіть питання" }]}
         >
           <Input placeholder='Питання' />
         </Form.Item>
 
         <Form.Item
           name="text"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: "Введіть відповідь" }]}
         >
           <TextArea style={{ height: 100 }} placeholder='Відповідь' />
         </Form.Item>
