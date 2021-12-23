@@ -31,7 +31,6 @@ const EditableCell = ({editing, dataIndex, title, inputType, selectData, uploadF
         case 'select': {
             inputNode = <Select showSearch
                                 options={selectData.map(data => ({value: data}))}/>;
-                                console.log(selectData);
                                 
             break;
         }

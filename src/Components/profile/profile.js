@@ -7,28 +7,18 @@ import profile from "./Vector.svg";
 import { DownOutlined, PlusOutlined } from "@ant-design/icons";
 import { Menu, Dropdown } from "antd";
 import ModalEditProfile from "../edit_profile/modal_edit_profile";
+import AddCenter from "../addCenter/addCenter";
+import AddClub from "../add_Club/AddClub";
 
 class Profile extends React.Component {
   render() {
     const menu = (
       <Menu>
         <Menu.Item>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
-            гуртки
-          </a>
+          <AddClub />
         </Menu.Item>
         <Menu.Item>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
-            центри
-          </a>
+          <AddCenter />
         </Menu.Item>
       </Menu>
     );

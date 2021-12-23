@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Table, Form, Popconfirm } from "antd";
-import { getUsersService } from "../../../Services/user";
+import { getUsersService, editUsersService } from "../../../Services/user";
 import EditableCell from "../editableCell";
 import "./administration_users.scss";
 
@@ -59,11 +59,21 @@ export default function Administration_users() {
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
-        setUsers(newData);
-        setEditingKey("");
-      } else {
-        setUsers(newData);
-        setEditingKey("");
+        const editedData = {
+          id: newData[index].id,
+          email: newData[index].email,
+          firstName: newData[index].firstName,
+          lastName: newData[index].lastName,
+          phone: newData[index].phone,
+          urlLogo: newData[index].urlLogo,
+          status: newData[index].status,
+          roleName: newData[index].roleName,
+        };
+        editUsersService(editedData).then((response) => {
+          getData();
+          setEditingKey("");
+          return response.editedData;
+        });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);

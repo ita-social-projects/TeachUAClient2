@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Table, Image, Form, Popconfirm } from "antd";
-import { getCategoriesService } from "../../../Services/category";
+import { getCategoriesService, editCategoriesService } from "../../../Services/category";
 import Administration_add_category from "./administration_add_category";
 import EditableCell from "../editableCell";
 import "./administration_categories.scss";
-
-
 
 export default function Administration_categories() {
   const [categories, setCategories] = useState([]);
@@ -36,7 +34,6 @@ export default function Administration_categories() {
     getData();
   }, []);
 
-
   const isEditing = (record) => record.id === editingKey;
 
   const edit = (record) => {
@@ -62,17 +59,26 @@ export default function Administration_categories() {
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
-        setCategories(newData);
-        setEditingKey("");
-      } else {
-        setCategories(newData);
-        setEditingKey("");
+        const editedData = {
+          id: newData[index].id,
+          sortby: newData[index].sortby,
+          name: newData[index].name,
+          description: newData[index].description,
+          urlLogo: newData[index].urlLogo,
+          backgroundColor: newData[index].backgroundColor,
+          tagBackgroundColor: newData[index].tagBackgroundColor,
+          tagTextColor: newData[index].tagTextColor,
+        };
+        editCategoriesService(editedData).then((response) => {
+          getData();
+          setEditingKey("");
+          return response.editedData;
+        });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
   };
-
 
   const columns = [
     {
@@ -191,20 +197,6 @@ export default function Administration_categories() {
         );
       },
     },
-      
-    //   () => {
-    //     return (
-    //       <div>
-    //         <span className="action-btn">
-    //           <Typography.Link>Редагувати</Typography.Link>
-    //         </span>
-    //         <span>
-    //           <Typography.Link>Видалити</Typography.Link>
-    //         </span>
-    //       </div>
-    //     );
-    //   },
-    // },
   ];
 
   const mergedColumns = columns.map((col) => {
@@ -228,19 +220,18 @@ export default function Administration_categories() {
   return (
     <div className="categories-body">
       <Form form={form} component={false}>
-      <div className="table-header"></div>
-      <Table
-        className="categories-table"
-        components={{
-          body: {
-            cell: EditableCell,
-          },
-        }}
-        dataSource={categories}
-        bordered
-        columns={mergedColumns}
-        footer={() => <Administration_add_category />}
-      />
+        <Table
+          className="categories-table"
+          components={{
+            body: {
+              cell: EditableCell,
+            },
+          }}
+          dataSource={categories}
+          bordered
+          columns={mergedColumns}
+          footer={() => <Administration_add_category />}
+        />
       </Form>
     </div>
   );

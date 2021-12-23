@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Image, Table, Form, Input, Button, Upload, Popconfirm } from "antd";
+import {Typography, Image, Table, Form, Input, Button, Upload, Popconfirm} from "antd";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import { getContactsService } from "../../../Services/contact";
+import {getContactsService, editContactsService} from "../../../Services/contact";
 import EditableCell from "../editableCell";
 import "./administration_contacts.scss";
-
-
 
 export default function Administration_contacts() {
   const [contacts, setContacts] = useState([]);
@@ -56,17 +54,21 @@ export default function Administration_contacts() {
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
-        setContacts(newData);
-        setEditingKey("");
-      } else {
-        setContacts(newData);
-        setEditingKey("");
+        const editedData = {
+          id: newData[index].id,
+          name: newData[index].name,
+          urlLogo: newData[index].urlLogo,
+        };
+        editContactsService(editedData).then((response) => {
+          getData();
+          setEditingKey("");
+          return response.editedData;
+        });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
   };
-
 
   const columns = [
     {
@@ -168,63 +170,62 @@ export default function Administration_contacts() {
   return (
     <div className="admin-contacts-body">
       <Form form={form} component={false}>
-      <div className="table-header"></div>
-      <Table
-        className="admin-contacts-table"
-        components={{
-          body: {
-            cell: EditableCell,
-          },
-        }}
-        dataSource={contacts}
-        bordered
-        columns={mergedColumns}
-        footer={() => (
-          <Form
-            className="admin-contacts-form"
-            name="basic"
-            requiredMark={false}
-          >
-            <Form.Item
-              name="add_contact_name"
-              rules={[
-                {
-                  required: true,
-                  message: "Введіть назву контакта",
-                },
-              ]}
+        <Table
+          className="admin-contacts-table"
+          components={{
+            body: {
+              cell: EditableCell,
+            },
+          }}
+          dataSource={contacts}
+          bordered
+          columns={mergedColumns}
+          footer={() => (
+            <Form
+              className="admin-contacts-form"
+              name="basic"
+              requiredMark={false}
             >
-              <Input
-                className="add-contact-type-input"
-                placeholder="Назва контакта"
-              ></Input>
-            </Form.Item>
-            <Form.Item
-              name="urlLogo"
-              rules={[
-                {
-                  required: true,
-                  message: "Завантажте лого",
-                },
-              ]}
-            >
-              <Upload
-                name="image"
-                maxCount={1}
-                data={{ folder: `contact-types` }}
+              <Form.Item
+                name="add_contact_name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Введіть назву контакта",
+                  },
+                ]}
               >
-                <span className="add-contact-upload">
-                  <UploadOutlined className="icon" />
-                  Завантажити лого
-                </span>
-              </Upload>
-            </Form.Item>
-            <Button htmlType="submit" className="add-contact-button">
-              Добавити
-            </Button>
-          </Form>
-        )}
-      />
+                <Input
+                  className="add-contact-type-input"
+                  placeholder="Назва контакта"
+                ></Input>
+              </Form.Item>
+              <Form.Item
+                name="urlLogo"
+                rules={[
+                  {
+                    required: true,
+                    message: "Завантажте лого",
+                  },
+                ]}
+              >
+                <Upload
+                  name="image"
+                  maxCount={1}
+                  data={{ folder: `contact-types` }}
+                >
+                  <span className="add-contact-upload">
+                    <UploadOutlined className="icon" />
+                    Завантажити лого
+                  </span>
+                </Upload>
+              </Form.Item>
+              <Button htmlType="submit" className="add-contact-button">
+                Добавити
+              </Button>
+            </Form>
+          )}
+        />
       </Form>
     </div>
   );
