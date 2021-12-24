@@ -2,16 +2,29 @@ import React from "react";
 import { List, Card, Rate } from "antd";
 import "antd/dist/antd.css";
 import "./clubsItem.scss";
-import ClubsData from "../clubs.json";
+// import ClubsData from "../clubs.json";
+import { getClubsService } from "../../../Services/clubs";
+
+  const data = [];
 
 class ClubsItem extends React.Component {
+
+  getData=()=>{
+        getClubsService().then((response) => {
+        // data.push(response.data);
+        console.log(response.data);
+       })
+    }
+    componentDidMount(){
+      this.getData();
+  }
   render() {
-    const data = [];
-    ClubsData.map((post) => {
-      data.push(post);
-    });
-    console.log(data);
+   
+
+
+   
     return (
+
       <List
         className="card"
         pagination={{ pageSize: 8 }}
