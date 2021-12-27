@@ -14,11 +14,9 @@ const updateQuestions = (data) => {
       title: data.title,
       text: data.text,
     })
-    .then((response) => {
-      console.log(response.data);
+    .then(() => {
     })
     .catch((error) => {
-      console.log(error.response.data);
       return error.response.data;
     });
 };
@@ -30,11 +28,9 @@ const deleteQuestions = (data) => {
       title: data.title,
       text: data.text,
     })
-    .then((response) => {
-      console.log(response.data);
+    .then(() => {
     })
     .catch((error) => {
-      console.log(error.response.data);
       return error.response.data;
     });
 };
@@ -49,7 +45,6 @@ const createQuestions = (data) => {
       return response.data;
     })
     .catch((error) => {
-      console.log(error.response);
       return error.response.data;
     });
 };

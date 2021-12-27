@@ -16,7 +16,7 @@ class DevAddInputFaq extends Component {
         autoComplete="off"
         onFinish={({ title, text }) => {
           onAdd(title, text);
-          message.success(title + " успішно додано");
+          message.success(title + " успішно додано")
         }}
       >
         <Form.Item

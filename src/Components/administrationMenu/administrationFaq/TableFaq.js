@@ -75,10 +75,13 @@ const TableFaq = () => {
     );
   };
 
-  const onAdd = (data) => {
+
+  const onAdd = (title, text) => {
     createQuestions({
-      title: data.title,
-      text: data.text,
+      title: title,
+      text: text,
+    }).then(() => {
+      getData();
     });
   };
 
@@ -189,15 +192,6 @@ const TableFaq = () => {
           }}
           footer={() => <DevAddInputFaq onAdd={onAdd} />}
         />
-        <div className="select-container">
-          <select>
-            {data.map((option) => (
-              <option key={option.id} value={option.dataIndex}>
-                {option.title}
-              </option>
-            ))}
-          </select>
-        </div>
       </Form>
     </div>
   );
