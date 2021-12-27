@@ -37,14 +37,14 @@ const EditableCell = ({
 };
 
 EditableCell.propTypes = {
-  editing: PropTypes.any,
-  dataIndex: PropTypes.any,
-  title: PropTypes.any,
+  editing: PropTypes.func,
+  dataIndex: PropTypes.number,
+  title: PropTypes.string,
   inputType: PropTypes.any,
-  selectData: PropTypes.any,
+  selectData: PropTypes.func,
   uploadFolder: PropTypes.any,
   record: PropTypes.any,
-  index: PropTypes.any,
+  index: PropTypes.number,
   children: PropTypes.any,
   UPLOAD_IMAGE_URL: PropTypes.any,
   map: PropTypes.any,

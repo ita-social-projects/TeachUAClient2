@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './addSities.modules.scss'
 import GooglePlacesAutocomplete,{geocodeByAddress, getLatLng} from 'react-google-places-autocomplete';
 import {Button, message} from "antd";
 import PropTypes from 'prop-types';
@@ -65,7 +66,7 @@ const AddCity = ({cities, setCities}) => {
 };
 
 AddCity.propTypes={
-    cities: PropTypes.any,
+    cities: PropTypes.array,
     setCities:PropTypes.func
 }
 export default AddCity;
