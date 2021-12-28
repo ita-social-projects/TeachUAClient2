@@ -38,7 +38,7 @@ const columns = [
       <Image
         width={100}
         height={100}
-        src={`${process.env.PUBLIC_URL}` + urlLogo}
+        src={ + urlLogo}
       />
     ),
   },

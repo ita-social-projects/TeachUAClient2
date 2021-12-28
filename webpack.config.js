@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+var webpack = require('webpack');
 module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
         path:path.resolve(__dirname, "dist"),
     },
+    mode: "development",
     module: {
         rules: [
             {
@@ -20,20 +21,8 @@ module.exports = {
 
             },
             {
-                test: /\.s?[ac]ss$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    "style-loader",
-                    // Translates CSS into CommonJS
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
-                    },
-                    // Compiles Sass to CSS
-                    "sass-loader",
-                ],
+                test: /\.s?css$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']   
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif)$/,

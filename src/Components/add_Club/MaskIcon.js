@@ -7,7 +7,7 @@ class MaskIcon extends React.Component {
             <div className="icon"
                 style={{
                     backgroundColor: this.maskColor,
-                    WebkitMask: `url(${process.env.PUBLIC_URL + this.iconUrl}) no-repeat center / contain`
+                    WebkitMask: `url(${this.iconUrl}) no-repeat center / contain`
                 }} />
         )
     }

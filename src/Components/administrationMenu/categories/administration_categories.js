@@ -57,7 +57,7 @@ const columns = [
         style={{ backgroundColor: row.backgroundColor }}
         width={50}
         height={50}
-        src={`${process.env.PUBLIC_URL}` + urlLogo}
+        src={ + urlLogo}
       />
     ),
   },
