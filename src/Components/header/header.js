@@ -10,7 +10,7 @@ import AdministrationMenu from "../administrationMenu/administrationMenu";
 
 import Logo from "../header_img/logo.png";
 import Avatar from "../header_img/avatar.svg";
-import ProjectIcon from "../header_img/projectIcon.svg";
+// import ProjectIcon from "../header_img/projectIcon.svg";
 import Crown from "../header_img/crown.svg";
 import NewsIcon from "../header_img/newsIcon.svg";
 import Flag from "../header_img/flag.svg";
@@ -52,7 +52,9 @@ const log = (
       <AddCenter/>
     </Menu.Item>
     <Menu.Item>
-            <a href="/profile">Профіль </a>
+    <Link to='/profile'>
+            <a target="#blank">Профіль</a>
+        </Link>   
     </Menu.Item>
     <Menu.Item>
     <AddClub/>
@@ -79,10 +81,9 @@ export class header extends Component {
                         </label>
                         <input type="checkbox" id="burger-checkbox" />
                         <nav>
-                            <a href="/clubs">
-                                <img src={ProjectIcon} />
-                                Гуртки
-                            </a>
+                                <Link to='/clubs'>
+                                    <a target="#blank">Гуртки</a>
+                                </Link>
                             <Dropdown overlay={menu}>
                                 <a className="challenge" href="#blank">
                                     <img src={Crown} />

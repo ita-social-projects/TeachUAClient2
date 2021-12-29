@@ -14,14 +14,14 @@ const {Content} = Layout;
 class mainPage extends React.Component {
   render() {
     return (
-      <div className="mainPage" style={{ backgroundImage: "url(./Background.png)" }}>
+      <div className="mainPage" style={{ backgroundImage: "url(/static/images/Background.png)" }}>
         <Content>
           <Slider />
         </Content>
         <GroupDirection />
         <Information
           information={{
-            url: "url(/static/images/about/challenge_2.png)",
+            url: "url(/static/images/about/challenge_2.png)", 
             article: "Челендж “Навчай українською”",
             text: "Ми допоможемо вам перейти на українську мову викладання. Тут ви можете знайти мотиваційні та практичні вебінари з експертами, корисні матеріали, які вдосконалять ваші знання та навички викладати українською.",
             btnText: "Дізнатись більше",

@@ -5,6 +5,15 @@ module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
         path:path.resolve(__dirname, "dist"),
+        filename: 'bundle.js',  
+    },
+    resolve: {
+        alias: {
+            _: [
+              path.resolve(__dirname, 'src'),
+              path.resolve(__dirname, 'public'),
+            ],
+          },
     },
     mode: "development",
     module: {
@@ -25,28 +34,30 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader']   
             },
             {
-                test: /\.(png|jp(e*)g|svg|gif)$/,
+                test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
-                        loader:'file-loader'
-                    }],
-            },
-            {
-                test: /\.svg$/,
-
-                use: [{
-                    loader: "svg-url-loader",
+                    loader: 'file-loader',
                     options: {
-                        limit: 100000,
+                        name: '/public/static/images/[name].[ext]',
+                        outputPath: './',
+                        useRelativePath:true,
                     }
-                },
-                {
-                    loader: '@svgr/webpack',
-                    options: {
-                      babel: false,
-                      icon: true,
-                    },
-                  }],
+                }]
             },
+          
+            {
+                test: /\.(svg)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      limit: false,
+                      encoding:false,
+                      
+                    },
+                  },
+                ],
+              },
         ]
     },
     plugins: [
