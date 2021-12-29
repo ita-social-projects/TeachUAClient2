@@ -15,15 +15,11 @@ const getCity = (id) => {
 
 const addCity = (data) => {
   return fetchRequest
-    .post(
-      "https://speak-ukrainian.org.ua/dev/api/city",
-      {
-        name: data.name,
-        latitude: data.latitude,
-        longitude: data.longitude,
-      }
-      
-    )
+    .post(urlCity, {
+      name: data.name,
+      latitude: data.latitude,
+      longitude: data.longitude,
+    })
     .then((response) => {
       return response.data;
     })
@@ -33,45 +29,30 @@ const addCity = (data) => {
     });
 };
 
-const updateCities = (data) =>{
+const updateCities = (data) => {
   return fetchRequest
-    .put(
-      `https://speak-ukrainian.org.ua/dev/api/city/${data.id}`,
-      {
-        id:data.id,
-        name: data.name,
-        latitude: data.latitude,
-        longitude: data.longitude,
-      }
-      
-    )
-    .then((response) => {
-      console.log(response.data);
+    .put(`${urlCity}/${data.id}`, {
+      id: data.id,
+      name: data.name,
+      latitude: data.latitude,
+      longitude: data.longitude,
     })
     .catch((error) => {
       console.log(error.response);
       return error.response.data;
     });
 };
-const deleteCity = (data) =>{
+const deleteCity = (data) => {
   return fetchRequest
-    .delete(
-      `https://speak-ukrainian.org.ua/dev/api/city/${data.id}`,
-      {
-        id:data.id,
-        name: data.name,
-        latitude: data.latitude,
-        longitude: data.longitude,
-      }
-      
-    )
-    .then((response) => {
-      console.log(response.data);
+    .delete(`${urlCity}/${data.id}`, {
+      id: data.id,
+      name: data.name,
+      latitude: data.latitude,
+      longitude: data.longitude,
     })
     .catch((error) => {
-      console.log(error.response);
       return error.response.data;
     });
 };
 
-export { getSitiesServise, getCity, addCity,updateCities,deleteCity };
+export { getSitiesServise, getCity, addCity, updateCities, deleteCity };

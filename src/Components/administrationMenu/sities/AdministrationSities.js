@@ -3,15 +3,18 @@ import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
 import EditableCell from "./EditableCell";
 import AddCitie from "./AddSitie";
-import './sities.modules.scss'
-import { getSitiesServise, updateCities, deleteCity} from "../../../Services/cities";
+import "./sities.modules.scss";
+import {
+  getSitiesServise,
+  updateCities,
+  deleteCity,
+} from "../../../Services/cities";
 
 const AdministrationSities = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
 
-  
   const getData = () => {
     getSitiesServise().then((response) => {
       setData(response.data);
@@ -42,29 +45,32 @@ const AdministrationSities = () => {
   const save = async (key) => {
     try {
       const row = await form.validateFields();
-   
+
       const newData = [...data];
-      
 
       const index = newData.findIndex((item) => {
-       return key.id === item.id
-      }
-        );
-     
+        return key.id === item.id;
+      });
 
-     
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
-        setData(newData);
  
-        newData[index].latitude= typeof newData[index].latitude === "number"? newData[index].latitude : Number(newData[index].latitude)
-        newData[index].longitude= typeof newData[index].longitude === "number"? newData[index].longitude : Number(newData[index].longitude)
-        updateCities(newData[index]);
+
+        newData[index].latitude =
+          typeof newData[index].latitude === "number"
+            ? newData[index].latitude
+            : Number(newData[index].latitude);
+        newData[index].longitude =
+          typeof newData[index].longitude === "number"
+            ? newData[index].longitude
+            : Number(newData[index].longitude);
+        updateCities(newData[index]).then(() => {
+          getData();
+        });
 
         setEditingKey("");
       } else {
-
         setData(newData);
         setEditingKey("");
       }
@@ -73,11 +79,9 @@ const AdministrationSities = () => {
     }
   };
   const CityDelete = (key) => {
-   deleteCity(key)
-    setData(data.filter((item) =>  {
-      return key.id !== item.id
-     }))
-     
+    deleteCity(key).then(() => {
+      getData();
+    });
   };
 
   const columns = [
@@ -113,8 +117,8 @@ const AdministrationSities = () => {
       editable: true,
     },
     {
-      title: "operation",
-      dataIndex: "operation",
+      title: "Дія",
+      dataIndex: "Дія",
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
@@ -133,23 +137,25 @@ const AdministrationSities = () => {
           </span>
         ) : (
           <div>
-          <Typography.Link
-            disabled={editingKey !== ""}
-            onClick={() => edit(record)}
-          >
-            Редагувати
-          </Typography.Link>
-          <Popconfirm title="Sure to delete?" 
-          className="DeleteCity"
-          onConfirm={() => CityDelete(record)}>
+            <Typography.Link
+              disabled={editingKey !== ""}
+              onClick={() => edit(record)}
+            >
+              Редагувати
+            </Typography.Link>
+            <Popconfirm
+              title="Видалити місто?"
+              className="DeleteCity"
+              cancelText="Ні"
+              okText="Так"
+              onConfirm={() => CityDelete(record)}
+            >
               <a>Видалити</a>
             </Popconfirm>
-       </div>
-        
+          </div>
         );
-      }
-    }
-    
+      },
+    },
   ];
   const mergedColumns = columns.map((col) => {
     if (!col.editable) {
@@ -177,15 +183,13 @@ const AdministrationSities = () => {
         }}
         bordered
         dataSource={data}
-        
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={{
           onChange: cancel,
         }}
-        footer={()=><AddCitie cities={data} setCities={setData}/>}
+        footer={() => <AddCitie cities={data} setCities={setData} />}
       />
-      
     </Form>
   );
 };
