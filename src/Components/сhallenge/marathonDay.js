@@ -10,7 +10,7 @@ import MailOutlined from "@ant-design/icons/lib/icons/MailOutlined";
 
 import "./challengeUA.scss";
 
-export class marathonDay extends Component {
+export class MarathonDay extends Component {
   render() {
     const name = "marathon";
     return (
@@ -71,4 +71,4 @@ export class marathonDay extends Component {
   }
 }
 
-export default marathonDay;
+export default MarathonDay;

@@ -76,6 +76,10 @@ export class header extends Component {
     return this.props.location.pathname !== '/clubs';
       }
 
+    func = (e) => {
+      console.log(e.target.value);
+    }
+
   render() {
     const cities = (
       <Menu
@@ -160,9 +164,7 @@ export class header extends Component {
                     className="searchField"
                     type="text"
                     placeholder="Який гурток шукаєте?"
-                    onChange={(e) => {
-                      this.setState({ input: e.target.value });
-                    }}
+                    onChange={this.func}
                   />
                 </Link>
                 <img src={Lens} />

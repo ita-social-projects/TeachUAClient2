@@ -87,12 +87,11 @@
         filter: invert(90%) sepia(97%) saturate(15%) hue-rotate(328deg) brightness(110%) contrast(101%);
         display: flex;
         align-self: center;
-        height: 30px;
+        height: 36px;
         margin: 5px;
         cursor: pointer;
       }
       .GroupDirection__btn {
-        
         text-align: center;
         align-self: center;
         width: 134px;
@@ -112,7 +111,6 @@
       .GroupDirection__btn:hover{
         color:#FA8C16;
         background-color: white;
-        
       }
 
     
