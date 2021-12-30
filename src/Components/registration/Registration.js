@@ -6,6 +6,7 @@ import { Form, Input, Button, Modal } from 'antd';
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
 import '../registration/registartion.modules.scss'
+import { addUser } from "../../Services/registration";
 
 
 const layout = {
@@ -27,15 +28,49 @@ const layout = {
 
 class NewRegistration extends React.Component {
     state = {
-        showModal: false
+        showModal: false,
+        id:0,
+    email:'',
+    firstName:'',
+    lastName:'',
+    phone:0,
+    password:'',
+    roleName:'ROLE_MANAGER',
+    verificationCode:'',
+    urlLogo:'',
+    status:'',
     }
     handleOk = () => {
         this.setState({ showModal: !this.state.showModal });
     };
+    handleEmail= (event) =>{
+        this.setState({email:event.target.value})
+    }
+    handleFirstName= (event) =>{
+        this.setState({firstName:event.target.value})
+    }
+    handleLastName= (event) =>{
+        this.setState({lastName:event.target.value})
+    }
+    handlePhone= (event) =>{
+        this.setState({phone:0+event.target.value})
+        
+    }
+    handlePassword= (event) =>{
+        this.setState({password:event.target.value})
+    }
+  
 
 
-    onFinish = (values) => {
-        console.log(values);
+    onFinish = () => {
+        addUser(this.state.email,
+            this.state.firstName,
+            this.state.lastName,
+            this.state.phone,
+            this.state.password,
+            this.state.roleName)
+            this.handleOk();
+        console.log(this.state);
     };
 
 
@@ -65,6 +100,7 @@ class NewRegistration extends React.Component {
                             className="registration-input"
                             label="Ім`я"
                             hasFeedback
+                            onChange={this.handleFirstName}
                             rules={[{
                                 required: true,
                                 message: "Введіть ім`я",
@@ -101,6 +137,7 @@ class NewRegistration extends React.Component {
                             className="registration-input"
                             label="Прізвище"
                             hasFeedback
+                            onChange={this.handleLastName}
                             rules={[{
                                 required: true,
                                 message: 'Введіть прізвище',
@@ -137,6 +174,7 @@ class NewRegistration extends React.Component {
                             className="registration-input"
                             label="Телефон"
                             hasFeedback
+                            onChange={this.handlePhone}
                             rules={[{
                                 required: true,
                                 message: 'Введіть номер телефону'
@@ -170,6 +208,7 @@ class NewRegistration extends React.Component {
                         <Form.Item name="email"
                             className="registration-input"
                             label="Email"
+                            onChange={this.handleEmail}
                             hasFeedback
                             rules={[{
                                 required: true,
@@ -186,6 +225,7 @@ class NewRegistration extends React.Component {
                         <Form.Item
                             name="password"
                             label="Пароль"
+                            onChange={this.handlePassword}
                             rules={[
                                 {
                                     required: true,
@@ -194,7 +234,22 @@ class NewRegistration extends React.Component {
                                 {
                                     pattern: /^\S{8,20}$/,
                                     message: 'Пароль не може бути коротшим, ніж 8 та довшим, ніж 20 символів'
-                                },
+                                },{
+                                    pattern: /[a-z]/,
+                                    message: "Пароль повинен містити хоча б одну маленьку літеру"
+                                }, {
+                                    pattern: /[A-Z]/,
+                                    message: "Пароль повинен містити хоча б одну велику літеру"
+                                }, {
+                                    pattern: /[0-9]/,
+                                    message: "Пароль повинен містити хоча б одну цифру"
+                                }, {
+                                    pattern: /[~`!@#$%^&()_=+{}\\[\\\]\\/|:;,"<>?]/,
+                                    message: "Пароль повинен містити хоча б один спец. символ"
+                                }, {
+                                    pattern: /^[^А-Яа-яЇїІіЄєҐґЁёЪъЫыЭэ]+$/,
+                                    message: 'Пароль не може містити українські та російські літери'
+                                }
                             ]}
                             hasFeedback
                         >
