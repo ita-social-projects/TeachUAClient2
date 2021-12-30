@@ -16,25 +16,26 @@ class DevAddInputFaq extends Component {
         autoComplete="off"
         onFinish={({ title, text }) => {
           onAdd(title, text);
-          message.success(title + ' успішно додано');
+          message.success(title + " успішно додано")
         }}
       >
         <Form.Item
           name="title"
           rules={[{ required: true, message: "Введіть питання" }]}
         >
-          <Input placeholder='Питання' />
+          <Input placeholder="Питання" />
         </Form.Item>
 
         <Form.Item
           name="text"
           rules={[{ required: true, message: "Введіть відповідь" }]}
         >
-          <TextArea style={{ height: 100 }} placeholder='Відповідь' />
+          <TextArea style={{ height: 100 }} placeholder="Відповідь" />
         </Form.Item>
-        <div><Button className="dev-add-row-btn" type="primary" htmlType="submit">
-          Додати
-        </Button>
+        <div>
+          <Button className="dev-add-row-btn" type="primary" htmlType="submit">
+            Додати
+          </Button>
         </div>
       </Form>
     );

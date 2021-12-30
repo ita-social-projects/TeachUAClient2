@@ -6,7 +6,7 @@
     flex-direction: column;
     padding: 1px 8px;
     margin-bottom: 0;
-}
+
 
 .dev-add-row-btn {
     background: #fff;
@@ -20,6 +20,13 @@
         background: #fa8c16;
         color: #fff;
         border-radius: 0;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+    color: #fff;
+    border-color: #ffffff;
+    background: #fa8c16;
+}
 }
 
 

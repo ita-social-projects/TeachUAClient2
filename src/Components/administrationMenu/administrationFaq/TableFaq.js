@@ -1,12 +1,16 @@
 import React from "react";
 import "antd/dist/antd.css";
-import "./administrationFaq.scss"
+import "./administrationFaq.scss";
 import { useState, useEffect } from "react";
-import { Table, Form, Popconfirm, Typography, message  } from "antd";
+import { Table, Form, Popconfirm, Typography, message } from "antd";
 import EditableCellFaq from "./EditableCellFaq";
-import { getQuestions } from "../../../Services/questions";
+import {
+  createQuestions,
+  deleteQuestions,
+  getQuestions,
+  updateQuestions,
+} from "../../../Services/questions";
 import DevAddInputFaq from "./DevAddInputFaq";
-
 
 const TableFaq = () => {
   const [form] = Form.useForm();
@@ -19,19 +23,14 @@ const TableFaq = () => {
     });
   };
 
-
-
   useEffect(() => {
     getData();
   }, []);
-
-
 
   const isEditing = (record) => record.id === editingKey;
 
   const edit = (record) => {
     form.setFieldsValue({
-      id: "",
       title: "",
       text: "",
       ...record,
@@ -41,7 +40,7 @@ const TableFaq = () => {
 
   const cancel = () => {
     setEditingKey("");
- };
+  };
 
   const save = async (key) => {
     try {
@@ -49,13 +48,14 @@ const TableFaq = () => {
       const newData = [...data];
 
       const index = newData.findIndex((item) => {
-        return key.id === item.id
-      }
-      );
+        return key.id === item.id;
+      });
       if (key.id > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setData(newData);
+        updateQuestions(newData[index]);
+
         setEditingKey("");
       } else {
         setData(newData);
@@ -64,8 +64,25 @@ const TableFaq = () => {
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
- 
- 
+  };
+
+  const onDelete = (key) => {
+    deleteQuestions(key);
+    setData(
+      data.filter((item) => {
+        return key.id !== item.id;
+      })
+    );
+  };
+
+
+  const onAdd = (title, text) => {
+    createQuestions({
+      title: title,
+      text: text,
+    }).then(() => {
+      getData();
+    });
   };
 
   const columns = [
@@ -97,28 +114,25 @@ const TableFaq = () => {
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
-          <span >
-            <Typography.Link 
-              style={{ marginRight: 8 }}>
-              <Popconfirm 
+          <span>
+            <Typography.Link style={{ marginRight: 8 }}>
+              <Popconfirm
                 title="Зберегти зміни?"
                 okText="Так"
                 cancelText="Ні"
-                onCancel={cancel} 
-                onConfirm={() => save(record)}>
-                <a >Зберегти</a>
+                onCancel={cancel}
+                onConfirm={() => save(record)}
+              >
+                <a>Зберегти</a>
               </Popconfirm>
             </Typography.Link>
 
-            <Typography.Link
-              onClick={cancel}
-            >
-              Відмінити
-            </Typography.Link>
+            <Typography.Link onClick={cancel}>Відмінити</Typography.Link>
           </span>
         ) : (
-          <div >
-            <Typography.Link style={{ color: '#0050b3' }}
+          <div>
+            <Typography.Link
+              style={{ color: "#0050b3" }}
               disabled={editingKey !== ""}
               onClick={() => edit(record)}
             >
@@ -130,13 +144,15 @@ const TableFaq = () => {
               okText="Так"
               cancelText="Ні"
               onConfirm={() => {
-                onDelete(record.id, record.title); 
-              message.success('Питання ' + record.title + ' успішно видалене')}} >
-                
-              <a style={{ marginLeft: 10, color: '#0050b3' }}>Видалити</a>
+                onDelete(record);
+                message.success(
+                  "Питання " + record.title + " успішно видалене"
+                );
+              }}
+            >
+              <a style={{ marginLeft: 10, color: "#0050b3" }}>Видалити</a>
             </Popconfirm>
           </div>
-
         );
       },
     },
@@ -158,50 +174,27 @@ const TableFaq = () => {
     };
   });
 
-  const onAdd = (title, text) => {
-    const randomNumber = parseInt(Math.random() * 1000);
-    const newData = {
-      id: randomNumber,
-      title: randomNumber + ' ' + title,
-      text,
-    };
-    setData((pre) => {
-      return [...pre, newData];
-    });
-  };
-
-  const onDelete = (id) => {
-    setData((pre) => {
-      return pre.filter((item) => item.id !== id);
-    });
-  };
-
   return (
     <div className="faq-body">
-    <Form form={form} component={false}> 
-      <Table
-        components={{
-          body: {
-            cell: EditableCellFaq,
-            
-          },
-         
-        }}
-        bordered
-        dataSource={data}
-        columns={mergedColumns}
-        rowClassName="editable-row"
-        pagination={{
-          onChange: cancel,
-        }} 
-        footer={() => <DevAddInputFaq  onAdd={onAdd}/>}
-      />
-  
-    </Form>
-  
-     </div>
+      <Form form={form} component={false}>
+        <Table
+          components={{
+            body: {
+              cell: EditableCellFaq,
+            },
+          }}
+          bordered
+          dataSource={data}
+          columns={mergedColumns}
+          rowClassName="editable-row"
+          pagination={{
+            onChange: cancel,
+          }}
+          footer={() => <DevAddInputFaq onAdd={onAdd} />}
+        />
+      </Form>
+    </div>
   );
- 
 };
 
 export default TableFaq;
