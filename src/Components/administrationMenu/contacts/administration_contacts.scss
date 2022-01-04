@@ -1,10 +1,5 @@
 .admin-contacts-body {
-    .table-header {
-        padding: 12px 8px;
-        background: #f0f0f0;
-    }
-
-
+    
     .action-btn {
         padding-right: 10px;
     }
@@ -112,4 +107,6 @@
     .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:focus-visible .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link {
         color: rgba(0,0,0,.25);
     }
+
+    
 }

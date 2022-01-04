@@ -1,8 +1,8 @@
 import React from "react";
 import "./changeOwner.modules.scss";
 import { Table } from "antd";
-import owners from "./ownersData.json";
-import ChangeOwnerFooter from "./ChangeOwnerFooter";
+import { getUsersesServise } from "../../../Services/changeOwner";
+import AdministrationChangeOwnerFooter from "./AdministrationChangeOwnerFooter";
 
 const columns = [
   {
@@ -20,7 +20,7 @@ const columns = [
   },
   {
     title: "Власник",
-    dataIndex: "age",
+    dataIndex: "cityName",
 
     width: "25%",
   },
@@ -37,8 +37,17 @@ class AdministarationChangeOwner extends React.Component {
     selectedRowKeys: [],
     owners: [], // Check here to configure the default column
   };
+  getData=()=>{
+    getUsersesServise().then((response)=>{
+        let data = response.data;
+        this.setState({owners:data})
+        console.log(this.state.owners)
+    })
+   
+}
   componentDidMount() {
-    let _owners = owners.map((element) => {
+    this.getData()
+    let _owners = this.state.owners.map((element) => {
       element.key = element.id;
       return element;
     });
@@ -72,7 +81,7 @@ class AdministarationChangeOwner extends React.Component {
           id="confirmationTable"
           bordered
           rowSelection={rowSelection}
-          footer={() => <ChangeOwnerFooter />}
+          footer={() => <AdministrationChangeOwnerFooter />}
         ></Table>
       </div>
     );

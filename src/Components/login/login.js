@@ -3,15 +3,37 @@ import { Form, Input, Modal } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import "./login.scss";
 import RestorePasswordModal from "./restorePasswordModal";
+import {signin} from "../../Services/login";
+
 
 class Login extends React.Component {
   state = {
     showModal: false,
+    email: "",
+    password: "",
   };
+
+  handleEmail = (event) => {
+    this.setState({email: event.target.value})
+  }
+
+  handlePassword = (event) => {
+    this.setState({password: event.target.value})
+  }
 
   handleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
+
+  login = () => {
+    signin(this.state.email, this.state.password).then(response => {
+      console.log(response.data.accessToken)
+      localStorage.setItem("accessToken", response.data.accessToken);
+      window.location.reload();
+    })
+  }
+
+  
 
   render() {
     return (
@@ -50,6 +72,7 @@ class Login extends React.Component {
                   className="login-input"
                   label="Емейл"
                   hasFeedback
+                  onChange={this.handleEmail}
                   rules={[
                     {
                       required: true,
@@ -80,12 +103,13 @@ class Login extends React.Component {
                   <Input.Password
                     className="login-box"
                     placeholder="Введіть ваш пароль"
+                    onChange={this.handlePassword}
                   />
                 </Form.Item>
               </Form>
             </div>
             <div className="login-button-box">
-              <button className="login-button" htmlType="submit">
+              <button className="login-button" htmlType="submit" onClick={this.login}>
                 Увійти
               </button>
             </div>
