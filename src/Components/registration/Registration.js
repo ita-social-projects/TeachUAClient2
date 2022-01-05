@@ -69,16 +69,17 @@ class NewRegistration extends React.Component {
             this.state.phone,
             this.state.password,
             this.state.roleName).then((response) => {
-                if (response.status) {
-                    message.error("Вказаний email вже зареєстрований на сайті");
-                } else {
+                console.log(response.status);
+               
                     message.success({
                         content: 'Ви успішно зареєструвалися! \n' +
                             'Вам на пошту відправлено лист з лінком для підтвердження реєстрації',
                         duration: 5,
                         className: "custom-class-confirmation",
-                    });
+                    })
                 }
+            ).catch(()=>{
+                message.error("Вказаний email вже зареєстрований на сайті");
             });
             
             this.handleOk();
