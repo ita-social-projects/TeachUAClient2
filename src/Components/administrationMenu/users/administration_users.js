@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Table, Form, Popconfirm } from "antd";
-import { getUsersService, editUsersService } from "../../../Services/user";
+import { Typography, Table, Form, Popconfirm, message } from "antd";
+import {
+  getUsersService,
+  editUsersService,
+  deleteUsersService,
+} from "../../../Services/user";
 import EditableCell from "../editableCell";
 import "./administration_users.scss";
 
@@ -69,15 +73,21 @@ export default function Administration_users() {
           status: newData[index].status,
           roleName: newData[index].roleName,
         };
-        editUsersService(editedData).then((response) => {
+        editUsersService(editedData).then(() => {
           getData();
           setEditingKey("");
-          return response.editedData;
         });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
+  };
+
+  const deleteData = (key) => {
+    deleteUsersService(key).then(() => {
+      message.success(`Користувача ${key.name} успішно видалено`);
+      getData();
+    });
   };
 
   const columns = [
@@ -163,15 +173,27 @@ export default function Administration_users() {
             </Typography.Link>
           </span>
         ) : (
-          <Typography.Link
-            disabled={editingKey !== ""}
-            onClick={() => edit(record)}
-            style={{
-              marginLeft: 8,
-            }}
-          >
-            Редагувати
-          </Typography.Link>
+          <div>
+            <Typography.Link
+              disabled={editingKey !== ""}
+              onClick={() => edit(record)}
+              style={{
+                marginRight: 8,
+              }}
+              className="action-btn"
+            >
+              Редагувати
+            </Typography.Link>
+            <Popconfirm
+              title="Видалити користувача?"
+              className="action-btn"
+              cancelText="Ні"
+              okText="Так"
+              onConfirm={() => deleteData(record)}
+            >
+              <a>Видалити</a>
+            </Popconfirm>
+          </div>
         );
       },
     },

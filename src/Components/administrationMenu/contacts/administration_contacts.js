@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {Typography, Image, Table, Form, Input, Button, Upload, Popconfirm} from "antd";
-import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import {getContactsService, editContactsService} from "../../../Services/contact";
+import { Typography, Image, Table, Form, Popconfirm, message } from "antd";
+import {
+  getContactsService,
+  editContactsService,
+  deleteContactsService,
+} from "../../../Services/contact";
+import AddContactType from "./addContactType";
 import EditableCell from "../editableCell";
 import "./administration_contacts.scss";
 
@@ -27,7 +31,7 @@ export default function Administration_contacts() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [contacts]);
 
   const isEditing = (record) => record.id === editingKey;
 
@@ -59,15 +63,21 @@ export default function Administration_contacts() {
           name: newData[index].name,
           urlLogo: newData[index].urlLogo,
         };
-        editContactsService(editedData).then((response) => {
+        editContactsService(editedData).then(() => {
           getData();
           setEditingKey("");
-          return response.editedData;
         });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
+  };
+
+  const deleteData = (key) => {
+    deleteContactsService(key).then(() => {
+      message.success(`Тип ${key.name} успішно видалений`);
+      getData();
+    });
   };
 
   const columns = [
@@ -104,7 +114,7 @@ export default function Administration_contacts() {
         <Image
           width={100}
           height={100}
-          src={`${process.env.PUBLIC_URL}` + urlLogo}
+          src={`${process.env.REACT_APP_URL}` + urlLogo}
         />
       ),
     },
@@ -135,15 +145,27 @@ export default function Administration_contacts() {
             </Typography.Link>
           </span>
         ) : (
-          <Typography.Link
-            disabled={editingKey !== ""}
-            onClick={() => edit(record)}
-            style={{
-              marginLeft: 8,
-            }}
-          >
-            Редагувати
-          </Typography.Link>
+          <div>
+            <Typography.Link
+              disabled={editingKey !== ""}
+              onClick={() => edit(record)}
+              style={{
+                marginRight: 8,
+              }}
+              className="action-btn"
+            >
+              Редагувати
+            </Typography.Link>
+            <Popconfirm
+              title="Видалити цей Тип Контакту?"
+              className="action-btn"
+              cancelText="Ні"
+              okText="Так"
+              onConfirm={() => deleteData(record)}
+            >
+              <a>Видалити</a>
+            </Popconfirm>
+          </div>
         );
       },
     },
@@ -181,49 +203,10 @@ export default function Administration_contacts() {
           bordered
           columns={mergedColumns}
           footer={() => (
-            <Form
-              className="admin-contacts-form"
-              name="basic"
-              requiredMark={false}
-            >
-              <Form.Item
-                name="add_contact_name"
-                rules={[
-                  {
-                    required: true,
-                    message: "Введіть назву контакта",
-                  },
-                ]}
-              >
-                <Input
-                  className="add-contact-type-input"
-                  placeholder="Назва контакта"
-                ></Input>
-              </Form.Item>
-              <Form.Item
-                name="urlLogo"
-                rules={[
-                  {
-                    required: true,
-                    message: "Завантажте лого",
-                  },
-                ]}
-              >
-                <Upload
-                  name="image"
-                  maxCount={1}
-                  data={{ folder: `contact-types` }}
-                >
-                  <span className="add-contact-upload">
-                    <UploadOutlined className="icon" />
-                    Завантажити лого
-                  </span>
-                </Upload>
-              </Form.Item>
-              <Button htmlType="submit" className="add-contact-button">
-                Добавити
-              </Button>
-            </Form>
+            <AddContactType
+              contactTypes={contacts}
+              setContactTypes={setContacts}
+            />
           )}
         />
       </Form>

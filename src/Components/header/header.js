@@ -28,7 +28,7 @@ export class header extends Component {
     window.location.reload();
   };
 
-  isAuthorather = () => {
+  isAuthorizer = () => {
     return localStorage.getItem("accessToken") !== null;
   };
 
@@ -51,7 +51,7 @@ export class header extends Component {
       </Menu>
     );
 
-    const log = this.isAuthorather() ? (
+    const log = this.isAuthorizer() ? (
       <Menu>
         <Menu.Item>
           <AddClub />
