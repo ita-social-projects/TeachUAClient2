@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 //import ReactDOM from "react-dom";
 
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Button, Modal,message } from 'antd';
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
 import '../registration/registartion.modules.scss'
@@ -68,7 +68,19 @@ class NewRegistration extends React.Component {
             this.state.lastName,
             this.state.phone,
             this.state.password,
-            this.state.roleName)
+            this.state.roleName).then((response) => {
+                if (response.status) {
+                    message.error("Вказаний email вже зареєстрований на сайті");
+                } else {
+                    message.success({
+                        content: 'Ви успішно зареєструвалися! \n' +
+                            'Вам на пошту відправлено лист з лінком для підтвердження реєстрації',
+                        duration: 5,
+                        className: "custom-class-confirmation",
+                    });
+                }
+            });
+            
             this.handleOk();
         console.log(this.state);
     };
