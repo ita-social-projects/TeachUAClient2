@@ -19,15 +19,12 @@ export class MarathonDay extends Component {
                 <div className="social-media">
                     <span className="text">Наші контакти</span>
                     <div className="links">
-                        <a target="_blank" href=""></a>
-                        <a target="_blank" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined
-                            className="icon"/></a>
-                        <a target="_blank"
-                           href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined
-                            className="icon"/></a>
-                        <a target="_blank" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined
-                            className="icon"/></a>
-                        <a target="_blank" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
+                        <a target="#" href=""></a>
+                        <a target="#" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined className="icon"/></a>
+                        <a target="#"
+                           href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined className="icon"/></a>
+                        <a target="#" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined className="icon"/></a>
+                        <a target="#" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
                     </div>
                 </div>
                 <div className="help-button">
@@ -48,7 +45,7 @@ export class MarathonDay extends Component {
                     отримуватимуть завдання та короткі навчальні матеріали, щоб покращити свої знання та навички спілкування українською
                     мовою, та матимуть можливість взяти участь у щонайменше 4-х вебінарах і отримати підтримку однодумців.
                     <br /><br />
-                    Організатори - Ініціатива "Навчай українською" за підтримки Міністерства молоді та спорту України
+                    Організатори - Ініціатива &quot;Навчай українською&quot; за підтримки Міністерства молоді та спорту України
                     <br /><br />
                     <a style={{color: '#58a6ff' }} href="https://speak-ukrainian.org.ua/">  https://speak-ukrainian.org.ua/ </a>
                     <br />

@@ -15,11 +15,14 @@ import AdministrationImportData from './Components/administrationMenu/administra
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
 import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
+import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
+
 import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
 import TeachUkrainian from './Components/сhallenge/teachUkrainian';
+import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
 
 
 
@@ -57,8 +60,12 @@ class App extends Component {
                     <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
+                    <Route path="/dev/admin/questions" component={() => (<TableFaq />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
                     <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
+                    <Route path="/dev/admin/sities" component={() => (<AdministrationSities/>)} />
+                    
+    
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />

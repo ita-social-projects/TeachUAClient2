@@ -1,7 +1,6 @@
 import React from 'react'
 import 'antd/dist/antd.css';
 import "./clubs.scss";
-import ClubList from './clubs.json'
 import ClubsItem from "../clubs/clubsItem/clubsItem";
 
 

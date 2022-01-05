@@ -21,44 +21,18 @@ import { withRouter } from "react-router-dom";
 import "./header.scss";
 
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <Link to="/challengeUA">Навчай українською Челендж</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/marathon">Мовомаратон</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/teachUkrainian"> Навчай українською</Link>
-    </Menu.Item>
-  </Menu>
-);
 
-const log = (
-  <Menu>
-    <Menu.Item>
-      <Registration />
-    </Menu.Item>
-    <Menu.Item>
-      <Login />
-    </Menu.Item>
-    <Menu.Item>
-      <AddCenter />
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/profile">Профіль </Link>
-    </Menu.Item>
-    <Menu.Item>
-      <AddClub />
-    </Menu.Item>
-    <Menu.Item>
-      <AdministrationMenu />
-    </Menu.Item>
-  </Menu>
-);
 
 export class header extends Component {
+  logout = () => {
+    localStorage.removeItem("accessToken");
+    window.location.reload();
+  }
+
+  isAutorezed = () => {
+    return localStorage.getItem("accessToken") !== null;
+  };
+
   state = {
     city: [],
     citySelect: "Київ",
@@ -81,6 +55,43 @@ export class header extends Component {
     }
 
   render() {
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <Link to="/challengeUA">Навчай українською Челендж</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/marathon">Мовомаратон</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/teachUkrainian"> Навчай українською</Link>
+        </Menu.Item>
+      </Menu>
+    );
+    
+    const log =  (
+      <Menu>
+        <Menu.Item>
+          <Registration />
+        </Menu.Item>
+        <Menu.Item>
+          <Login />
+        </Menu.Item>
+        <Menu.Item>
+          <AddCenter />
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/profile">Профіль </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <AddClub />
+        </Menu.Item>
+        <Menu.Item>
+          <AdministrationMenu />
+        </Menu.Item>
+      </Menu>
+    );
+
     const cities = (
       <Menu
         onClick={(e) => {
@@ -188,6 +199,8 @@ export class header extends Component {
 
 header.propTypes = {
   toggleSideSearch: PropTypes.func,
+  location: PropTypes,
+  
 };
 
 export default withRouter(header);

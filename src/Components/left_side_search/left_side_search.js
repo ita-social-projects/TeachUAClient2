@@ -4,11 +4,21 @@ import './left_side_search.scss';
 import "antd/dist/antd.css";
 import no_data from './image/no_data.png'
 import { Radio, Select, Checkbox, Col, Input } from "antd";
+import { getSitiesServise } from '../../Services/cities';
 const { Option } = Select;
 
 class LeftSearch extends Component {
     state = {
             show: true,
+            data: [],
+        }
+
+        componentDidMount(){
+            getSitiesServise().then((response) => {
+                this.setState(response.data);
+                console.log(response.data)
+              });
+
         }
   
     toggleRadioChange = () => {

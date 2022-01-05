@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
-import {items} from "./WebinarItems";
 import { Button } from "antd";
 import FacebookOutlined from "@ant-design/icons/lib/icons/FacebookOutlined";
 import YoutubeOutlined from "@ant-design/icons/lib/icons/YoutubeOutlined";
@@ -20,15 +18,12 @@ export default class teachUkrainian extends Component {
             <div className="social-media">
                 <span className="text">Наші контакти</span>
                 <div className="links">
-                    <a target="_blank" href=""></a>
-                    <a target="_blank" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined
-                        className="icon"/></a>
-                    <a target="_blank"
-                       href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined
-                        className="icon"/></a>
-                    <a target="_blank" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined
-                        className="icon"/></a>
-                    <a target="_blank" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
+                    <a target="#" href=""></a>
+                    <a target="#" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined className="icon"/></a>
+                    <a target="#"
+                       href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined className="icon"/></a>
+                    <a target="#" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined className="icon"/></a>
+                    <a target="#" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
                 </div>
             </div>
             <div className="help-button">

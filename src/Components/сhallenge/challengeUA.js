@@ -19,14 +19,10 @@ export class challengeUA extends Component {
                 <div className="social-media">
                     <span className="text">Наші контакти</span>
                     <div className="links">
-                        <a target="_blank" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined
-                            className="icon"/></a>
-                        <a target="_blank"
-                           href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined
-                            className="icon"/></a>
-                        <a target="_blank" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined
-                            className="icon"/></a>
-                        <a target="_blank" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
+                        <a target="#" href="https://www.facebook.com/teach.in.ukrainian"><FacebookOutlined className="icon"/></a>
+                        <a target="#" href="https://www.youtube.com/channel/UCP38C0jxC8aNbW34eBoQKJw"><YoutubeOutlined className="icon"/></a>
+                        <a target="#" href="https://www.instagram.com/teach.in.ukrainian/"><InstagramOutlined className="icon"/></a>
+                        <a target="#" href="mailto:teach.in.ukrainian@gmail.com"><MailOutlined className="icon"/></a>
                     </div>
                 </div>
                 <div className="help-button">
@@ -210,7 +206,7 @@ export class challengeUA extends Component {
                                 10.00 – 11.00<br></br>
                             </td>
                             <td >
-                                Вебінар 4<strong>. «Запам'ятовувати легко: українська мова + ейдетика та мнемотехніка»</strong> (лекцію веде один викладач).&nbsp;<br></br>
+                                Вебінар 4<strong>. «Запам&apos;ятовувати легко: українська мова + ейдетика та мнемотехніка»</strong> (лекцію веде один викладач).&nbsp;<br></br>
                                 &nbsp;Спікерка – письменниця, літературна редакторка, тренерка з ейдетики та мнемотехніки Мар’яна Лелик.<br></br>
                                 <a href="https://youtu.be/o_2rAf5M1w0">https://youtu.be/o_2rAf5M1w0</a>&nbsp;<br></br>
                             </td>
