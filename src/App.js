@@ -15,6 +15,8 @@ import AdministrationImportData from './Components/administrationMenu/administra
 import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
 import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
+import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
+
 import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
@@ -59,6 +61,9 @@ class App extends Component {
                     <Route path="/dev/admin/questions" component={() => (<TableFaq />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
                     <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
+                    <Route path="/dev/admin/sities" component={() => (<AdministrationSities/>)} />
+                    
+    
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>
                 <Footer />
