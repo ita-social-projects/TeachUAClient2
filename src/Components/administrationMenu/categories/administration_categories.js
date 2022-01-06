@@ -5,11 +5,11 @@ import {
   editCategoriesService,
   deleteCategoriesService,
 } from "../../../Services/category";
-import Administration_add_category from "./administration_add_category";
+import AdministrationAddCategory from "./administration_add_category";
 import EditableCell from "../editableCell";
 import "./administration_categories.scss";
 
-export default function Administration_categories() {
+export default function AdministrationCategories() {
   const [categories, setCategories] = useState([]);
   const [addCategory, setAddCategory] = useState([]);
   const [form] = Form.useForm();
@@ -254,7 +254,7 @@ export default function Administration_categories() {
           bordered
           columns={mergedColumns}
           footer={() => (
-            <Administration_add_category
+            <AdministrationAddCategory
               categories={categories}
               setCategories={setCategories}
               setAddCategory={setAddCategory}

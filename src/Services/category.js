@@ -3,6 +3,7 @@ import fetchRequest, { REACT_APP_API_URL } from "./serviceUtills";
 const getUrl = `${REACT_APP_API_URL}/categories`;
 const putUrl = `${REACT_APP_API_URL}/category/`;
 const postUrl = `${REACT_APP_API_URL}/category`;
+const deleteUrl = `${REACT_APP_API_URL}/category/`;
 
 const getCategoriesService = () => {
   return fetchRequest.get(getUrl);
@@ -36,7 +37,7 @@ const createCategoriesService = (newData) => {
 
 const deleteCategoriesService = (data) => {
   return fetchRequest
-    .delete(putUrl + data.id, {
+    .delete(deleteUrl + data.id, {
       id: data.id,
       sortby: data.sortby,
       name: data.name,
@@ -46,9 +47,6 @@ const deleteCategoriesService = (data) => {
       tagBackgroundColor: data.tagBackgroundColor,
       tagTextColor: data.tagTextColor,
     })
-    .catch((error) => {
-      return error.response.data;
-    });
 };
 
 export {

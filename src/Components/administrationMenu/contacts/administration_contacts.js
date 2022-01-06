@@ -9,7 +9,7 @@ import AddContactType from "./addContactType";
 import EditableCell from "../editableCell";
 import "./administration_contacts.scss";
 
-export default function Administration_contacts() {
+export default function AdministrationContacts() {
   const [contacts, setContacts] = useState([]);
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
@@ -78,7 +78,7 @@ export default function Administration_contacts() {
       message.success(`Тип ${key.name} успішно видалений`);
       getData();
     });
-  };
+  } 
 
   const columns = [
     {

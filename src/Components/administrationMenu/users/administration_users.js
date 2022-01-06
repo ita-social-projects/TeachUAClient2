@@ -8,7 +8,7 @@ import {
 import EditableCell from "../editableCell";
 import "./administration_users.scss";
 
-export default function Administration_users() {
+export default function AdministrationUsers() {
   const [users, setUsers] = useState([]);
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");

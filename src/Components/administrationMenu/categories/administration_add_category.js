@@ -7,7 +7,7 @@ import { UPLOAD_IMAGE_URL } from "../../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../../Services/uploadService";
 import { createCategoriesService } from "../../../Services/category";
 
-const Administration_add_category = ({
+const AdministrationAddCategory = ({
   categories,
   setCategories,
   setAddCategory,
@@ -153,10 +153,10 @@ const Administration_add_category = ({
   );
 };
 
-Administration_add_category.propTypes = {
+AdministrationAddCategory.propTypes = {
   categories: PropTypes.array,
   setCategories: PropTypes.func,
   setAddCategory: PropTypes.func,
 };
 
-export default Administration_add_category;
+export default AdministrationAddCategory;

@@ -3,6 +3,7 @@ import fetchRequest, { REACT_APP_API_URL } from "./serviceUtills";
 
 const getUrl = `${REACT_APP_API_URL}/users`; 
 const putUrl = `${REACT_APP_API_URL}/user/`;
+const deleteUrl = `${REACT_APP_API_URL}/user/`;
 
 const getUsersService = () => {
     return fetchRequest.get(getUrl);
@@ -23,7 +24,7 @@ const editUsersService = (newData) => {
 
   const deleteUsersService = (data) => {
     return fetchRequest
-      .delete(putUrl + data.id, {
+      .delete(deleteUrl + data.id, {
         id: data.id,  
         email: data.email,
         firstName: data.firstName,
@@ -33,9 +34,6 @@ const editUsersService = (newData) => {
         status: data.status,
         roleName: data.roleName
       })
-      .catch((error) => {
-        return error.response.data;
-      });
   };
 
 export {
