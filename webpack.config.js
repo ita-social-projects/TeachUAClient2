@@ -38,9 +38,6 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '/public/static/images/[name].[ext]',
-                        outputPath: './',
-                        useRelativePath:true,
                     }
                 }]
             },
@@ -51,9 +48,6 @@ module.exports = {
                   {
                     loader: 'url-loader',
                     options: {
-                      limit: false,
-                      encoding:false,
-                      
                     },
                   },
                 ],
