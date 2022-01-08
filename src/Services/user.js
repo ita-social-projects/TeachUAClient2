@@ -1,11 +1,12 @@
 import fetchRequest, { REACT_APP_API_URL } from "./serviceUtills";
 
 
-const url = `${REACT_APP_API_URL}/users`; 
+const getUrl = `${REACT_APP_API_URL}/users`; 
 const putUrl = `${REACT_APP_API_URL}/user/`;
+const deleteUrl = `${REACT_APP_API_URL}/user/`;
 
 const getUsersService = () => {
-    return fetchRequest.get(url);
+    return fetchRequest.get(getUrl);
 };
 
 const editUsersService = (newData) => {
@@ -21,6 +22,20 @@ const editUsersService = (newData) => {
     });
   };
 
+  const deleteUsersService = (data) => {
+    return fetchRequest
+      .delete(deleteUrl + data.id, {
+        id: data.id,  
+        email: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phone: data.phone,
+        urlLogo: data.urlLogo,
+        status: data.status,
+        roleName: data.roleName
+      })
+  };
+
 export {
-    getUsersService, editUsersService
+    getUsersService, editUsersService, deleteUsersService
 };
