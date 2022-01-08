@@ -2,9 +2,6 @@ import React from "react";
 import { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd";
-import Administration_categories from "./categories/administration_categories";
-import Administration_contacts from "./contacts/administration_contacts";
-import Administration_users from "./users/administration_users";
 import "antd/dist/antd.css";
 import "./administrationMenu.scss";
 import AdministrationExportData from "./administrationExport/administrationExport";
@@ -27,19 +24,20 @@ class AdministrationMenu extends Component {
             Станції/Місцевості
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="4">
-          <a href="/dev/admin/categories" onClick={() => (<Administration_categories/>)}>
+          <NavLink to="/dev/admin/categories" >
             Категорії
-          </a></Menu.Item>
+            </NavLink></Menu.Item>
           <Menu.Item className="sub-menu-administration" key="5">
-          <a href="/dev/admin/contacts" onClick={() => (<Administration_contacts/>)}>
+          <NavLink to="/dev/admin/contacts">
             Контакти
-          </a></Menu.Item>
+          </NavLink></Menu.Item>
           <Menu.Item className="sub-menu-administration" key="6">
-          <a href="/dev/admin/users" onClick={() => (<Administration_users/>)}>
+          <NavLink to="/dev/admin/users">
             Користувачі
-          </a></Menu.Item>
+          </NavLink></Menu.Item>
           <Menu.Item className="sub-menu-administration" key="7">
             FAQ
+            <Link to="/dev/admin/questions" />
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="8">
             Імпортувати дані
@@ -57,7 +55,7 @@ class AdministrationMenu extends Component {
             <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="1">
-            Міста
+            <NavLink to="/dev/admin/sities">Міста</NavLink>
           </Menu.Item>
         </SubMenu>
       </Menu>

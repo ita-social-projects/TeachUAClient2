@@ -3,7 +3,7 @@ import './ChangeOwnerFooter.modules.scss'
 import {Button, Form, Select} from "antd";
 import users from './usersData.json'
 const {Option} = Select;
-class ChangeOwnerFooter extends React.Component{
+class AdministrationChangeOwnerFooter extends React.Component{
     render(){
         return(
             <div>
@@ -36,4 +36,4 @@ class ChangeOwnerFooter extends React.Component{
         )
     }
 }
-export default ChangeOwnerFooter
+export default AdministrationChangeOwnerFooter

@@ -1,7 +1,11 @@
 import axios from "axios";
 
 const getAccessToken = () => localStorage.getItem("accessToken") || false;
-export const REACT_APP_API_URL="https://speak-ukrainian.org.ua/dev/api"
+const removeAccessToken = () => localStorage.removeItem("accessToken");
+
+export const REACT_APP_MAP_KEY='AIzaSyBdEOt1rGu5B5h5-wpS4WnTA5gD7-O6R30';
+export const REACT_APP_API_URL="https://speak-ukrainian.org.ua/dev/api";
+
 const fetchRequest = axios.create ({
     headers: {
         "Content-Type": "application/json"
@@ -12,5 +16,15 @@ fetchRequest.interceptors.request.use(config => {
     if (token) config.headers["Authorization"] = "Bearer "+token;
     return config;  
 }, error => Promise.reject (error));
+
+fetchRequest.interceptors.response.use(response => {    
+    return response;  
+}, error => {
+    if (error.response.status === 403) {
+        removeAccessToken();
+        window.location.reload();
+    }
+   return Promise.reject (error)
+});
 
 export default fetchRequest;
