@@ -77,6 +77,7 @@ export class header extends Component {
           <Login />
         </Menu.Item>
       </Menu>
+
     );
 
     console.log(this.props);
@@ -90,10 +91,10 @@ export class header extends Component {
             </label>
             <input type="checkbox" id="burger-checkbox" />
             <nav>
-              <a href="/clubs">
+              <Link to="/clubs">
                 <img src={ProjectIcon} />
-                Гуртки
-              </a>
+                <a target="#blank">Гуртки</a>
+              </Link>
               <Dropdown overlay={menu}>
                 <a className="challenge" href="#blank">
                   <img src={Crown} />
