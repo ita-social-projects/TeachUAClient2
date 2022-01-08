@@ -69,32 +69,15 @@ export class header extends Component {
         </Menu.Item>
       </Menu>
     ) : (
-      // <Menu>
-      //   <Menu.Item>
-      //     <Registration />
-      //   </Menu.Item>
-      //   <Menu.Item>
-      //     <Login />
-      //   </Menu.Item>
-      // </Menu>
       <Menu>
-      <Menu.Item>
-        <AddClub />
-      </Menu.Item>
-      <Menu.Item>
-        <AddCenter />
-      </Menu.Item>
-      <Menu.Item>
-      <Link to="/profile">
-        <a target="#blank">Профіль</a>
-      </Link>
-      </Menu.Item>
-      <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
+        <Menu.Item>
+          <Registration />
+        </Menu.Item>
+        <Menu.Item>
+          <Login />
+        </Menu.Item>
+      </Menu>
 
-      <Menu.Item>
-        <AdministrationMenu />
-      </Menu.Item>
-    </Menu>
     );
 
     console.log(this.props);
