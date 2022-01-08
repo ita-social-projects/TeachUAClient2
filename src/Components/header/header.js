@@ -60,9 +60,7 @@ export class header extends Component {
           <AddCenter />
         </Menu.Item>
         <Menu.Item>
-        <Link to="/profile">
-            <a target="#blank">Профіль</a>
-          </Link>
+          <a href="/profile">Профіль </a>
         </Menu.Item>
         <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
 
@@ -71,14 +69,32 @@ export class header extends Component {
         </Menu.Item>
       </Menu>
     ) : (
+      // <Menu>
+      //   <Menu.Item>
+      //     <Registration />
+      //   </Menu.Item>
+      //   <Menu.Item>
+      //     <Login />
+      //   </Menu.Item>
+      // </Menu>
       <Menu>
-        <Menu.Item>
-          <Registration />
-        </Menu.Item>
-        <Menu.Item>
-          <Login />
-        </Menu.Item>
-      </Menu>
+      <Menu.Item>
+        <AddClub />
+      </Menu.Item>
+      <Menu.Item>
+        <AddCenter />
+      </Menu.Item>
+      <Menu.Item>
+      <Link to="/profile">
+        <a target="#blank">Профіль</a>
+      </Link>
+      </Menu.Item>
+      <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
+
+      <Menu.Item>
+        <AdministrationMenu />
+      </Menu.Item>
+    </Menu>
     );
 
     console.log(this.props);
@@ -93,24 +109,23 @@ export class header extends Component {
             <input type="checkbox" id="burger-checkbox" />
             <nav>
               <Link to="/clubs">
-              <img src={ProjectIcon} />
-                Гуртки
+                <img src={ProjectIcon} />
+                <a target="#blank">Гуртки</a>
               </Link>
               <Dropdown overlay={menu}>
-                <Link to="challenge">
-                <img src={Crown} />
+                <a className="challenge" href="#blank">
+                  <img src={Crown} />
                   Челендж
-                </Link>
+                </a>
               </Dropdown>
-
-              <Link to="news">
-              <img src={NewsIcon} />
+              <a className="news" href="#blank">
+                <img src={NewsIcon} />
                 Про нас
-              </Link>
-              <Link to="/project">
-              <img src={Flag} />
+              </a>
+              <a className="project" href="#blank">
+                <img src={Flag} />
                 Послуги українською
-              </Link>
+              </a>
             </nav>
           </div>
           <div className="log">
