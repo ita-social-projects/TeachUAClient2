@@ -19,8 +19,10 @@ import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
+// import Clubs from "../clubs/clubs";
+// import { LeftSearch } from "../left_side_search/left_side_search";
 
 export class header extends Component {
   logout = () => {
@@ -31,8 +33,9 @@ export class header extends Component {
   isAuthorather = () => {
     return localStorage.getItem("accessToken") !== null;
   };
-
+ 
   render() {
+    console.log(this.props);
     const menu = (
       <Menu>
         <Menu.Item>
@@ -136,14 +139,15 @@ export class header extends Component {
               <img className="plaate" src={Plate} />
             </div>
             <div className="litle-toggle">
-              <a href="#blank">
+                <NavLink to={'/clubs'}>
                 <img
                   className="toggle"
                   src={Toggle}
                   onClick={this.props.toggleSideSearch}
                 />
-              </a>
-            </div>
+                </NavLink>
+              </div>
+
           </div>
         </div>
       </div>
@@ -153,6 +157,10 @@ export class header extends Component {
 
 header.propTypes = {
   toggleSideSearch: PropTypes.func,
+  history: PropTypes.object,
+
 };
+
+
 
 export default header;

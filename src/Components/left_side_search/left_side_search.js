@@ -2,30 +2,71 @@ import React from 'react';
 import { Component } from 'react';
 import './left_side_search.scss';
 import "antd/dist/antd.css";
-import no_data from './image/no_data.png'
 import { Radio, Select, Checkbox, Col, Input } from "antd";
-import { getSitiesServise } from '../../Services/cities';
+import { getCitiesName } from '../../Services/cities';
+import { getDistricsName } from '../../Services/district';
+import { getStationName } from '../../Services/stations';
+import { getCategoriesService } from '../../Services/category';
+import { getClubs } from '../../Services/clubs';
+
+
 const { Option } = Select;
 
 class LeftSearch extends Component {
     state = {
-            show: true,
-            data: [],
-        }
+        show: true,
+        cities: [],
+        districts: [],
+        stations: [],
+        categories: [],
+        clubs: [
+            // { isOnline: false }
+        ]
+    }
 
-        componentDidMount(){
-            getSitiesServise().then((response) => {
-                this.setState(response.data);
-                console.log(response.data)
-              });
-
-        }
-  
     toggleRadioChange = () => {
         this.setState({ show: false })
     }
 
+    componentDidMount() {
+        getCitiesName().then((response) => {
+            this.setState(
+                { cities: response.data }
+
+            );
+        });
+        getDistricsName().then((response) => {
+            this.setState(
+                { districts: response.data }
+
+            );
+        });
+        getStationName().then((response) => {
+            this.setState(
+                { stations: response.data }
+
+            );
+        });
+
+        getCategoriesService().then((response) => {
+            this.setState(
+                { categories: response.data }
+
+            );
+        });
+
+        getClubs().then((response) => {
+            this.setState(
+                { clubs: response.data }
+
+            );
+        });
+    }
+
+
     render() {
+
+        const { cities, districts, stations, categories, clubs } = this.state;
         return (
             <div className='advancedSearch'>
                 <div className='advancedSearchMain'>
@@ -38,69 +79,56 @@ class LeftSearch extends Component {
                         </Radio.Group>
                         <p className='advancedSearchTitle'>Місто</p>
                         <label>
-                            <Select className='selectStyle' placeholder='Виберіть місто...' allowClear>
-                                <Option value="kyiv">Київ</Option>
-                                <Option value="kharkiv">Харків</Option>
-                                <Option value="dnipro">Дніпро</Option>
-                                <Option value="odesa">Одеса</Option>
-                                <Option value="zaporizzhya">Запоріжжя</Option>
-                                <Option value="kropyvnytskyi">Кропивницький</Option>
-                                <Option value="herson">Херсон</Option>
-                                <Option value="mykolaiv">Миколаїв</Option>
-                                <Option value="sumy">Суми</Option>
-                                <Option value="mariupol">Маріуполь</Option>
-                                <Option value="chernihiv">Чернігів</Option>
-                                <Option value="poltava">Полтава</Option>
-                                <Option value="kremenchuk">Кременчук</Option>
-                                <Option value="cherkasy">Черкаси</Option>
-                                <Option value="without_location">Без локації</Option>
+                            <Select className='selectStyle' placeholder='Виберіть місто' allowClear>
+                                {cities.map((city) => (
+                                    <Option key={city.id}>{city.name}</Option>
+                                ))}
                             </Select>
                         </label>
                         <p className='advancedSearchTitle'>Район міста</p>
                         <Select placeholder="Виберіть район" className='selectStyle'>
-                            <Option value="kyiv"><img className='imageNoData' src={no_data} /></Option>
+                            {districts.map((district) => (
+                                <Option key={district.id}>{district.name}</Option>
+
+                            ))}
                         </Select>
                         <p className='advancedSearchTitle'>Найближча станція метро</p>
                         <Select placeholder="Виберіть станцію" className='selectStyle'>
-                            <Option value="kyiv"><img className='imageNoData' src={no_data} /></Option>
+                            {stations.map((station) => (
+                                <Option key={station.id}>{station.name}</Option>
+
+                            ))}
                         </Select>
                         {this.state.show ?
                             <div>
                                 <p className='advancedSearchTitle'>Ремоут</p>
                                 <Checkbox.Group>
-                                    <Col className='rowStyle'>
-                                        <Checkbox value="online"><span className='advancedSearchSpan'>Доступний онлайн</span></Checkbox>
+                                    <Col className='rowStyle' >
+                                        {clubs.map((clubs) => (
+                                            <Checkbox key={clubs.id}> {clubs.isOnline} </Checkbox>
+
+                                        ))}
                                     </Col>
                                 </Checkbox.Group>
                                 <p className='advancedSearchTitle'>Категорії</p>
-                                <Checkbox.Group>
-                                    <Col className='colStyle'>
-                                        <Checkbox value="sport"><span className='advancedSearchSpan'>Спортивні секції</span></Checkbox>
-                                        <Checkbox value="dance"><span className='advancedSearchSpan'>Танці, хореографія</span></Checkbox>
-                                        <Checkbox value="studio"><span className='advancedSearchSpan'>Студії раннього розвитку</span></Checkbox>
-                                        <Checkbox value="programming"><span className='advancedSearchSpan'>Програмування, робототехніка, STEM</span></Checkbox>
-                                        <Checkbox value="design"><span className='advancedSearchSpan'>Художня студія, мистецтво, дизайн</span></Checkbox>
-                                        <Checkbox value="music"><span className='advancedSearchSpan'>Вокальна студія, музика, музичні інструменти</span></Checkbox>
-                                        <Checkbox value="theatre"><span className='advancedSearchSpan'>Акторська майстерність, театр</span></Checkbox>
-                                        <Checkbox value="yourself"><span className='advancedSearchSpan'>Особистісний розвиток</span></Checkbox>
-                                        <Checkbox value="tv"><span className='advancedSearchSpan'>Журналістика, дитяче телебачення, монтаж відео, влогів</span></Checkbox>
-                                        <Checkbox value="centr_development"><span className='advancedSearchSpan'>Центр розвитку</span></Checkbox>
-                                        <Checkbox value="video"><span className='advancedSearchSpan'>Журналістика, дитяче телебачення, монтаж відео</span></Checkbox>
-                                        <Checkbox value="other"><span className='advancedSearchSpan'>Інше</span></Checkbox>
-                                    </Col>
-                                </Checkbox.Group>
+                                <Col className='colStyle' >
+                                    {categories.map((category) => (
+                                        <Checkbox key={category.id}><span className='advancedSearchSpan'> {category.name}</span></Checkbox>
+
+                                    ))}
+                                </Col>
                                 <p className='advancedSearchTitle'>Вік дитини</p>
                                 <Input className='test' />
                                 <span className='advancedSearchSpanYears'>років</span>
                             </div> : null}
-                            
+
                     </form>
                     <div className='choice_btn_div'>
-                            <button className='button_after_form_clear'><span className='choice_btn_clear'>Очистити</span></button>
-                            <button className='button_after_form_check'><span className='choice_btn_chech'>Застосувати</span></button>
-                            </div>
+                        <button className='button_after_form_clear'><span className='choice_btn_clear'>Очистити</span></button>
+                        <button className='button_after_form_check'><span className='choice_btn_chech'>Застосувати</span></button>
+                    </div>
                 </div>
-                
+
             </div>
         )
     }
