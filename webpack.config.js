@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
+const isDevelopment = process.env.NODE_ENV !== 'production'
 module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
@@ -38,6 +41,9 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
                     loader: 'file-loader',
+                    // options: {
+                    //     name: '[path][name].[ext]'
+                    //   },
                 }]
             },
           
@@ -46,6 +52,9 @@ module.exports = {
                 use: [
                   {
                     loader: 'url-loader',
+                    // options: {
+                    //     name: '[path][name].[ext]'
+                    //   },
                   },
                 ],
               },
@@ -55,6 +64,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
         }),
-        new webpack.EnvironmentPlugin( { ...process.env } )
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.parsed),
+            'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+          }),
     ],
 }
