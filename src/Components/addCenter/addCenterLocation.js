@@ -5,6 +5,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import cities from "./Cities.json";
 import "./addCenterLocation.scss";
+import { getSitiesServise } from "../../Services/cities";
 
 const { Option } = Select;
 
@@ -92,7 +93,10 @@ class AddCenterLocation extends React.Component {
                       className="location-selector"
                       placeholder="Виберіть місто"
                     >
-                      {cities.map((city) => (
+                      {getSitiesServise().then((response) => {
+                        console.log(response)
+                      response.data.map((city) => (
+                        
                         <Option
                           className="location-option"
                           value={city.name}
@@ -101,6 +105,7 @@ class AddCenterLocation extends React.Component {
                           {city.name}
                         </Option>
                       ))}
+                      )}
                     </Select>
                   </Form.Item>
                   <Form.Item
