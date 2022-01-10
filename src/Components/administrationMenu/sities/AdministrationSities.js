@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
 import EditableCell from "./EditableCell";
 import AddCitie from "./AddSitie";
-import "./sities.modules.scss";
+import "./sities.scss";
 import {
   getSitiesServise,
   updateCities,

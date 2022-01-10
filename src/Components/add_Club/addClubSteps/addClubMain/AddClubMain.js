@@ -1,6 +1,6 @@
 import { Form, Input,Checkbox, InputNumber,Select } from 'antd';
 import React from "react";
-import './addClubMain.modules.scss'
+import './addClubMain.scss'
 /*
 const layout = {
     labelCol: {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Form, Input, Button, Modal,message } from 'antd';
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
-import '../registration/registartion.modules.scss'
+import '../registration/registartion.scss'
 import { addUser } from "../../Services/registration";
 
 

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './addSities.modules.scss'
+import './addSities.scss'
 import GooglePlacesAutocomplete,{geocodeByAddress, getLatLng} from 'react-google-places-autocomplete';
 import {Button, message} from "antd";
 import PropTypes from 'prop-types';
