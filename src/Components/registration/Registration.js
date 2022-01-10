@@ -296,9 +296,10 @@ class NewRegistration extends React.Component {
                             <Button type="primary" htmlType="submit">
                                 Зареєструватися
                             </Button>
+                            {/*
                             <Button onClick={()=>{console.log(location.host)}}>
                             view
-                            </Button>
+                            </Button>*/}
                         </Form.Item>
                     </Form>
 
