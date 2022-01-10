@@ -60,7 +60,9 @@ export class header extends Component {
           <AddCenter />
         </Menu.Item>
         <Menu.Item>
-          <a href="/profile">Профіль </a>
+        <Link to="/profile">
+            <a target="#blank">Профіль</a>
+          </Link>
         </Menu.Item>
         <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
 

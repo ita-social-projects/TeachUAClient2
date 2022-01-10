@@ -107,7 +107,7 @@ class NewRegistration extends React.Component {
                             <h3>Реєстрація </h3>
                         </div>
                         <div className='registration__chooseRole'>
-                            <Button type="primary" className='registration__boss' ><img src='/static/images/registration/Ellipse.jpg' />Керівник</Button>
+                            <Button type="primary" className='registration__boss' ><img src='/src/images/registration/Ellipse.jpg' />Керівник</Button>
                         </div>
                         <Form.Item name="firstName"
                             className="registration-input"

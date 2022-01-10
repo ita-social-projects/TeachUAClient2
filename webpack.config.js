@@ -5,10 +5,8 @@ module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash:8].js',
         publicPath: '/',
-        sourceMapFilename: '[name].[hash:8].map',
-        chunkFilename: '[id].[hash:8].js'
+
     },
     resolve: {
         alias: {
@@ -40,9 +38,6 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
                     loader: 'file-loader',
-                    // options: {
-                    //     name: '[path][name].[ext]'
-                    //   },
                 }]
             },
           
@@ -51,9 +46,6 @@ module.exports = {
                 use: [
                   {
                     loader: 'url-loader',
-                    // options: {
-                    //     name: '[path][name].[ext]'
-                    //   },
                   },
                 ],
               },
@@ -63,5 +55,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
         }),
+        new webpack.EnvironmentPlugin( { ...process.env } )
     ],
 }
