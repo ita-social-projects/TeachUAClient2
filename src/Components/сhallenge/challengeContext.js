@@ -369,13 +369,13 @@ TAKFLIX — онлайн-кінотеатр, де можна легально д
 Числівники від <span "id"="headline">п'яти</span> до <span "id"="headline">двадцяти, тридцять, п’ятдесят, шістдесят, сімдесят, вісімдесят</span>, в усіх відмінках, крім називного, мають <span "id"="headline">паралельні форми</span>.  
 У складних числівниках на позначення десятків (п’ятдесят, шістдесят, сімдесят, вісімдесят) відмінюється <span "id"="headline">тільки друга частина:</span> 
 <div style=""text"-align-last: center;display: table;
-    "text"-align: center;"> <img  style="width: 240px" src=${process.env.PUBLIC_URL}/static/images/marathon/taskData/day16_1.png></img>
-<img  style="width: 240px" src=${process.env.PUBLIC_URL}/static/images/marathon/taskData/day16_2.png></img>
+    "text"-align: center;"> <img  style="width: 240px" src=/static/images/marathon/taskData/day16_1.png></img>
+<img  style="width: 240px" src=/static/images/marathon/taskData/day16_2.png></img>
 </div>
 У складних числівниках на позначення сотень (двісті, триста, чотириста, п’ятсот, шістсот, сімсот, вісімсот, дев’ятсот) відмінюємо <span "id"="headline">обидві частини</span>. Тобто <span "id"="headline">не</span> п’ятсот (студентів не вистачило на факультеті), а <span "id"="headline">п’ятисот</span> студентів. 
 <div style=""text"-align-last: center;display: table;
-    "text"-align: center;"> <img  style="width: 240px" src=${process.env.PUBLIC_URL}/static/images/marathon/taskData/day16_3.png></img>
-<img  style="width: 240px" src=${process.env.PUBLIC_URL}/static/images/marathon/taskData/day16_4.png></img>
+    "text"-align: center;"> <img  style="width: 240px" src=/static/images/marathon/taskData/day16_3.png></img>
+<img  style="width: 240px" src=/static/images/marathon/taskData/day16_4.png></img>
 </div>
 У знахідному відмінку числівники мають форму називного відмінка (якщо іменник, із яким сполучається числівник, означає неістоту) або форму родового відмінка (якщо цей іменник означає істоту). 
 У <span "id"="headline">складених кількісних числівниках відмінюємо всі частини</span>: з чотирьохсот сімдесяти восьми тисяч шестисот п’ятдесяти дев’яти (гривень). 
@@ -402,7 +402,7 @@ TAKFLIX — онлайн-кінотеатр, де можна легально д
 У травні 2017 року Верховна Рада <a href="https://www.pravda.com.ua/news/2017/05/23/7144783/" style="color:#58A6FFFF;  "text"-decoration-line: underline"> перейменувала</a> місто <span "id"="headline">Мукачеве</span> на <span "id"="headline">Мукачево</span>. Ця власна назва відмінюється так, як іменник із відповідним закінченням, а не за прикметниковим типом, тому Мукачева, (а не Мукачевого), Мукачеву (а не Мукачевому), у Мукачеві (а не у Мукачевому). 
  
 Важливо пам'ятати, що під впливом російської мови багато людей називають один із районів Києва «<span "id"="headline">Голосієво</span>», але українською правильно говорити «<span "id"="headline">Голосіїв</span>». За аналогією інші власні назви: Київ, Миколаїв, <span "id"="headline">Пирогів</span> (а не <span "id"="headline">Пирогово</span>). 
-<div style=""text"-align: -webkit-center;"> <img  style="width: 75%; align-self: center" src=${process.env.PUBLIC_URL}/static/images/marathon/taskData/day17_1.png></img></div>
+<div style=""text"-align: -webkit-center;"> <img  style="width: 75%; align-self: center" src=/static/images/marathon/taskData/day17_1.png></img></div>
 Відповідно відмінювання відбуватиметься за спільним принципом: Києва, Голосієва, Миколаєва, Пирогова, у Києві, Голосієві, Пирогові, Миколаєві.  
 Географічні назви відмінюються за принципами іменників (відповідають на запитання хто? що?), наприклад: 
 Лóхвиця — Лóхвиці, Лóхвицею, у Лóхвиці; Одеса — Одеси, в Одесі; Полтава — Полтави, у Полтаві; Луганськ — Луганська, Луганськом, у Луганську; Львів — Львова, Львовом, у Львові; Світязь (озеро) — Світязем, на Світязі; Токмак — Токмака, Токмакам, у Токмаці (у Токмаку); Ужгород — Ужгорода, Ужгородом, в Ужгороді; Керч — Кéрчі, Кéрчю, у Кéрчі. 

@@ -28,7 +28,7 @@ export class header extends Component {
     window.location.reload();
   };
 
-  isAuthorather = () => {
+  isAuthorizer = () => {
     return localStorage.getItem("accessToken") !== null;
   };
 
@@ -51,7 +51,7 @@ export class header extends Component {
       </Menu>
     );
 
-    const log = this.isAuthorather() ? (
+    const log = this.isAuthorizer() ? (
       <Menu>
         <Menu.Item>
           <AddClub />
@@ -77,6 +77,7 @@ export class header extends Component {
           <Login />
         </Menu.Item>
       </Menu>
+
     );
 
     console.log(this.props);
@@ -90,10 +91,10 @@ export class header extends Component {
             </label>
             <input type="checkbox" id="burger-checkbox" />
             <nav>
-              <a href="/clubs">
+              <Link to="/clubs">
                 <img src={ProjectIcon} />
-                Гуртки
-              </a>
+                <a target="#blank">Гуртки</a>
+              </Link>
               <Dropdown overlay={menu}>
                 <a className="challenge" href="#blank">
                   <img src={Crown} />
