@@ -40,6 +40,7 @@ class NewRegistration extends React.Component {
     urlLogo:'',
     status:'',
     }
+    
     handleOk = () => {
         this.setState({ showModal: !this.state.showModal });
     };
@@ -294,6 +295,9 @@ class NewRegistration extends React.Component {
                         <Form.Item className='registration__submitBtn'>
                             <Button type="primary" htmlType="submit">
                                 Зареєструватися
+                            </Button>
+                            <Button onClick={()=>{console.log(location.host)}}>
+                            view
                             </Button>
                         </Form.Item>
                     </Form>

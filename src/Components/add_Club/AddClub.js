@@ -63,10 +63,11 @@ class AddClub extends React.Component {
 
     render() {
         return (
-            <div>
+            <div  className='addClub__modal_window'>
                 <a onClick={() => { this.handleOk(); }}>Додати гурток</a>
                 <Modal
                     className='addClub__modal'
+                    id='addClub__modal'
                     width={1100}
                     visible={this.state.showModal}
                     onCancel={() => { this.setState({ showModal: !this.state.showModal }) }}

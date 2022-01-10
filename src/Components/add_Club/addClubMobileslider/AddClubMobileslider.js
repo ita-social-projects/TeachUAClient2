@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Steps} from 'antd';
-import './addClubMobileslider.modules.scss'
+import  './addClubMobileslider.modules.scss'
 
 const { Step } = Steps;
 

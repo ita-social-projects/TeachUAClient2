@@ -22,6 +22,7 @@ import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
 import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
+import VerifyPage from './Components/registration/VerifyPage';
 
 
 
@@ -53,6 +54,7 @@ class App extends Component {
                     <Route path="/about" component={() => (<div>About Route</div>)} />
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
                     <Route path="/profile" component={() => (<Profile />)} />
+                    <Route path="/dev/verify"  component={()=>(<VerifyPage/>)}/>
                     <Route path="/dev/admin/categories" component={() => (<Administration_categories/>)} />
                     <Route path="/dev/admin/contacts" component={() => (<Administration_contacts/>)} />
                     <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />

@@ -97,6 +97,7 @@ class AddClubMain extends React.Component {
     render() {
         return (
             <Form
+         
                 name="basic"
                 requiredMark={true}
                 onFinish={this.onFinish}
