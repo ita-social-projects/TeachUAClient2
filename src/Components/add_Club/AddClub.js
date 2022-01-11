@@ -1,7 +1,7 @@
 import { Modal } from "antd";
 import React from "react";
 import { Steps, Button, message } from 'antd';
-import '../add_Club/addClub.modules.scss'
+import '../add_Club/addClub.scss'
 import AddClubMain from './addClubSteps/addClubMain/AddClubMain';
 import AddClubContact from "./addClubSteps/addClubContact/AddClubContact";
 import AddClubDescriptipn from "./addClubSteps/addClubDescrippion/AddClubDescriptipn";
