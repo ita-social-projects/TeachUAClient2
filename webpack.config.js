@@ -41,6 +41,10 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
                     loader: 'file-loader',
+<<<<<<< HEAD
+=======
+
+>>>>>>> f61dc9ae5d678e30a710d767b5249976ce4e799d
                 }]
             },
           
@@ -49,9 +53,13 @@ module.exports = {
                 use: [
                   {
                     loader: 'url-loader',
+<<<<<<< HEAD
                     options: {
                         limit: 10000,
                       },
+=======
+
+>>>>>>> f61dc9ae5d678e30a710d767b5249976ce4e799d
                   },
                 ],
               },
