@@ -1,5 +1,5 @@
 import React from "react";
-import './ChangeOwnerFooter.modules.scss'
+import './ChangeOwnerFooter.scss'
 import {Button, Form, Select} from "antd";
 import users from './usersData.json'
 const {Option} = Select;

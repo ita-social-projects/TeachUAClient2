@@ -1,5 +1,5 @@
 import React from "react";
-import "./changeOwner.modules.scss";
+import "./changeOwner.scss";
 import { Table } from "antd";
 import { getUsersesServise } from "../../../Services/changeOwner";
 import AdministrationChangeOwnerFooter from "./AdministrationChangeOwnerFooter";

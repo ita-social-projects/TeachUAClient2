@@ -1,22 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
-import EditableCell from "./EditableCell";
-import AddCitie from "./AddSitie";
-import "./sities.scss";
+import EditableCell from "../sities/EditableCell";
+import AddCitie from "../sities/AddSitie";
+import "./district.scss";
 import {
-  getSitiesServise,
-  updateCities,
+  getDistrictsServise,
+  updateDistrict,
   deleteCity,
-} from "../../../Services/cities";
+} from "../../../Services/districts";
 
-const AdministrationSities = () => {
+const AdministrationDistrict = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
 
   const getData = () => {
-    getSitiesServise().then((response) => {
+    getDistrictsServise().then((response) => {
       setData(response.data);
     });
   };
@@ -65,7 +65,7 @@ const AdministrationSities = () => {
           typeof newData[index].longitude === "number"
             ? newData[index].longitude
             : Number(newData[index].longitude);
-        updateCities(newData[index]).then(() => {
+        updateDistrict(newData[index]).then(() => {
           getData();
         });
 
@@ -100,22 +100,22 @@ const AdministrationSities = () => {
       sorter: (a, b) => a.name.length - b.name.length,
       editable: true,
     },
-    {
-      title: "Довгота",
-      dataIndex: "longitude",
+    // {
+    //   title: "Довгота",
+    //   dataIndex: "longitude",
 
-      render: (longitude) => Number.parseFloat(longitude).toFixed(4),
-      width: "20%",
-      editable: true,
-    },
-    {
-      title: "Широта",
-      dataIndex: "latitude",
+    //   render: (longitude) => Number.parseFloat(longitude).toFixed(4),
+    //   width: "20%",
+    //   editable: true,
+    // },
+    // {
+    //   title: "Широта",
+    //   dataIndex: "latitude",
 
-      render: (latitude) => Number.parseFloat(latitude).toFixed(4),
-      width: "20%",
-      editable: true,
-    },
+    //   render: (latitude) => Number.parseFloat(latitude).toFixed(4),
+    //   width: "20%",
+    //   editable: true,
+    // },
     {
       title: "Дія",
       dataIndex: "Дія",
@@ -194,4 +194,4 @@ const AdministrationSities = () => {
   );
 };
 
-export default AdministrationSities;
+export default AdministrationDistrict;

@@ -60,7 +60,7 @@ export class header extends Component {
           <AddCenter />
         </Menu.Item>
         <Menu.Item>
-        <Link to="/profile">
+          <Link to="/profile">
             <a target="#blank">Профіль</a>
           </Link>
         </Menu.Item>
@@ -84,7 +84,7 @@ export class header extends Component {
 
     console.log(this.props);
     return (
-      <div className="Header">
+      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
         <div className="wrapper">
           <img className="logo" src={Logo} />
           <div className="Menu">

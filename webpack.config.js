@@ -41,9 +41,6 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
                     loader: 'file-loader',
-                    // options: {
-                    //     name: '[path][name].[ext]'
-                    //   },
                 }]
             },
           
@@ -52,9 +49,9 @@ module.exports = {
                 use: [
                   {
                     loader: 'url-loader',
-                    // options: {
-                    //     name: '[path][name].[ext]'
-                    //   },
+                    options: {
+                        limit: 10000,
+                      },
                   },
                 ],
               },
