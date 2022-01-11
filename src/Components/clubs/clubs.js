@@ -2,13 +2,12 @@ import React from 'react'
 import 'antd/dist/antd.css';
 import "./clubs.scss";
 import ClubsItem from "../clubs/clubsItem/clubsItem";
-import { LeftSearch } from '../left_side_search/left_side_search';
 
 
 class Clubs extends React.Component {
 
   state = {
-    show: true,
+    show: false,
   }
 
 toggleSideSearch = () => {
@@ -18,12 +17,7 @@ render() {
   console.log(this.props)
   return (
     <div className="clubs-wrapper">
-      {this.state.show ?
-      <div>
-       <LeftSearch />
-      </div> : null}
-
-      <div className="clubs">
+           <div className="clubs">
         <ClubsItem></ClubsItem>
       </div>
     </div>

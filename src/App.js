@@ -22,6 +22,7 @@ import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
 import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
 import { createBrowserHistory } from "history";
+import { LeftSearch } from './Components/left_side_search/left_side_search';
 
 const history = createBrowserHistory();
 
@@ -41,9 +42,10 @@ class App extends Component {
             <Router history={history}>
 
                 <Header toggleSideSearch={this.toggleSideSearch} />
+                {this.state.show ? <div className='show-advanced-search-with-clubs'><LeftSearch /> <Clubs /></div>: null}
                 <Switch>
                     <Route path="/" exact component={() => (<MainPage />)} />
-                    <Route path="/clubs" component={() => (<Clubs toggleSideSearch={this.toggleSideSearch} />)} />
+                    <Route path="/clubs" component={() => (!this.state.show ?<Clubs toggleSideSearch={this.toggleSideSearch} />: null )} />
                     <Route path='/challengeUA' exact component={ChallengeUA} />
                     <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage} />
                     <Route path='/marathon' exact component={Marathon} />

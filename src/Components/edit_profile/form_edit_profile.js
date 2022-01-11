@@ -9,6 +9,7 @@ import {
 import "antd/dist/antd.css";
 import "./edit_profile.scss";
 
+
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
@@ -167,7 +168,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" disabled />
+          <Input className="edit-box" disabled placeholder="admin@gmail.com" />
         </Form.Item>
 
         <Form.Item name="photo" className="edit-input">
@@ -188,6 +189,26 @@ class FormEditProfile extends Component {
               Завантажити фото{" "}
             </Button>
           </Upload>
+
+
+          {/* <Upload
+            name="image"
+            action={UPLOAD_IMAGE_URL}
+            maxCount={1}
+            data={{ folder: `contact-types` }}
+            headers={{
+              contentType: "multipart/form-data",
+              Authorization: tokenToHeader(),
+            }}
+          >
+            <span className="add-contact-upload">
+              <UploadOutlined className="icon" />
+              Завантажити лого
+            </span>
+          </Upload> */}
+
+
+
         </Form.Item>
 
         <Checkbox.Group>
