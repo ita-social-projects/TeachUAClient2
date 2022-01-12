@@ -4,7 +4,9 @@ var webpack = require('webpack');
 
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
 const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
+    
     entry: path.join(__dirname, "src", "index.js"),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -41,10 +43,6 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|ico)$/i,
                 use: [{
                     loader: 'file-loader',
-<<<<<<< HEAD
-=======
-
->>>>>>> f61dc9ae5d678e30a710d767b5249976ce4e799d
                 }]
             },
           
@@ -53,18 +51,12 @@ module.exports = {
                 use: [
                   {
                     loader: 'url-loader',
-<<<<<<< HEAD
-                    options: {
-                        limit: 10000,
-                      },
-=======
-
->>>>>>> f61dc9ae5d678e30a710d767b5249976ce4e799d
                   },
                 ],
               },
         ]
     },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
