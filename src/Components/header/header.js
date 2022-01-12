@@ -37,16 +37,16 @@ export class header extends Component {
       <Menu>
         <Menu.Item>
           <Link to="/challengeUA">
-            <a target="#blank">Навчай українською Челендж</a>
+            Навчай українською Челендж
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/marathon">
-            <a target="#blank">Мовомаратон</a>
+           Мовомаратон
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="#blank">Навчай українською</a>
+         Навчай українською
         </Menu.Item>
       </Menu>
     );
@@ -61,7 +61,7 @@ export class header extends Component {
         </Menu.Item>
         <Menu.Item>
           <Link to="/profile">
-            <a target="#blank">Профіль</a>
+            Профіль
           </Link>
         </Menu.Item>
         <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
@@ -95,7 +95,7 @@ export class header extends Component {
             <nav>
               <Link to="/clubs">
                 <img src={ProjectIcon} />
-                <a target="#blank">Гуртки</a>
+                Гуртки
               </Link>
               <Dropdown overlay={menu}>
                 <a className="challenge" href="#blank">
