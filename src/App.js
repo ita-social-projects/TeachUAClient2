@@ -42,10 +42,10 @@ class App extends Component {
             <Router history={history}>
 
                 <Header toggleSideSearch={this.toggleSideSearch} />
-                {this.state.show ? <div className='show-advanced-search-with-clubs'><LeftSearch /> <Clubs /></div>: null}
+                {this.state.show ? <div className='show-advanced-search-with-clubs'><LeftSearch /> <Clubs /></div> : null}
                 <Switch>
                     <Route path="/" exact component={() => (<MainPage />)} />
-                    <Route path="/clubs" component={() => (!this.state.show ?<Clubs toggleSideSearch={this.toggleSideSearch} />: null )} />
+                    <Route path="/clubs" component={() => (!this.state.show ? <Clubs toggleSideSearch={this.toggleSideSearch} /> : null)} />
                     <Route path='/challengeUA' exact component={ChallengeUA} />
                     <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage} />
                     <Route path='/marathon' exact component={Marathon} />

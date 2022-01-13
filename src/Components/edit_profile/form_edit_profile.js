@@ -8,6 +8,8 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "./edit_profile.scss";
+import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
+import { tokenToHeader } from "../../Services/uploadService";
 
 
 class FormEditProfile extends Component {
@@ -140,7 +142,7 @@ class FormEditProfile extends Component {
               message: "Телефон не може містити спеціальні символи",
             },
             {
-              pattern: /^.{9}$/,
+              pattern: /^.{10}$/,
               message: "Телефон не відповідає вказаному формату",
             },
           ]}
@@ -184,33 +186,20 @@ class FormEditProfile extends Component {
               &nbsp;:
             </span>
           </Upload>
-          <Upload>
+          <Upload
+            name="image"
+            action={UPLOAD_IMAGE_URL}
+            maxCount={1}
+            data={{ folder: `contact-photo` }}
+            headers={{
+              contentType: "multipart/form-data",
+              Authorization: tokenToHeader(),
+            }}>
             <Button className="upload-photo" icon={<UploadOutlined />}>
               Завантажити фото{" "}
             </Button>
           </Upload>
-
-
-          {/* <Upload
-            name="image"
-            action={UPLOAD_IMAGE_URL}
-            maxCount={1}
-            data={{ folder: `contact-types` }}
-            headers={{
-              contentType: "multipart/form-data",
-              Authorization: tokenToHeader(),
-            }}
-          >
-            <span className="add-contact-upload">
-              <UploadOutlined className="icon" />
-              Завантажити лого
-            </span>
-          </Upload> */}
-
-
-
         </Form.Item>
-
         <Checkbox.Group>
           <Col className="row-style">
             <Checkbox
