@@ -53,29 +53,29 @@ export class header extends Component {
 
     const log = this.isAuthorizer() ? (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root1">
           <AddClub />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root2">
           <AddCenter />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root3">
           <Link to="/profile">
             Профіль
           </Link>
         </Menu.Item>
-        <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
+        <Menu.Item onClick={this.logout} key="root4">Вийти</Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item key="root5">
           <AdministrationMenu />
         </Menu.Item>
       </Menu>
     ) : (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root6">
           <Registration />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root7">
           <Login />
         </Menu.Item>
       </Menu>
