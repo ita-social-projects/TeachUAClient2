@@ -37,43 +37,45 @@ export class header extends Component {
       <Menu>
         <Menu.Item>
           <Link to="/challengeUA">
-            <a target="#blank">Навчай українською Челендж</a>
+            Навчай українською Челендж
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/marathon">
-            <a target="#blank">Мовомаратон</a>
+           Мовомаратон
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="#blank">Навчай українською</a>
+         Навчай українською
         </Menu.Item>
       </Menu>
     );
 
     const log = this.isAuthorizer() ? (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root1">
           <AddClub />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root2">
           <AddCenter />
         </Menu.Item>
-        <Menu.Item>
-          <a href="/profile">Профіль </a>
+        <Menu.Item key="root3">
+          <Link to="/profile">
+            Профіль
+          </Link>
         </Menu.Item>
-        <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
+        <Menu.Item onClick={this.logout} key="root4">Вийти</Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item key="root5">
           <AdministrationMenu />
         </Menu.Item>
       </Menu>
     ) : (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root6">
           <Registration />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root7">
           <Login />
         </Menu.Item>
       </Menu>
@@ -82,7 +84,7 @@ export class header extends Component {
 
     console.log(this.props);
     return (
-      <div className="Header">
+      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
         <div className="wrapper">
           <img className="logo" src={Logo} />
           <div className="Menu">
@@ -93,7 +95,7 @@ export class header extends Component {
             <nav>
               <Link to="/clubs">
                 <img src={ProjectIcon} />
-                <a target="#blank">Гуртки</a>
+                Гуртки
               </Link>
               <Dropdown overlay={menu}>
                 <a className="challenge" href="#blank">

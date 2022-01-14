@@ -18,10 +18,14 @@ class AdministrationMenu extends Component {
           className="sub-menu-administration"
         >
           <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/dev/admin/districts">
             Райони
+          </NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="3">
+            <NavLink to="/dev/admin/station">
             Станції/Місцевості
+          </NavLink>
           </Menu.Item>
           <Menu.Item className="sub-menu-administration" key="4">
           <NavLink to="/dev/admin/categories" >
