@@ -21,8 +21,7 @@ import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
-// import Clubs from "../clubs/clubs";
-// import { LeftSearch } from "../left_side_search/left_side_search";
+import ShowAdvancedSearchContext from "../context";
 
 export class header extends Component {
   logout = () => {
@@ -33,7 +32,7 @@ export class header extends Component {
   isAuthorather = () => {
     return localStorage.getItem("accessToken") !== null;
   };
- 
+
   render() {
     console.log(this.props);
     const menu = (
@@ -81,9 +80,8 @@ export class header extends Component {
         </Menu.Item>
       </Menu>
     );
-
-    console.log(this.props);
-    return (
+    
+     return (
       <div className="Header">
         <div className="wrapper">
           <img className="logo" src={Logo} />
@@ -120,7 +118,6 @@ export class header extends Component {
                 <p>Місто</p>
               </div>
             </div>
-
             <Dropdown overlay={log}>
               <div className="avatar">
                 <img src={Avatar} />
@@ -139,15 +136,18 @@ export class header extends Component {
               <img className="plaate" src={Plate} />
             </div>
             <div className="litle-toggle">
-                <NavLink to={'/clubs'}>
-                <img
-                  className="toggle"
-                  src={Toggle}
-                  onClick={this.props.toggleSideSearch}
-                />
-                </NavLink>
-              </div>
-
+              <NavLink to={"/clubs"}>
+                <ShowAdvancedSearchContext.Consumer>
+                  {(value) => (
+                    <img
+                      className="toggle"
+                      src={Toggle}
+                      onClick={value.toggleSearchFilter}
+                    />
+                  )}
+                </ShowAdvancedSearchContext.Consumer>
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>
@@ -156,11 +156,7 @@ export class header extends Component {
 }
 
 header.propTypes = {
-  toggleSideSearch: PropTypes.func,
   history: PropTypes.object,
-
 };
-
-
 
 export default header;

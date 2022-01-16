@@ -9,7 +9,6 @@ import { getStationName } from "../../Services/stations";
 import { getCategoriesService } from "../../Services/category";
 import { getClubs } from "../../Services/clubs";
 
-
 const { Option } = Select;
 
 class LeftSearch extends Component {
@@ -20,7 +19,7 @@ class LeftSearch extends Component {
     stations: [],
     categories: [],
     clubs: [],
-    city: '',
+    city: "",
   };
 
   getCityValue = (value) => {
@@ -30,7 +29,6 @@ class LeftSearch extends Component {
   toggleRadioChange = () => {
     this.setState({ show: false });
   };
-
 
   componentDidMount() {
     getCitiesName().then((response) => {
@@ -52,12 +50,8 @@ class LeftSearch extends Component {
     });
   }
 
-
-
-
   render() {
-
-    const { cities, districts, stations, categories, city } = this.state;
+    const { cities, districts, stations, categories, clubs } = this.state;
     return (
       <div className="advancedSearch">
         <div className="advancedSearchMain">
@@ -82,8 +76,6 @@ class LeftSearch extends Component {
             </Radio.Group>
             <p className="advancedSearchTitle">Місто</p>
             <label>
-
-              <h1>Favorite city: {city}</h1>
               <Select
                 onSelect={this.getCityValue}
                 className="selectStyle"
@@ -91,48 +83,39 @@ class LeftSearch extends Component {
                 allowClear
               >
                 {cities.map((city) => (
-                  <Option key={city.id} value={city.name}>{city.name}</Option>
+                  <Option key={city.id} value={city.name}>
+                    {city.name}
+                  </Option>
                 ))}
               </Select>
             </label>
             <p className="advancedSearchTitle">Район міста</p>
 
-            <Select
-              placeholder="Виберіть район"
-              className="selectStyle">
-
-              {districts.map((district) => {
-                if (district.cityName === this.state.city) {
-                  return (
-                    <Option key={district.id}>{district.name}</Option>
-                  )
-                }
-                else null
-              })}
+            <Select placeholder="Виберіть район" className="selectStyle">
+              {districts
+                .filter((district) => district.cityName === this.state.city)
+                .map((filteredDistrict) => (
+                  <Option key={filteredDistrict.id}>
+                    {filteredDistrict.name}
+                  </Option>
+                ))}
             </Select>
             <p className="advancedSearchTitle">Найближча станція метро</p>
 
             <Select placeholder="Виберіть станцію" className="selectStyle">
-
-              {stations.map((station) => {
-                if (station.cityName === this.state.city) {
-                  return (
-                    <Option key={station.id}>{station.name}</Option>
-                  )
-                }
-                else null
-              })}
+              {stations
+                .filter((station) => station.cityName === this.state.city)
+                .map((filteredStation) => (
+                  <Option key={filteredStation.id}>
+                    {filteredStation.name}
+                  </Option>
+                ))}
             </Select>
             {this.state.show ? (
               <div>
                 <p className="advancedSearchTitle">Ремоут</p>
                 <Checkbox.Group>
-                  {/* <Col className='rowStyle' >
-                                        {clubs.map((clubs) => (
-                                            <Checkbox key={clubs.id}> {clubs.isOnline} </Checkbox>
-
-                                        ))}
-                                    </Col> */}
+                  <Checkbox key={clubs.id}> Доступний онлайн</Checkbox>
                 </Checkbox.Group>
                 <p className="advancedSearchTitle">Категорії</p>
                 <Col className="colStyle">
