@@ -91,7 +91,7 @@ class LeftSearch extends Component {
             </label>
             <p className="advancedSearchTitle">Район міста</p>
 
-            <Select placeholder="Виберіть район" className="selectStyle">
+            <Select placeholder="Виберіть район" className="selectStyle" allowClear>
               {districts
                 .filter((district) => district.cityName === this.state.city)
                 .map((filteredDistrict) => (
@@ -102,7 +102,7 @@ class LeftSearch extends Component {
             </Select>
             <p className="advancedSearchTitle">Найближча станція метро</p>
 
-            <Select placeholder="Виберіть станцію" className="selectStyle">
+            <Select placeholder="Виберіть станцію" className="selectStyle" allowClear>
               {stations
                 .filter((station) => station.cityName === this.state.city)
                 .map((filteredStation) => (
