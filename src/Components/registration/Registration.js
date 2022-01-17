@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Form, Input, Button, Modal,message } from 'antd';
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
-import '../registration/registartion.modules.scss'
+import '../registration/registartion.scss'
 import { addUser } from "../../Services/registration";
 
 
@@ -108,7 +108,7 @@ class NewRegistration extends React.Component {
                             <h3>Реєстрація </h3>
                         </div>
                         <div className='registration__chooseRole'>
-                            <Button type="primary" className='registration__boss' ><img src='/static/images/registration/Ellipse.jpg' />Керівник</Button>
+                            <Button type="primary" className='registration__boss' ><img src='/src/images/registration/Ellipse.jpg' />Керівник</Button>
                         </div>
                         <Form.Item name="firstName"
                             className="registration-input"

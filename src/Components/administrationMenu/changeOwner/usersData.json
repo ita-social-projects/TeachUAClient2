@@ -392,7 +392,7 @@
     "email": "admin@gmail.com",
     "password": "$2y$12$iod5PRHZaYrIO6L3onnnk.Mhx9Hc1lb2ehBi0hRvPDD83u6OM/b66",
     "roleName": "ROLE_ADMIN",
-    "urlLogo": "/static/images/user/avatar/user1.png",
+    "urlLogo": "/src/images/user/avatar/user1.png",
     "status": "true"
   },
   {

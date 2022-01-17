@@ -16,6 +16,8 @@ import AdministrationExportData from './Components/administrationMenu/administra
 import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
 import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
 import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
+import AdministrationDistricts from './Components/administrationMenu/district/AdministrationDistrict';
+import AdministrationStation from './Components/administrationMenu/station/AdministrationStation';
 
 import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
@@ -55,16 +57,17 @@ class App extends Component {
                     <Route path="/service" component={() => (<div>Service Route</div>)} />
                     <Route path="/profile" component={() => (<Profile />)} />
                     <Route path="/dev/verify"  component={()=>(<VerifyPage/>)}/>
-                    <Route path="/dev/admin/categories" component={() => (<AdministrationCategories/>)} />
-                    <Route path="/dev/admin/contacts" component={() => (<AdministrationContacts/>)} />
-                    <Route path="/dev/admin/users" component={() => (<AdministrationUsers/>)} />
+                    <Route path="/dev/admin/categories" component={() => (<Administration_categories/>)} />
+                    <Route path="/dev/admin/contacts" component={() => (<Administration_contacts/>)} />
+                    <Route path="/dev/admin/users" component={() => (<Administration_users/>)} />
                     <Route path="/dev/admin/import-database" component={() => (<AdministrationImportData />)} />
                     <Route path="/dev/admin/export-database" component={() => (<AdministrationExportData />)} />
                     <Route path="/dev/admin/questions" component={() => (<TableFaq />)} />
                     <Route path="/dev/admin/confirmation" component={() => (<Confirmation/>)} />
                     <Route path="/dev/admin/changeOwner" component={() => (<AdministarationChangeOwner/>)} />
                     <Route path="/dev/admin/sities" component={() => (<AdministrationSities/>)} />
-                    
+                    <Route path="/dev/admin/districts" component={() => (<AdministrationDistricts/>)} />
+                    <Route path="/dev/admin/station" component={() => (<AdministrationStation/>)} />
     
                     <Route component={() => (<div>Not found Route</div>)} />
                 </Switch>

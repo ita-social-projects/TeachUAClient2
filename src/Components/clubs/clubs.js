@@ -5,7 +5,7 @@ import ClubsItem from "../clubs/clubsItem/clubsItem";
 class Clubs extends React.Component {
   render() {
     return (
-      <div className="clubs-wrapper">
+      <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
         <div className="clubs">
           <ClubsItem></ClubsItem>
        </div>

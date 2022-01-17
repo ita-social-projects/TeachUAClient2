@@ -1,7 +1,7 @@
 import { Modal } from "antd";
 import React from "react";
 import { Steps, Button, message } from 'antd';
-import '../add_Club/addClub.modules.scss'
+import '../add_Club/addClub.scss'
 import AddClubMain from './addClubSteps/addClubMain/AddClubMain';
 import AddClubContact from "./addClubSteps/addClubContact/AddClubContact";
 import AddClubDescriptipn from "./addClubSteps/addClubDescrippion/AddClubDescriptipn";
@@ -63,10 +63,10 @@ class AddClub extends React.Component {
 
     render() {
         return (
-            <div  className='addClub__modal_window'>
+            <div  className='addClub__modal_window '>
                 <a onClick={() => { this.handleOk(); }}>Додати гурток</a>
                 <Modal
-                    className='addClub__modal'
+                    className='addClub__modal modal-border'
                     id='addClub__modal'
                     width={1100}
                     visible={this.state.showModal}

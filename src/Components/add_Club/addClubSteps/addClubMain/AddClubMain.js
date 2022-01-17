@@ -1,7 +1,16 @@
 import { Form, Input,Checkbox, InputNumber,Select } from 'antd';
 import React from "react";
-import './addClubMain.modules.scss'
-import { getCenterservices } from '../../../../Services/centers'; 
+import './addClubMain.scss'
+/*
+const layout = {
+    labelCol: {
+        span: 12,
+    },
+    wrapperCol: {
+        span: 8,
+    },
+
+};*/
 const {Option} = Select;
 const categories=[
     {
@@ -95,6 +104,7 @@ state={
     };
     render() {
         return (
+            
             <Form
          
                 name="basic"

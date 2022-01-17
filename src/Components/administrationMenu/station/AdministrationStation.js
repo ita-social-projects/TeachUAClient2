@@ -1,22 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Table, Popconfirm, Form, Typography } from "antd";
-import EditableCell from "./EditableCell";
-import AddCitie from "./AddSitie";
-import "./sities.scss";
+import EditableCell from "../sities/EditableCell";
+import AddCitie from "../sities/AddSitie";
+import "./station.scss";
 import {
-  getSitiesServise,
-  updateCities,
+  getStationServise,
+  updateStation,
   deleteCity,
-} from "../../../Services/cities";
+} from "../../../Services/station";
 
-const AdministrationSities = () => {
+const AdministrationStation = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
 
   const getData = () => {
-    getSitiesServise().then((response) => {
+    getStationServise().then((response) => {
       setData(response.data);
     });
   };
@@ -65,12 +65,9 @@ const AdministrationSities = () => {
           typeof newData[index].longitude === "number"
             ? newData[index].longitude
             : Number(newData[index].longitude);
-        updateCities(newData[index]).then(() => {
+        updateStation(newData[index]).then(() => {
           getData();
-        }).catch((error) => {
-          console.log(error.response);
-          return error.response.data;
-        });;
+        });
 
         setEditingKey("");
       } else {
@@ -84,9 +81,7 @@ const AdministrationSities = () => {
   const CityDelete = (key) => {
     deleteCity(key).then(() => {
       getData();
-    }).catch((error) => {
-      return error.response.data;
-    });;
+    });
   };
 
   const columns = [
@@ -106,21 +101,35 @@ const AdministrationSities = () => {
       editable: true,
     },
     {
-      title: "Довгота",
-      dataIndex: "longitude",
-
-      render: (longitude) => Number.parseFloat(longitude).toFixed(4),
-      width: "20%",
-      editable: true,
+      title: "Місто",
+      dataIndex: "cityName",
+      width: "10%",
+      sorter: (a, b) => a.id - b.id,
+      editable: false,
     },
     {
-      title: "Широта",
-      dataIndex: "latitude",
-
-      render: (latitude) => Number.parseFloat(latitude).toFixed(4),
-      width: "20%",
-      editable: true,
+      title: "Район",
+      dataIndex: "districtName",
+      width: "10%",
+      sorter: (a, b) => a.id - b.id,
+      editable: false,
     },
+    // {
+    //   title: "Довгота",
+    //   dataIndex: "longitude",
+
+    //   render: (longitude) => Number.parseFloat(longitude).toFixed(4),
+    //   width: "20%",
+    //   editable: true,
+    // },
+    // {
+    //   title: "Широта",
+    //   dataIndex: "latitude",
+
+    //   render: (latitude) => Number.parseFloat(latitude).toFixed(4),
+    //   width: "20%",
+    //   editable: true,
+    // },
     {
       title: "Дія",
       dataIndex: "Дія",
@@ -199,4 +208,4 @@ const AdministrationSities = () => {
   );
 };
 
-export default AdministrationSities;
+export default AdministrationStation;

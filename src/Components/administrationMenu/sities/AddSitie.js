@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './addSities.modules.scss'
+import './addSities.scss'
 import GooglePlacesAutocomplete,{geocodeByAddress, getLatLng} from 'react-google-places-autocomplete';
 import {Button, message} from "antd";
 import PropTypes from 'prop-types';
@@ -30,6 +30,12 @@ const AddCity = ({cities, setCities}) => {
                         latitude: lat
                     }
                 ).then((response) => {
+                    return response.data;
+                  })
+                  .catch((error) => {
+                    console.log(error.response);
+                    return error.response.data;
+                  }).then((response) => {
                     if(response.status) {
                         message.warning(response.message);
                         return;
