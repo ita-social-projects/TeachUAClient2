@@ -30,8 +30,10 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 55px;
+        height: auto;
     }
+
+
 
     .add-contact-type-input {
         width: 200px;
@@ -108,5 +110,12 @@
         color: rgba(0,0,0,.25);
     }
 
+    .action-btn {
+        color: #0050b3;
+    }  
+    
+    .action-btn:hover {
+        color: #0050b3;
+    }
     
 }

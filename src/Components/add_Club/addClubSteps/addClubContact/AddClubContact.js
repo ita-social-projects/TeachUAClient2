@@ -1,6 +1,6 @@
 
 import React from "react";
-import './addClubContact.modules.scss'
+import './addClubContact.scss'
 import { Form, Modal, Switch, Tooltip, Input } from 'antd';
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 

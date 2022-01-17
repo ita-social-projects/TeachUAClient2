@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Table, Image, Form, Popconfirm } from "antd";
-import { getCategoriesService, editCategoriesService } from "../../../Services/category";
-import Administration_add_category from "./administration_add_category";
+import { Typography, Table, Image, Form, Popconfirm, message } from "antd";
+import {
+  getCategoriesService,
+  editCategoriesService,
+  deleteCategoriesService,
+} from "../../../Services/category";
+import AdministrationAddCategory from "./administration_add_category";
 import EditableCell from "../editableCell";
 import "./administration_categories.scss";
 
-export default function Administration_categories() {
+export default function AdministrationCategories() {
   const [categories, setCategories] = useState([]);
+  const [addCategory, setAddCategory] = useState([]);
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
 
@@ -32,7 +37,7 @@ export default function Administration_categories() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [addCategory]);
 
   const isEditing = (record) => record.id === editingKey;
 
@@ -69,15 +74,21 @@ export default function Administration_categories() {
           tagBackgroundColor: newData[index].tagBackgroundColor,
           tagTextColor: newData[index].tagTextColor,
         };
-        editCategoriesService(editedData).then((response) => {
+        editCategoriesService(editedData).then(() => {
           getData();
           setEditingKey("");
-          return response.editedData;
         });
       }
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
     }
+  };
+
+  const deleteData = (key) => {
+    deleteCategoriesService(key).then(() => {
+      message.success("Категорія " + key.name + " успішно видалена!");
+      getData();
+    });
   };
 
   const columns = [
@@ -133,7 +144,7 @@ export default function Administration_categories() {
           style={{ backgroundColor: row.backgroundColor }}
           width={50}
           height={50}
-          src={`${process.env.PUBLIC_URL}` + urlLogo}
+          src={`${process.env.REACT_APP_URL}` + urlLogo}
         />
       ),
     },
@@ -185,15 +196,27 @@ export default function Administration_categories() {
             </Typography.Link>
           </span>
         ) : (
-          <Typography.Link
-            disabled={editingKey !== ""}
-            onClick={() => edit(record)}
-            style={{
-              marginLeft: 8,
-            }}
-          >
-            Редагувати
-          </Typography.Link>
+          <div>
+            <Typography.Link
+              disabled={editingKey !== ""}
+              onClick={() => edit(record)}
+              style={{
+                marginRight: 8,
+              }}
+              className="action-btn"
+            >
+              Редагувати
+            </Typography.Link>
+            <Popconfirm
+              title="Видалити категорію?"
+              className="action-btn"
+              cancelText="Ні"
+              okText="Так"
+              onConfirm={() => deleteData(record)}
+            >
+              <a>Видалити</a>
+            </Popconfirm>
+          </div>
         );
       },
     },
@@ -230,7 +253,13 @@ export default function Administration_categories() {
           dataSource={categories}
           bordered
           columns={mergedColumns}
-          footer={() => <Administration_add_category />}
+          footer={() => (
+            <AdministrationAddCategory
+              categories={categories}
+              setCategories={setCategories}
+              setAddCategory={setAddCategory}
+            />
+          )}
         />
       </Form>
     </div>

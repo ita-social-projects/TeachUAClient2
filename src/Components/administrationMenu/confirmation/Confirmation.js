@@ -1,5 +1,5 @@
 import React from "react";
-import "./confirmation.modules.scss";
+import "./confirmation.scss";
 import { Table } from "antd";
 
 

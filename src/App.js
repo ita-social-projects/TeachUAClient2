@@ -1,25 +1,28 @@
-import React from "react";
-import { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/header/header";
-import MainPage from "./Components/mainPage/mainPage";
-import Clubs from "./Components/clubs/clubs";
-import Profile from "./Components/profile/profile";
-import Administration_categories from "./Components/administrationMenu/categories/administration_categories";
-import Administration_contacts from "./Components/administrationMenu/contacts/administration_contacts";
-import Administration_users from "./Components/administrationMenu/users/administration_users";
-import AdministrationImportData from "./Components/administrationMenu/administrationImport/administrationImportData";
-import AdministrationExportData from "./Components/administrationMenu/administrationExport/administrationExport";
-import Confirmation from "./Components/administrationMenu/confirmation/Confirmation";
-import AdministarationChangeOwner from "./Components/administrationMenu/changeOwner/AdministarationChangeOwner";
-import AdministrationSities from "./Components/administrationMenu/sities/AdministrationSities";
-import ChallengeUA from "./Components/сhallenge/challengeUA";
-import ChallengeUATaskPage from "./Components/сhallenge/challengePage";
-import Marathon from "./Components/сhallenge/marathonDay";
-import MarathonPage from "./Components/сhallenge/marathonPage";
-import TableFaq from "./Components/administrationMenu/administrationFaq/TableFaq";
+import React from 'react';
+import { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
+import Footer from './Components/Footer/Footer';
+import Header from './Components/header/header';
+import MainPage from './Components/mainPage/mainPage';
+import Clubs from './Components/clubs/clubs';
+import Profile from './Components/profile/profile';
+import AdministrationCategories from './Components/administrationMenu/categories/administration_categories';
+import AdministrationContacts from './Components/administrationMenu/contacts/administration_contacts';
+import AdministrationUsers from './Components/administrationMenu/users/administration_users';
+import AdministrationImportData from './Components/administrationMenu/administrationImport/administrationImportData';
+import AdministrationExportData from './Components/administrationMenu/administrationExport/administrationExport';
+import Confirmation from './Components/administrationMenu/confirmation/Confirmation';
+import AdministarationChangeOwner from './Components/administrationMenu/changeOwner/AdministarationChangeOwner';
+import AdministrationSities from './Components/administrationMenu/sities/AdministrationSities';
+import AdministrationDistricts from './Components/administrationMenu/district/AdministrationDistrict';
+import AdministrationStation from './Components/administrationMenu/station/AdministrationStation';
+import ChallengeUA from './Components/сhallenge/challengeUA';
+import ChallengeUATaskPage from './Components/сhallenge/challengePage'
+import Marathon from './Components/сhallenge/marathonDay';
+import MarathonPage from './Components/сhallenge/marathonPage';
+import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
+import VerifyPage from './Components/registration/VerifyPage';
 import { createBrowserHistory } from "history";
 import  ShowAdvancedSearchContext  from "./Components/context";
 
@@ -94,6 +97,15 @@ class App extends Component {
               path="/dev/admin/sities"
               component={() => <AdministrationSities />}
             />
+            <Route
+              path="/dev/admin/districts"
+              component={() => (<AdministrationDistricts/>)} 
+              />
+            <Route
+            path="/dev/admin/station" 
+              component={() => (<AdministrationStation/>)} 
+              />
+
 
             <Route component={() => <div>Not found Route</div>} />
           </Switch>
