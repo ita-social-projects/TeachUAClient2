@@ -7,7 +7,7 @@ import FacebookOutlined from "@ant-design/icons/lib/icons/FacebookOutlined";
 import YoutubeOutlined from "@ant-design/icons/lib/icons/YoutubeOutlined";
 import InstagramOutlined from "@ant-design/icons/lib/icons/InstagramOutlined";
 import MailOutlined from "@ant-design/icons/lib/icons/MailOutlined";
-
+import Banner from './img/maraton.jpg'
 import "./challengeUA.scss";
 
 export class MarathonDay extends Component {
@@ -15,6 +15,10 @@ export class MarathonDay extends Component {
     const name = "marathon";
     return (
       <div>
+        <div className="image">
+          <img className='bannerImg' src={Banner}/>
+          {/* <h3>Челендж &quot;Навчай українською&quot;</h3> */}
+        </div>
         <div className="social-info">
                 <div className="social-media">
                     <span className="text">Наші контакти</span>

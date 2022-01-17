@@ -6,6 +6,8 @@ import FacebookOutlined from "@ant-design/icons/lib/icons/FacebookOutlined";
 import YoutubeOutlined from "@ant-design/icons/lib/icons/YoutubeOutlined";
 import InstagramOutlined from "@ant-design/icons/lib/icons/InstagramOutlined";
 import MailOutlined from "@ant-design/icons/lib/icons/MailOutlined";
+import Banner from './img/maraton.jpg'
+import "./challengeUA.scss"
 
 import "./challengeUA.scss";
 
@@ -15,6 +17,9 @@ export class challengeUA extends Component {
     const name = "challengeUA";
     return (
       <div>
+          <div className="image">
+          <img className='bannerImg' src={Banner}/>
+        </div>
         <div className="social-info">
                 <div className="social-media">
                     <span className="text">Наші контакти</span>

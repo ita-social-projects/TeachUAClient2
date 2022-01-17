@@ -11,10 +11,12 @@ class ClubsItem extends React.Component {
       data.push(post);
     });
 
-    // console.log(data);
-    // console.log(this.state)
-    return (
 
+    
+  
+  
+    return (
+      
       <List
         className="card"
         pagination={{ pageSize: 8 }}
@@ -49,8 +51,11 @@ class ClubsItem extends React.Component {
               <a href="/">Детальніше</a>
             </button>
           </Card>
+          
         )}
+
       />
+      
     );
   }
 }

@@ -5,15 +5,22 @@ import YoutubeOutlined from "@ant-design/icons/lib/icons/YoutubeOutlined";
 import InstagramOutlined from "@ant-design/icons/lib/icons/InstagramOutlined";
 import MailOutlined from "@ant-design/icons/lib/icons/MailOutlined";
 import PropTypes from 'prop-types'
+import Banner from './img/challenge.jpg'
+import "./challengeUA.scss";
+
 
 export default class teachUkrainian extends Component {
     static propTypes = {
         prop: PropTypes
     }
-
+    
     render() {
         return (
             <div>
+                <div className="image">
+          <img className='bannerImg' src={Banner}/>
+          {/* <h3>Челендж &quot;Навчай українською&quot;</h3> */}
+            </div>
                   <div className="social-info">
             <div className="social-media">
                 <span className="text">Наші контакти</span>

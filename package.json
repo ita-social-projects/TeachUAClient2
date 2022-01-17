@@ -22,9 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix src/**/*.js src/**/*.jsx",
-    "devWebpack": "webpack serve --mode development",
-    "buildWebpack": "webpack --mode production"
+    "lint": "eslint --fix src/**/*.js src/**/*.jsx"
   },
   "eslintConfig": {
     "extends": [
@@ -62,9 +60,6 @@
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "svg-url-loader": "^7.1.1",
-    "url-loader": "^4.1.1",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^3.11.1"
+    "url-loader": "^4.1.1"
   }
 }

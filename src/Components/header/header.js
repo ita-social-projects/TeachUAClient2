@@ -36,7 +36,15 @@ export class header extends Component {
   state = {
     city: [],
     citySelect: "Київ",
+    inputValue: " ",
   };
+
+  
+  change = (e) => {
+        console.log(e.target.value);
+      this.setState({inputValue: e.target.value})
+    };
+  
 
   componentDidMount() {
     fetch("https://speak-ukrainian.org.ua/dev/api/cities")
@@ -44,14 +52,14 @@ export class header extends Component {
       .then((cityList) => {
         this.setState({ city: cityList });
       });
-      
+        
   }
   showBtn = () => {
     return this.props.location.pathname !== '/clubs';
       }
 
-    func = (e) => {
-      console.log(e.target.value);
+    func = () => {
+      console.log(this.state);
     }
 
   render() {
@@ -64,7 +72,7 @@ export class header extends Component {
           <Link to="/marathon">Мовомаратон</Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to="/teachUkrainian"> Навчай українською</Link>
+          <Link to="/teachUkrainian"> Про челендж </Link>
         </Menu.Item>
       </Menu>
     );
@@ -108,8 +116,8 @@ export class header extends Component {
     if (path == "/clubs") {
       caption = `Гуртки у місті ${this.state.citySelect}`;
     }
-      
-   
+
+
     return (
       <div className="Header">
         <div className="wrapper">
@@ -170,12 +178,12 @@ export class header extends Component {
           <div className="search">
             <div className="input-field">
               <div className="search-bar">
-                <Link to={{ pathname: "/clubs", state: `${this.state.input}` }}>
+                <Link to={{ pathname: "/clubs"}}>
                   <input
                     className="searchField"
                     type="text"
                     placeholder="Який гурток шукаєте?"
-                    onChange={this.func}
+                    onChange={this.change}
                   />
                 </Link>
                 <img src={Lens} />
@@ -202,5 +210,7 @@ header.propTypes = {
   location: PropTypes,
   
 };
+
+
 
 export default withRouter(header);
