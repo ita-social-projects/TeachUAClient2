@@ -1,16 +1,7 @@
 import { Form, Input,Checkbox, InputNumber,Select } from 'antd';
 import React from "react";
 import './addClubMain.modules.scss'
-/*
-const layout = {
-    labelCol: {
-        span: 12,
-    },
-    wrapperCol: {
-        span: 8,
-    },
-
-};*/
+import { getCenterservices } from '../../../../Services/centers'; 
 const {Option} = Select;
 const categories=[
     {
@@ -54,6 +45,7 @@ const categories=[
         id:9
     }
 ]
+/*
 const centers=[
     {
         name:'КЗПСО "Мистецька школа №4 м. Одеси"',
@@ -76,10 +68,17 @@ const centers=[
         id:4
     }
 ]
-
+*/
 
 class AddClubMain extends React.Component {
-
+state={
+    categori:[]
+}
+    componentDidMount(){
+        getCenterservices().then((response)=>{
+            this.setState({categori:response.data})
+        })
+    }
     onKeyPress = (event) => {
         const specialCharRegex = /^\d+$/;
         const pressedKey = String.fromCharCode(
@@ -182,7 +181,7 @@ class AddClubMain extends React.Component {
                     className="add-club-select"
                     placeholder="Назва центру"
                     hasFeedback>
-                    {centers.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
+                    {this.state.categori.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
                 </Select>
             </Form.Item>
 

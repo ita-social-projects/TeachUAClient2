@@ -4,7 +4,7 @@ import { PhoneOutlined} from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import cities from '../../data/Cities.json'
 import './addClubContactLocation.modules.scss'
-
+import { getSitiesServise } from "../../../../Services/cities";
 
 const {Option} = Select;
 
@@ -15,9 +15,14 @@ class AddClubContactLocation extends React.Component{
     }*/
     state={
         coordinates:0,
-        isDisabled:true
+        isDisabled:true,
+        sities:[]
     }
-
+    componentDidMount(){
+        getSitiesServise().then((response)=>{
+            this.setState({sities:response.data})
+        })
+    }
     render(){
         return(
             
@@ -67,7 +72,7 @@ class AddClubContactLocation extends React.Component{
                                         setCityName(value);
                                     }}*/
                                     optionFilterProp="children">
-                                    {cities.map(city => <Option key={city.id}
+                                    {this.state.sities.map(city => <Option key={city.id}
                                         value={city.name}>{city.name}</Option>)}
                                 </Select>
                             </Form.Item>
