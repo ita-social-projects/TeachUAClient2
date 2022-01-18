@@ -9,6 +9,10 @@ const getSitiesServise = () => {
   return axios.get(urlCities);
 };
 
+const getCitiesName = () => { 
+  return fetchRequest.get(urlCities); 
+};
+
 const getCity = (id) => {
   return axios.get(`${urlCity}/${id}`);
 };
@@ -55,4 +59,4 @@ const deleteCity = (data) => {
     });
 };
 
-export { getSitiesServise, getCity, addCity, updateCities, deleteCity };
+export { getSitiesServise, getCity, addCity, updateCities, deleteCity, getCitiesName };

@@ -3,22 +3,45 @@ import { Modal, Button, Form, Input, Tooltip, Select } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { PlusOutlined } from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
-import cities from "./Cities.json";
 import "./addCenterLocation.scss";
-import { getSitiesServise } from "../../Services/cities";
+import { getCitiesName } from "../../Services/cities";
+import { getDistrictsName } from "../../Services/district";
+import { getStationName } from "../../Services/stations";
 
 const { Option } = Select;
+
 
 class AddCenterLocation extends React.Component {
   state = {
     showModal: false,
-  };
+    cities: [],
+    districts: [],
+    stations: [],
+    city: "",
+  };  
 
   handleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
 
+  getCityValue = (value) => {
+    this.setState({ city: value });
+  };
+
+  componentDidMount() {
+    getCitiesName().then((response) => { 
+      this.setState({ cities: response.data }); 
+    });
+    getDistrictsName().then((response) => { 
+      this.setState({ districts: response.data }); 
+    });
+    getStationName().then((response) => { 
+      this.setState({ stations: response.data }); 
+    });
+  }
+
   render() {
+    const { cities, districts, stations } = this.state;
     return (
       <div>
         <span className="addCenter-location">
@@ -90,22 +113,16 @@ class AddCenterLocation extends React.Component {
                     ]}
                   >
                     <Select
+                      onSelect={this.getCityValue}
                       className="location-selector"
-                      placeholder="Виберіть місто"
-                    >
-                      {getSitiesServise().then((response) => {
-                        console.log(response)
-                      response.data.map((city) => (
-                        
-                        <Option
-                          className="location-option"
-                          value={city.name}
-                          key={city.id}
+                      placeholder="Виберіть місто">
+                      {cities.map((city) => (
+                          <Option key = {city.id} value={city.name}
                         >
                           {city.name}
-                        </Option>
-                      ))}
-                      )}
+                          </Option>
+                        ))
+                      }
                     </Select>
                   </Form.Item>
                   <Form.Item
@@ -117,13 +134,16 @@ class AddCenterLocation extends React.Component {
                     <Select
                       className="add-club-select"
                       placeholder="Виберіть район"
-                      optionFilterProp="children"
                     >
-                      {cities.map((city) => (
-                        <Option value={city.name} key={city.id}>
-                          {city.name}
-                        </Option>
-                      ))}
+                      {districts
+                      .filter((district) => district.cityName === this.state.city)
+                      .map((filteredDistrict) => (
+                          <Option key = {filteredDistrict.id}
+                        >
+                          {filteredDistrict.name}
+                          </Option>
+                        ))
+                      }
                     </Select>
                   </Form.Item>
                   <Form.Item
@@ -135,13 +155,16 @@ class AddCenterLocation extends React.Component {
                     <Select
                       className="add-club-select"
                       placeholder="Виберіть місцевість"
-                      optionFilterProp="children"
                     >
-                      {cities.map((city) => (
-                        <Option value={city.name} key={city.id}>
-                          {city.name}
-                        </Option>
-                      ))}
+                       {stations
+                       .filter((station) => station.cityName === this.state.city)
+                       .map((filteredStation) => (
+                          <Option key = {filteredStation.id}
+                        >
+                          {filteredStation.name}
+                          </Option>
+                        ))
+                      }
                     </Select>
                   </Form.Item>
                 </div>
