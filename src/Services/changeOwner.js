@@ -1,10 +1,10 @@
-import axios from "axios";
+import fetchRequest from "./serviceUtills";
 import { REACT_APP_API_URL } from "./serviceUtills";
 
 const url =`${REACT_APP_API_URL}/clubs`
 
 const getUsersesServise=()=>{
-    return axios.get(url);
+    return fetchRequest.get(url);
 }
 
 export{

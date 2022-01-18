@@ -54,6 +54,7 @@ const categories=[
         id:9
     }
 ]
+/*
 const centers=[
     {
         name:'КЗПСО "Мистецька школа №4 м. Одеси"',
@@ -76,10 +77,17 @@ const centers=[
         id:4
     }
 ]
-
+*/
 
 class AddClubMain extends React.Component {
-
+state={
+    categori:[]
+}
+    componentDidMount(){
+        getCenterservices().then((response)=>{
+            this.setState({categori:response.data})
+        })
+    }
     onKeyPress = (event) => {
         const specialCharRegex = /^\d+$/;
         const pressedKey = String.fromCharCode(
@@ -183,7 +191,7 @@ class AddClubMain extends React.Component {
                     className="add-club-select"
                     placeholder="Назва центру"
                     hasFeedback>
-                    {centers.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
+                    {this.state.categori.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
                 </Select>
             </Form.Item>
 

@@ -30,6 +30,12 @@ const AddCity = ({cities, setCities}) => {
                         latitude: lat
                     }
                 ).then((response) => {
+                    return response.data;
+                  })
+                  .catch((error) => {
+                    console.log(error.response);
+                    return error.response.data;
+                  }).then((response) => {
                     if(response.status) {
                         message.warning(response.message);
                         return;
