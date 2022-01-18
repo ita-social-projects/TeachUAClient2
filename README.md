@@ -55,8 +55,10 @@ $ npm install
 ### How to run local
 
 1. Open terminal.
-2. Run `npm start` to start application.
-3. Open http://localhost:3000 to view it in the browser.
+2. Run `npm i -g webpack webpack-cli` to download webpack.
+3. Run `npm i` to install all required packages.
+4. Run `npm run devWebpack` to install all required packages.
+5. Open http://localhost:8080 to view it in the browser.
 
 
 

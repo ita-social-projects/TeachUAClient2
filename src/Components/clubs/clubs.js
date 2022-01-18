@@ -30,6 +30,7 @@ class Clubs extends React.Component {
           <ClubsItem></ClubsItem>
         </div>
       </div>
+      </div>
     );
   }
 }
