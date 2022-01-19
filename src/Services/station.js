@@ -1,5 +1,4 @@
 import fetchRequest from "./serviceUtills";
-import axios from "axios";
 import { REACT_APP_API_URL } from "./serviceUtills";
 
 const urlStation = `${REACT_APP_API_URL}/stations`;
@@ -10,7 +9,7 @@ const getStationServise = () => {
 };
 
 const getCity = (id) => {
-  return axios.get(`${urlCity}/${id}`);
+  return fetchRequest.get(`${urlCity}/${id}`);
 };
 
 const addCity = (data) => {
