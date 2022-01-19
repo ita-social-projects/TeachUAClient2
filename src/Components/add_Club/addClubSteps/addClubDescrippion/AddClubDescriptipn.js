@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form,  Upload,Input } from "antd";
 import UploadOutlined from "@ant-design/icons/lib/icons/UploadOutlined";
-import './addClubdescription.modules.scss'
+import './addClubdescription.scss'
 import AddClubGalery from './AddClubGalery';
 
 class AddClubDescriptipn extends React.Component{

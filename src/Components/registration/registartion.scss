@@ -1,3 +1,4 @@
+.registration__modal{
 .ant-modal-content {
     border-radius: 25px;
     .registration__header {
@@ -74,4 +75,36 @@
     //     font-size: 14px!important;
     // }
     }
-    
+}
+.ant-input-focused,
+.ant-input:focus {
+    border-color: #fff0f0;
+    border-right-width: 1px !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+}
+.ant-input:hover {
+    border-color: #fff0f0;
+    border-right-width: 1px !important;
+}
+.ant-input-affix-wrapper:focus {
+    border-color: #fff0f0;
+    border-right-width: 1px !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+}
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border-color: #fff0f0;
+    border-right-width: 1px !important;
+    z-index: 1;
+}
+.ant-input-affix-wrapper-focused {
+    border-color: #fff0f0;
+    border-right-width: 1px !important; 
+    outline: 0;
+    box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+}
+.ant-form-item-required{
+    font-size: 14px!important;
+}
+

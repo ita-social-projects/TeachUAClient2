@@ -1,3 +1,9 @@
+.ant-form-horizontal .ant-form-item-control {
+    flex: 1 1 ;
+}
+.ant-modal-content{
+    border-radius:16px ;
+}
 .addClub__headerSmallscreen,
 .steps__items_small {
     display: none;
@@ -48,6 +54,7 @@
         .steps__items {
             display: flex;
             flex-direction: column;
+          
             .ant-steps-item-process {
                 .ant-steps-item-icon {
                     background-color: #e8e8e8;
@@ -120,3 +127,4 @@
         display: block;
     }
 }
+

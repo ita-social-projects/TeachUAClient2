@@ -1,7 +1,8 @@
 .clubs-wrapper{
-    background-image:url("../Background.png");
     background-position:top;
     background-size:cover;
+    display: flex;
+    flex-direction: row;
 }
 .clubs{
     display:flex;
@@ -13,3 +14,9 @@
     padding-top: 80px;
     padding-bottom:25px;
 }
+
+@media screen and (max-width: 824px) {
+    .clubs {
+      display: none;
+    }
+  }

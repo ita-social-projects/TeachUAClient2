@@ -2,15 +2,11 @@ import fetchRequest from "./serviceUtills";
 import axios from "axios";
 import { REACT_APP_API_URL } from "./serviceUtills";
 
-const urlCities = `${REACT_APP_API_URL}/cities`;
+const urlStation = `${REACT_APP_API_URL}/stations`;
 const urlCity = `${REACT_APP_API_URL}/city`;
 //const urlAddCity=`${REACT_APP_API_URL}/city`
-const getSitiesServise = () => {
-  return axios.get(urlCities);
-};
-
-const getCitiesName = () => {
-  return fetchRequest.get(urlCities);
+const getStationServise = () => {
+  return fetchRequest.get(urlStation);
 };
 
 const getCity = (id) => {
@@ -33,7 +29,7 @@ const addCity = (data) => {
     });
 };
 
-const updateCities = (data) => {
+const updateStation = (data) => {
   return fetchRequest
     .put(`${urlCity}/${data.id}`, {
       id: data.id,
@@ -59,4 +55,5 @@ const deleteCity = (data) => {
     });
 };
 
-export { getSitiesServise, getCity, addCity, updateCities, deleteCity, getCitiesName };
+export { getStationServise, getCity, addCity, updateStation, deleteCity };
+ 

@@ -31,14 +31,14 @@ class ClubsItem extends React.Component {
             </div>
             <div className="club-tags">
               <div className="tag">
-                <img src="./static/images/categories/art.svg" />
+                <img src="/src/images/categories/art.svg" />
                 <p>Спортивні секції</p>
               </div>
             </div>
             <p className="description">{item.text}</p>
             <Rate />
             <div className="adress">
-              <img src="./static/images/map/cluster.png" />
+              <img src="/src/images/map/cluster.png" />
               <p>{item.place}</p>
             </div>
 

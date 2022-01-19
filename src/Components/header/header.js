@@ -19,8 +19,9 @@ import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
 import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
+import ShowAdvancedSearchContext from "../context";
 
 export class header extends Component {
   logout = () => {
@@ -33,55 +34,59 @@ export class header extends Component {
   };
 
   render() {
+    console.log(this.props);
     const menu = (
       <Menu>
         <Menu.Item>
           <Link to="/challengeUA">
-            <a target="#blank">Навчай українською Челендж</a>
+            Навчай українською Челендж
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/marathon">
-            <a target="#blank">Мовомаратон</a>
+           Мовомаратон
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="#blank">Навчай українською</a>
+         Навчай українською
         </Menu.Item>
       </Menu>
     );
 
     const log = this.isAuthorizer() ? (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root1">
           <AddClub />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root2">
           <AddCenter />
         </Menu.Item>
-        <Menu.Item>
-          <a href="/profile">Профіль </a>
+        <Menu.Item key="root3">
+          <Link to="/profile">
+            Профіль
+          </Link>
         </Menu.Item>
-        <Menu.Item onClick={this.logout}>Вийти</Menu.Item>
+        <Menu.Item onClick={this.logout} key="root4">Вийти</Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item key="root5">
           <AdministrationMenu />
         </Menu.Item>
       </Menu>
     ) : (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root6">
           <Registration />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root7">
           <Login />
         </Menu.Item>
       </Menu>
+
     );
 
-    console.log(this.props);
     return (
-      <div className="Header">
+      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
+
         <div className="wrapper">
           <img className="logo" src={Logo} />
           <div className="Menu">
@@ -90,10 +95,10 @@ export class header extends Component {
             </label>
             <input type="checkbox" id="burger-checkbox" />
             <nav>
-              <a href="/clubs">
+              <Link to="/clubs">
                 <img src={ProjectIcon} />
                 Гуртки
-              </a>
+              </Link>
               <Dropdown overlay={menu}>
                 <a className="challenge" href="#blank">
                   <img src={Crown} />
@@ -117,7 +122,6 @@ export class header extends Component {
                 <p>Місто</p>
               </div>
             </div>
-
             <Dropdown overlay={log}>
               <div className="avatar">
                 <img src={Avatar} />
@@ -136,13 +140,17 @@ export class header extends Component {
               <img className="plaate" src={Plate} />
             </div>
             <div className="litle-toggle">
-              <a href="#blank">
-                <img
-                  className="toggle"
-                  src={Toggle}
-                  onClick={this.props.toggleSideSearch}
-                />
-              </a>
+              <NavLink to={"/clubs"}>
+                <ShowAdvancedSearchContext.Consumer>
+                  {(value) => (
+                    <img
+                      className="toggle"
+                      src={Toggle}
+                      onClick={value.toggleSearchFilter}
+                    />
+                  )}
+                </ShowAdvancedSearchContext.Consumer>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -152,7 +160,7 @@ export class header extends Component {
 }
 
 header.propTypes = {
-  toggleSideSearch: PropTypes.func,
+  history: PropTypes.object,
 };
 
 export default header;

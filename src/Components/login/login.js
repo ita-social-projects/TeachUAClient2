@@ -57,7 +57,7 @@ class Login extends React.Component {
               <a href="#">
                 <img
                   title=""
-                  src="./static/images/login/login-google.png"
+                  src="/src/images/login/login-google.png"
                   alt=""
                 />
               </a>

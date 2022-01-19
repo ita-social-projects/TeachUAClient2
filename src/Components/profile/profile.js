@@ -39,7 +39,7 @@ class Profile extends React.Component {
             </div>
           </div>
         </div>
-        <div className="profile-information-block">
+        <div className="profile-information-block" style={{ backgroundImage: "url(/src/Components/profile/Background_profile.svg)" }}>
           <div className="profile-information-block__wrapper">
             <h2 className="my_profile_text">Мій профіль</h2>
             <div className="profile-information-block__card">

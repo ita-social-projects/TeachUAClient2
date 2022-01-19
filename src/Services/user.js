@@ -39,3 +39,4 @@ const editUsersService = (newData) => {
 export {
     getUsersService, editUsersService, deleteUsersService
 };
+
