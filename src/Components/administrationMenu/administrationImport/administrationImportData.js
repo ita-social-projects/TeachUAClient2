@@ -4,7 +4,7 @@ import { Button, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
 import "./administrationImportData.scss";
-import { UPLOAD_EXCEL } from "../../../Services/Config/ApiConfig";
+// import { UPLOAD_EXCEL } from "../../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../../Services/uploadService";
 
 class AdministrationImportData extends Component {
@@ -17,7 +17,7 @@ class AdministrationImportData extends Component {
         <div className="buttons-upload-send">
           <Upload className="upload-excel"
            name="excel"
-           action={UPLOAD_EXCEL}
+          //  action={UPLOAD_EXCEL}
            maxCount={1}
            data={{ folder: `xls` }}
            headers={{

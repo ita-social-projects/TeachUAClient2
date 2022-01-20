@@ -18,6 +18,34 @@ class AdministrationMenu extends Component {
           className="sub-menu-administration"
         >
           <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/">
+            Банер
+          </NavLink>
+          </Menu.Item>
+
+          <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/">
+            Завдання
+          </NavLink>
+          </Menu.Item>
+
+          <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/">
+            Челенджі
+          </NavLink>
+          </Menu.Item>
+
+          <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/">
+            Про нас
+          </NavLink>
+          </Menu.Item>
+
+          <Menu.Item className="sub-menu-administration" key="1">
+            <NavLink to="/dev/admin/sities">Міста</NavLink>
+          </Menu.Item>
+          
+          <Menu.Item className="sub-menu-administration" key="2">
           <NavLink to="/dev/admin/districts">
             Райони
           </NavLink>
@@ -58,9 +86,12 @@ class AdministrationMenu extends Component {
           <Menu.Item className="sub-menu-administration" key="11">
             <NavLink to="/dev/admin/changeOwner">Зміна власника</NavLink>
           </Menu.Item>
-          <Menu.Item className="sub-menu-administration" key="1">
-            <NavLink to="/dev/admin/sities">Міста</NavLink>
+          <Menu.Item className="sub-menu-administration" key="2">
+          <NavLink to="/">
+            Перерахувати рейтинги
+          </NavLink>
           </Menu.Item>
+          
         </SubMenu>
       </Menu>
     );

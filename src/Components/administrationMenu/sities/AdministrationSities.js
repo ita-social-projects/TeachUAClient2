@@ -67,7 +67,10 @@ const AdministrationSities = () => {
             : Number(newData[index].longitude);
         updateCities(newData[index]).then(() => {
           getData();
-        });
+        }).catch((error) => {
+          console.log(error.response);
+          return error.response.data;
+        });;
 
         setEditingKey("");
       } else {
@@ -81,7 +84,9 @@ const AdministrationSities = () => {
   const CityDelete = (key) => {
     deleteCity(key).then(() => {
       getData();
-    });
+    }).catch((error) => {
+      return error.response.data;
+    });;
   };
 
   const columns = [
