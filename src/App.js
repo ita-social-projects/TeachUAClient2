@@ -66,15 +66,15 @@ class App extends Component {
             <Route path="/profile" component={() => <Profile />} />
             <Route
               path="/dev/admin/categories"
-              component={() => <Administration_categories />}
+              component={() => <AdministrationCategories />}
             />
             <Route
               path="/dev/admin/contacts"
-              component={() => <Administration_contacts />}
+              component={() => <AdministrationContacts />}
             />
             <Route
               path="/dev/admin/users"
-              component={() => <Administration_users />}
+              component={() => <AdministrationUsers />}
             />
             <Route
               path="/dev/admin/import-database"

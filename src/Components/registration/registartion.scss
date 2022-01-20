@@ -25,23 +25,55 @@
             box-shadow: rgba(100, 100, 111, 0.5) 0px 10px 10px 0px;
             margin-bottom: 5%;
         }
-    }
-    .ant-form-item-control-input {
-        display: flex;
-        text-align: center;
-    }
-    .registration__submitBtn {
-        display: flex;
-        justify-content: center;
-
-        button {
-            background-color: #fa8c16;
-            color: white;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
+        .ant-form-item-control-input {
+            display: flex;
+            text-align: center;
         }
+        .registration__submitBtn {
+            display: flex;
+            justify-content: center;
+    
+            button {
+                background-color: #fa8c16;
+                color: white;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 16px;
+                border: none;
+            }
+        }
+    }
+    .ant-input-focused,
+    .ant-input:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+    }
+    .ant-input:hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+    }
+    .ant-input-affix-wrapper:focus {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+        border-color: #fff0f0;
+        border-right-width: 1px !important;
+        z-index: 1;
+    }
+    .ant-input-affix-wrapper-focused {
+        border-color: #fff0f0;
+        border-right-width: 1px !important; 
+        outline: 0;
+        box-shadow: 0 0 0 2px hsl(0deg, 0%, 100% / 20%);
+    }
+    // .ant-form-item-required{
+    //     font-size: 14px!important;
+    // }
     }
 }
 .ant-input-focused,
@@ -75,4 +107,4 @@
 .ant-form-item-required{
     font-size: 14px;
 }
-}
+
