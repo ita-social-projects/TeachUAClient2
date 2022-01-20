@@ -3,6 +3,7 @@ import {Form,Input,Tooltip,Select,Button} from "antd";
 import { PhoneOutlined} from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import cities from '../../data/Cities.json'
+import {getSitiesServise} from '/src/Services/cities'
 import './addClubContactLocation.scss'
 
 
