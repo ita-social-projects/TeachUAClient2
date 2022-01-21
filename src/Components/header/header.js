@@ -16,9 +16,10 @@ import Loaction from "../header_img/down-arrow.svg";
 import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
 import menuIcon from "../header_img/menu.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./header.scss";
+import ShowAdvancedSearchContext from "../context";
 
 
 
@@ -63,6 +64,7 @@ export class header extends Component {
     }
 
   render() {
+    console.log(this.props);
     const menu = (
       <Menu>
         <Menu.Item>
@@ -121,6 +123,7 @@ export class header extends Component {
 
     return (
       <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
+
         <div className="wrapper">
           <Link to="/">
             <img className="logo" src={Logo} />
@@ -191,13 +194,17 @@ export class header extends Component {
               </div>
             </div>
             <div className="litle-toggle">
-              <Link>
-                <img
-                  className="toggle"
-                  src={Toggle}
-                  onClick={this.props.toggleSideSearch}
-                />
-              </Link>
+              <NavLink to={"/clubs"}>
+                <ShowAdvancedSearchContext.Consumer>
+                  {(value) => (
+                    <img
+                      className="toggle"
+                      src={Toggle}
+                      onClick={value.toggleSearchFilter}
+                    />
+                  )}
+                </ShowAdvancedSearchContext.Consumer>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -210,6 +217,7 @@ header.propTypes = {
   toggleSideSearch: PropTypes.func,
   location: PropTypes,
   
+  history: PropTypes.object,
 };
 
 

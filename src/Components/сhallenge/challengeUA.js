@@ -16,7 +16,7 @@ export class challengeUA extends Component {
   render() {
     const name = "challengeUA";
     return (
-      <div>
+      <div className="challengeUA">
           <div className="image">
           <img className='bannerImg' src={Banner}/>
         </div>

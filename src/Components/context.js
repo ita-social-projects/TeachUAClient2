@@ -1,5 +1,8 @@
-import React from 'react'
+import React from "react";
 
- const UserContext = React.createContext ();
+const ShowAdvancedSearchContext = React.createContext({
+  isSearchFilterEnabled: false,
+  toggleSearchFilter: () => {},
+});
 
-export default UserContext;
+export default ShowAdvancedSearchContext;

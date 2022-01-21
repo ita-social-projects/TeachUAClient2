@@ -1,5 +1,7 @@
-
-
 .App {
     background-position: top;
+}
+
+.show-advanced-search-with-clubs{
+    display: flex;
 }

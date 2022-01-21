@@ -1,16 +1,15 @@
 import fetchRequest from "./serviceUtills";
-import axios from "axios";
 import { REACT_APP_API_URL } from "./serviceUtills";
 
 const urlDistrict = `${REACT_APP_API_URL}/districts`;
 const urlCity = `${REACT_APP_API_URL}/city`;
 //const urlAddCity=`${REACT_APP_API_URL}/city`
 const getDistrictsServise = () => {
-  return axios.get(urlDistrict);
+  return fetchRequest.get(urlDistrict);
 };
 
 const getCity = (id) => {
-  return axios.get(`${urlCity}/${id}`);
+  return fetchRequest.get(`${urlCity}/${id}`);
 };
 
 const addCity = (data) => {
