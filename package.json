@@ -22,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix src/**/*.js src/**/*.jsx"
+    "lint": "eslint --fix src/**/*.js src/**/*.jsx",
+    "devWebpack": "webpack serve --mode development",
+    "buildWebpack": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": [
@@ -45,21 +47,31 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-react": "^7.16.5",
     "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.1.0",
+    "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "favicons-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
+    "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
     "react-google-places-autocomplete": "^3.3.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
     "svg-url-loader": "^7.1.1",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.3",
+    "webpack-manifest-plugin": "^4.1.1",
+    "webpack-nano": "^1.1.1",
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }

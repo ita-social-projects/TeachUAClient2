@@ -1,10 +1,12 @@
 import fetchRequest, { REACT_APP_API_URL } from "./serviceUtills";
 
-const url = `${REACT_APP_API_URL}/categories`;
+const getUrl = `${REACT_APP_API_URL}/categories`;
 const putUrl = `${REACT_APP_API_URL}/category/`;
+const postUrl = `${REACT_APP_API_URL}/category`;
+const deleteUrl = `${REACT_APP_API_URL}/category/`;
 
 const getCategoriesService = () => {
-  return fetchRequest.get(url);
+  return fetchRequest.get(getUrl);
 };
 
 const editCategoriesService = (newData) => {
@@ -16,8 +18,40 @@ const editCategoriesService = (newData) => {
     urlLogo: newData.urlLogo,
     backgroundColor: newData.backgroundColor,
     tagBackgroundColor: newData.tagBackgroundColor,
-    tagTextColor: newData.tagTextColor
+    tagTextColor: newData.tagTextColor,
   });
 };
 
-export { getCategoriesService, editCategoriesService };
+const createCategoriesService = (newData) => {
+  return fetchRequest.post(postUrl, {
+    id: newData.id,
+    sortby: newData.sortby,
+    name: newData.name,
+    description: newData.description,
+    urlLogo: newData.urlLogo && newData.urlLogo.file.response,
+    backgroundColor: newData.backgroundColor,
+    tagBackgroundColor: newData.tagBackgroundColor,
+    tagTextColor: newData.tagTextColor,
+  });
+};
+
+const deleteCategoriesService = (data) => {
+  return fetchRequest
+    .delete(deleteUrl + data.id, {
+      id: data.id,
+      sortby: data.sortby,
+      name: data.name,
+      description: data.description,
+      urlLogo: data.urlLogo,
+      backgroundColor: data.backgroundColor,
+      tagBackgroundColor: data.tagBackgroundColor,
+      tagTextColor: data.tagTextColor,
+    })
+};
+
+export {
+  getCategoriesService,
+  editCategoriesService,
+  createCategoriesService,
+  deleteCategoriesService,
+};

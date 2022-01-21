@@ -79,10 +79,10 @@ export class header extends Component {
     
     const log =  (
       <Menu>
-        <Menu.Item>
+        <Menu.Item key="root6">
           <Registration />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="root7">
           <Login />
         </Menu.Item>
         <Menu.Item>
@@ -98,6 +98,7 @@ export class header extends Component {
           <AdministrationMenu />
         </Menu.Item>
       </Menu>
+
     );
 
     const cities = (
@@ -119,7 +120,7 @@ export class header extends Component {
 
 
     return (
-      <div className="Header">
+      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
         <div className="wrapper">
           <Link to="/">
             <img className="logo" src={Logo} />

@@ -1,38 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import 'antd/dist/antd.css';
 import "./clubs.scss";
 import ClubsItem from "../clubs/clubsItem/clubsItem";
-// import UserContext from '../context';
 
-
-class Clubs extends React.Component {
-  
+export class clubs extends Component {
   render() {
-    console.log(this.context);
-    
     return (
-      
-      // <UserContext.Consumer>
-      //   {value =><h1>{value}</h1>}
-      <div className="clubs-wrapper">
-        <div className="clubs">
-          <ClubsItem />
-          
-       </div>
-      </div>
-
-      // </UserContext.Consumer> 
-    );
+      <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
+      <div className="clubs">
+        <ClubsItem />
+     </div>
+    </div>
+    )
   }
 }
 
-const WithContext = (MyComponent) => {
-  return (props) => (
-      <UserContext.Consumer>
-           {value =>  <MyComponent {...props} context={value} />}
-      </UserContext.Consumer>
-  )
-}
+export default clubs
 
-
-export default  WithContext(Clubs);
