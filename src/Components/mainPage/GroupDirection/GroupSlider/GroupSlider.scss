@@ -9,11 +9,15 @@
     margin: 0 auto;
 
     .slick-prev {
-      background-image: url('../../Slider/slider-nav/Arrow_l.svg');
+         /* webpackIgnore: true */
+         background-image: url('/src/Components/mainPage/Slider/slider-nav/Arrow_l.svg');
+         background-repeat: no-repeat;
     }
 
     .slick-next {
-      background-image: url('../../Slider/slider-nav/Arrow_r.svg');
+          /* webpackIgnore: true */
+          background-image: url('/src/Components/mainPage/Slider/slider-nav/Arrow_r.svg');
+          background-repeat: no-repeat;
     }
   }
 
