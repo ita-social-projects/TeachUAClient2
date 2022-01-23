@@ -3,14 +3,23 @@ import { List, Card, Rate } from "antd";
 import "antd/dist/antd.css";
 import "./clubsItem.scss";
 import ClubsData from "../clubs.json";
+import {
+  getSitiesServise,
+} from "../../../Services/clubList";
 
 class ClubsItem extends React.Component {
   render() {
     const data = [];
-    ClubsData.map((post) => {
-      data.push(post);
-    });
-    console.log(data);
+    const getData = () => {
+      getSitiesServise().then((response) => {
+        response.data.content.map((post) => {
+          data.push(post);
+      });
+      console.log(data)
+    })};
+    getData()
+   
+    
     return (
       <List
         className="card"
@@ -19,15 +28,15 @@ class ClubsItem extends React.Component {
         itemLayout="vertical"
         size="large"
         renderItem={(item) => (
-          <Card key={item.id}>
+          <Card key="{item.id}">
             <div className="title">
               <div
                 className="title__img"
-                style={{ backgroundColor: item.bgIconTitle }}
+                // style={{ backgroundColor: item.bgIconTitle }}
               >
-                <img src={item.pathIconTitle} />
+                {/* <img src={item.pathIconTitle} /> */}
               </div>
-              <p>{item.title}</p>
+              <p>{item.name}</p>
             </div>
             <div className="club-tags">
               <div className="tag">
@@ -35,11 +44,11 @@ class ClubsItem extends React.Component {
                 <p>Спортивні секції</p>
               </div>
             </div>
-            <p className="description">{item.text}</p>
+            <p className="description">{item.description}</p>
             <Rate />
             <div className="adress">
               <img src="/src/images/map/cluster.png" />
-              <p>{item.place}</p>
+              <p>{item.locations}</p>
             </div>
 
             <button className="more-info">

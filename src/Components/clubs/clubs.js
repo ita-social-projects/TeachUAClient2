@@ -5,10 +5,12 @@ import ClubsItem from "../clubs/clubsItem/clubsItem";
 import { LeftSearch } from "../left_side_search/left_side_search";
 import  ShowAdvancedSearchContext from "../context";
 
+
 class Clubs extends React.Component {
   render() {
-    return (
 
+    return (
+ 
       <div className="clubs-wrapper">
         <ShowAdvancedSearchContext.Consumer>
           {(value) => (
@@ -29,7 +31,7 @@ class Clubs extends React.Component {
         <div className="clubs">
           <ClubsItem></ClubsItem>
         </div>
-      </div>
+        </div>
       </div>
     );
   }
