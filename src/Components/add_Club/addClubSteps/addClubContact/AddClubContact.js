@@ -85,7 +85,7 @@ class AddClubContact extends React.Component {
                     visible={this.state.showModallocation}
                     onCancel={() => { this.setState({ showModallocation: !this.state.showModallocation }) }}
                     footer={null}>
-                    <AddClubContactLocation />
+                    <AddClubContactLocation handlelocationShowModal={this.handleOklocation} />
                 </Modal>
                 <div className="add-club-inline">
                     <Form.Item name="isOnline"

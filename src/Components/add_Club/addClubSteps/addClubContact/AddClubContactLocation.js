@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Tooltip, Select, Button } from "antd";
+import { Form, Input, Tooltip, Select, Button,message }  from "antd";
 import { PhoneOutlined } from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 //import cities from "../../data/Cities.json";
@@ -7,6 +7,7 @@ import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import { getCitiesName } from "/src/Services/cities";
 import { getDistrictsName } from "/src/Services/district";
 import { getStationName } from "/src/Services/stations";
+import {postLocationServices} from '/src/Services/club'; 
 import "./addClubContactLocation.scss";
 
 const { Option } = Select;
@@ -31,61 +32,78 @@ class AddClubContactLocation extends React.Component {
     locationLatitude:'',
     phone:''
   };
-  /*
-  handleState(handleState,event){
-      this.setState({handleState:event.target.value})
-  }*/
-  
-  handlelocationName= (value) =>{
-    this.setState({locationName:value})
+
+  handlelocationName= (event) =>{
+    this.setState({locationName:event.target.value})
 }
   handlelocationAddress = (event) => {
     this.setState({ locationAddress: event.target.value });
   };
 
-  handlelocationCityId = (event) => {
-    this.setState({ locationCityId: event.target.value });
+  handlelocationDistrict = (id) => {
+    this.setState({locationDistrictId:id})
+    this.state.districts.filter((district)=>{
+      if(district.id==id){
+        this.setState({ locationDistrictName: district.name });
+      }
+    })
+    
+    
   };
 
-  handlelocationDistrictId = (event) => {
-    this.setState({ locationDistrictId: !event.target.value });
-  };
-
-  handlelocationStationId = (event) => {
-    this.setState({ locationStationId: event.target.value });
-  };
-
-  handlelocationCityName = (value) => {
-    this.setState({ locationCityName: value });
-  };
-
-  handlelocationDistrictName = (value) => {
-    this.setState({ locationDistrictName: value });
-  };
-
-  handlelocationStationName= (value) => {
-    this.setState({ locationStationName: value });
+  handlelocationStation= (value) => {
+    this.setState({locationStationId:value});
+    this.state.stations.filter((station)=>{
+      if(station.id=== +value){
+        this.setState({locationStationName:station.name})
+      }
+    })
   };
   handlelocationCoordinates=(event)=>{
     this.setState({ locationCoordinates: event.target.value });
-  };
-  handlelocationLongitude=(event)=>{
-    this.setState({ locationLongitude: event.target.value});
-  };
-
-  handlelocationLatitude=(event)=>{
-    this.setState({ locationLatitude: event.target.value });
-  };
-  handlephone=(event)=>{
-    this.setState({ phone: event.target.value });
+    this.setState({locationLatitude:event.target.value.split(', ')[0]});
+    this.setState({locationLongitude:event.target.value.split(', ')[1]})
   };
 
-
+  handlePhone=(event)=>{
+    this.setState({ phone: 0+event.target.value });
+  };
 
   getCityValue = (value) => {
     this.setState({ locationCityName: value });
+    this.state.cities.filter((element)=>{
+      if(element.name==value){
+        this.setState({locationCityId:element.id})
+      }
+    });
   };
+  postLocation=()=>{
+    postLocationServices(
+      this.state.locationName,
+      this.state.locationAddress,
+      this.state.locationCityId,
+      this.state.locationDistrictId,
+      this.state.locationStationId,
+      this.state.locationCityName,
+      this.state.locationDistrictName,
+      this.state.locationStationName,
+      this.state.locationCoordinates,
+      this.state.locationLongitude,
+      this.state.locationLatitude,
+      this.state.phone
+    ).then((response)=>{
+      message.success({content:'успішно додана локація'})
+      console.log(response.status)
+    }).catch(()=>{
+   
+      message.error("помилка додавання локації");
+  });
+  }
+  onFinish=()=>{
+    this.postLocation();
+    this.props.handlelocationShowModal();
 
+  }
   componentDidMount() {
     getCitiesName().then((response) => {
       this.setState({ cities: response.data });
@@ -101,8 +119,10 @@ class AddClubContactLocation extends React.Component {
     });
   }
   render() {
+    console.log(this.state.locationCityId)
     return (
-      <Form>
+      <Form
+      onFinish={this.onFinish}>
         <h3>Додати Локацію</h3>
         <Form.Item
           name="name"
@@ -149,9 +169,6 @@ class AddClubContactLocation extends React.Component {
             ]}
           >
             <Select
-              onClick={() => {
-                console.log(this.state.locationName);
-              }}
               onSelect={this.getCityValue}
               className="add-club-select"
               placeholder="Виберіть місто"
@@ -178,6 +195,7 @@ class AddClubContactLocation extends React.Component {
             className="add-club-row"
             label="Район міста"
             hasFeedback
+            
             // rules={[{
             //     required: true,
             //     message: "Це поле є обов'язковим"
@@ -187,7 +205,7 @@ class AddClubContactLocation extends React.Component {
               className="add-club-select"
               placeholder="Виберіть район"
               optionFilterProp="children"
-              onSelect={this.handlelocationDistrictName}
+             onSelect={this.handlelocationDistrict}
             >
               {this.state.districts
               .filter((district) => district.cityName === this.state.locationCityName)
@@ -213,7 +231,7 @@ class AddClubContactLocation extends React.Component {
               className="add-club-select"
               placeholder="Виберіть місцевість"
               optionFilterProp="children"
-              onSelect={this.handlelocationStationName}
+              onSelect={this.handlelocationStation}
             >
                 {this.state.stations
                        .filter((station) => station.cityName === this.state.locationCityName)
@@ -291,6 +309,7 @@ class AddClubContactLocation extends React.Component {
           name="phone"
           className="add-club-row"
           label="Номер телефону"
+          onChange={this.handlePhone}
           hasFeedback
           rules={[
             {

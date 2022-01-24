@@ -3,10 +3,9 @@ import { REACT_APP_API_URL } from "./serviceUtills";
 
 const urlLocation = `${REACT_APP_API_URL}/location`;
 
-const postLocation = (
+const postLocationServices = (
   urlLocation,
   {
-    id,
     name,
     address,
     cityId,
@@ -22,7 +21,6 @@ const postLocation = (
   }
 ) => {
   return fetchRequest.post(
-    id,
     name,
     address,
     cityId,
@@ -38,4 +36,4 @@ const postLocation = (
   );
 };
 
-export { postLocation };
+export { postLocationServices };
