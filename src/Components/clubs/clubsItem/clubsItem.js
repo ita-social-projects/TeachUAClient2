@@ -3,6 +3,7 @@ import { List, Card, Rate } from "antd";
 import "antd/dist/antd.css";
 import "./clubsItem.scss";
 import ClubsData from "../clubs.json";
+import { CloseOutlined } from "@ant-design/icons";
 
 class ClubsItem extends React.Component {
   render() {
@@ -11,12 +12,14 @@ class ClubsItem extends React.Component {
       data.push(post);
     });
 
-
+  
     
   
   
     return (
       
+        
+          
       <List
         className="card"
         pagination={{ pageSize: 8 }}
@@ -25,6 +28,7 @@ class ClubsItem extends React.Component {
         size="large"
         renderItem={(item) => (
           <Card key={item.id}>
+            
             <div className="title">
               <div
                 className="title__img"
@@ -51,11 +55,12 @@ class ClubsItem extends React.Component {
               <a href="/">Детальніше</a>
             </button>
           </Card>
-          
-        )}
-
-      />
+         
       
+         )}
+        
+      />
+       
     );
   }
 }

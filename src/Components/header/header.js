@@ -26,6 +26,9 @@ import { getCitiesName } from "../../Services/cities";
 
 
 export class header extends Component {
+
+
+
   logout = () => {
     localStorage.removeItem("accessToken");
     window.location.reload();
@@ -35,16 +38,17 @@ export class header extends Component {
     return localStorage.getItem("accessToken") !== null;
   };
 
+                          
   state = {
     cities: [],
     city: [],
     citySelect: "Київ",
     inputValue: " ",
   };
-
+  
   
   change = (e) => {
-        console.log(e.target.value);
+        
       this.setState({inputValue: e.target.value})
     };
   
@@ -59,12 +63,10 @@ export class header extends Component {
     return this.props.location.pathname !== '/clubs';
       }
 
-    func = () => {
-      console.log(this.state);
-    }
+   
 
   render() {
-    console.log(this.props);
+    
     const menu = (
       <Menu>
         <Menu.Item>
@@ -120,10 +122,12 @@ export class header extends Component {
       caption = `Гуртки у місті ${this.state.citySelect}`;
     }
 
-
+    
     return (
+      
+      
       <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
-
+       
         <div className="wrapper">
           <Link to="/">
             <img className="logo" src={Logo} />
@@ -158,9 +162,7 @@ export class header extends Component {
             <div className="locationIcon">
               <Dropdown
                 overlay={cities}
-                onClick={(e) => {
-                  console.log(e.target.value);
-                }}
+                
               >
                 <img src={Loaction} />
               </Dropdown>
@@ -174,6 +176,7 @@ export class header extends Component {
             </div>
           </div>
         </div>
+        
         <div className="LowerWrappper">
           <div className="leftElement">
             <p className="caption">{caption}</p>
@@ -183,12 +186,16 @@ export class header extends Component {
             <div className="input-field">
               <div className="search-bar">
                 <Link to={{ pathname: "/clubs"}}>
-                  <input
-                    className="searchField"
-                    type="text"
-                    placeholder="Який гурток шукаєте?"
-                    onChange={this.change}
-                  />
+                <ShowAdvancedSearchContext.Consumer>
+                  {(value) => (
+                    <input
+                        className="searchField"
+                        type="text"
+                        placeholder="Який гурток шукаєте?"
+                        onChange={value.change}
+                      />
+                      )}
+                      </ShowAdvancedSearchContext.Consumer>
                 </Link>
                 <img src={Lens} />
               </div>
@@ -208,7 +215,9 @@ export class header extends Component {
             </div>
           </div>
         </div>
+        
       </div>
+     
     );
   }
 }

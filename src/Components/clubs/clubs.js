@@ -5,14 +5,18 @@ import ClubsItem from "../clubs/clubsItem/clubsItem";
 import { LeftSearch } from "../left_side_search/left_side_search";
 import  ShowAdvancedSearchContext from "../context";
 
+
 class Clubs extends React.Component {
   render() {
+    console.log(this.props.inputValue)
     return (
 
       <div className="clubs-wrapper">
+        
         <ShowAdvancedSearchContext.Consumer>
           {(value) => (
             <div>
+              
               {" "}
               {value.isSearchFilterEnabled ? (
                 <div>
@@ -23,17 +27,24 @@ class Clubs extends React.Component {
           )}
         </ShowAdvancedSearchContext.Consumer>
 
-
+                
       <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
-
+        
+      
+      
         <div className="clubs">
-          <ClubsItem></ClubsItem>
+          <ClubsItem ></ClubsItem> 
         </div>
+         
+         
       </div>
       </div>
     );
   }
 }
+
+
+
 
 export default Clubs
 
