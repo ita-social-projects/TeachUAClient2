@@ -13,6 +13,7 @@ const { Option } = Select;
 
 class LeftSearch extends Component {
   state = {
+    value: 1,
     show: true,
     cities: [],
     districts: [],
@@ -20,6 +21,13 @@ class LeftSearch extends Component {
     categories: [],
     clubs: [],
     city: "",
+    cityName: "",
+  };
+
+  onChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
   };
 
   getCityValue = (value) => {
@@ -31,8 +39,12 @@ class LeftSearch extends Component {
   };
 
   componentDidMount() {
+    const rememberMe = localStorage. getItem ( "accessToken" );
+    console.log(rememberMe)
+
     getCitiesName().then((response) => {
-      this.setState({ cities: response.data });
+      this.setState({ cities: response.data, cityName: response.data[1].name });
+      console.log(this.state.cityName);
     });
     getDistrictsName().then((response) => {
       this.setState({ districts: response.data });
@@ -51,36 +63,53 @@ class LeftSearch extends Component {
   }
 
   render() {
-    const { cities, districts, stations, categories, clubs } = this.state;
+    const {
+      cities,
+      districts,
+      stations,
+      categories,
+      clubs,
+      value,
+      cityName,
+    } = this.state;
+    // const getFirstCityName = cities.map((city) =>{
+    //   return city.name;
+    // })
+    // const items = getFirstCityName.slice(0, 1).join();
+
+    console.log(this.state.cityName);
+
     return (
-      <div className="advancedSearch">
-        <div className="advancedSearchMain">
-          <h1 className="advancedSearchHeader">Розширений пошук</h1>
+      <div className="advanced-search">
+        <div className="advanced-search-main">
+          <h1 className="advanced-search-header">Розширений пошук</h1>
           <form>
-            <p className="advancedSearchTitle">Гурток/Центр</p>
-            <Radio.Group onChange={this.onChange}>
+            <p className="advanced-search-title">Гурток/Центр</p>
+            <Radio.Group onChange={this.onChange} value={value}>
               <Radio
                 onClick={() => {
                   this.setState({ show: true });
                 }}
                 value={1}
               >
-                <span className="advancedSearchSpan" checked>
+                <span className="advanced-search-span" checked>
                   Гурток
                 </span>
               </Radio>
               <br />
               <Radio onClick={this.toggleRadioChange} value={2}>
-                <span className="advancedSearchSpan">Центр</span>
+                <span className="advanced-search-span">Центр</span>
               </Radio>
             </Radio.Group>
-            <p className="advancedSearchTitle">Місто</p>
+            <p className="advanced-search-title">Місто</p>
+            <h1> {cityName}</h1>
             <label>
               <Select
                 onSelect={this.getCityValue}
-                className="selectStyle"
+                className="select-style"
                 placeholder="Виберіть місто"
                 allowClear
+                defaultValue={cityName}
               >
                 {cities.map((city) => (
                   <Option key={city.id} value={city.name}>
@@ -89,9 +118,13 @@ class LeftSearch extends Component {
                 ))}
               </Select>
             </label>
-            <p className="advancedSearchTitle">Район міста</p>
+            <p className="advanced-search-title">Район міста</p>
 
-            <Select placeholder="Виберіть район" className="selectStyle" allowClear>
+            <Select
+              placeholder="Виберіть район"
+              className="select-style"
+              allowClear
+            >
               {districts
                 .filter((district) => district.cityName === this.state.city)
                 .map((filteredDistrict) => (
@@ -100,9 +133,13 @@ class LeftSearch extends Component {
                   </Option>
                 ))}
             </Select>
-            <p className="advancedSearchTitle">Найближча станція метро</p>
+            <p className="advanced-search-title">Найближча станція метро</p>
 
-            <Select placeholder="Виберіть станцію" className="selectStyle" allowClear>
+            <Select
+              placeholder="Виберіть станцію"
+              className="select-style"
+              allowClear
+            >
               {stations
                 .filter((station) => station.cityName === this.state.city)
                 .map((filteredStation) => (
@@ -113,28 +150,28 @@ class LeftSearch extends Component {
             </Select>
             {this.state.show ? (
               <div>
-                <p className="advancedSearchTitle">Ремоут</p>
+                <p className="advanced-search-title">Ремоут</p>
                 <Checkbox.Group>
                   <Checkbox key={clubs.id}> Доступний онлайн</Checkbox>
                 </Checkbox.Group>
-                <p className="advancedSearchTitle">Категорії</p>
-                <Col className="colStyle">
+                <p className="advanced-search-title">Категорії</p>
+                <Col className="col-style">
                   {categories.map((category) => (
                     <Checkbox key={category.id}>{category.name}</Checkbox>
                   ))}
                 </Col>
-                <p className="advancedSearchTitle">Вік дитини</p>
+                <p className="advanced-search-title">Вік дитини</p>
                 <Input className="test" />
-                <span className="advancedSearchSpanYears">років</span>
+                <span className="advanced-search-span-years">років</span>
               </div>
             ) : null}
           </form>
-          <div className="choice_btn_div">
-            <button className="button_after_form_clear">
-              <span className="choice_btn_clear">Очистити</span>
+          <div className="choice-btn-div">
+            <button className="button-after-form-clear">
+              <span className="choice-btn-clear">Очистити</span>
             </button>
-            <button className="button_after_form_check">
-              <span className="choice_btn_chech">Застосувати</span>
+            <button className="button-after-form-check">
+              <span className="choice-btn-chech">Застосувати</span>
             </button>
           </div>
         </div>
