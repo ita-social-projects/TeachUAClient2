@@ -20,6 +20,7 @@ import { Link, NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./header.scss";
 import ShowAdvancedSearchContext from "../context";
+import { getCitiesName } from "../../Services/cities";
 
 
 
@@ -35,6 +36,7 @@ export class header extends Component {
   };
 
   state = {
+    cities: [],
     city: [],
     citySelect: "Київ",
     inputValue: " ",
@@ -48,12 +50,10 @@ export class header extends Component {
   
 
   componentDidMount() {
-    fetch("https://speak-ukrainian.org.ua/dev/api/cities")
-      .then((response) => response.json())
-      .then((cityList) => {
-        this.setState({ city: cityList });
-      });
-        
+      getCitiesName().then((response) => {
+      this.setState({ cities: response.data }); 
+    });
+
   }
   showBtn = () => {
     return this.props.location.pathname !== '/clubs';
@@ -109,7 +109,7 @@ export class header extends Component {
           this.setState({ citySelect: e.key });
         }}
       >
-        {this.state.city.map((city) => (
+        {this.state.cities.map((city) => (
           <Menu.Item key={city.name}>{city.name}</Menu.Item>
         ))}
       </Menu>
