@@ -16,8 +16,7 @@ class Clubs extends React.Component {
         <ShowAdvancedSearchContext.Consumer>
           {(value) => (
             <div>
-              
-              {" "}
+
               {value.isSearchFilterEnabled ? (
                 <div>
                   <LeftSearch />{" "}
@@ -27,7 +26,6 @@ class Clubs extends React.Component {
           )}
         </ShowAdvancedSearchContext.Consumer>
 
-                
       <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
         
       

@@ -8,15 +8,7 @@
     }
 
 
-    .name-Center label {
-        font-family: "Open Sans";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 40px;
-        color: #2d4c68;
-        display: flex;
-    }
+    
 
     .ant-form-item {
         display: flex;
@@ -32,6 +24,16 @@
         font-family: "SimSun,sans-serif";
         line-height: 1;
         content: "*";
+    }
+
+    .name-Center label {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 40px;
+        color: #2d4c68;
+        display: flex;
     }
 
     .ant-input-affix-wrapper > input.ant-input {

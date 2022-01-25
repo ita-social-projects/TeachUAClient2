@@ -1,13 +1,9 @@
-
 import React from "react";
 import './addClubContact.scss'
 import { Form, Modal, Switch, Tooltip, Input } from 'antd';
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
-
 import AddClubContactLocation from "./AddClubContactLocation";
-//import PropTypes from 'prop-types';
 import contacts from '../../data/Contact.json'
-//import MaskIcon from "./MaskIcon";
 
 
 class AddClubContact extends React.Component {
@@ -44,7 +40,7 @@ class AddClubContact extends React.Component {
                     required: false,
                     pattern: /^[^A-Za-zА-Яа-яІіЇїЄєҐґ]*$/,
                     message: 'Телефон не може містити літери',
-                    // message: 'Введіть прізвище',
+                   
                 },
                 {
                     required: true,
@@ -85,7 +81,7 @@ class AddClubContact extends React.Component {
                     visible={this.state.showModallocation}
                     onCancel={() => { this.setState({ showModallocation: !this.state.showModallocation }) }}
                     footer={null}>
-                    <AddClubContactLocation />
+                    <AddClubContactLocation handlelocationShowModal={this.handleOklocation} />
                 </Modal>
                 <div className="add-club-inline">
                     <Form.Item name="isOnline"

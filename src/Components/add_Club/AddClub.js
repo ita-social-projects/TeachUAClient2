@@ -14,22 +14,7 @@ const { Step } = Steps;
 
 
 
-/*const steps = [
-    {
-        title: 'Основна інформація',
-        content: 'First-content',
-    },
-    {
-        title: 'Контакти',
-        content: 'Second-content',
 
-    },
-    {
-        title: 'Опис',
-        content: 'Last-content',
-
-    },
-];*/
 
 class AddClub extends React.Component {
     state = {
