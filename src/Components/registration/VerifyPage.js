@@ -12,26 +12,18 @@ class VerifyPage extends React.Component {
   goTo=()=>{
     this.props.history.push('/')
   }
-  cluk = () => {
-    console.log(this.getCode);
-  };
+
   componentDidMount() {
     const verifyCode = this.getCode("code");
-    console.log(verifyCode);
     verifyUser(verifyCode)
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
           message.success({
             content: response.data.message,
             duration: 5,
             className: "custom-class-confirmation",
-          }); /*
-          if (verifyCode !== undefined) {
-            window.location = "http://localhost:3000";
-          }*/
+          });
         } else {
-          console.log(response)
           message.warning(response.data.message);
         }
       })
@@ -43,39 +35,12 @@ class VerifyPage extends React.Component {
         });
       }).then(()=>{
         this.goTo();
-        /*setTimeout(()=>{
-          
-          window.location = "http://localhost:3000";
-        },5000)*/
-        
       });
   }
   render() {
-    /*
-    const verifyCode = this.getCode("code");
-    console.log(verifyCode);
-    verifyUser(verifyCode).then((response) => {
-        console.log(response)
-      if (response.status === 200) {
-        message.success({
-          content: response.data.message,
-          duration: 5,
-          className: "custom-class-confirmation",
-        });
-        if (verifyCode !== undefined) {
-          window.location = "http://localhost:3000";
-        }
-      } /*else {
-        message.warning(response.data.message);
-      }*/
-    /*}).catch((response)=>{
-        console.log(response)
-    message.warning(response.message);
-    });*/
     return (
       <div>
         fdghdg
-        <button onClick={this.cluk}>clik</button>
       </div>
     );
   }

@@ -2,8 +2,6 @@ import React from "react";
 import { Form, Input, Tooltip, Select, Button,message }  from "antd";
 import { PhoneOutlined } from "@ant-design/icons";
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
-//import cities from "../../data/Cities.json";
-//import {getSitiesServise} from '/src/Services/cities'
 import { getCitiesName } from "/src/Services/cities";
 import { getDistrictsName } from "/src/Services/district";
 import { getStationName } from "/src/Services/stations";
@@ -93,7 +91,6 @@ class AddClubContactLocation extends React.Component {
       this.state.phone
     ).then((response)=>{
       message.success({content:'успішно додана локація'})
-      console.log(response.status)
     }).catch(()=>{
    
       message.error("помилка додавання локації");
@@ -119,7 +116,6 @@ class AddClubContactLocation extends React.Component {
     });
   }
   render() {
-    console.log(this.state.locationCityId)
     return (
       <Form
       onFinish={this.onFinish}>
@@ -158,8 +154,6 @@ class AddClubContactLocation extends React.Component {
             name="cityName"
             className="add-club-row"
             label="Місто"
-            // initialValue={editedLocation && editedLocation.cityName}
-         
             hasFeedback
             rules={[
               {
@@ -172,15 +166,6 @@ class AddClubContactLocation extends React.Component {
               onSelect={this.getCityValue}
               className="add-club-select"
               placeholder="Виберіть місто"
-              /*   onChange={(value) => {
-                                        if (cityName) {
-                                            cityOnInput === value ?
-                                                setInputAddressProps({validateStatus: 'success'}) :
-                                                setInputAddressProps({validateStatus: 'error'});
-                                        }
-                                        changeCity();
-                                        setCityName(value);
-                                    }}*/
               optionFilterProp="children"
             >
               {this.state.cities.map((city) => (
@@ -195,11 +180,6 @@ class AddClubContactLocation extends React.Component {
             className="add-club-row"
             label="Район міста"
             hasFeedback
-            
-            // rules={[{
-            //     required: true,
-            //     message: "Це поле є обов'язковим"
-            // }]}
           >
             <Select
               className="add-club-select"
@@ -222,10 +202,6 @@ class AddClubContactLocation extends React.Component {
             className="add-club-row"
             label="Метро/Місцевість"
             hasFeedback
-            // rules={[{
-            //     required: true,
-            //     message: "Це поле є обов'язковим"
-            // }]}
           >
             <Select
               className="add-club-select"
@@ -265,11 +241,6 @@ class AddClubContactLocation extends React.Component {
           ]}
         >
           <Input className="add-club-input" placeholder="Адреса" />
-          {/*<AddClubInputAddress*/}
-          {/*    editedLocation={editedLocation}*/}
-          {/*    form={form}*/}
-          {/*    setCityName={setCityName}*/}
-          {/*    onChange={handleSelect}/>*/}
         </Form.Item>
         <div className="add-club-inline">
           <Form.Item
@@ -296,11 +267,6 @@ class AddClubContactLocation extends React.Component {
               onInput={(e) => {
                 this.setState({ coordinates: e.target.value });
               }}
-              // suffix={
-              //     <Tooltip title="Буде автоматично заповнено при введені адреси">
-              //         <InfoCircleOutlined className="info-icon"/>
-              //     </Tooltip>
-              // }
               placeholder="Широта та довгота"
             />
           </Form.Item>
@@ -320,7 +286,6 @@ class AddClubContactLocation extends React.Component {
               required: false,
               pattern: /^[^A-Za-zА-Яа-яІіЇїЄєҐґ]*$/,
               message: "Телефон не може містити літери",
-              // message: 'Введіть прізвище',
             },
             {
               required: true,
