@@ -1,4 +1,101 @@
-.ant-carousel {
+.challengeUA {
     background: #faeedf;
+}
+.ant-carousel {
+    
     padding: 15px;
 }
+
+.social-info {
+    
+    padding-top: 20px;
+    .links {
+        margin: 10px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .text {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        color: #2d4c68;
+        vertical-align: center;
+    }
+    .title {
+        width: 620px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: #2d4c68;
+    }
+    display: flex;
+    justify-content: space-around;
+}
+
+.marathon-description {
+    
+    .title {
+        width: 620px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: #2d4c68;
+    align-self: center;
+    }
+    .text {
+        width: 620px;
+        font-size: 18px;
+        line-height: 28px;
+        color: #2d4c68;
+        opacity: .9;
+        align-self: center;
+    }
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+   
+}
+.challenge-description {
+    
+    .title {
+        width: 620px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: #2d4c68;
+    align-self: center;
+    }
+    .text {
+        width: 620px;
+        font-size: 18px;
+        line-height: 28px;
+        color: #2d4c68;
+        opacity: .9;
+        align-self: center;
+    }
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.image {
+    
+    .bannerImg {
+        display: flex;
+        max-width: 80%;
+        margin: 0 auto;
+        padding-top: 55px;
+        display:flex;
+        align-self: center;    
+        border-radius: 8px;
+        max-height: 500px;
+      }
+    
+    }
+ 
