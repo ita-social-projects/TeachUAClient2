@@ -43,8 +43,8 @@ class LeftSearch extends Component {
     console.log(rememberMe);
 
     getCitiesName().then((response) => {
-      this.setState({ cities: response.data, cityName: response.data[1].name });
-      console.log(this.state.cityName);
+      this.setState({ cities: response.data, city: response.data[1].name });
+      console.log(this.state.city);
     });
     getDistrictsName().then((response) => {
       this.setState({ districts: response.data });
@@ -65,10 +65,6 @@ class LeftSearch extends Component {
   render() {
     const { cities, districts, stations, categories, clubs, value, cityName } =
       this.state;
-    // const getFirstCityName = cities.map((city) =>{
-    //   return city.name;
-    // })
-    // const items = getFirstCityName.slice(0, 1).join();
 
     console.log(this.state.cityName);
 
@@ -102,7 +98,7 @@ class LeftSearch extends Component {
                 className="select-style"
                 placeholder="Виберіть місто"
                 allowClear
-                defaultValue={cityName}
+                value={this.state.city}
               >
                 {cities.map((city) => (
                   <Option key={city.id} value={city.name}>
