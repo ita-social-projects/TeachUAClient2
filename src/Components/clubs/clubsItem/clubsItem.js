@@ -28,23 +28,27 @@ class ClubsItem extends React.Component {
     this.getData()
   }
     onChange = page => {
-      this.setState({currentPage:page})  
-      this.getData()
+      this.setState({currentPage:page}, () => this.getData())  
     }
-
-  
 
   render() {
     const getShortContent = (content) => {
       const contentObject = JSON.parse(content);
-      return contentObject.blocks[3].text
+      console.log(contentObject.blocks)
+      let text = "";
+      contentObject.blocks.forEach(element => {
+        if(element.text.trim() !== ""){
+          text = element.text;
+        }
+      });
+      return text;
     }
     return (
       <List
         className="card"
         pagination={{ 
           pageSize: 8,
-          total:75,
+          total:73,
           onChange: this.onChange
          }}
         
