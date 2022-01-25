@@ -10,7 +10,7 @@ class Clubs extends React.Component {
   render() {
     
     return (
-
+ 
       <div className="clubs-wrapper">
         
         <ShowAdvancedSearchContext.Consumer>
@@ -35,9 +35,9 @@ class Clubs extends React.Component {
         <div className="clubs">
           <ClubsItem ></ClubsItem> 
         </div>
-         
-         
+                
       </div>
+
       </div>
     );
   }

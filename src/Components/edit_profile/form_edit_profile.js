@@ -10,18 +10,37 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
+import { getCitiesName } from "../../Services/cities";
 
 
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
+    cities: [],
+    nameUser: 'Олексій'
   };
+
+  getCityValue = (value) => {
+    this.setState({ city: value });
+  };
+
+  componentDidMount(){
+    getCitiesName().then((response) => {
+      this.setState({ cities: response.data});
+    });
+  }
 
   handleChangePassword = () => {
     this.setState({ changePassword: !this.state.changePassword });
   };
 
   render() {
+    const {cities} = this.state;
+
+    const showCityNane = cities.map((city) => {
+      return city.name;
+    })
+    console.log(showCityNane[1]);
     return (
       <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
         <div className="edit-header">
@@ -74,7 +93,8 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder="Введіть ваше прізвище" />
+          
+          <Input className="edit-box" defaultValue={this.state.nameUser} />
         </Form.Item>
 
         <Form.Item
@@ -170,7 +190,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" disabled placeholder="admin@gmail.com" />
+          <Input className="edit-box" disabled />
         </Form.Item>
 
         <Form.Item name="photo" className="edit-input">
