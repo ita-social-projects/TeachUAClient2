@@ -10,24 +10,43 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
-import { getCitiesName } from "../../Services/cities";
-
+import { getUsersService } from "../../Services/user";
+import { container } from "webpack";
 
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
-    cities: [],
-    nameUser: 'Олексій'
+    users: [],
+    userId: "",
+    logfirstName: "",
+    loglastName: "",
+    logUserPhone: "",
+    logUserEmail: "",
   };
 
   getCityValue = (value) => {
     this.setState({ city: value });
   };
 
-  componentDidMount(){
-    getCitiesName().then((response) => {
-      this.setState({ cities: response.data});
+  componentDidMount() {
+    getUsersService().then((response) => {
+      this.setState({ users: response.data , logfirstName: response.data[0].firstName});
+      console.log(this.state.logfirstName)
+
+      const usersValue = this.state.users.filter((user) => {
+        if (user.id === +this.state.userId) {
+          this.setState({
+            logfirstName: user.firstName,
+            loglastName: user.lastName,
+            logUserPhone: user.phone,
+            logUserEmail: user.email,
+          });
+        }
+      });
     });
+
+    const showId = localStorage.getItem("id");
+    this.setState({ userId: showId });
   }
 
   handleChangePassword = () => {
@@ -35,16 +54,21 @@ class FormEditProfile extends Component {
   };
 
   render() {
-    const {cities} = this.state;
+    const {
+      logfirstName,
+      loglastName,
+      logUserPhone,
+      logUserEmail,
+    } = this.state;
 
-    const showCityNane = cities.map((city) => {
-      return city.name;
-    })
-    console.log(showCityNane[1]);
     return (
       <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
+          <h1>{logfirstName}</h1>
+          <h2>{loglastName}</h2>
+          <h3>{logUserPhone}</h3>
+          <h4>{logUserEmail}</h4>
         </div>
 
         <div className="edit-choose-role">
@@ -93,8 +117,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          
-          <Input className="edit-box" defaultValue={this.state.nameUser} />
+          <Input className="edit-box" placeholder={loglastName} />
         </Form.Item>
 
         <Form.Item
@@ -133,7 +156,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder="Введіть ваше ім'я" />
+          <Input className="edit-box" placeholder={logfirstName} />
         </Form.Item>
 
         <Form.Item
@@ -170,7 +193,7 @@ class FormEditProfile extends Component {
           <Input
             addonBefore="+38"
             className="edit-box"
-            placeholder="__________"
+            placeholder={logUserPhone}
           />
         </Form.Item>
 
@@ -190,7 +213,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" disabled />
+          <Input className="edit-box" placeholder={logUserEmail} disabled />
         </Form.Item>
 
         <Form.Item name="photo" className="edit-input">
@@ -214,7 +237,8 @@ class FormEditProfile extends Component {
             headers={{
               contentType: "multipart/form-data",
               Authorization: tokenToHeader(),
-            }}>
+            }}
+          >
             <Button className="upload-photo" icon={<UploadOutlined />}>
               Завантажити фото{" "}
             </Button>
