@@ -8,7 +8,7 @@ import  ShowAdvancedSearchContext from "../context";
 
 class Clubs extends React.Component {
   render() {
-    console.log(this.props.inputValue)
+    
     return (
 
       <div className="clubs-wrapper">
