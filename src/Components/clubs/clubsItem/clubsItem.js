@@ -3,31 +3,67 @@ import { List, Card, Rate } from "antd";
 import "antd/dist/antd.css";
 import "./clubsItem.scss";
 import ClubsData from "../clubs.json";
+import {
+  getSitiesServise,
+} from "../../../Services/clubList";
 
 class ClubsItem extends React.Component {
+  state={ 
+    data:[],
+    currentPage:1
+  } 
+  getData(){
+    getSitiesServise(this.state.currentPage - 1).then((response) => { 
+      response.data.content.map(element => {
+        element.categories[0].urlLogo = element.categories[0].urlLogo.replace("/static","/src")}
+      );
+      this.setState({data:response.data.content})  
+      console.log(this.state.data)
+      console.log(this.state.currentPage)
+  }).catch(function(e) {
+    console.log(e);
+  })
+  }
+  componentDidMount(){ 
+    this.getData()
+  }
+    onChange = page => {
+      this.setState({currentPage:page}, () => this.getData())  
+    }
+
   render() {
-    const data = [];
-    ClubsData.map((post) => {
-      data.push(post);
-    });
-    console.log(data);
+    const getShortContent = (content) => {
+      const contentObject = JSON.parse(content);
+      console.log(contentObject.blocks)
+      let text = "";
+      contentObject.blocks.forEach(element => {
+        if(element.text.trim() !== ""){
+          text = element.text;
+        }
+      });
+      return text;
+    }
     return (
       <List
         className="card"
-        pagination={{ pageSize: 8 }}
-        dataSource={data}
+        pagination={{ 
+          pageSize: 8,
+          total:73,
+          onChange: this.onChange
+         }}
+        
+        dataSource={this.state.data}
         itemLayout="vertical"
         size="large"
+        
         renderItem={(item) => (
-          <Card key={item.id}>
+          <Card key={item.number}>
             <div className="title">
-              <div
-                className="title__img"
-                style={{ backgroundColor: item.bgIconTitle }}
-              >
-                <img src={item.pathIconTitle} />
+              <div className="title__img"
+                 style={{ backgroundColor: item.categories[0].backgroundColor }} >
+                 <img src={item.categories[0].urlLogo} /> 
               </div>
-              <p>{item.title}</p>
+              <p>{item.name}</p>
             </div>
             <div className="club-tags">
               <div className="tag">
@@ -35,11 +71,11 @@ class ClubsItem extends React.Component {
                 <p>Спортивні секції</p>
               </div>
             </div>
-            <p className="description">{item.text}</p>
+            <p className="description">{getShortContent(item.description)}</p>
             <Rate />
             <div className="adress">
               <img src="/src/images/map/cluster.png" />
-              <p>{item.place}</p>
+               <p>{item.locations[0].cityName}, {item.locations[0].address}</p> 
             </div>
 
             <button className="more-info">
