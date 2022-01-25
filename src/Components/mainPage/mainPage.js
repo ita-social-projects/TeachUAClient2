@@ -14,7 +14,7 @@ const {Content} = Layout;
 class mainPage extends React.Component {
   render() {
     return (
-      <div className="mainPage" style={{ backgroundImage: "url(/src/images/Background.png)" }}>
+      <div className="mainPage" >
         <Content>
         <Slider />
         </Content>
