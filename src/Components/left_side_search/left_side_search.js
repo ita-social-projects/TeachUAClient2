@@ -39,8 +39,8 @@ class LeftSearch extends Component {
   };
 
   componentDidMount() {
-    const rememberMe = localStorage. getItem ( "accessToken" );
-    console.log(rememberMe)
+    const rememberMe = localStorage.getItem("accessToken");
+    console.log(rememberMe);
 
     getCitiesName().then((response) => {
       this.setState({ cities: response.data, cityName: response.data[1].name });
@@ -63,15 +63,8 @@ class LeftSearch extends Component {
   }
 
   render() {
-    const {
-      cities,
-      districts,
-      stations,
-      categories,
-      clubs,
-      value,
-      cityName,
-    } = this.state;
+    const { cities, districts, stations, categories, clubs, value, cityName } =
+      this.state;
     // const getFirstCityName = cities.map((city) =>{
     //   return city.name;
     // })
@@ -161,7 +154,15 @@ class LeftSearch extends Component {
                   ))}
                 </Col>
                 <p className="advanced-search-title">Вік дитини</p>
-                <Input className="test" />
+                  <input
+                  className="years-child"
+                  maxLength="3"
+                  onKeyPress={(event) => {
+                    if (!/[0-9]/.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
                 <span className="advanced-search-span-years">років</span>
               </div>
             ) : null}
