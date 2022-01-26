@@ -14,7 +14,6 @@ import { tokenToHeader } from "../../Services/uploadService";
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
-    users: [],
   };
 
   getCityValue = (value) => {

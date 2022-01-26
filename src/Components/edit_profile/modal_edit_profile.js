@@ -13,7 +13,7 @@ class ModalEditProfile extends Component {
     user: "",
   };
 
-componentWillMount() {
+componentDidMount() {
     const showId = localStorage.getItem("id");
     getUsersService().then((response) => {
       const usersValue = response.data.filter((user) => {
