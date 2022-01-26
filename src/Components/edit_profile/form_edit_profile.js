@@ -14,6 +14,9 @@ import { tokenToHeader } from "../../Services/uploadService";
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
+    showEditInput:'',
+    print: false
+    
   };
 
   getCityValue = (value) => {
@@ -23,6 +26,12 @@ class FormEditProfile extends Component {
   handleChangePassword = () => {
     this.setState({ changePassword: !this.state.changePassword });
   };
+
+  handleClick = (event) => {
+    this.setState({showEditInput: event.target.value})
+    this.setState({print: false})
+    console.log(event.target.value)
+  }
 
   render() {
 
@@ -38,6 +47,7 @@ class FormEditProfile extends Component {
         }}
       >
         <div className="edit-header">
+         {this.state.print ? <h1>{this.state.showEditInput}</h1> : null}
           <h3>Редагувати профіль </h3>
         </div>
 
@@ -87,7 +97,8 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" />
+          <Input className="edit-box" onChange={this.handleClick}/>
+
         </Form.Item>
 
         <Form.Item
@@ -126,7 +137,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" />
+          <Input className="edit-box" onChange={this.handleClick} />
         </Form.Item>
 
         <Form.Item
@@ -160,7 +171,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input addonBefore="+38" className="edit-box" />
+          <Input addonBefore="+38" className="edit-box" onChange={this.handleClick}/>
         </Form.Item>
 
         <Form.Item
@@ -287,7 +298,7 @@ class FormEditProfile extends Component {
         )}
 
         <Form.Item className="edit-submit-btn">
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={() => this.setState({print: true})}>
             Зберегти зміни
           </Button>
         </Form.Item>
