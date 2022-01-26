@@ -10,65 +10,36 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
-import { getUsersService } from "../../Services/user";
-import { container } from "webpack";
 
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
     users: [],
-    userId: "",
-    logfirstName: "",
-    loglastName: "",
-    logUserPhone: "",
-    logUserEmail: "",
   };
 
   getCityValue = (value) => {
     this.setState({ city: value });
   };
 
-  componentDidMount() {
-    getUsersService().then((response) => {
-      this.setState({ users: response.data , logfirstName: response.data[0].firstName});
-      console.log(this.state.logfirstName)
-
-      const usersValue = this.state.users.filter((user) => {
-        if (user.id === +this.state.userId) {
-          this.setState({
-            logfirstName: user.firstName,
-            loglastName: user.lastName,
-            logUserPhone: user.phone,
-            logUserEmail: user.email,
-          });
-        }
-      });
-    });
-
-    const showId = localStorage.getItem("id");
-    this.setState({ userId: showId });
-  }
-
   handleChangePassword = () => {
     this.setState({ changePassword: !this.state.changePassword });
   };
 
   render() {
-    const {
-      logfirstName,
-      loglastName,
-      logUserPhone,
-      logUserEmail,
-    } = this.state;
 
     return (
-      <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
+      <Form
+        className="edit-profile-form"
+        style={{ maxWidth: "773px" }}
+        initialValues={{
+          lastName: this.props.user.lastName,
+          firstName: this.props.user.firstName,
+          phone: this.props.user.phone,
+          email: this.props.user.email,
+        }}
+      >
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
-          <h1>{logfirstName}</h1>
-          <h2>{loglastName}</h2>
-          <h3>{logUserPhone}</h3>
-          <h4>{logUserEmail}</h4>
         </div>
 
         <div className="edit-choose-role">
@@ -117,7 +88,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder={loglastName} />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -156,7 +127,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder={logfirstName} />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -190,11 +161,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input
-            addonBefore="+38"
-            className="edit-box"
-            placeholder={logUserPhone}
-          />
+          <Input addonBefore="+38" className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -213,7 +180,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder={logUserEmail} disabled />
+          <Input className="edit-box" disabled />
         </Form.Item>
 
         <Form.Item name="photo" className="edit-input">
