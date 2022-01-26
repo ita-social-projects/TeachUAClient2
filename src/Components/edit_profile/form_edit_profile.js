@@ -10,39 +10,33 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
-import { getCitiesName } from "../../Services/cities";
-
 
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
-    cities: [],
-    nameUser: 'Олексій'
   };
 
   getCityValue = (value) => {
     this.setState({ city: value });
   };
 
-  componentDidMount(){
-    getCitiesName().then((response) => {
-      this.setState({ cities: response.data});
-    });
-  }
-
   handleChangePassword = () => {
     this.setState({ changePassword: !this.state.changePassword });
   };
 
   render() {
-    const {cities} = this.state;
 
-    const showCityNane = cities.map((city) => {
-      return city.name;
-    })
-    console.log(showCityNane[1]);
     return (
-      <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
+      <Form
+        className="edit-profile-form"
+        style={{ maxWidth: "773px" }}
+        initialValues={{
+          lastName: this.props.user.lastName,
+          firstName: this.props.user.firstName,
+          phone: this.props.user.phone,
+          email: this.props.user.email,
+        }}
+      >
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
         </div>
@@ -93,8 +87,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          
-          <Input className="edit-box" defaultValue={this.state.nameUser} />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -133,7 +126,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder="Введіть ваше ім'я" />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -167,11 +160,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input
-            addonBefore="+38"
-            className="edit-box"
-            placeholder="__________"
-          />
+          <Input addonBefore="+38" className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -214,7 +203,8 @@ class FormEditProfile extends Component {
             headers={{
               contentType: "multipart/form-data",
               Authorization: tokenToHeader(),
-            }}>
+            }}
+          >
             <Button className="upload-photo" icon={<UploadOutlined />}>
               Завантажити фото{" "}
             </Button>

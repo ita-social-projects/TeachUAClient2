@@ -5,14 +5,34 @@ import FormEditProfile from "./form_edit_profile";
 import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import { getUsersService } from "../../Services/user";
 
 class ModalEditProfile extends Component {
   state = {
     showEditProfileModal: false,
+    user: "",
   };
+
+componentDidMount() {
+    const showId = localStorage.getItem("id");
+    getUsersService().then((response) => {
+      const usersValue = response.data.filter((user) => {
+        if (user.id === +showId) {
+          return user
+      }
+      });
+      this.setState({
+        user: usersValue[0]
+      });
+    });
+
+    
+  }
+
   handleShowEditProfileModal = () => {
     this.setState({ showEditProfileModal: !this.state.showEditProfileModal });
   };
+
   render() {
     return (
       <div className="profile-information-block__content-right">
@@ -29,7 +49,7 @@ class ModalEditProfile extends Component {
           onCancel={this.handleShowEditProfileModal}
           footer={null}
         >
-          <FormEditProfile />
+          <FormEditProfile user={this.state.user}/>
         </Modal>
       </div>
     );
