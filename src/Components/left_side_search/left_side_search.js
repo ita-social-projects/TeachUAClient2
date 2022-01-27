@@ -57,7 +57,9 @@ class LeftSearch extends Component {
       this.setState({ clubs: response.data });
     });
   }
-
+  componentDidUpdate(){
+    this.props.setSearchParams(this.state)
+  }
   render() {
     const { cities, districts, stations, categories, clubs, value, cityName } =
       this.state;

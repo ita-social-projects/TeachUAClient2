@@ -9,9 +9,25 @@ import { Menu, Dropdown } from "antd";
 import ModalEditProfile from "../edit_profile/modal_edit_profile";
 import AddCenter from "../addCenter/addCenter";
 import AddClub from "../add_Club/AddClub";
-
+import { getUsersService } from "../../Services/user";
 class Profile extends React.Component {
+  state = {
+    user:[]
+  }
+  componentDidMount() {
+    const showId = localStorage.getItem("id");
+    getUsersService().then((response) => {
+      const usersValue = response.data.filter((user) => user.id === +showId);
+      this.setState({
+        user: usersValue[0]
+      });
+    });
+
+    
+  }
+
   render() {
+    console.log(this.state.user)
     const menu = (
       <Menu>
         <Menu.Item>
@@ -49,19 +65,19 @@ class Profile extends React.Component {
                     <div className="name-wrapper">
                       <img src={logo} />
                       <div className="name">
-                        <h2>Арсен Шаріфов</h2>
-                        <h3>ROLE_MANAGER</h3>
+                        <h2>{this.state.user.firstName} {this.state.user.lastName}</h2>
+                        <h3>{this.state.user.roleName}</h3>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="number-wrapper">
                   <h4>Телефон</h4>
-                  <p>+38 (096) 227 45 68</p>
+                  <p>{this.state.user.phone}</p>
                 </div>
                 <div className="email-wrapper">
                   <h4>Email</h4>
-                  <p>selind.black@gmail.com</p>
+                  <p>{this.state.user.email}</p>
                 </div>
               </div>
               <div className="profile-information-block__content-right">
