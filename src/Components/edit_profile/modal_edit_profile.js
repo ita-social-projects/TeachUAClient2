@@ -30,6 +30,7 @@ componentDidMount() {
   };
 
   render() {
+    console.log(this.state)
     return (
       <div className="profile-information-block__content-right">
         <Button

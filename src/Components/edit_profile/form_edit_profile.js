@@ -10,13 +10,11 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
+import { editUsersService } from "../../Services/user";
 
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
-    showEditInput:'',
-    print: false
-    
   };
 
   getCityValue = (value) => {
@@ -27,16 +25,20 @@ class FormEditProfile extends Component {
     this.setState({ changePassword: !this.state.changePassword });
   };
 
-  handleClick = (event) => {
-    this.setState({showEditInput: event.target.value})
-    this.setState({print: false})
-    console.log(event.target.value)
-  }
 
   render() {
 
     return (
       <Form
+        onFinish={(values) => {
+          editUsersService({...values,
+          id: this.props.user.id,
+          urlLogo: this.props.user.urlLogo,
+          status: this.props.user.status,
+          roleName: this.props.user.roleName
+          })
+        }}
+  
         className="edit-profile-form"
         style={{ maxWidth: "773px" }}
         initialValues={{
@@ -47,8 +49,7 @@ class FormEditProfile extends Component {
         }}
       >
         <div className="edit-header">
-         {this.state.print ? <h1>{this.state.showEditInput}</h1> : null}
-          <h3>Редагувати профіль </h3>
+        <h3>Редагувати профіль </h3>
         </div>
 
         <div className="edit-choose-role">
@@ -97,7 +98,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" onChange={this.handleClick}/>
+          <Input className="edit-box"/>
 
         </Form.Item>
 
@@ -137,7 +138,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" onChange={this.handleClick} />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -171,7 +172,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input addonBefore="+38" className="edit-box" onChange={this.handleClick}/>
+          <Input addonBefore="+38" className="edit-box"/>
         </Form.Item>
 
         <Form.Item
@@ -216,7 +217,7 @@ class FormEditProfile extends Component {
               Authorization: tokenToHeader(),
             }}
           >
-            <Button className="upload-photo" icon={<UploadOutlined />}>
+            <Button className="upload-photo" icon={<UploadOutlined />} htmlType="submit">
               Завантажити фото{" "}
             </Button>
           </Upload>
@@ -298,7 +299,7 @@ class FormEditProfile extends Component {
         )}
 
         <Form.Item className="edit-submit-btn">
-          <Button type="primary" htmlType="submit" onClick={() => this.setState({print: true})}>
+          <Button type="primary" htmlType="submit">
             Зберегти зміни
           </Button>
         </Form.Item>

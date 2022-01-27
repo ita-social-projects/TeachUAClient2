@@ -7,12 +7,12 @@ import  ShowAdvancedSearchContext from "../context";
 
 
 class Clubs extends React.Component {
-  state = {
-    searchParams: {}
-  }
-  setSerchParams = (searchParams) => {
-    this.setState(searchParams)
-  }
+  // state = {
+  //   searchParams: {}
+  // }
+  // setSerchParams = (searchParams) => {
+  //   this.setState(searchParams)
+  // }
   render() {
 
     return (
@@ -25,7 +25,7 @@ class Clubs extends React.Component {
 
               {value.isSearchFilterEnabled ? (
                 <div>
-                  <LeftSearch setSearchParams={this.setSearchParams}/>
+                  <LeftSearch/>
                 </div>
               ) : null}{" "}
             </div>
@@ -37,7 +37,7 @@ class Clubs extends React.Component {
       
       
         <div className="clubs">
-          <ClubsItem searchParams={this.state.searchParams}></ClubsItem> 
+          <ClubsItem ></ClubsItem> 
         </div>
                 
       </div>

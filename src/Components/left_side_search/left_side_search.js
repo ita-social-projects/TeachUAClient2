@@ -39,7 +39,7 @@ class LeftSearch extends Component {
   };
 
   componentDidMount() {
-     getCitiesName().then((response) => {
+    getCitiesName().then((response) => {
       this.setState({ cities: response.data, city: response.data[0].name });
     });
     getDistrictsName().then((response) => {
@@ -57,9 +57,9 @@ class LeftSearch extends Component {
       this.setState({ clubs: response.data });
     });
   }
-  componentDidUpdate(){
-    this.props.setSearchParams(this.state)
-  }
+  // componentDidUpdate(){
+  //   this.props.setSearchParams(this.state)
+  // }
   render() {
     const { cities, districts, stations, categories, clubs, value, cityName } =
       this.state;
@@ -148,7 +148,7 @@ class LeftSearch extends Component {
                   ))}
                 </Col>
                 <p className="advanced-search-title">Вік дитини</p>
-                  <input
+                <input
                   className="years-child"
                   maxLength="3"
                   onKeyPress={(event) => {
