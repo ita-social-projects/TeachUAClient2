@@ -13,7 +13,6 @@ import {
 class ClubsItem extends React.Component {
   state = {
     data: [],
-    // dataTags:[],
     currentPage: 1,
     totalElements: 0,
   };
@@ -28,15 +27,12 @@ class ClubsItem extends React.Component {
               i
             ].urlLogo.replace("/static", "/src");
           }
-          // this.setState({ dataTags: [...this.state.dataTags, element.categories] })
         });
 
         this.setState({
           data: response.data.content,
           totalElements: response.data.totalElements,
         });
-        // console.log(this.state.dataTags)
-        console.log(this.state.data);
       })
       .catch(function (e) {
         console.log(e);
@@ -88,7 +84,9 @@ class ClubsItem extends React.Component {
               <div className="tags-wrapper__tags">
                 <List
                   className="tag"
-                  dataSource={item.categories}
+                  dataSource={
+                   item.categories.length < 2 ? [item.categories[0]] : [item.categories[0],item.categories[1]]
+                  }
                   itemLayout="vertical"
                   size="large"
                   renderItem={(category) => (
@@ -107,7 +105,7 @@ class ClubsItem extends React.Component {
                 />
               </div>
               <div className="tags-wrapper__count">
-                    {item.categories.length > 2}  ? <p>І ще {item.categories.length}...</p> : <p></p>
+                    {item.categories.length > 2  ? <p>І ще {item.categories.length-2}...</p> : <p></p>}
               </div>
             </div>
             <p className="description">{getShortContent(item.description)}</p>
