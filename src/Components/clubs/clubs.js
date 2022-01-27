@@ -24,7 +24,10 @@ class Clubs extends React.Component {
                 
 
       <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
-
+      <div className="tags-wrapper__count">
+                  
+                    fdasfhpisdhgipsdf
+              </div>
         <div className="clubs">
           <ClubsItem></ClubsItem>
         </div>

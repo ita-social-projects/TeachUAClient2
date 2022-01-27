@@ -45,6 +45,7 @@ class App extends Component {
           toggleSearchFilter: this.toggleSearchFilter,
         }}
       >
+        
         <Router history={history}>
           <Header toggleSideSearch={this.toggleSideSearch} />
           <Switch>

@@ -1,6 +1,6 @@
 import React from "react";
 import './addClubContact.scss'
-import { Form, Modal, Switch, Tooltip, Input } from 'antd';
+import { Form, Modal, Switch, Tooltip, Input, Button } from 'antd';
 import InfoCircleOutlined from "@ant-design/icons/lib/icons/InfoCircleOutlined";
 import AddClubContactLocation from "./AddClubContactLocation";
 import contacts from '../../data/Contact.json'
@@ -8,11 +8,17 @@ import contacts from '../../data/Contact.json'
 
 class AddClubContact extends React.Component {
     state = {
-        showModallocation: false
+        showModallocation: false,
+        isOnline:false
+   
     }
     handleOklocation = () => {
         this.setState({ showModallocation: !this.state.showModallocation });
     };
+    checked = () =>{
+        this.setState({ isOnline: !this.state.isOnline});
+    }
+
     checkPrefixphone(name){
         switch(name){
             case "Телефон":
@@ -87,13 +93,18 @@ class AddClubContact extends React.Component {
                     <Form.Item name="isOnline"
                         className="add-club-row"
                         label="Доступний онлайн?"
+                       onClick={this.checked}
                     >
                         <Switch
                             checkedChildren="Так"
                             unCheckedChildren="Ні"
-                        //onChange={onChange} checked={checked}
+                         
                         />
                     </Form.Item>
+                    <Button 
+                    onClick={()=>{console.log(this.state)}}>
+                        state
+                    </Button>
                     <Tooltip title="Якщо не додано жодної локації буде автоматично онлайн">
                         <InfoCircleOutlined className="info-icon" />
                     </Tooltip>
