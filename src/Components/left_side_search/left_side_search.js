@@ -39,12 +39,8 @@ class LeftSearch extends Component {
   };
 
   componentDidMount() {
-    const rememberMe = localStorage.getItem("accessToken");
-    console.log(rememberMe);
-
-    getCitiesName().then((response) => {
-      this.setState({ cities: response.data, city: response.data[1].name });
-      console.log(this.state.city);
+     getCitiesName().then((response) => {
+      this.setState({ cities: response.data, city: response.data[0].name });
     });
     getDistrictsName().then((response) => {
       this.setState({ districts: response.data });
