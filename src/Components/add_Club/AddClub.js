@@ -37,7 +37,8 @@ class AddClub extends React.Component {
         this.setState({ showModal: !this.state.showModal });
     };
     onFinish = (values) => {
-        console.log(values);
+        this.handleOk();
+        
     };
     media=()=>{
         if (this.viewport.width < 575) {
@@ -132,7 +133,7 @@ class AddClub extends React.Component {
                                         <Button
                                             className='add_club_btn_finish'
                                             type="primary"
-                                            onClick={() => message.success('Processing complete!')}>
+                                            onClick={() => message.success('Processing complete!'), this.onFinish}>
                                             Завершити
                                         </Button>
                                     </div>

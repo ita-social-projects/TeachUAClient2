@@ -286,7 +286,7 @@ class NewRegistration extends React.Component {
                             <Input.Password />
                         </Form.Item>
                         <Form.Item className='registration__submitBtn'>
-                            <Button type="primary" htmlType="submit">
+                            <Button type="primary" htmlType="submit" id='registrButtonSubmit'>
                                 Зареєструватися
                             </Button>
                         </Form.Item>

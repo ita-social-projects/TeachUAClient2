@@ -65,26 +65,12 @@ class App extends Component {
             <Route path="/about" component={() => <div>About Route</div>} />
             <Route path="/service" component={() => <div>Service Route</div>} />
             <Route path="/profile" component={() => <Profile />} />
-            <Route
-              path="/dev/admin/categories"
-              component={() => <AdministrationCategories />}
-            />
-            <Route
-              path="/dev/admin/contacts"
-              component={() => <AdministrationContacts />}
-            />
-            <Route
-              path="/dev/admin/users"
-              component={() => <AdministrationUsers />}
-            />
-            <Route
-              path="/dev/admin/import-database"
-              component={() => <AdministrationImportData />}
-            />
-            <Route
-              path="/dev/admin/export-database"
-              component={() => <AdministrationExportData />}
-            />
+            <Route path="/dev/verify"  component={()=>(<VerifyPage/>)}/>
+            <Route path="/dev/admin/categories" component={() => <Administration_categories />} />
+            <Route path="/dev/admin/contacts"   component={() => <Administration_contacts />}   />
+            <Route path="/dev/admin/users" component={() => <Administration_users />} />
+            <Route path="/dev/admin/import-database" component={() => <AdministrationImportData />} />
+            <Route path="/dev/admin/export-database" component={() => <AdministrationExportData />} />
             <Route path="/dev/admin/questions" component={() => <TableFaq />} />
             <Route
               path="/dev/admin/confirmation"
