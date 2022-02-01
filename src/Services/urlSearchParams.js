@@ -1,7 +1,5 @@
 import fetchRequest, { REACT_APP_API_URL } from "./serviceUtills";
 
-
-// const getUrl =`${REACT_APP_API_URL}/clubs/search/advanced?`;
 const getUrl = `${REACT_APP_API_URL}/clubs/search/advanced?`;
 
 const getUrlSearchParams = (city, age, isOnline,  districtName, stationName, categoriesName, centerClub) =>{
