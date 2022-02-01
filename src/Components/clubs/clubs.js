@@ -25,9 +25,9 @@ class Clubs extends React.Component {
 
               {value.isSearchFilterEnabled ? (
                 <div>
-                  <LeftSearch/>
+                  <LeftSearch />
                 </div>
-              ) : null}{" "}
+              ) : null}
             </div>
           )}
         </ShowAdvancedSearchContext.Consumer>

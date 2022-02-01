@@ -2,12 +2,13 @@ import React from "react";
 import { Component } from "react";
 import "./left_side_search.scss";
 import "antd/dist/antd.css";
-import { Radio, Select, Checkbox, Col, Input } from "antd";
+import { Radio, Select, Checkbox, Col, Input, Button } from "antd";
 import { getCitiesName } from "../../Services/cities";
 import { getDistrictsName } from "../../Services/district";
 import { getStationName } from "../../Services/stations";
 import { getCategoriesService } from "../../Services/category";
 import { getClubs } from "../../Services/clubs";
+import getUrlSearchParams from "../../Services/urlSearchParams";
 
 const { Option } = Select;
 
@@ -21,7 +22,64 @@ class LeftSearch extends Component {
     categories: [],
     clubs: [],
     city: "",
-    cityName: "",
+    // cityName: "",
+
+    age: null,
+    districtName: "",
+    stationName: "",
+    categoriesName: [],
+    isOnline: false,
+    centerClub: "",
+  };
+
+  getSearchParams = () => {
+    getUrlSearchParams(
+      this.state.city,
+      this.state.age,
+      this.state.isOnline,
+      this.state.districtName,
+      this.state.stationName,
+      this.state.categoriesName,
+      this.state.centerClub
+    ).then((response) => {
+      console.log(response.data);
+    }).catch((value) => {
+      console.log(value)
+    })
+  };
+
+  handleLocationAge = (event) => {
+    this.setState({ age: event.target.value });
+  };
+
+  handleLocationDistrictName = (value) => {
+    this.setState({ districtName: value });
+    this.state.districts.filter((district) => {
+      if (district.id === +value) {
+        this.setState({ districtName: district.name });
+      }
+    });
+  };
+
+  handleLocationStationName = (value) => {
+    this.setState({ stationName: value });
+    this.state.stations.filter((station) => {
+      if (station.id === +value) {
+        this.setState({ stationName: station.name });
+      }
+    });
+  };
+
+  handleLocationCategoriesName = (event) => {
+    this.setState({ categoriesName: event.target.value });
+  };
+
+  handleLocationIsOnline = () => {
+    this.setState({ isOnline: !this.state.isOnline });
+  };
+
+  handleLocationCenterClub = (event) => {
+    this.setState({ centerClub: event.target.value });
   };
 
   onChange = (e) => {
@@ -89,7 +147,6 @@ class LeftSearch extends Component {
               </Radio>
             </Radio.Group>
             <p className="advanced-search-title">Місто</p>
-            <h1> {cityName}</h1>
             <label>
               <Select
                 onSelect={this.getCityValue}
@@ -108,6 +165,7 @@ class LeftSearch extends Component {
             <p className="advanced-search-title">Район міста</p>
 
             <Select
+              onSelect={this.handleLocationDistrictName}
               placeholder="Виберіть район"
               className="select-style"
               allowClear
@@ -123,6 +181,7 @@ class LeftSearch extends Component {
             <p className="advanced-search-title">Найближча станція метро</p>
 
             <Select
+              onSelect={this.handleLocationStationName}
               placeholder="Виберіть станцію"
               className="select-style"
               allowClear
@@ -139,16 +198,28 @@ class LeftSearch extends Component {
               <div>
                 <p className="advanced-search-title">Ремоут</p>
                 <Checkbox.Group>
-                  <Checkbox key={clubs.id}> Доступний онлайн</Checkbox>
+                  <Checkbox
+                    onChange={this.handleLocationIsOnline}
+                    key={clubs.id}
+                  >
+                    {" "}
+                    Доступний онлайн
+                  </Checkbox>
                 </Checkbox.Group>
                 <p className="advanced-search-title">Категорії</p>
                 <Col className="col-style">
                   {categories.map((category) => (
-                    <Checkbox key={category.id}>{category.name}</Checkbox>
+                    <Checkbox
+                      // onChange={(e) => console.log(e.target.value)}
+                      key={category.id}
+                    >
+                      {category.name}
+                    </Checkbox>
                   ))}
                 </Col>
                 <p className="advanced-search-title">Вік дитини</p>
                 <input
+                  onChange={this.handleLocationAge}
                   className="years-child"
                   maxLength="3"
                   onKeyPress={(event) => {
@@ -170,6 +241,7 @@ class LeftSearch extends Component {
             </button>
           </div>
         </div>
+        <Button onClick={this.getSearchParams}>Press</Button>
       </div>
     );
   }
