@@ -21,6 +21,7 @@ import ChallengeUA from './Components/сhallenge/challengeUA';
 import ChallengeUATaskPage from './Components/сhallenge/challengePage'
 import Marathon from './Components/сhallenge/marathonDay';
 import MarathonPage from './Components/сhallenge/marathonPage';
+import TeachUkrainian from './Components/сhallenge/teachUkrainian';
 import TableFaq from './Components/administrationMenu/administrationFaq/TableFaq';
 import VerifyPage from './Components/registration/VerifyPage';
 import { createBrowserHistory } from "history";
@@ -31,6 +32,12 @@ const history = createBrowserHistory();
 class App extends Component {
   state = {
     isSearchFilterEnabled: false,
+    inputValue: " "
+  };
+
+  change = (e) => {
+        
+    this.setState({inputValue: e.target.value})
   };
 
   toggleSearchFilter = () => {
@@ -38,9 +45,12 @@ class App extends Component {
   };
 
   render() {
+    
     return (
       <ShowAdvancedSearchContext.Provider
         value={{
+          inputValue: this.state.inputValue,
+          change: this.change,
           isSearchFilterEnabled: this.state.isSearchFilterEnabled,
           toggleSearchFilter: this.toggleSearchFilter,
         }}
@@ -49,64 +59,29 @@ class App extends Component {
           <Header toggleSideSearch={this.toggleSideSearch} />
           <Switch>
             <Route path="/" exact component={() => <MainPage />} />
-            <Route path="/clubs" component={() => <Clubs />} />
+            <Route path="/clubs">
+               <Clubs inputValue={this.state.inputValue} />
+            </Route>
+
             <Route path="/challengeUA" exact component={ChallengeUA} />
-            <Route
-              path="/challengeUA/task/:pathUrl"
-              component={ChallengeUATaskPage}
-            />
+            <Route path="/challengeUA/task/:pathUrl" component={ChallengeUATaskPage} />
             <Route path="/marathon" exact component={Marathon} />
             <Route path="/marathon/task/:pathUrl" component={MarathonPage} />
-            <Route
-              path="/challenge"
-              component={() => <div>Clubs Challenge</div>}
-            />
+            <Route path="/challenge" component={() => <div>Clubs Challenge</div>}/>
             <Route path="/about" component={() => <div>About Route</div>} />
             <Route path="/service" component={() => <div>Service Route</div>} />
             <Route path="/profile" component={() => <Profile />} />
-            <Route
-              path="/dev/admin/categories"
-              component={() => <AdministrationCategories />}
-            />
-            <Route
-              path="/dev/admin/contacts"
-              component={() => <AdministrationContacts />}
-            />
-            <Route
-              path="/dev/admin/users"
-              component={() => <AdministrationUsers />}
-            />
-            <Route
-              path="/dev/admin/import-database"
-              component={() => <AdministrationImportData />}
-            />
-            <Route
-              path="/dev/admin/export-database"
-              component={() => <AdministrationExportData />}
-            />
+            <Route path="/dev/admin/categories" component={() => <Administration_categories />} />
+            <Route path="/dev/admin/contacts"   component={() => <Administration_contacts />}   />
+            <Route path="/dev/admin/users" component={() => <Administration_users />} />
+            <Route path="/dev/admin/import-database" component={() => <AdministrationImportData />} />
+            <Route path="/dev/admin/export-database" component={() => <AdministrationExportData />} />
             <Route path="/dev/admin/questions" component={() => <TableFaq />} />
-            <Route
-              path="/dev/admin/confirmation"
-              component={() => <Confirmation />}
-            />
-            <Route
-              path="/dev/admin/changeOwner"
-              component={() => <AdministarationChangeOwner />}
-            />
-            <Route
-              path="/dev/admin/sities"
-              component={() => <AdministrationSities />}
-            />
-            <Route
-              path="/dev/admin/districts"
-              component={() => (<AdministrationDistricts/>)} 
-              />
-            <Route
-            path="/dev/admin/station" 
-              component={() => (<AdministrationStation/>)} 
-              />
-
-
+            <Route path="/dev/admin/confirmation" component={() => <Confirmation />} />
+            <Route path="/dev/admin/changeOwner" component={() => <AdministarationChangeOwner />} />
+            <Route path="/dev/admin/sities" component={() => <AdministrationSities />} />
+            <Route path="/dev/admin/districts" component={() => (<AdministrationDistricts/>)} />
+            <Route path="/dev/admin/station"  component={() => (<AdministrationStation/>)}  />
             <Route component={() => <div>Not found Route</div>} />
           </Switch>
           <Footer />

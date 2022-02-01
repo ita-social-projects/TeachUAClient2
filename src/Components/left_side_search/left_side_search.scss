@@ -1,21 +1,20 @@
 @import "~antd/dist/antd.css";
 
-.advancedSearch {
+.advanced-search {
   display: flex;
   position: relative;
   width: 320px;
   height: 100%;
   left: 0px;
-  // top: 200px;
   background-color: #fff;
   padding-bottom: 50px;
 
-  .advancedSearchMain {
+  .advanced-search-main {
     margin: 0 auto;
     width: 256px;
   }
 
-  .advancedSearchHeader {
+  .advanced-search-header {
     display: flex;
     align-items: center;
     width: 256px;
@@ -28,7 +27,7 @@
     opacity: 0.6;
   }
 
-  .advancedSearchTitle {
+  .advanced-search-title {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -43,7 +42,7 @@
     margin: 0px 0px;
   }
 
-  .advancedSearchSpan {
+  .advanced-search-span {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -54,7 +53,7 @@
     flex-grow: 0;
   }
 
-  .advancedSearchSpanYears {
+  .advanced-search-span-years {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -74,40 +73,34 @@
     align-items: center;
   }
 
-  .advancedSearch .selectStyle {
+  .advanced-search .select-style {
     width: 256px;
     border: 1px solid #ee0707;
     box-sizing: border-box;
     border-radius: 6px;
   }
 
-  .imageNoData {
-    margin: 0 auto;
-    display: flex;
-    cursor: default;
-  }
-
-  .inputChildYears {
+  .input-child-years {
     display: flex;
     width: 30px;
     height: 40px;
   }
 
-  .test {
+  .years-child {
     width: 43px;
     height: 43px;
     border-radius: 6px;
     text-align: center;
+    border: 1px solid #f1f1f1;
   }
 
-  .choice_btn_div {
+  .choice-btn-div {
     display: none;
-    // display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: nowrap;
 
-    .button_after_form_clear {
+    .button-after-form-clear {
       margin-top: 50px;
       width: 120px;
       background-color: #fdfdfd;
@@ -115,7 +108,7 @@
       border-color: #fa8c16;
     }
 
-    .button_after_form_check {
+    .button-after-form-check {
       margin-top: 50px;
       width: 120px;
       background-color: #fa8c16;
@@ -123,7 +116,7 @@
       border-color: #fa8c16;
     }
 
-    .choice_btn_chech {
+    .choice-btn-chech {
       height: 24px;
       font-family: Open Sans;
       font-weight: bold;
@@ -133,7 +126,7 @@
       margin: 0px 4px;
     }
 
-    .choice_btn_clear {
+    .choice-btn-clear {
       height: 24px;
       font-family: Open Sans;
       font-weight: bold;
@@ -145,7 +138,7 @@
   }
 
   @media (min-width: 319px) and (max-width: 824px) {
-    .choice_btn_div {
+    .choice-btn-div {
       display: flex;
     }
   }
@@ -166,4 +159,9 @@
   border-radius: 6px;
   width: 43px;
   height: 40px;
+}
+
+.col-style {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Marathons from "./challengeContext";
+import "./challengeUA.scss";
 
 export class challengePage extends Component {
   state = { card: null };
@@ -16,9 +17,9 @@ export class challengePage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='cardContent'>
         <div>
-          <div>
+          <div className="title">
             <div>{this.state.card && this.state.card.name}</div>
 
             <div>{this.state.card && this.state.card.subheader}</div>
@@ -31,7 +32,7 @@ export class challengePage extends Component {
             </div>
           </div>
         </div>
-        <div>
+        <div className="text">
           <div>
             <div
               dangerouslySetInnerHTML={{

@@ -6,12 +6,12 @@
   .slider__arrow {
     width: 17.25px;
     height: 16.29px;
-    border: 0px;
+    border: 0px; 
     background-color: transparent;
   }
 
   .GroupDirection__wrapper {
-    width: 88%;
+    width: 96%;
     margin-top: 120px;
     margin-bottom: 140px;
     font-family: Segoe UI;
@@ -21,7 +21,8 @@
       align-items: center;
       margin-bottom: 44px;
       justify-content: space-between;
-
+      width:93%;
+      margin:0 auto;
       h1 {
 
         font-size: 32px;

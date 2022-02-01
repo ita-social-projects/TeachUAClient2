@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types';
-//import ReactDOM from "react-dom";
-
 import { Form, Input, Button, Modal,message } from 'antd';
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import 'antd/dist/antd.css';
@@ -84,13 +82,8 @@ class NewRegistration extends React.Component {
             });
             
             this.handleOk();
-        console.log(this.state);
     };
-
-
     render() {
-
-       
         return (
             <>
                 <a onClick={() => { this.handleOk(); }} >Реєстрація</a>
@@ -296,17 +289,12 @@ class NewRegistration extends React.Component {
                             <Button type="primary" htmlType="submit">
                                 Зареєструватися
                             </Button>
-                            {/*
-                            <Button onClick={()=>{console.log(location.host)}}>
-                            view
-                            </Button>*/}
                         </Form.Item>
                     </Form>
 
                 </Modal>
             </>
-            /*,
-            this.root*/
+     
         );
     }
 }

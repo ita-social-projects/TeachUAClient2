@@ -1,59 +1,87 @@
 import React, { Component } from "react";
 import { Menu, Dropdown } from "antd";
 import PropTypes from "prop-types";
-
 import Login from "../login/login";
 import Registration from "../registration/Registration";
 import AddCenter from "../addCenter/addCenter";
 import AddClub from "../add_Club/AddClub";
 import AdministrationMenu from "../administrationMenu/administrationMenu";
-
 import Logo from "../header_img/logo.png";
 import Avatar from "../header_img/avatar.svg";
 import ProjectIcon from "../header_img/projectIcon.svg";
 import Crown from "../header_img/crown.svg";
 import NewsIcon from "../header_img/newsIcon.svg";
 import Flag from "../header_img/flag.svg";
-import Loaction from "../header_img/location.svg";
+import Loaction from "../header_img/down-arrow.svg";
 import Lens from "../header_img/lens.svg";
 import Toggle from "../header_img/toggle.svg";
-import Plate from "../header_img/plate.svg";
 import menuIcon from "../header_img/menu.svg";
 import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./header.scss";
 import ShowAdvancedSearchContext from "../context";
+import { getCitiesName } from "../../Services/cities";
+
+
+
 
 export class header extends Component {
+
+
+
   logout = () => {
     localStorage.removeItem("accessToken");
     window.location.reload();
-  };
+  }
 
-  isAuthorizer = () => {
+  isAutorezed = () => {
     return localStorage.getItem("accessToken") !== null;
   };
 
+                          
+  state = {
+    cities: [],
+    city: [],
+    citySelect: "Київ",
+    inputValue: " ",
+  };
+  
+  
+  change = (e) => {
+        
+      this.setState({inputValue: e.target.value})
+    };
+  
+
+  componentDidMount() {
+      getCitiesName().then((response) => {
+      this.setState({ cities: response.data }); 
+    });
+
+  }
+  showBtn = () => {
+    return this.props.location.pathname !== '/clubs';
+      }
+
+   
+
   render() {
-    console.log(this.props);
+    
     const menu = (
       <Menu>
         <Menu.Item>
-          <Link to="/challengeUA">
-            Навчай українською Челендж
-          </Link>
+          <Link to="/challengeUA">Навчай українською Челендж</Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to="/marathon">
-           Мовомаратон
-          </Link>
+          <Link to="/marathon">Мовомаратон</Link>
         </Menu.Item>
         <Menu.Item>
-         Навчай українською
+          <Link to="/teachUkrainian"> Про челендж </Link>
         </Menu.Item>
       </Menu>
     );
-
-    const log = this.isAuthorizer() ? (
+    
+    const log = this.isAutorezed() ? (
       <Menu>
         <Menu.Item key="root1">
           <AddClub />
@@ -84,11 +112,33 @@ export class header extends Component {
 
     );
 
-    return (
-      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
+    const cities = (
+      <Menu
+        onClick={(e) => {
+          this.setState({ citySelect: e.key });
+        }}
+      >
+        {this.state.cities.map((city) => (
+          <Menu.Item key={city.name}>{city.name}</Menu.Item>
+        ))}
+      </Menu>
+    );
+    let caption = 'Ініціатива "Навчай українською"';
+    let path = this.props.location.pathname;
+    if (path == "/clubs") {
+      caption = `Гуртки у місті ${this.state.citySelect}`;
+    }
 
+    
+    return (
+      
+      
+      <div className="Header"  style={{ backgroundImage: "url(src/Components/header_img/background.svg)" }}>
+       
         <div className="wrapper">
-          <img className="logo" src={Logo} />
+          <Link to="/">
+            <img className="logo" src={Logo} />
+          </Link>
           <div className="Menu">
             <label className="burger-icon" htmlFor="burger-checkbox">
               <img src={menuIcon} />
@@ -100,7 +150,7 @@ export class header extends Component {
                 Гуртки
               </Link>
               <Dropdown overlay={menu}>
-                <a className="challenge" href="#blank">
+                <a className="challenge">
                   <img src={Crown} />
                   Челендж
                 </a>
@@ -117,27 +167,45 @@ export class header extends Component {
           </div>
           <div className="log">
             <div className="locationIcon">
-              <img src={Loaction} />
-              <div className="city">
-                <p>Місто</p>
-              </div>
+              <Dropdown
+                overlay={cities}
+                
+              >
+                <img src={Loaction} />
+              </Dropdown>
+              <button className="city">{this.state.citySelect}</button>
             </div>
+            <button className="GroupDirection__btn">Додати гурток</button>
+            <div className="avatar">
             <Dropdown overlay={log}>
-              <div className="avatar">
                 <img src={Avatar} />
-              </div>
             </Dropdown>
+            </div>
           </div>
         </div>
+        
         <div className="LowerWrappper">
-          <p className="caption">Ініціатива &quot;Навчай українською&quot;</p>
+          <div className="leftElement">
+            <p className="caption">{caption}</p>
+            <button className="ShowMap__btn" style={{display: this.showBtn()? "none":"flex"}}> Показати на мапі</button>
+          </div>
           <div className="search">
             <div className="input-field">
               <div className="search-bar">
-                <input type="text" placeholder="Який гурток шукаєте?"></input>
+                <Link to={{ pathname: "/clubs"}}>
+                <ShowAdvancedSearchContext.Consumer>
+                  {(value) => (
+                    <input
+                        className="searchField"
+                        type="text"
+                        placeholder="Який гурток шукаєте?"
+                        onChange={value.change}
+                      />
+                      )}
+                      </ShowAdvancedSearchContext.Consumer>
+                </Link>
                 <img src={Lens} />
               </div>
-              <img className="plaate" src={Plate} />
             </div>
             <div className="litle-toggle">
               <NavLink to={"/clubs"}>
@@ -154,13 +222,20 @@ export class header extends Component {
             </div>
           </div>
         </div>
+        
       </div>
+     
     );
   }
 }
 
 header.propTypes = {
+  toggleSideSearch: PropTypes.func,
+  location: PropTypes,
+  
   history: PropTypes.object,
 };
 
-export default header;
+
+
+export default withRouter(header);
