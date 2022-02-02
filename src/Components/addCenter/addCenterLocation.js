@@ -17,31 +17,111 @@ class AddCenterLocation extends React.Component {
     cities: [],
     districts: [],
     stations: [],
-    city: "",
-  };  
+    city: null,
+    isDisabled: false,
+    nameLocation: "",
+    address: "",
+    coordinates: "",
+    phone: "",
+    nameLocationValidation: true,
+    addressValidation: true,
+    coordinatesValidation: true,
+    phoneValidation: true,
+    cityValidation: true
+  };
 
   handleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
 
-  getCityValue = (value) => {
+  setCityValue = (value) => {
     this.setState({ city: value });
+    if (value != null) {
+      this.setState({cityValidation: false})
+    } else {
+      this.setState({cityValidation: true})
+    }  
   };
 
+  setValueNameLocation = (e) => {
+    this.setState ({nameLocation: e.target.value})
+    console.log(e.target.value)
+    if (e.target.value.match(
+      /^(?!\s)([\wА-ЩЬЮЯҐЄІЇа-щьюяґєії !"#$%&'()*+,\-.\/:;<=>?@[\]^_`{}~]){5,100}$/
+    )) {
+      this.setState({nameLocationValidation: false})
+    } else {
+      this.setState({nameLocationValidation: true})
+    }
+  }
+
+  setValueAddress = (e) => {
+    this.setState ({address: e.target.value})
+    if (e.target.value.match(
+      /^(?!\s)([\wА-ЩЬЮЯҐЄІЇа-щьюяґєії !"#$%&'()*+,\-.\/:;<=>?@[\]^_`{}~]){5,100}$/
+    )) {
+      this.setState({addressValidation: false})
+    } else {
+      this.setState({addressValidation: true})
+    }
+  }
+
+  setValueCoordinates = (e) => {
+    this.setState ({coordinates: e.target.value})
+    if (e.target.value.match(/([0-9]+\.[0-9]+), ([0-9]+\.[0-9]+)/)) {
+      this.setState({coordinatesValidation: false}) 
+    } else {
+      this.setState({coordinatesValidation: true})
+    }
+  }
+
+  setValuePhone = (e) => {
+    this.setState ({phone: e.target.value})
+    if (e.target.value.match(/^\d{10}$/)) {
+      this.setState({phoneValidation: false})
+    } else {
+      this.setState({phoneValidation: true})
+    }
+  }
+
+// isValidated = () => {
+//   if (
+        
+//   ) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+ 
+
+  // onFinish = (values) => {
+  //   values.key = Math.random();
+  //   if (editedLocation) {
+  //       const index = locations.findIndex((item) => editedLocation.key === item.key);
+  //       locations[index] = values;
+  //       setLocations(locations);
+  //   } else {
+  //       setLocations(addToTable(locations, values));
+  //   }
+  // };
+
   componentDidMount() {
-    getCitiesName().then((response) => { 
-      this.setState({ cities: response.data }); 
+    getCitiesName().then((response) => {
+      this.setState({ cities: response.data });
     });
-    getDistrictsName().then((response) => { 
-      this.setState({ districts: response.data }); 
+    getDistrictsName().then((response) => {
+      this.setState({ districts: response.data });
     });
-    getStationName().then((response) => { 
-      this.setState({ stations: response.data }); 
+    getStationName().then((response) => {
+      this.setState({ stations: response.data });
     });
   }
 
   render() {
     const { cities, districts, stations } = this.state;
+
     return (
       <div>
         <span className="addCenter-location">
@@ -87,6 +167,8 @@ class AddCenterLocation extends React.Component {
                   ]}
                 >
                   <Input
+                    value={this.nameLocation}
+                    onChange={this.setValueNameLocation}
                     className="location-input"
                     suffix={
                       <Tooltip
@@ -113,16 +195,17 @@ class AddCenterLocation extends React.Component {
                     ]}
                   >
                     <Select
-                      onSelect={this.getCityValue}
+                      value={this.city}
+                      onSelect={this.setCityValue}
                       className="location-selector"
-                      placeholder="Виберіть місто">
+                      placeholder="Виберіть місто"
+                     
+                    >
                       {cities.map((city) => (
-                          <Option key = {city.id} value={city.name}
-                        >
+                        <Option key={city.id} value={city.name}>
                           {city.name}
-                          </Option>
-                        ))
-                      }
+                        </Option>
+                      ))}
                     </Select>
                   </Form.Item>
                   <Form.Item
@@ -132,18 +215,18 @@ class AddCenterLocation extends React.Component {
                     hasFeedback
                   >
                     <Select
-                      className="add-club-select"
+                      className="location-selector"
                       placeholder="Виберіть район"
                     >
                       {districts
-                      .filter((district) => district.cityName === this.state.city)
-                      .map((filteredDistrict) => (
-                          <Option key = {filteredDistrict.id}
-                        >
-                          {filteredDistrict.name}
+                        .filter(
+                          (district) => district.cityName === this.state.city
+                        )
+                        .map((filteredDistrict) => (
+                          <Option key={filteredDistrict.id}>
+                            {filteredDistrict.name}
                           </Option>
-                        ))
-                      }
+                        ))}
                     </Select>
                   </Form.Item>
                   <Form.Item
@@ -153,18 +236,18 @@ class AddCenterLocation extends React.Component {
                     hasFeedback
                   >
                     <Select
-                      className="add-club-select"
+                      className="location-selector"
                       placeholder="Виберіть місцевість"
                     >
-                       {stations
-                       .filter((station) => station.cityName === this.state.city)
-                       .map((filteredStation) => (
-                          <Option key = {filteredStation.id}
-                        >
-                          {filteredStation.name}
+                      {stations
+                        .filter(
+                          (station) => station.cityName === this.state.city
+                        )
+                        .map((filteredStation) => (
+                          <Option key={filteredStation.id}>
+                            {filteredStation.name}
                           </Option>
-                        ))
-                      }
+                        ))}
                     </Select>
                   </Form.Item>
                 </div>
@@ -187,7 +270,12 @@ class AddCenterLocation extends React.Component {
                     },
                   ]}
                 >
-                  <Input className="location-input" placeholder="Адреса" />
+                  <Input
+                    value={this.address}
+                    onChange={this.setValueAddress}
+                    className="location-input"
+                    placeholder="Адреса"
+                  />
                 </Form.Item>
                 <div className="add-club-inline">
                   <Form.Item
@@ -208,6 +296,8 @@ class AddCenterLocation extends React.Component {
                     ]}
                   >
                     <Input
+                      value={this.coordinates}
+                      onChange={this.setValueCoordinates}
                       className="location-input"
                       placeholder="Широта та довгота"
                     />
@@ -225,14 +315,16 @@ class AddCenterLocation extends React.Component {
                     },
                     {
                       required: false,
-                      pattern: /^\d{9}$/,
+                      pattern: /^\d{10}$/,
                       message: "Телефон не відповідає вказаному формату",
                     },
                   ]}
                 >
                   <Input
+                    value={this.phone}
+                    onChange={this.setValuePhone}
                     className="location-input"
-                    prefix="+380"
+                    prefix="+38"
                     suffix={
                       <Tooltip
                         placement="topRight"
@@ -244,13 +336,22 @@ class AddCenterLocation extends React.Component {
                     placeholder="___________"
                   />
                 </Form.Item>
-
                 <div className="location-footer">
-                  {
-                    <Button htmlType="submit" className="location-button">
-                      Додати
-                    </Button>
-                  }
+                  <Button                  
+                    htmlType="submit"
+                    onClick={()=>{this.handleModal(false)}}
+                    className={ this.state.cityValidation || this.state.addressValidation || this.state.coordinatesValidation || this.state.nameLocationValidation || this.state.phoneValidation
+                      ? 
+                      "location-button-disable"
+                         :
+                         "location-button-active"
+                    }
+                    disabled={this.state.cityValidation || this.state.addressValidation || this.state.coordinatesValidation || this.state.nameLocationValidation || this.state.phoneValidation}
+                    
+                  >
+                    Додати
+                  </Button>
+                
                 </div>
               </Form>
             </div>
@@ -260,5 +361,7 @@ class AddCenterLocation extends React.Component {
     );
   }
 }
+
+
 
 export default AddCenterLocation;
