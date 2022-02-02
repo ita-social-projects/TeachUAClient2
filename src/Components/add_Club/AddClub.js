@@ -17,11 +17,34 @@ const { Step } = Steps;
 
 
 class AddClub extends React.Component {
+    static contextType = UserContext;
     state = {
         showModal: false,
         current: 0,
         showModallocation: false,
+        clubName:'',
+        categories:[],
+        ageFrom:2,
+        ageTo:18,
+        centerId:null
     }
+    handleClubName=(event)=>{
+        this.setState({clubName:event.target.value})
+    }
+    handleCategories=(event)=>{
+        this.setState({categories:event.target.value})
+    }
+    handleAgeFrom=(event)=>{
+        this.setState({ageFrom:event.target.value})
+    }
+    handleAgeTo=(event)=>{
+        this.setState({ageTo:event.target.value})
+    }
+    handleCenterId=(event)=>{
+        this.setState({centerId:event.target.value})
+    }
+    
+
     next = () => {
         this.setState({ current: this.state.current + 1 });
     };
@@ -36,7 +59,7 @@ class AddClub extends React.Component {
     handleOk = () => {
         this.setState({ showModal: !this.state.showModal });
     };
-    onFinish = (values) => {
+    onFinish = () => {
         this.handleOk();
         
     };
@@ -48,6 +71,7 @@ class AddClub extends React.Component {
     }
 
     render() {
+        
         return (
             <div  className='addClub__modal_window '>
                 <a onClick={() => { this.handleOk(); }}>Додати гурток</a>
@@ -91,6 +115,7 @@ class AddClub extends React.Component {
                                         >
                                             Наступний крок
                                         </Button>
+                                      
                                     </div>
                                 </div>
                             )}
@@ -104,6 +129,7 @@ class AddClub extends React.Component {
                                             onClick={() => this.prev()}>
                                             Назад
                                         </Button>
+
                                         <Button
                                             className='add_club_btn_next'
                                             type="primary"

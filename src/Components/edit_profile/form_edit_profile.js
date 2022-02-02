@@ -11,10 +11,13 @@ import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
 
-
 class FormEditProfile extends Component {
   state = {
     changePassword: false,
+  };
+
+  getCityValue = (value) => {
+    this.setState({ city: value });
   };
 
   handleChangePassword = () => {
@@ -22,8 +25,18 @@ class FormEditProfile extends Component {
   };
 
   render() {
+
     return (
-      <Form className="edit-profile-form" style={{ maxWidth: "773px" }}>
+      <Form
+        className="edit-profile-form"
+        style={{ maxWidth: "773px" }}
+        initialValues={{
+          lastName: this.props.user.lastName,
+          firstName: this.props.user.firstName,
+          phone: this.props.user.phone,
+          email: this.props.user.email,
+        }}
+      >
         <div className="edit-header">
           <h3>Редагувати профіль </h3>
         </div>
@@ -74,7 +87,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder="Введіть ваше прізвище" />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -113,7 +126,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" placeholder="Введіть ваше ім'я" />
+          <Input className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -147,11 +160,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input
-            addonBefore="+38"
-            className="edit-box"
-            placeholder="__________"
-          />
+          <Input addonBefore="+38" className="edit-box" />
         </Form.Item>
 
         <Form.Item
@@ -170,7 +179,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" disabled placeholder="admin@gmail.com" />
+          <Input className="edit-box" disabled />
         </Form.Item>
 
         <Form.Item name="photo" className="edit-input">
@@ -194,7 +203,8 @@ class FormEditProfile extends Component {
             headers={{
               contentType: "multipart/form-data",
               Authorization: tokenToHeader(),
-            }}>
+            }}
+          >
             <Button className="upload-photo" icon={<UploadOutlined />}>
               Завантажити фото{" "}
             </Button>

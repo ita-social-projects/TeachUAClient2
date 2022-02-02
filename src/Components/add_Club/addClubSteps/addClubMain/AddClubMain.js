@@ -2,91 +2,27 @@ import { Form, Input,Checkbox, InputNumber,Select } from 'antd';
 import React from "react";
 import './addClubMain.scss'
 import {getCenterservices} from '/src/Services/centers'
-/*
-const layout = {
-    labelCol: {
-        span: 12,
-    },
-    wrapperCol: {
-        span: 8,
-    },
+import {getCategories} from '/src/Services/club'
 
-};*/
+
 const {Option} = Select;
-const categories=[
-    {
-        name:'Спортивні секції',
-        id:0
-    },
-    {
-        name:'Танці, хореографія',
-        id:1
-    },
-    {
-        name:'Студії раннього розвитку',
-        id:2
-    },
-    {
-        name:'Програмування, робототехніка, STEM',
-        id:3
-    },
-    {
-        name:'Художня студія, мистецтво, дизайн',
-        id:4
-    },
-    {
-        name:'Вокальна студія, музика, музичні інструменти',
-        id:5
-    },
-    {
-        name:'Акторська майстерність, театр',
-        id:6
-    },
-    {
-        name:'Особистісний розвиток',
-        id:7
-    },
-    {
-        name:'Журналістика, дитяче телебачення, монтаж відео, влогів',
-        id:8
-    },
-    {
-        name:'Центр розвитку',
-        id:9
-    }
-]
-/*
-const centers=[
-    {
-        name:'КЗПСО "Мистецька школа №4 м. Одеси"',
-        id:0
-    },
-    {
-        name:'Курси програмування IT-stat',
-        id:1
-    },
-    {
-        name:'Комунальний позашкільний навчальний заклад "Одеський будинок дитячої та юнацької творчості "Тоніка"',
-        id:2
-    },
-    {
-        name:'Академія талановитих дітей',
-        id:3
-    },
-    {
-        name:'Освітньо-мистецький центр "Шанс"',
-        id:4
-    }
-]
-*/
+
+
 
 class AddClubMain extends React.Component {
 state={
-    categori:[]
+    categories:[],
+    centers:[],
+
 }
     componentDidMount(){
         getCenterservices().then((response)=>{
-            this.setState({categori:response.data})
+            this.setState({centers:response.data})
+        })
+        getCategories().then((response)=>{
+            this.setState({categories:response.data})
+        }).catch((response)=>{
+            console.log(response)
         })
     }
     onKeyPress = (event) => {
@@ -105,7 +41,7 @@ state={
     };
     render() {
         return (
-            
+           
             <Form
          
                 name="basic"
@@ -145,7 +81,7 @@ state={
                             message: "Це поле є обов'язковим"
                         }]}>
                     <Checkbox.Group className="add-club-categories">
-                        {categories.map(category => <Checkbox
+                        {this.state.categories.map(category => <Checkbox
                          key={category.id} width={100} className='add-club-categories-item'   value={category.name}>{category.name}</Checkbox>)}
                     </Checkbox.Group>
                 </Form.Item>
@@ -192,13 +128,14 @@ state={
                     className="add-club-select"
                     placeholder="Назва центру"
                     hasFeedback>
-                    {this.state.categori.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
+                    {this.state.centers.map(c => <Option key={c.id} value={c.id}>{c.name}</Option>)}
                 </Select>
             </Form.Item>
 
 
 
             </Form>
+
         )
     }
 }
