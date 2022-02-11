@@ -31,6 +31,7 @@ class Clubs extends React.Component {
             </div>
           )}
         </ShowAdvancedSearchContext.Consumer>
+        
 
       <div className="clubs-wrapper" style={{ backgroundImage: "url(/src/Components/Background.png)" }}>
         

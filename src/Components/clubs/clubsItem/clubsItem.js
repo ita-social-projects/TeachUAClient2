@@ -3,6 +3,8 @@ import { List, Card, Rate, Tag } from "antd";
 import "antd/dist/antd.css";
 import "./clubsItem.scss";
 import { getSitiesServise } from "../../../Services/clubList";
+import ShowAdvancedSearchContext from "../../context";
+// import testContext from "../../../testContext";
 
 class ClubsItem extends React.Component {
   state = {
@@ -10,14 +12,42 @@ class ClubsItem extends React.Component {
     currentPage: 1,
     totalElements: 0,
   };
+
+  // getSearchParams = () => {
+    
+    //   <ShowAdvancedSearchContext.Consumer>
+    //   {(value) => (
+    //   getUrlSearchParams(
+    //       value.city= 'Київ',
+    //       value.age,
+    //       value.districtName,
+    //       value.stationName,
+    //       value.categoriesName,
+    //       value.isOnline
+          
+    //   ).then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((value) => {
+    //     console.log(value);
+    //   })
+     
+    //   )}
+    // </ShowAdvancedSearchContext.Consumer>
+      
+      
+  // };
+
+  setValueName = () => {
+<ShowAdvancedSearchContext.Consumer>
+  {(value) => (
+    value.city= 'Київ'
+  )}
+</ShowAdvancedSearchContext.Consumer>
+
+  }
+
   getData() {
-    // let Servise;
-    // if (param){
-    //   Servise = getSitiesServise
-    // }
-    // else{
-    //   Servise = getFilterSevise
-    // }
     getSitiesServise(this.state.currentPage - 1)
       .then((response) => {
         this.setState({ dataTags: "" });
@@ -123,9 +153,13 @@ class ClubsItem extends React.Component {
               </p>
             </div>
 
+           
+
             <button className="more-info">
               <a href="/">Детальніше</a>
             </button>
+
+            <button onClick={this.setValueName}>TESSSSTTTTT</button>
           </Card>
         )}
       />

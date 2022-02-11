@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import "./left_side_search.scss";
 import "antd/dist/antd.css";
-import { Radio, Select, Checkbox, Col, Input, Button } from "antd";
+import { Select, Checkbox, Input, Form } from "antd";
 import { getCitiesName } from "../../Services/cities";
 import { getDistrictsName } from "../../Services/district";
 import { getStationName } from "../../Services/stations";
@@ -21,79 +21,43 @@ class LeftSearch extends Component {
     stations: [],
     categories: [],
     clubs: [],
-    city: "",
-    // cityName: "",
-
+    city: null,
     age: null,
-    districtName: "",
-    stationName: "",
+    districtName: null,
+    stationName: null,
     categoriesName: [],
-    isOnline: false,
-    centerClub: "",
+    isOnline: true,
+    centerClub: null,
   };
 
-  getSearchParams = () => {
+  getSearchParams = (
+    city,
+    districtName,
+    stationName,
+    isOnline,
+    categoriesName,
+    age
+  ) => {
     getUrlSearchParams(
-      this.state.city,
-      this.state.age,
-      this.state.isOnline,
-      this.state.districtName,
-      this.state.stationName,
-      this.state.categoriesName,
-      this.state.centerClub
-    ).then((response) => {
-      console.log(response.data);
-    }).catch((value) => {
-      console.log(value)
-    })
+      city,
+      districtName,
+      stationName,
+      isOnline,
+      categoriesName,
+      age
+    )
+      .then((response) => {
+        setNewClubs();
+        console.log(response.data);
+      })
+      .catch((value) => {
+        console.log(value);
+      });
   };
 
-  handleLocationAge = (event) => {
-    this.setState({ age: event.target.value });
-  };
-
-  handleLocationDistrictName = (value) => {
-    this.setState({ districtName: value });
-    this.state.districts.filter((district) => {
-      if (district.id === +value) {
-        this.setState({ districtName: district.name });
-      }
-    });
-  };
-
-  handleLocationStationName = (value) => {
-    this.setState({ stationName: value });
-    this.state.stations.filter((station) => {
-      if (station.id === +value) {
-        this.setState({ stationName: station.name });
-      }
-    });
-  };
-
-  handleLocationCategoriesName = (event) => {
+  handleSearchCategoriesName = (event) => {
     this.setState({ categoriesName: event.target.value });
-  };
-
-  handleLocationIsOnline = () => {
-    this.setState({ isOnline: !this.state.isOnline });
-  };
-
-  handleLocationCenterClub = (event) => {
-    this.setState({ centerClub: event.target.value });
-  };
-
-  onChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  getCityValue = (value) => {
-    this.setState({ city: value });
-  };
-
-  toggleRadioChange = () => {
-    this.setState({ show: false });
+    console.log(this.state.categoriesName);
   };
 
   componentDidMount() {
@@ -114,46 +78,42 @@ class LeftSearch extends Component {
     getClubs().then((response) => {
       this.setState({ clubs: response.data });
     });
-  }
-  // componentDidUpdate(){
-  //   this.props.setSearchParams(this.state)
-  // }
-  render() {
-    const { cities, districts, stations, categories, clubs, value, cityName } =
-      this.state;
 
-    console.log(this.state.cityName);
+    this.getSearchParams("Київ");
+  }
+
+  render() {
+    const { cities, districts, stations, categories } = this.state;
 
     return (
       <div className="advanced-search">
         <div className="advanced-search-main">
           <h1 className="advanced-search-header">Розширений пошук</h1>
-          <form>
-            <p className="advanced-search-title">Гурток/Центр</p>
-            <Radio.Group onChange={this.onChange} value={value}>
-              <Radio
-                onClick={() => {
-                  this.setState({ show: true });
-                }}
-                value={1}
-              >
-                <span className="advanced-search-span" checked>
-                  Гурток
-                </span>
-              </Radio>
-              <br />
-              <Radio onClick={this.toggleRadioChange} value={2}>
-                <span className="advanced-search-span">Центр</span>
-              </Radio>
-            </Radio.Group>
-            <p className="advanced-search-title">Місто</p>
-            <label>
+
+          <Form
+            onValuesChange={(...formValues) => {
+              console.log(formValues[1]);
+              this.setState({ city: formValues[1].city });
+              getUrlSearchParams(
+                formValues[1].city,
+                formValues[1].district,
+                formValues[1].station,
+                formValues[1].isOnline,
+                formValues[1].categories,
+                formValues[1].age
+              );
+            }}
+          >
+            <Form.Item
+              name="city"
+              label="Місто"
+              className="advanced-search-title"
+            >
               <Select
-                onSelect={this.getCityValue}
                 className="select-style"
                 placeholder="Виберіть місто"
                 allowClear
-                value={this.state.city}
+                defaultValue="Київ"
               >
                 {cities.map((city) => (
                   <Option key={city.id} value={city.name}>
@@ -161,77 +121,75 @@ class LeftSearch extends Component {
                   </Option>
                 ))}
               </Select>
-            </label>
-            <p className="advanced-search-title">Район міста</p>
+            </Form.Item>
 
-            <Select
-              onSelect={this.handleLocationDistrictName}
-              placeholder="Виберіть район"
-              className="select-style"
-              allowClear
-            >
-              {districts
-                .filter((district) => district.cityName === this.state.city)
-                .map((filteredDistrict) => (
-                  <Option key={filteredDistrict.id}>
-                    {filteredDistrict.name}
-                  </Option>
-                ))}
-            </Select>
-            <p className="advanced-search-title">Найближча станція метро</p>
-
-            <Select
-              onSelect={this.handleLocationStationName}
-              placeholder="Виберіть станцію"
-              className="select-style"
-              allowClear
-            >
-              {stations
-                .filter((station) => station.cityName === this.state.city)
-                .map((filteredStation) => (
-                  <Option key={filteredStation.id}>
-                    {filteredStation.name}
-                  </Option>
-                ))}
-            </Select>
-            {this.state.show ? (
-              <div>
-                <p className="advanced-search-title">Ремоут</p>
-                <Checkbox.Group>
-                  <Checkbox
-                    onChange={this.handleLocationIsOnline}
-                    key={clubs.id}
-                  >
-                    {" "}
-                    Доступний онлайн
-                  </Checkbox>
-                </Checkbox.Group>
-                <p className="advanced-search-title">Категорії</p>
-                <Col className="col-style">
-                  {categories.map((category) => (
-                    <Checkbox
-                      // onChange={(e) => console.log(e.target.value)}
-                      key={category.id}
-                    >
-                      {category.name}
-                    </Checkbox>
+            <Form.Item name="district" label="Район міста">
+              <Select
+                placeholder="Виберіть район"
+                className="select-style"
+                allowClear
+              >
+                {districts
+                  .filter((district) => district.cityName === this.state.city)
+                  .map((filteredDistrict) => (
+                    <Option key={filteredDistrict.name}>
+                      {filteredDistrict.name}
+                    </Option>
                   ))}
-                </Col>
-                <p className="advanced-search-title">Вік дитини</p>
-                <input
-                  onChange={this.handleLocationAge}
-                  className="years-child"
-                  maxLength="3"
-                  onKeyPress={(event) => {
-                    if (!/[0-9]/.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-                <span className="advanced-search-span-years">років</span>
-              </div>
-            ) : null}
-          </form>
+              </Select>
+            </Form.Item>
+
+            <Form.Item name="station" label="Найближча станція метро">
+              <Select
+                placeholder="Виберіть станцію"
+                className="select-style"
+                allowClear
+              >
+                {stations
+                  .filter((station) => station.cityName === this.state.city)
+                  .map((filteredStation) => (
+                    <Option key={filteredStation.name}>
+                      {filteredStation.name}
+                    </Option>
+                  ))}
+              </Select>
+            </Form.Item>
+
+            <Form.Item name="isOnline" label="Ремоут" valuePropName="checked">
+              <Checkbox>Доступний онлайн</Checkbox>
+            </Form.Item>
+
+            <Form.Item name="categories">
+              <Checkbox.Group className="add-club-categories">
+                {categories.map((category) => (
+                  <Checkbox
+                    key={category.name}
+                    width={100}
+                    className="add-club-categories-item"
+                    value={category.name}
+                  >
+                    {category.name}
+                  </Checkbox>
+                ))}
+              </Checkbox.Group>
+            </Form.Item>
+
+            <Form.Item
+              name="age"
+              label="Вік дитини"
+              rules={[{ required: true }]}
+            >
+              <Input
+                className="years-child"
+                maxLength="3"
+                onKeyPress={(event) => {
+                  if (!/[0-9]/.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+            </Form.Item>
+          </Form>
           <div className="choice-btn-div">
             <button className="button-after-form-clear">
               <span className="choice-btn-clear">Очистити</span>
@@ -241,7 +199,6 @@ class LeftSearch extends Component {
             </button>
           </div>
         </div>
-        <Button onClick={this.getSearchParams}>Press</Button>
       </div>
     );
   }
