@@ -9,6 +9,7 @@ import { getStationName } from "../../Services/stations";
 import { getCategoriesService } from "../../Services/category";
 import { getClubs } from "../../Services/clubs";
 import getUrlSearchParams from "../../Services/urlSearchParams";
+import testContext from "../../searchContext";
 
 const { Option } = Select;
 
@@ -21,13 +22,15 @@ class LeftSearch extends Component {
     stations: [],
     categories: [],
     clubs: [],
-    city: null,
-    age: null,
-    districtName: null,
-    stationName: null,
+    // city: null,
+    // age: null,
+    // districtName: null,
+    // stationName: null,
     categoriesName: [],
     isOnline: true,
     centerClub: null,
+    filteredClubs: [],
+    tesr: '9876543210',
   };
 
   getSearchParams = (
@@ -47,7 +50,7 @@ class LeftSearch extends Component {
       age
     )
       .then((response) => {
-        setNewClubs();
+        this.setNewClubs();
         console.log(response.data);
       })
       .catch((value) => {
@@ -55,9 +58,11 @@ class LeftSearch extends Component {
       });
   };
 
-  handleSearchCategoriesName = (event) => {
-    this.setState({ categoriesName: event.target.value });
-    console.log(this.state.categoriesName);
+
+
+  showFilteredClubs = () => {
+    this.setState({ filteredClubs: this.state.filteredClubs });
+    console.log(this.state.filteredClubs);
   };
 
   componentDidMount() {
@@ -83,17 +88,24 @@ class LeftSearch extends Component {
   }
 
   render() {
-    const { cities, districts, stations, categories } = this.state;
-
+    const { cities, districts, stations, categories, filteredClubs, tesr } =
+      this.state;
+    // console.log(this.state.filteredClubs);
     return (
+      // <testContext.Provider value={tesr}>
+      
       <div className="advanced-search">
         <div className="advanced-search-main">
           <h1 className="advanced-search-header">Розширений пошук</h1>
+
+          <h2>{JSON.stringify(filteredClubs)}</h2>
+          <button onClick={this.showFilteredClubs}>press</button>
 
           <Form
             onValuesChange={(...formValues) => {
               console.log(formValues[1]);
               this.setState({ city: formValues[1].city });
+              this.setState({ filteredClubs: [formValues[1]] });
               getUrlSearchParams(
                 formValues[1].city,
                 formValues[1].district,
@@ -200,6 +212,7 @@ class LeftSearch extends Component {
           </div>
         </div>
       </div>
+      // </testContext.Provider>
     );
   }
 }

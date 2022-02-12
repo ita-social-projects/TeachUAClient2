@@ -1,7 +1,9 @@
 import React from "react";
 
 const testContext = React.createContext({
-  FuncToClubs: () => {}
+  FuncToClubs: () => {},
+  tesr: '5',
+  filteredClubs: [],
 
 });
 

@@ -33,6 +33,7 @@ class App extends Component {
   state = {
     isSearchFilterEnabled: false,
     inputValue: " ",
+    filteredClubs:[]
   };
 
   change = (e) => {
@@ -43,6 +44,11 @@ class App extends Component {
     this.setState({ isSearchFilterEnabled: !this.state.isSearchFilterEnabled });
   };
 
+  showFilteredClubs = () => {
+    this.setState({ filteredClubs: this.state.filteredClubs });
+    console.log(this.state.filteredClubs);
+  };
+
   render() {
     return (
       <ShowAdvancedSearchContext.Provider
@@ -51,7 +57,8 @@ class App extends Component {
           change: this.change,
           isSearchFilterEnabled: this.state.isSearchFilterEnabled,
           toggleSearchFilter: this.toggleSearchFilter,
-          gerrr: ''
+          showFilteredClubs: this.showFilteredClubs,
+         
         }}
       >
         <Router history={history}>

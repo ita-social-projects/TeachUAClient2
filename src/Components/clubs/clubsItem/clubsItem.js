@@ -38,15 +38,6 @@ class ClubsItem extends React.Component {
       
   // };
 
-  setValueName = () => {
-<ShowAdvancedSearchContext.Consumer>
-  {(value) => (
-    value.city= 'Київ'
-  )}
-</ShowAdvancedSearchContext.Consumer>
-
-  }
-
   getData() {
     getSitiesServise(this.state.currentPage - 1)
       .then((response) => {
@@ -158,8 +149,6 @@ class ClubsItem extends React.Component {
             <button className="more-info">
               <a href="/">Детальніше</a>
             </button>
-
-            <button onClick={this.setValueName}>TESSSSTTTTT</button>
           </Card>
         )}
       />
