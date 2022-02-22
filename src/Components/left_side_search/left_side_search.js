@@ -2,12 +2,14 @@ import React from "react";
 import { Component } from "react";
 import "./left_side_search.scss";
 import "antd/dist/antd.css";
-import { Radio, Select, Checkbox, Col, Input } from "antd";
+import { Select, Checkbox, Input, Form } from "antd";
 import { getCitiesName } from "../../Services/cities";
 import { getDistrictsName } from "../../Services/district";
 import { getStationName } from "../../Services/stations";
 import { getCategoriesService } from "../../Services/category";
 import { getClubs } from "../../Services/clubs";
+import getUrlSearchParams from "../../Services/urlSearchParams";
+import testContext from "../../searchContext";
 
 const { Option } = Select;
 
@@ -20,26 +22,51 @@ class LeftSearch extends Component {
     stations: [],
     categories: [],
     clubs: [],
-    city: "",
-    cityName: "",
+    // city: null,
+    // age: null,
+    // districtName: null,
+    // stationName: null,
+    categoriesName: [],
+    isOnline: true,
+    centerClub: null,
+    filteredClubs: [],
+    tesr: '9876543210',
   };
 
-  onChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
+  getSearchParams = (
+    city,
+    districtName,
+    stationName,
+    isOnline,
+    categoriesName,
+    age
+  ) => {
+    getUrlSearchParams(
+      city,
+      districtName,
+      stationName,
+      isOnline,
+      categoriesName,
+      age
+    )
+      .then((response) => {
+        this.setNewClubs();
+        console.log(response.data);
+      })
+      .catch((value) => {
+        console.log(value);
+      });
   };
 
-  getCityValue = (value) => {
-    this.setState({ city: value });
-  };
 
-  toggleRadioChange = () => {
-    this.setState({ show: false });
+
+  showFilteredClubs = () => {
+    this.setState({ filteredClubs: this.state.filteredClubs });
+    console.log(this.state.filteredClubs);
   };
 
   componentDidMount() {
-     getCitiesName().then((response) => {
+    getCitiesName().then((response) => {
       this.setState({ cities: response.data, city: response.data[0].name });
     });
     getDistrictsName().then((response) => {
@@ -56,45 +83,49 @@ class LeftSearch extends Component {
     getClubs().then((response) => {
       this.setState({ clubs: response.data });
     });
+
+    this.getSearchParams("Київ");
   }
 
   render() {
-    const { cities, districts, stations, categories, clubs, value, cityName } =
+    const { cities, districts, stations, categories, filteredClubs, tesr } =
       this.state;
-
-    console.log(this.state.cityName);
-
+    // console.log(this.state.filteredClubs);
     return (
+      // <testContext.Provider value={tesr}>
+      
       <div className="advanced-search">
         <div className="advanced-search-main">
           <h1 className="advanced-search-header">Розширений пошук</h1>
-          <form>
-            <p className="advanced-search-title">Гурток/Центр</p>
-            <Radio.Group onChange={this.onChange} value={value}>
-              <Radio
-                onClick={() => {
-                  this.setState({ show: true });
-                }}
-                value={1}
-              >
-                <span className="advanced-search-span" checked>
-                  Гурток
-                </span>
-              </Radio>
-              <br />
-              <Radio onClick={this.toggleRadioChange} value={2}>
-                <span className="advanced-search-span">Центр</span>
-              </Radio>
-            </Radio.Group>
-            <p className="advanced-search-title">Місто</p>
-            <h1> {cityName}</h1>
-            <label>
+
+          <h2>{JSON.stringify(filteredClubs)}</h2>
+          <button onClick={this.showFilteredClubs}>press</button>
+
+          <Form
+            onValuesChange={(...formValues) => {
+              console.log(formValues[1]);
+              this.setState({ city: formValues[1].city });
+              this.setState({ filteredClubs: [formValues[1]] });
+              getUrlSearchParams(
+                formValues[1].city,
+                formValues[1].district,
+                formValues[1].station,
+                formValues[1].isOnline,
+                formValues[1].categories,
+                formValues[1].age
+              );
+            }}
+          >
+            <Form.Item
+              name="city"
+              label="Місто"
+              className="advanced-search-title"
+            >
               <Select
-                onSelect={this.getCityValue}
                 className="select-style"
                 placeholder="Виберіть місто"
                 allowClear
-                value={this.state.city}
+                defaultValue="Київ"
               >
                 {cities.map((city) => (
                   <Option key={city.id} value={city.name}>
@@ -102,63 +133,75 @@ class LeftSearch extends Component {
                   </Option>
                 ))}
               </Select>
-            </label>
-            <p className="advanced-search-title">Район міста</p>
+            </Form.Item>
 
-            <Select
-              placeholder="Виберіть район"
-              className="select-style"
-              allowClear
-            >
-              {districts
-                .filter((district) => district.cityName === this.state.city)
-                .map((filteredDistrict) => (
-                  <Option key={filteredDistrict.id}>
-                    {filteredDistrict.name}
-                  </Option>
-                ))}
-            </Select>
-            <p className="advanced-search-title">Найближча станція метро</p>
-
-            <Select
-              placeholder="Виберіть станцію"
-              className="select-style"
-              allowClear
-            >
-              {stations
-                .filter((station) => station.cityName === this.state.city)
-                .map((filteredStation) => (
-                  <Option key={filteredStation.id}>
-                    {filteredStation.name}
-                  </Option>
-                ))}
-            </Select>
-            {this.state.show ? (
-              <div>
-                <p className="advanced-search-title">Ремоут</p>
-                <Checkbox.Group>
-                  <Checkbox key={clubs.id}> Доступний онлайн</Checkbox>
-                </Checkbox.Group>
-                <p className="advanced-search-title">Категорії</p>
-                <Col className="col-style">
-                  {categories.map((category) => (
-                    <Checkbox key={category.id}>{category.name}</Checkbox>
+            <Form.Item name="district" label="Район міста">
+              <Select
+                placeholder="Виберіть район"
+                className="select-style"
+                allowClear
+              >
+                {districts
+                  .filter((district) => district.cityName === this.state.city)
+                  .map((filteredDistrict) => (
+                    <Option key={filteredDistrict.name}>
+                      {filteredDistrict.name}
+                    </Option>
                   ))}
-                </Col>
-                <p className="advanced-search-title">Вік дитини</p>
-                  <input
-                  className="years-child"
-                  maxLength="3"
-                  onKeyPress={(event) => {
-                    if (!/[0-9]/.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-                <span className="advanced-search-span-years">років</span>
-              </div>
-            ) : null}
-          </form>
+              </Select>
+            </Form.Item>
+
+            <Form.Item name="station" label="Найближча станція метро">
+              <Select
+                placeholder="Виберіть станцію"
+                className="select-style"
+                allowClear
+              >
+                {stations
+                  .filter((station) => station.cityName === this.state.city)
+                  .map((filteredStation) => (
+                    <Option key={filteredStation.name}>
+                      {filteredStation.name}
+                    </Option>
+                  ))}
+              </Select>
+            </Form.Item>
+
+            <Form.Item name="isOnline" label="Ремоут" valuePropName="checked">
+              <Checkbox>Доступний онлайн</Checkbox>
+            </Form.Item>
+
+            <Form.Item name="categories">
+              <Checkbox.Group className="add-club-categories">
+                {categories.map((category) => (
+                  <Checkbox
+                    key={category.name}
+                    width={100}
+                    className="add-club-categories-item"
+                    value={category.name}
+                  >
+                    {category.name}
+                  </Checkbox>
+                ))}
+              </Checkbox.Group>
+            </Form.Item>
+
+            <Form.Item
+              name="age"
+              label="Вік дитини"
+              rules={[{ required: true }]}
+            >
+              <Input
+                className="years-child"
+                maxLength="3"
+                onKeyPress={(event) => {
+                  if (!/[0-9]/.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+            </Form.Item>
+          </Form>
           <div className="choice-btn-div">
             <button className="button-after-form-clear">
               <span className="choice-btn-clear">Очистити</span>
@@ -169,6 +212,7 @@ class LeftSearch extends Component {
           </div>
         </div>
       </div>
+      // </testContext.Provider>
     );
   }
 }

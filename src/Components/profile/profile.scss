@@ -249,12 +249,15 @@
 @media (min-width: 0px) and (max-width: 850px) {
   .profile-information-block__card {
     flex-direction: column;
+    justify-content: space-around !important;
     .profile-information-block__content-left {
       order: 2;
     }
     .profile-information-block__content-right {
       order: 1;
       align-self: center;
+      margin-left: 0;
+      margin-top:0;
     }
     padding-top:10px !important;
   }

@@ -16,11 +16,7 @@ class ModalEditProfile extends Component {
 componentDidMount() {
     const showId = localStorage.getItem("id");
     getUsersService().then((response) => {
-      const usersValue = response.data.filter((user) => {
-        if (user.id === +showId) {
-          return user
-      }
-      });
+      const usersValue = response.data.filter((user) => user.id === +showId);
       this.setState({
         user: usersValue[0]
       });
@@ -34,6 +30,7 @@ componentDidMount() {
   };
 
   render() {
+    console.log(this.state)
     return (
       <div className="profile-information-block__content-right">
         <Button

@@ -10,6 +10,7 @@ import "antd/dist/antd.css";
 import "./edit_profile.scss";
 import { UPLOAD_IMAGE_URL } from "../../Services/Config/ApiConfig";
 import { tokenToHeader } from "../../Services/uploadService";
+import { editUsersService } from "../../Services/user";
 
 class FormEditProfile extends Component {
   state = {
@@ -24,10 +25,20 @@ class FormEditProfile extends Component {
     this.setState({ changePassword: !this.state.changePassword });
   };
 
+
   render() {
 
     return (
       <Form
+        onFinish={(values) => {
+          editUsersService({...values,
+          id: this.props.user.id,
+          urlLogo: this.props.user.urlLogo,
+          status: this.props.user.status,
+          roleName: this.props.user.roleName
+          })
+        }}
+  
         className="edit-profile-form"
         style={{ maxWidth: "773px" }}
         initialValues={{
@@ -38,7 +49,7 @@ class FormEditProfile extends Component {
         }}
       >
         <div className="edit-header">
-          <h3>Редагувати профіль </h3>
+        <h3>Редагувати профіль </h3>
         </div>
 
         <div className="edit-choose-role">
@@ -87,7 +98,8 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input className="edit-box" />
+          <Input className="edit-box"/>
+
         </Form.Item>
 
         <Form.Item
@@ -160,7 +172,7 @@ class FormEditProfile extends Component {
             },
           ]}
         >
-          <Input addonBefore="+38" className="edit-box" />
+          <Input addonBefore="+38" className="edit-box"/>
         </Form.Item>
 
         <Form.Item
@@ -205,7 +217,7 @@ class FormEditProfile extends Component {
               Authorization: tokenToHeader(),
             }}
           >
-            <Button className="upload-photo" icon={<UploadOutlined />}>
+            <Button className="upload-photo" icon={<UploadOutlined />} htmlType="submit">
               Завантажити фото{" "}
             </Button>
           </Upload>
